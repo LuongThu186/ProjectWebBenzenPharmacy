@@ -7,6 +7,14 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  constructor(){}
 
+  ngOnInit(){}
+  
+  id: any = "home";
+  tabChange(ids:any){
+    this.id= ids;
+    console.log(this.id)
+  }
   
 }
