@@ -7,7 +7,6 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
-import { ProfileComponent } from './profile/profile.component';
 import { OrderdetailComponent } from './orderdetail/orderdetail.component';
 import { ChatboxComponent } from './chatbox/chatbox.component';
 import { InforComponent } from './infor/infor.component';
@@ -29,7 +28,7 @@ import { MemberpointComponent } from './infor/memberpoint/memberpoint.component'
 import { SignupOTPComponent } from './signup/signup-otp/signup-otp.component';
 import { ResetpswComponent } from './forgotpassword/resetpsw/resetpsw.component';
 import { ChangePswComponent } from './profile/change-psw/change-psw.component';
-import { OrderhistoryComponent } from './profile/orderhistory/orderhistory.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +39,6 @@ import { OrderhistoryComponent } from './profile/orderhistory/orderhistory.compo
     LoginComponent,
     SignupComponent,
     ForgotpasswordComponent,
-    ProfileComponent,
     OrderdetailComponent,
     ChatboxComponent,
     InforComponent,
@@ -61,7 +59,7 @@ import { OrderhistoryComponent } from './profile/orderhistory/orderhistory.compo
     SignupOTPComponent,
     ResetpswComponent,
     ChangePswComponent,
-    OrderhistoryComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

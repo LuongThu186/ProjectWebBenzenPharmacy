@@ -1,1 +1,335 @@
-<p>profile works!</p>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<div class="container">
+        <div class="box__left">
+            <div class="box__infor--center">
+                <div class="avt-infor">
+                    <img src="/assets/image/profile/avt.png" class="avt">
+                    <div class="infor">
+                        <p class="bold">Nhà thuốc Benzen</p>
+                        <p>0332583xxx</p>
+                        <p>Điểm: <span class="color-main bold">1.420.000</span></p>
+                    </div>
+                </div>
+            </div>
+            <ul class="box__menu">
+                <li id="address" [class.active]="id === 'address'" (click)="tabChange('address')">
+                    <span class="material-symbols-outlined">
+                    account_box
+                    </span>
+                    Thông tin và địa chỉ
+                    <span class="material-symbols-outlined next">
+                    navigate_next
+                    </span>
+                </li>
+                <li id="orderhistory" [class.active]="id === 'orderhistory'" (click)="tabChange('orderhistory')">
+                    <span class="material-symbols-outlined">description</span>
+                    Lịch sử đơn hàng
+                    <span class="material-symbols-outlined next">
+                    navigate_next
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <div class="box__content">
+            <div class="box__content--value" *ngIf="id === 'address'">
+                <h2>Sổ địa chỉ đơn hàng</h2>
+                <div class="address">
+                    <div class="address__contact">
+                        <p>Nguyễn Văn A | 0332583403</p>
+                        <p>Chỉnh sửa</p>
+                    </div>
+                    <div class="address__infor">
+                        <p>Số 669, QL1, Khu phố 3, Phường Linh Xuân, Quận Thủ Đức, Thành phố Hồ Chí Minh</p>
+                    </div>
+                    <div class="address__default">
+                        <label for="default">
+                            <input type="radio" id="default" name="default" checked>
+                            Đặt làm địa chỉ mặc định
+                        </label>
+                    </div>
+                </div>
+                <div class="address">
+                    <div class="address__contact">
+                        <p>Nguyễn Văn A | 0332583403</p>
+                        <p>Chỉnh sửa</p>
+                    </div>
+                    <div class="address__infor">
+                        <p>Kí túc xá khu B, Khu phố Tân Hòa, Phường Đông Hòa, Thành phố Dĩ An, tỉnh Bình Dương</p>
+                    </div>
+                    <div class="address__default">
+                        <label for="default">
+                            <input type="radio" id="default" name="default">
+                            Đặt làm địa chỉ mặc định
+                        </label>
+                    </div>
+                </div>
+                <div class="address__button">
+                    <input type="button" value="Thêm địa chỉ" class="button" id="button">
+                </div>
+            </div>
+                <div class="box__content--value" *ngIf="id === 'orderhistory'">
+                    <h2>Lịch sử đơn hàng</h2>
+                    <div>
+                        <ul class="box__status">
+                            <li id="status--all" [class.active2]="st === 'status--all'" (click)="tabStatus('status--all')">Tất cả</li>
+                            <li id="status--confirm" [class.active2]="st === 'status--confirm'" (click)="tabStatus('status--confirm')">Chờ xác nhận</li>
+                            <li id="status--delivery" [class.active2]="st === 'status--delivery'" (click)="tabStatus('status--delivery')">Đang giao</li>
+                            <li id="status--done" [class.active2]="st === 'status--done'" (click)="tabStatus('status--done')">Hoàn thành</li>
+                            <li id="status--cancel" [class.active2]="st === 'status--cancel'" (click)="tabStatus('status--cancel')">Đã hủy</li>
+                        </ul>
+                    </div>
+                    <div class="box__order">
+                        <div class="box__order--status" *ngIf="st === 'status--all'"> 
+                            <div class="box__history--order">
+                                <div class="box__history--order--title">
+                                    <h3>Đơn hàng ngày xx/xx/xxxx
+                                    <span class="completed">Hoàn thành</span>
+                                    </h3>
+                                    <button  (click)="'app-orderdetail'">Xem chi tiết</button>
+                                </div>
+                                <div class="box__history--listproduct">
+                                    <div class="cart__main">
+                                        <div class="cart__main-row">
+                                          <div class="cart__main-row--product">
+                                            <div class="cart__main-row--product-img">
+                                              <img src="/assets/image/shopping-cart/product.jpg" alt="">
+                                            </div>
+                                            <p class="cart__main-row--product-info">Nat C 1000 hỗ trợ tăng đề kháng
+                                              lọ 60 viên
+                                            </p>
+                                          </div>
+                                          <p class="cart__main-row--price">
+                                            105.000đ
+                                          </p>
+                                          <p class="cart__main-row--quantity">
+                                            1
+                                          </p>
+                                        </div>
+                                        <div class="cart__main-row">
+                                          <div class="cart__main-row--product">
+                                            <div class="cart__main-row--product-img">
+                                              <img src="/assets/image/shopping-cart/product.jpg" alt="">
+                                            </div>
+                                            <p class="cart__main-row--product-info">Nat C 1000 hỗ trợ tăng đề kháng
+                                              lọ 60 viên
+                                            </p>
+                                          </div>
+                                          <p class="cart__main-row--price">
+                                            105.000đ
+                                          </p>
+                                          <p class="cart__main-row--quantity">
+                                            1
+                                          </p>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="box__history--order">
+                                <div class="box__history--order--title">
+                                    <h3>Đơn hàng ngày xx/xx/xxxx
+                                    <span class="cancelled">Hủy</span>
+                                    </h3>
+                                    <button routerLink="'app-orderdetail'">Xem chi tiết</button>
+                                </div>
+                                <div class="box__history--listproduct">
+                                    <div class="cart__main">
+                                        <div class="cart__main-row">
+                                          <div class="cart__main-row--product">
+                                            <div class="cart__main-row--product-img">
+                                              <img src="/assets/image/shopping-cart/product.jpg" alt="">
+                                            </div>
+                                            <p class="cart__main-row--product-info">Nat C 1000 hỗ trợ tăng đề kháng
+                                              lọ 60 viên
+                                            </p>
+                                          </div>
+                                          <p class="cart__main-row--price">
+                                            105.000đ
+                                          </p>
+                                          <p class="cart__main-row--quantity">
+                                            1
+                                          </p>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="box__history--order">
+                                <div class="box__history--order--title">
+                                    <h3>Đơn hàng ngày xx/xx/xxxx
+                                    <span class="delivering">Đang giao</span>
+                                    </h3>
+                                    <button routerLink="'app-orderdetail'">Xem chi tiết</button>
+                                </div>
+                                <div class="box__history--listproduct">
+                                    <div class="cart__main">
+                                        <div class="cart__main-row">
+                                          <div class="cart__main-row--product">
+                                            <div class="cart__main-row--product-img">
+                                              <img src="/assets/image/shopping-cart/product.jpg" alt="">
+                                            </div>
+                                            <p class="cart__main-row--product-info">Nat C 1000 hỗ trợ tăng đề kháng
+                                              lọ 60 viên
+                                            </p>
+                                          </div>
+                                          <p class="cart__main-row--price">
+                                            105.000đ
+                                          </p>
+                                          <p class="cart__main-row--quantity">
+                                            1
+                                          </p>
+                                        </div>
+                                        <div class="cart__main-row">
+                                          <div class="cart__main-row--product">
+                                            <div class="cart__main-row--product-img">
+                                              <img src="/assets/image/shopping-cart/product.jpg" alt="">
+                                            </div>
+                                            <p class="cart__main-row--product-info">Nat C 1000 hỗ trợ tăng đề kháng
+                                              lọ 60 viên
+                                            </p>
+                                          </div>
+                                          <p class="cart__main-row--price">
+                                            105.000đ
+                                          </p>
+                                          <p class="cart__main-row--quantity">
+                                            1
+                                          </p>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="box__order--status" *ngIf="st === 'status--confirm'"> 
+                            đang xác nhận
+                        </div>
+
+                        <div class="box__order--status" *ngIf="st === 'status--delivery'">
+                            <div class="box__history--order">
+                                <div class="box__history--order--title">
+                                    <h3>Đơn hàng ngày xx/xx/xxxx
+                                    <span class="delivering">Đang giao</span>
+                                    </h3>
+                                    <button routerLink="'app-orderdetail'">Xem chi tiết</button>
+                                </div>
+                                <div class="box__history--listproduct">
+                                    <div class="cart__main">
+                                        <div class="cart__main-row">
+                                          <div class="cart__main-row--product">
+                                            <div class="cart__main-row--product-img">
+                                              <img src="/assets/image/shopping-cart/product.jpg" alt="">
+                                            </div>
+                                            <p class="cart__main-row--product-info">Nat C 1000 hỗ trợ tăng đề kháng
+                                              lọ 60 viên
+                                            </p>
+                                          </div>
+                                          <p class="cart__main-row--price">
+                                            105.000đ
+                                          </p>
+                                          <p class="cart__main-row--quantity">
+                                            1
+                                          </p>
+                                        </div>
+                                        <div class="cart__main-row">
+                                          <div class="cart__main-row--product">
+                                            <div class="cart__main-row--product-img">
+                                              <img src="/assets/image/shopping-cart/product.jpg" alt="">
+                                            </div>
+                                            <p class="cart__main-row--product-info">Nat C 1000 hỗ trợ tăng đề kháng
+                                              lọ 60 viên
+                                            </p>
+                                          </div>
+                                          <p class="cart__main-row--price">
+                                            105.000đ
+                                          </p>
+                                          <p class="cart__main-row--quantity">
+                                            1
+                                          </p>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box__order--status" *ngIf="st === 'status--done'"> 
+                            <div class="box__history--order">
+                                <div class="box__history--order--title">
+                                    <h3>Đơn hàng ngày xx/xx/xxxx
+                                    <span class="completed">Hoàn thành</span>
+                                    </h3>
+                                    <button  (click)="'app-orderdetail'">Xem chi tiết</button>
+                                </div>
+                                <div class="box__history--listproduct">
+                                    <div class="cart__main">
+                                        <div class="cart__main-row">
+                                          <div class="cart__main-row--product">
+                                            <div class="cart__main-row--product-img">
+                                              <img src="/assets/image/shopping-cart/product.jpg" alt="">
+                                            </div>
+                                            <p class="cart__main-row--product-info">Nat C 1000 hỗ trợ tăng đề kháng
+                                              lọ 60 viên
+                                            </p>
+                                          </div>
+                                          <p class="cart__main-row--price">
+                                            105.000đ
+                                          </p>
+                                          <p class="cart__main-row--quantity">
+                                            1
+                                          </p>
+                                        </div>
+                                        <div class="cart__main-row">
+                                          <div class="cart__main-row--product">
+                                            <div class="cart__main-row--product-img">
+                                              <img src="/assets/image/shopping-cart/product.jpg" alt="">
+                                            </div>
+                                            <p class="cart__main-row--product-info">Nat C 1000 hỗ trợ tăng đề kháng
+                                              lọ 60 viên
+                                            </p>
+                                          </div>
+                                          <p class="cart__main-row--price">
+                                            105.000đ
+                                          </p>
+                                          <p class="cart__main-row--quantity">
+                                            1
+                                          </p>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box__order--status" *ngIf="st === 'status--cancel'"> 
+                            <div class="box__history--order">
+                                <div class="box__history--order--title">
+                                    <h3>Đơn hàng ngày xx/xx/xxxx
+                                    <span class="cancelled">Hủy</span>
+                                    </h3>
+                                    <button routerLink="'app-orderdetail'">Xem chi tiết</button>
+                                </div>
+                                <div class="box__history--listproduct">
+                                    <div class="cart__main">
+                                        <div class="cart__main-row">
+                                          <div class="cart__main-row--product">
+                                            <div class="cart__main-row--product-img">
+                                              <img src="/assets/image/shopping-cart/product.jpg" alt="">
+                                            </div>
+                                            <p class="cart__main-row--product-info">Nat C 1000 hỗ trợ tăng đề kháng
+                                              lọ 60 viên
+                                            </p>
+                                          </div>
+                                          <p class="cart__main-row--price">
+                                            105.000đ
+                                          </p>
+                                          <p class="cart__main-row--quantity">
+                                            1
+                                          </p>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+        </div>
+</div>

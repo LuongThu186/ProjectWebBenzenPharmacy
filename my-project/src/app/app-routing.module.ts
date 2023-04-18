@@ -9,6 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import {ChangePswComponent} from './profile/change-psw/change-psw.component'
 import { ProductdetailComponent } from './productdetail/productdetail.component';
+import { ProfileComponent } from './profile/profile.component';
+import { OrderdetailComponent } from './orderdetail/orderdetail.component';
 
 const routes: Routes = [
   {path:"app-home", component:HomeComponent},
@@ -19,7 +21,9 @@ const routes: Routes = [
   {path:"app-signup-otp", component: SignupOTPComponent },
   {path:"app-resetpsw", component: ResetpswComponent},
   {path:"app-change-psw", component:ChangePswComponent},
-    {path:"app-productdetail", component:ProductdetailComponent},
+  {path:"app-productdetail", component:ProductdetailComponent},
+  {path:"app-profile", component: ProfileComponent},
+  {path:"app-orderdetail", component:OrderdetailComponent}
 
 ];
 
