@@ -11,10 +11,11 @@ export class HomeComponent {
 
   ngOnInit(){}
   
-  id: any = "home";
+  id: any = "giamdauhasot";
   tabChange(ids:any){
     this.id= ids;
     console.log(this.id)
   }
+  
   
 }
