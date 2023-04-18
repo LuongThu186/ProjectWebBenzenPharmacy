@@ -21,5 +21,4 @@ export class ProfileComponent {
     this.st=sts;
     console.log(this.st)
   }
-
 }

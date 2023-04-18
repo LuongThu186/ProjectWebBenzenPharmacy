@@ -12,6 +12,7 @@ import { ProductdetailComponent } from './productdetail/productdetail.component'
 import { CategoryComponent } from './category/category.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PaymentComponent } from './payment/payment.component';
+import { OrderdetailComponent } from './orderdetail/orderdetail.component';
 
 const routes: Routes = [
   {path:"app-home", component:HomeComponent},
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path:"app-productdetail", component:ProductdetailComponent},
   {path:"app-category", component:CategoryComponent},
   {path:"app-payment", component: PaymentComponent},
-  {path:"app-profile", component: ProfileComponent}
+  {path:"app-profile", component: ProfileComponent},
+  {path:"app-orderdetail", component: OrderdetailComponent}
 
 ];
 
