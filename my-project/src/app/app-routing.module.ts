@@ -10,6 +10,8 @@ import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import {ChangePswComponent} from './profile/change-psw/change-psw.component'
 import { ProductdetailComponent } from './productdetail/productdetail.component';
 import { CategoryComponent } from './category/category.component';
+import { ProfileComponent } from './profile/profile.component';
+import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes = [
   {path:"app-home", component:HomeComponent},
@@ -22,6 +24,8 @@ const routes: Routes = [
   {path:"app-change-psw", component:ChangePswComponent},
   {path:"app-productdetail", component:ProductdetailComponent},
   {path:"app-category", component:CategoryComponent},
+  {path:"app-payment", component: PaymentComponent},
+  {path:"app-profile", component: ProfileComponent}
 
 ];
 

@@ -10,7 +10,7 @@ export class ProfileComponent {
 
   ngOnInit(){}
   
-  id: any = "orderhistory";
+  id: any = "address";
   tabChange(ids:any){
     this.id= ids;
     console.log(this.id)

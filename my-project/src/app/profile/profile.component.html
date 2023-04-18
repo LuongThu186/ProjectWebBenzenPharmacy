@@ -33,41 +33,118 @@
         </div>
         <div class="box__content">
             <div class="box__content--value" *ngIf="id === 'address'">
+              <div class="box__value--person">
+                <h2>Thông tin cá nhân</h2>
+                <div class="box__value--person-content">
+                  <div class="box__content--imginfor">
+                    <img src="assets/image/profile/avt.png" alt="">
+                    <p>Điểm tích lũy: <span class="bold color-main">1.420.000</span></p>
+                    <p>Quy đổi: <span class="bold color-main">Mã giảm giá 10k</span></p>
+                  </div>
+                  <div class="box__content--infordetail">
+                    <div class="content__infor--detail">
+                      <ul>
+                        <li>Tên khách hàng:</li>
+                        <li>Nhà thuốc Benzen</li>
+                      </ul>
+                      <ul>
+                        <li>Giới tính:</li>
+                        <li>
+                            <input type="radio" id="male" name="gender" value="male">
+                            <label for="male">Name</label><br>
+                            <input type="radio" id="female" name="gender" value="female" checked>
+                            <label for="female">Nữ</label><br>
+                        </li>
+                      </ul>
+                      <ul>
+                        <li>Số điện thoại:</li>
+                        <li>0332583xxx</li>
+                      </ul>
+                      <ul>
+                        <li>Ngày sinh:</li>
+                        <li>03/04/2002</li>
+                      </ul>
+                      <ul>
+                        <li>Email:</li>
+                        <li>benzen20406@gmail.com</li>
+                      </ul>
+                    </div>
+                    <button  (click)="'app-edit-infor'">Chỉnh sửa</button>
+                    
+                  </div>
+                </div>
+              </div>
+
+              <div class="box__value--address">
                 <h2>Sổ địa chỉ đơn hàng</h2>
-                <div class="address">
-                    <div class="address__contact">
-                        <p>Nguyễn Văn A | 0332583403</p>
-                        <p>Chỉnh sửa</p>
+                <!-- list address -->
+                <div class="content__address">
+                  <!-- a address -->
+                  <div class="content__address--item">
+                    <div class="address__title">
+                      <div class="address__title--infor">
+                        <p>Nhà thuốc Benzen</p>
+                        <p>|</p>
+                        <p>0332583xxx</p>
+                      </div>
+                      <button routerLink="''">Chỉnh sửa</button>
                     </div>
-                    <div class="address__infor">
-                        <p>Số 669, QL1, Khu phố 3, Phường Linh Xuân, Quận Thủ Đức, Thành phố Hồ Chí Minh</p>
-                    </div>
-                    <div class="address__default">
-                        <label for="default">
-                            <input type="radio" id="default" name="default" checked>
-                            Đặt làm địa chỉ mặc định
-                        </label>
-                    </div>
-                </div>
-                <div class="address">
-                    <div class="address__contact">
-                        <p>Nguyễn Văn A | 0332583403</p>
-                        <p>Chỉnh sửa</p>
-                    </div>
-                    <div class="address__infor">
-                        <p>Kí túc xá khu B, Khu phố Tân Hòa, Phường Đông Hòa, Thành phố Dĩ An, tỉnh Bình Dương</p>
+                    <div class="address__body">
+                      <p>Số 669, QL1, Khu phố 3, Phường Linh Xuân, Quận Thủ Đức, Thành phố Hồ Chí Minh Số 669, QL1, Khu phố 3, Phường Linh Xuân, Quận Thủ Đức, Thành phố Hồ Chí Minh</p>
                     </div>
                     <div class="address__default">
-                        <label for="default">
-                            <input type="radio" id="default" name="default">
-                            Đặt làm địa chỉ mặc định
-                        </label>
+                      <label for="default">
+                          <input type="radio" id="default" name="default" checked> Đặt làm địa chỉ mặc định
+                      </label>
                     </div>
-                </div>
-                <div class="address__button">
+                  </div>
+                  <!-- a address -->
+                  <div class="content__address--item">
+                    <div class="address__title">
+                      <div class="address__title--infor">
+                        <p>Nhà thuốc Benzen</p>
+                        <p>|</p>
+                        <p>0332583xxx</p>
+                      </div>
+                      <button routerLink="''">Chỉnh sửa</button>
+                    </div>
+                    <div class="address__body">
+                      <p>Số 669, QL1, Khu phố 3, Phường Linh Xuân, Quận Thủ Đức, Thành phố Hồ Chí Minh</p>
+                    </div>
+                    <div class="address__default">
+                      <label for="default">
+                          <input type="radio" id="default" name="default"> Đặt làm địa chỉ mặc định
+                      </label>
+                    </div>
+                  </div>
+                  <!-- a address -->
+                  <div class="content__address--item">
+                    <div class="address__title">
+                      <div class="address__title--infor">
+                        <p>Nhà thuốc Benzen</p>
+                        <p>|</p>
+                        <p>0332583xxx</p>
+                      </div>
+                      <button routerLink="''">Chỉnh sửa</button>
+                    </div>
+                    <div class="address__body">
+                      <p>Số 669, QL1, Khu phố 3, Phường Linh Xuân, Quận Thủ Đức, Thành phố Hồ Chí Minh</p>
+                    </div>
+                    <div class="address__default">
+                      <label for="default">
+                          <input type="radio" id="default" name="default"> Đặt làm địa chỉ mặc định
+                      </label>
+                    </div>
+                  </div>
+                </div>                   
+                <div class="address__add">
                     <input type="button" value="Thêm địa chỉ" class="button" id="button">
                 </div>
+              </div>
             </div>
+
+          
+            <!-- Order history content -->
                 <div class="box__content--value" *ngIf="id === 'orderhistory'">
                     <h2>Lịch sử đơn hàng</h2>
                     <div>
@@ -201,7 +278,10 @@
                         </div>
 
                         <div class="box__order--status" *ngIf="st === 'status--confirm'"> 
-                            đang xác nhận
+                          <div class="emptyorder"> 
+                            <img src="assets/image/profile/emptyorder.png" width="150px" height="150px">
+                            <p>Không có đơn hàng nào</p>
+                          </div>
                         </div>
 
                         <div class="box__order--status" *ngIf="st === 'status--delivery'">
