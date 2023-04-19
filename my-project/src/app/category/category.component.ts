@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent {
+  constructor(){}
 
+  ngOnInit(){}
+  
+  id: any = "giamdauhasotkhangsinh";
+  tabChange(ids:any){
+    this.id= ids;
+    console.log(this.id)
+  }
+  
 }

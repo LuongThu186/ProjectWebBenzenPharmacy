@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./infor.component.css']
 })
 export class InforComponent {
-
+  id: any = "overview";
+  tabChange(ids:any){
+    this.id= ids;
+    console.log(this.id)
+  }
 }

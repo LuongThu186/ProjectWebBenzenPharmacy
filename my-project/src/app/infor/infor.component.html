@@ -1,46 +1,258 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Về Thanh Bình</title>
 
-</head>
-<body>
-    <header></header>
-    <div class="container">
-        <div>
-            <div class="section">
+        <div class="section">
+            <ol>
+                <li>Trang chủ</li>
+                <li>Về Thanh Bình</li>
+            </ol>
+        </div>
+<div class="container">
+    <div class="box-left">
+        <div class="navbar">
+            <h3>Tất cả bài viết</h3>
+            <div class="list">
+                <a  id="overview" [class.active]="id === 'overview'" (click)="tabChange('overview')">
+                    <p class="list-item" >Giới thiệu nhà thuốc</p> 
+                </a>
+                <a id="instruction" [class.active]="id === 'instruction'" (click)="tabChange('instruction')">
+                    <p class="list-item">Hướng dẫn mua hàng Online</p>
+                </a>
+                <a id="policydelivery" [class.active]="id === 'policydelivery'" (click)="tabChange('policydelivery')">
+                    <p class="list-item">Chính sách giao hàng</p>
+                </a>
+                <a id="policypayment" [class.active]="id === 'policypayment'" (click)="tabChange('policypayment')">
+                    <p class="list-item">Chính sách thanh toán</p>
+                </a>
+                <a id="policywarranty" [class.active]="id === 'policywarranty'" (click)="tabChange('policywarranty')">
+                    <p class="list-item">Chính sách đổi trả, bảo hành</p>
+                </a>
+                 <a id="policysecurity" [class.active]="id === 'policysecurity'" (click)="tabChange('policysecurity')">
+                    <p class="list-item">Chính sách bảo mật</p>
+                </a>
+                <a id="memberpoint" [class.active]="id === 'memberpoint'" (click)="tabChange('memberpoint')"><p class="list-item">Thể lệ tích điểm thành viên</p></a>
+            </div>
+        </div>
+    </div>
+    <div class="box_right">
+        <div class="right_content" *ngIf="id === 'overview'">
+                <p class="sub-header">
+                    I. Về chúng tôi
+                </p>
+                <p class="content--item">
+                    Được thành lập từ năm 2019, Thanh Bình là chuỗi cửa hàng dược phẩm bán lẻ uy tín tại Việt Nam. Đến nay, Thanh Bình sở hữu mạng lưới hơn 150 nhà thuốc đạt chuẩn GPP trên toàn quốc cùng hơn 500 dược sĩ đồng hành.
+        
+                </p>
+                <p class="sub-header">II. Sứ mệnh</p>
+                <p class="content--item">
+                    Từ khi thành lập, Thanh Bình đặt ra sứ mệnh mong muốn được phục vụ, chăm sóc sức khỏe cộng đồng với sự đồng hành của đội ngũ dược sĩ chuyên môn cao, giàu kinh nghiệm; sản phẩm có chất lượng và giá cả hợp lý. 
+                    <br> <br>
+                    Với sứ mệnh này, nhà thuốc Thanh Bình luôn không ngừng cải thiện chất lượng dịch vụ từ những điều nhỏ nhất, nhằm nâng cao trải nghiệm của khách hàng và đem lại sự hài lòng, thoải mái nhất tới khách hàng khi đến với nhà thuốc.
+                </p>
+                <p class="sub-header">
+                    III. Giá trị cốt lõi
+                </p>
+                <p class="content--item">
+                    Tất cả nhà thuốc trực thuộc hệ thống Thanh Bình đều đạt chuẩn Thực hành thuốc tốt - GPP, đều đang kinh doanh và cung cấp các loại sản phẩm nằm trong danh mục được Bộ Y tế đã cấp phép lưu hành, gồm: Thuốc; Dược, mỹ phẩm; Thiết bị và dụng cụ y tế; Vật dụng chăm sóc cá nhân.
+                    <br> <br>
+                    Với yêu cầu đặt chất lượng lên hàng đầu, nhà thuốc Thanh Bình cam kết:
+                    <ul>
+                        <li>Tất cả sản phẩm chính hãng, có nguồn gốc rõ ràng.</li>
+                        <li> Giá cả sản phẩm đều được niêm yết công khai và minh bạch.</li>
+                        <li> Dược sĩ trung thực và tư vấn tận tâm với khách hàng.</li>
+                    </ul>
+        </div>
+
+        <div class="right_content" *ngIf="id === 'instruction'">
+                <p class="sub-header">Hướng dẫn mua hàng Online</p>
+                <p class="content--item">
+                    <b style="color:#2D982A">Bước 1:</b> Tìm kiếm và chọn sản phẩm cần mua
+                </p>
+                <p class="content--item">
+                    <b style="color:#2D982A">Bước 2:</b> Xem thông tin chi tiết sản phẩm đó
+                    <br>
+                    <a class="content--item">Với các sản phẩm được phép giao dịch Online: Quý khách đồng ý muốn đặt hàng, quý khách chọn số lượng cần mua sau đó ấn vào nút “Chọn mua” và tới giỏ hàng điền thông tin mua hàng.</a>
+                </p>
+
+                <p class="content--item">
+                    <b style="color:#2D982A">Bước 3:</b> Quý khách điền đầy đủ thông tin mua hàng theo mẫu:
+                    <ul>
+                        <li>Họ tên; Số điện thoại; Email</li>
+                        <li>Chọn phương thức nhận hàng</li>
+                        <li>Chọn phương thức thanh toán</li>
+                    </ul>
+               
+                <p class="content--item">
+                    <b style="color:#2D982A">Bước 4:</b> Sau khi đã nhập đầy đủ thông tin, quý khách <b>click</b> “<b>Hoàn tất</b>” để hoàn tất đặt hàng
+                </p>
+                <p class="content--item">
+                    <b style="color:#2D982A">Bước 5:</b> Sau khi nhận đơn hàng của người mua, Nhà thuốc Thanh Bình sẽ liên lạc để giao hàng tận nhà cho khách hàng hoặc khách hàng đến trực tiếp các cửa hàng trên toàn quốc để nhận hàng.
+                </p>
+        </div>
+    <div class="right_content" *ngIf="id === 'policydelivery'">
+            <p class="sub-header">CHÍNH SÁCH GIAO HÀNG</p>
+        <div class="content--item">
+                Tại thời điểm đặt hàng. Quý Khách có thể kiểm tra trạng thái đơn hàng thông qua website hoặc liên hệ tổng đài miễn cước 1900-532-444 để biết được thời gian nhận được đơn hàng dự kiến.
+                <br>
+                <br>
+                <p class="content--item"><b>Giao hàng trong nội tỉnh/ thành phố</b></p>
+                <ul>
+                    <li>Đơn hàng từ 300.000 VNĐ trở lên
+                        <br>
+                        Phí vận chuyển: Miễn phí
+                        <br>
+                        Thời gian giao hàng: Từ 8h-20h tất cả các ngày trong tuần
+                        </li>
+                    <li>
+                        Đơn hàng dưới 300.000 VNĐ
+                        <br>
+                        Phí vận chuyển: 25.000 VNĐ
+                        <br>
+                        Thời gian giao hàng: Từ 8h-20h tất cả các ngày trong tuần
+                    </li>
+                </ul> 
+                <p class="content--item"><b>Giao hàng liên tỉnh/ thành phố</b></p>
+                <ul>
+                    <li>Đơn hàng từ 200 Km trở lên
+                        <br>
+                        Phí vận chuyển: 40.000 VNĐ
+                        <br>
+                        Thời gian giao hàng: Từ 3-5 ngày
+                        </li>
+                    <li>
+                        Đơn hàng dưới 200 Km
+                        <br>
+                        Phí vận chuyển: 40.000 VNĐ
+                        <br>
+                        Thời gian giao hàng: Từ 2-3 ngày
+                    </li>
+                </ul>
+            <p class="content--item">
+                <i>(*) Nhà thuốc Thanh Bình hiện tại chỉ giao hàng trong lãnh thổ Việt Nam và chưa hỗ trợ giao hàng quốc tế.</i>
+            </p>
+            <p class="sub-header">
+                CÂU HỎI THƯỜNG GẶP
+            </p>
+            <p class="content--item">
+                <b>1. Có giao hàng vào cuối tuần và ngày lễ không?</b>
+                <br>
+                Nhà thuốc Thanh Bình giao hàng vào tất cả các ngày trong tuần.
+            </p>
+            <p class="content--item">
+                <b>2. Làm sao để tôi biết được chính xác khi nào tôi nhận được hàng?</b>
+                <br>
+                Theo qui định, Thanh Bình tiếp nhận thông tin và xử lý đơn hàng, trong vòng 15 ngày kể từ ngày đặt cọc đầu tiên, quý khách có thể theo dõi đơn hàng qua website hoặc liên hệ tổng đài miễn cước 1900-532-444.
+            </p>
+            <p class="content--item">
+                <b>3. Kiểm tra hàng trước khi thanh toán</b>
+                <br>
+                Trước khi thanh toán cho đơn hàng, quý khách có thể yêu cầu nhân viên giao nhận mở kiện hàng để kiểm tra tình trạng ngoại quan của sản phẩm (không bao gồm việc dùng thử sản phẩm).
+                Trong trường hợp quý khách không hài lòng với bất kì sản phẩm trong đơn hàng, ngay tại thời điểm được giao hàng, quý khách vui lòng từ chối không nhận toàn bộ kiện hàng hoặc thanh toán toàn bộ giá trị đơn hàng và hoàn trả lại cho bưu tá giao hàng.
+                Nếu có bất kỳ thắc mắc nào, vui lòng liên hệ 1900-532-444 để được hỗ trợ nhanh chóng.
+            </p>
+        </div>
+    </div>
+
+    <div class="right_content" *ngIf="id === 'policypayment'">
+            <p class="sub-header">CHÍNH SÁCH GIAO HÀNG</p>
+        <div class="content--item">
+                    Quý khách có thể thanh toán cho Nhà thuốc Thanh Bình bằng 3 hình thức sau:
+                    <ul>
+                        <li> <b>Thanh toán khi nhập hàng (Ship COD):</b> Thanh Bình sẽ gọi lại cho khách hàng để xin địa chỉ giao hàng tận nơi và nhận thanh toán tại chỗ.
+                        </li>
+                        <li> <b>Thanh toán qua thẻ ngân hàng:</b> Chấp nhận thanh toán qua nhiều ngân hàng cho loại thẻ ATM (Napas)
+                            <br>Số tài khoản: 193405672063 
+                            <br>Chủ tài khoản: Nhà thuốc Dược phẩm Thanh Bình 
+                            <br>Ngân Hàng: Ngân hàng TMCP Công Thương Việt Nam
+                        </li>
+                        <li> <b>Thanh toán qua ví điện tử:</b> Chấp nhận thanh toán qua ví điện tử Momo.</li>
+                    </ul>
+        </div>
+    </div>
+    <div class="right_content" *ngIf="id === 'policywarranty'">
+            <p class="sub-header">CHÍNH SÁCH DỔI TRẢ, BẢO HÀNH</p>
+            <p class="content--item">
+                - Khách hàng có thể đổi hoặc trả thuốc đã mua tại nhà thuốc trong vòng 30 ngày kể từ ngày mua hàng
+            </p>
+            <p class="content--item">
+                - Các sản phẩm tuýp bôi, mỹ phẩm…khi trả hàng phải còn nguyên niêm phong. Hàng đặt lẻ theo yêu cầu khách hàng sẽ không được đổi trả.
+            </p>
+            <p class="content--item">
+                - Hàng đổi, trả phải còn nguyên hạn sử dụng, đầy đủ hộp, giấy hướng dẫn sử dụng.
+            </p>
+            <p class="sub-header">Quy định đổi trả hàng</p>
+            <p class="content--item">
+                <b>1.Quý khách hàng lưu ý Nhà thuốc Long Châu không áp dụng đổi trả đối với:</b>
+                <ul>
+                    <li>Đơn hàng dự án.</li>
+                    <li>Đối với những mã sản phẩm không xác định được tính nguyên vẹn (đóng gói không có Garanti hoặc đã tháo garanti/ tem niêm phong đóng gói) sản phẩm dạng viên rời, nước (VD: Dạng xịt, …), cream (VD: Dạng bôi …) thuốc viên bán lẻ (Không vỉ, không hộp).</li>
+                    <li>Sản phẩm được khuyến mại.</li>
+                    <li>Hàng lạnh, hàng tiêm chích.</li>
+                    <li>Hàng đặt riêng theo yêu cầu của khách hàng.</li>
+                    <li>Đơn hàng quá 30 ngày.</li>
+                </ul>
+                <p class="content--item"><b>2. Phương thức đổi trả hàng và cách thức nhận lại tiền</b></p>
+                <p class="content--item">
+                    Khách hàng mang sản phẩm đã mua (bao gồm vỏ hộp, giấy hướng dẫn sử dụng kèm theo) tới cửa hàng Nhà thuốc gần nhất để được thực hiện đổi trả và hoàn tiền.
+                </p>
+                <p class="content--item">Để nhận tiền hoàn, khách hàng có 2 lựa chọn:</p>
+                <ul>
+                    <li>Hoàn tiền tại quầy: Cửa hàng chi tiền mặt tại quầy cho khách hàng. </li>
+                    <li>Hoàn tiền qua chuyển khoản: Sau khi khách hàng cần điền thông tin số tiền cần hoàn vào số điện thoại mua hàng trên đơn hàng, sau đó gửi thông tin thành công, Nhà thuốc Thanh Bình sẽ hoàn lại tiền trong vòng từ 2-3 ngày (không kể thứ 7, CN, hoặc ngày lễ Tết).</li>
+                </ul>
+        </div>   
+        <div class="right_content" *ngIf="id === 'policysecurity'" >
+            <p class="sub-header">1. Mục đích thu thập thông tin</p>
+            <p class="content--item">
+                Nhà thuốc Thanh Bình thu thập thông tin liên lạc cần thiết để thực hiện giao dịch giữa website với khách hàng mà không lấy thêm thông tin gì khác. Thông tin của khách hàng sẽ chỉ được lưu lại khi khách hàng tạo tài khoản và đăng nhập với tài khoản của mình. Nhà thuốc Thanh Bình cam kết không chia sẻ hay sử dụng thông tin cá nhân của khách hàng cho một bên thứ 3 nào khác với mục đích lợi nhuận. Thông tin của khách hàng sẽ chỉ được sử dụng trong nội bộ nhà thuốc. Khi khách hàng đăng kí trên website, những thông tin chúng tôi thu thập bao gồm:
+                <br> <br>
+                Tên - Địa chỉ giao hàng - Số điện thoại - Ngày sinh - Giới tính - Những thông tin khác (nếu có).
+            </p>
+            <p class="sub-header">2. Phạm vi sử dụng thông tin</p>
+            <p class="content--item">
+                Những thông tin trên chỉ được sử dụng cho những mục đích sau đây:
                 <ol>
-                    <li>Trang chủ</li>
-                    <li>Về Thanh Bình</li>
+                    <li>Thông báo giao hàng và hỗ trợ khách hàng</li>
+                    <li>Cung cấp thông tin sản phẩm</li>
+                    <li>Xử lý đơn đặt hàng và cung cấp dịch vụ theo yêu cầu của khách hàng</li>
+                    <li>Chia sẻ cho dịch vụ chuyển phát nhanh để giao hàng</li>
+                    <li>Ngoài ra, chúng tôi sẽ sử dụng thông tin của khách hàng trong việc quản lý tài khoản, giao dịch tài chính, kiểm tra dữ liệu để cải thiện tính năng của website nhằm mang đến cho khách hàng những trải nghiệm tốt nhất khi ghé thăm website</li>
                 </ol>
-            </div>
+                <p class="content--item">
+                    Chi tiết đơn hàng của khách hàng sẽ được giữ bảo mật và chỉ được cung cấp cho chủ đơn hàng. Chúng tôi có quyền không cung cấp thông tin nếu khách hàng không cung cấp chính xác thông tin xác nhận theo yêu cầu từ Nhà thuốc. Khách hàng có thể theo dõi đơn hàng của mình trong tài khoản của mình.
+                </p>
+            <p class="sub-header">3. Những người hoặc tổ chức có thể được tiếp cận với thông tin cá nhân của khách hàng</p>
+            <p class="content--item">
+                <ol>
+                    <li>Ban quản trị, nhân viên nhà thuốc Thanh Bình</li>
+                    <li>Bên thứ ba có dịch vụ tích hợp với website</li>
+                    <li>Đơn vị vận chuyển liên kết với Công ty để giao hàng cho khách hàng</li>
+                    <li>Cố vấn tài chính, pháp lý và Công ty kiểm toán</li>
+                    <li>Bên khiếu nại chứng minh được hành vi vi phạm của khách hàng</li>
+                    <li>Theo yêu cầu của cơ quan nhà nước có thẩm quyền</li>
+                </ol>
+            <p class="sub-header">4. Thời gian lưu trữ thông tin</p>
+            <p class="content--item">
+                Thông tin của khách hàng sẽ được giữ đúng trong thời hạn pháp luật quy định hoặc chỉ sử dụng cho mục đích mà thông tin đó được thu thập.
+            </p>
+            <p class="sub-header">5. Phương tiện và công cụ để người dùng tiếp cận và chỉnh sửa dữ liệu cá nhân của mình</p>
+            <p class="content--item">
+                Bất cứ thời điểm nào khách hàng cũng có thể truy cập và chỉnh sửa những thông tin cá nhân của mình.
+            </p>
+            <p class="sub-header">6. Thay đổi chính sách bảo mật</p>
+            <p class="content--item">
+                Nhà thuốc Thanh Bình có quyền thay đổi và chỉnh sửa chính sách bảo mật này vào bất kỳ lúc nào. Chúng tôi sẽ cập nhật những thay đổi trên website. Nếu khách hàng có khiếu nại hay đóng góp về chính sách của Nhà thuốc, xin vui lòng liên hệ với chúng tôi qua hai hình thức sau:
+                <br>
+                Hotline miễn phí: 1900-532-444
+                <br>
+                Email: <a href="mailto:sales@nhathuocthanhbinh.com">sales@nhathuocthanhbinh.com</a>
+            </p>
+            <p class="sub-header">7. Cơ chế tiếp nhận và giải quyết khiếu nại liên quan đến việc thông tin của khách hàng</p>
+            <p class="content--item">
+                Khi phát hiện thông tin cá nhân của mình bị sử dụng sai mục đích hoặc phạm vi, khách hàng gửi email khiếu nại đến email <a href="mailto:sales@nhathuocthanhbinh.com">sales@nhathuocthanhbinh.com</a> hoặc gọi điện thoại tới số 1900-532-444 để khiếu nại và cung cấp chứng cứ liên quan tới vụ việc cho Ban quản trị. Ban quản trị cam kết sẽ phản hồi ngay lập tức hoặc muộn nhất là trong vòng 24 (hai mươi tư) giờ làm việc kể từ thời điểm nhận được khiếu nại.
+            </p>
+        </div> 
+        <div class="right_content" *ngIf="id === 'memberpoint'" >
+        <p>từ từ thêm vô</p>
         </div>
+    </div>
+</div>
 
-        <div class="content">
-            <div class="navbar">
-                <h2>MỤC LỤC</h2>
-                <h3>Giới thiệu về nhà thuốc</h3>
-                <div class="list">
-                    <a href="app-overview" target="content-posts"><p class="list-item" >Tổng quan doanh nghiệp</p> </a>   
-                    <a href="app-instruction" target="content-posts"><p class="list-item">Hướng dẫn mua hàng Online</p></a>
-                    <a href="app-policydelivery" target="content-posts"><p class="list-item">Chính sách giao hàng</p></a>
-                    <a href="app-policypayment" target="content-posts"><p class="list-item">Chính sách thanh toán</p></a>
- 
-                    <a href="app-warranty" target="content-posts"><p class="list-item">Chính sách đổi trả, bảo hành</p></a>
-                    <a href="app-policysecurity" target="content-posts"><p class="list-item">Chính sách bảo mật</p></a>
-                    <a href="app-memberpoint" target="content-posts"><p class="list-item">Thể lệ tích điểm thành viên</p></a>
-
-                </div>
-                </div>
-            </div>
-           
-            <iframe src="./overview/overview.component.html" frameborder="0" class="content-posts" name="content-posts" id="content-posts">
-            </iframe>
-        </div>
-    
-    <footer></footer>
-</body>
-</html>

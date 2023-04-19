@@ -94,7 +94,6 @@
 .category-detail{
 
     background-color: #F2F2F2;  
-    padding: 15px;
     display: flex;
     flex-direction: column;
     text-decoration: none;
@@ -106,9 +105,7 @@
     
 }
 .category-detail img{
-    height: auto;
     width: 65px;
-    display: block;
     margin: auto;   
 }
 
@@ -118,6 +115,8 @@
 
 .category-detail-name{
     text-align: center;
+    margin-top: 0;
+    margin-bottom: 1rem;
 
 }
 
@@ -130,7 +129,7 @@
 .category-background img{
     height: 300px;
     width: 100%;
-    padding:60px ;
+    /* padding:60px ; */
 
 }
 
