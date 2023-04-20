@@ -10,7 +10,7 @@
     top: 0;
     width: 85%;
     height: 100%;
-    
+
 }
 .admin-info{
     position: absolute;
@@ -63,16 +63,30 @@
     font-weight: bold;
     font-size: 35px;
 }
+.page-body-search {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  width: 220px;
+  margin-right: 80px;
+  border: 1px solid #ccc;
+  border-radius: 100px;
+  background-color: #fff;
+  padding: 2px 4px;
+}
+.page-body-search span {
+  color: #ccc;
+}
 #search{
-    color: #f2f2f2;
-    border-radius: 25px;
-    margin-right: 80px;
-    height: 30px;
-    width: 220px;
+    outline: none;
+    border: none;
+    padding: 4px;
+    width: 100%;
+
 }
 .page-body-header{
     height: 200px;
-    
+
 }
 .cus-info-title{
     font-size: 15px;
