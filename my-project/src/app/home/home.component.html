@@ -110,25 +110,25 @@
                     </div>
                     <div class="products-category">
 
-                            <a class="products-category--detail"  id="giamdauhasot" [class.active]="id === 'giamdauhasot'" (click)="tabChange('giamdauhasot')" >
+                            <a class="products-category--detail"  gdhs="giamdauhasot" [class.active]="gdhs === 'giamdauhasot'" (click)="tabGiamdauhasot('giamdauhasot')" >
                                 Giảm đau, hạ sốt
                             </a>
-                            <a class="products-category--detail"  id="timmach" [class.active]="id === 'timmach'" (click)="tabChange('timmach')" >
+                            <a class="products-category--detail"  gdhs="timmach" [class.active]="gdhs === 'timmach'" (click)="tabGiamdauhasot('timmach')" >
                                 Tim mạch
                             </a>
-                            <a class="products-category--detail"  id="thankinh" [class.active]="id === 'thankinh'" (click)="tabChange('thankinh')" >
+                            <a class="products-category--detail"  gdhs="thankinh" [class.active]="gdhs === 'thankinh'" (click)="tabGiamdauhasot('thankinh')" >
                                 Thần kinh
                             </a>
-                            <a class="products-category--detail"  id="tieuhoaganmat" [class.active]="id === 'tieuhoaganmat'" (click)="tabChange('tieuhoaganmat')" >
+                            <a class="products-category--detail"  gdhs="tieuhoaganmat" [class.active]="gdhs === 'tieuhoaganmat'" (click)="tabGiamdauhasot('tieuhoaganmat')" >
                                 Tiêu hóa, gan mật
                             </a>
-                            <a class="products-category--detail"  id="mattaimuihong" [class.active]="id === 'mattaimuihong'" (click)="tabChange('mattaimuihong')" >
+                            <a class="products-category--detail"  gdhs="mattaimuihong" [class.active]="gdhs === 'mattaimuihong'" (click)="tabGiamdauhasot('mattaimuihong')" >
                                 Mắt, tai, mũi, họng
                             </a>
 
                     </div>
                     <div class="home_products--product">
-                        <a class="home_products--product-detail" href="" *ngIf="id==='giamdauhasot'">
+                        <a class="home_products--product-detail" href="" *ngIf="gdhs==='giamdauhasot'">
                             <img src="/assets/image/home/product1.png" alt="">
                             <p class="home_products--product-detail-name" >Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price" href="">220.000đ</p>
@@ -136,7 +136,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='giamdauhasot'">
+                        <a class="home_products--product-detail" href="" *ngIf="gdhs==='giamdauhasot'">
                             <img src="/assets/image/home/product1.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -144,7 +144,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='giamdauhasot'">
+                        <a class="home_products--product-detail" href="" *ngIf="gdhs==='giamdauhasot'">
                             <img src="/assets/image/home/product1.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -152,7 +152,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='giamdauhasot'">
+                        <a class="home_products--product-detail" href="" *ngIf="gdhs==='giamdauhasot'">
                             <img src="/assets/image/home/product1.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -160,7 +160,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a    class="home_products--product-detail" href="" *ngIf="id==='giamdauhasot'">
+                        <a    class="home_products--product-detail" href="" *ngIf="gdhs==='giamdauhasot'">
                             <img src="/assets/image/home/product1.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -168,7 +168,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='timmach'">
+                        <a class="home_products--product-detail" href="" *ngIf="gdhs==='timmach'">
                             <img src="/assets/image/home/product2.png" alt="">
                             <p class="home_products--product-detail-name" >Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price" href="">220.000đ</p>
@@ -176,7 +176,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='timmach'">
+                        <a class="home_products--product-detail" href="" *ngIf="gdhs==='timmach'">
                             <img src="/assets/image/home/product2.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -184,7 +184,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='timmach'">
+                        <a class="home_products--product-detail" href="" *ngIf="gdhs==='timmach'">
                             <img src="/assets/image/home/product2.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -192,7 +192,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='timmach'">
+                        <a class="home_products--product-detail" href="" *ngIf="gdhs==='timmach'">
                             <img src="/assets/image/home/product2.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -200,7 +200,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a    class="home_products--product-detail" href="" *ngIf="id==='timmach'">
+                        <a    class="home_products--product-detail" href="" *ngIf="gdhs==='timmach'">
                             <img src="/assets/image/home/product2.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -209,7 +209,7 @@
                             </div>
                         </a>
 
-                        <a class="home_products--product-detail" href="" *ngIf="id==='thankinh'">
+                        <a class="home_products--product-detail" href="" *ngIf="gdhs==='thankinh'">
                             <img src="/assets/image/home/product3.png" alt="">
                             <p class="home_products--product-detail-name" >Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price" href="">220.000đ</p>
@@ -217,7 +217,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='thankinh'">
+                        <a class="home_products--product-detail" href="" *ngIf="gdhs==='thankinh'">
                             <img src="/assets/image/home/product3.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -225,7 +225,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='thankinh'">
+                        <a class="home_products--product-detail" href="" *ngIf="gdhs==='thankinh'">
                             <img src="/assets/image/home/product3.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -233,7 +233,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='thankinh'">
+                        <a class="home_products--product-detail" href="" *ngIf="gdhs==='thankinh'">
                             <img src="/assets/image/home/product3.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -241,7 +241,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a    class="home_products--product-detail" href="" *ngIf="id==='thankinh'">
+                        <a    class="home_products--product-detail" href="" *ngIf="gdhs==='thankinh'">
                             <img src="/assets/image/home/product3.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -249,7 +249,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='tieuhoaganmat'">
+                        <a class="home_products--product-detail" href="" *ngIf="gdhs==='tieuhoaganmat'">
                             <img src="/assets/image/home/product4.png" alt="">
                             <p class="home_products--product-detail-name" >Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price" href="">220.000đ</p>
@@ -257,7 +257,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='tieuhoaganmat'">
+                        <a class="home_products--product-detail" href="" *ngIf="gdhs==='tieuhoaganmat'">
                             <img src="/assets/image/home/product4.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -265,7 +265,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='tieuhoaganmat'">
+                        <a class="home_products--product-detail" href="" *ngIf="gdhs==='tieuhoaganmat'">
                             <img src="/assets/image/home/product4.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -273,7 +273,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='tieuhoaganmat'">
+                        <a class="home_products--product-detail" href="" *ngIf="gdhs==='tieuhoaganmat'">
                             <img src="/assets/image/home/product4.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -281,7 +281,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a    class="home_products--product-detail" href="" *ngIf="id==='tieuhoaganmat'">
+                        <a    class="home_products--product-detail" href="" *ngIf="gdhs==='tieuhoaganmat'">
                             <img src="/assets/image/home/product4.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -289,7 +289,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='mattaimuihong'">
+                        <a class="home_products--product-detail" href="" *ngIf="gdhs==='mattaimuihong'">
                             <img src="/assets/image/home/product5.png" alt="">
                             <p class="home_products--product-detail-name" >Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price" href="">220.000đ</p>
@@ -297,7 +297,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='mattaimuihong'">
+                        <a class="home_products--product-detail" href="" *ngIf="gdhs==='mattaimuihong'">
                             <img src="/assets/image/home/product5.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -305,7 +305,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='mattaimuihong'">
+                        <a class="home_products--product-detail" href="" *ngIf="gdhs==='mattaimuihong'">
                             <img src="/assets/image/home/product5.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -313,7 +313,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='mattaimuihong'">
+                        <a class="home_products--product-detail" href="" *ngIf="gdhs==='mattaimuihong'">
                             <img src="/assets/image/home/product5.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -321,7 +321,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a    class="home_products--product-detail" href="" *ngIf="id==='mattaimuihong'">
+                        <a    class="home_products--product-detail" href="" *ngIf="gdhs==='mattaimuihong'">
                             <img src="/assets/image/home/product5.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -336,25 +336,25 @@
                     </div>
                     <div class="products-category">
 
-                            <a class="products-category--detail"  id="tieuhoa" [class.active]="id === 'tieuhoa'" (click)="tabChange('tieuhoa')" >
+                            <a class="products-category--detail"  th="tieuhoa" [class.active]="th === 'tieuhoa'" (click)="tabTieuhoa('tieuhoa')" >
                                 Tiêu hóa
                             </a>
-                            <a class="products-category--detail"  id="chamsoclamdep" [class.active]="id === 'chamsoclamdep'" (click)="tabChange('chamsoclamdep')" >
+                            <a class="products-category--detail"  th="chamsoclamdep" [class.active]="th === 'chamsoclamdep'" (click)="tabTieuhoa('chamsoclamdep')" >
                                 Chăm sóc, làm đẹp
                             </a>
-                            <a class="products-category--detail"  id="dieutri" [class.active]="id === 'dieutri'" (click)="tabChange('dieutri')" >
+                            <a class="products-category--detail"  th="dieutri" [class.active]="th === 'dieutri'" (click)="tabTieuhoa('dieutri')" >
                                 Điều trị
                             </a>
-                            <a class="products-category--detail"  id="timmach" [class.active]="id === 'timmach'" (click)="tabChange('timmach')" >
+                            <a class="products-category--detail"  th="timmach" [class.active]="th === 'timmach'" (click)="tabTieuhoa('timmach')" >
                                 Tim mạch
                             </a>
-                            <a class="products-category--detail"  id="caithienchucnang" [class.active]="id === 'caithienchucnang'" (click)="tabChange('caithienchucnang')" >
+                            <a class="products-category--detail"  th="caithienchucnang" [class.active]="th === 'caithienchucnang'" (click)="tabTieuhoa('caithienchucnang')" >
                                 Cải thiện chức năng
                             </a>
 
                     </div>
                     <div class="home_products--product">
-                        <a class="home_products--product-detail" href="" *ngIf="id==='tieuhoa'">
+                        <a class="home_products--product-detail" href="" *ngIf="th==='tieuhoa'">
                             <img src="/assets/image/home/product1.png" alt="">
                             <p class="home_products--product-detail-name" >Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price" href="">220.000đ</p>
@@ -362,7 +362,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='tieuhoa'">
+                        <a class="home_products--product-detail" href="" *ngIf="th==='tieuhoa'">
                             <img src="/assets/image/home/product1.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -370,7 +370,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='tieuhoa'">
+                        <a class="home_products--product-detail" href="" *ngIf="th==='tieuhoa'">
                             <img src="/assets/image/home/product1.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -378,7 +378,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='tieuhoa'">
+                        <a class="home_products--product-detail" href="" *ngIf="th==='tieuhoa'">
                             <img src="/assets/image/home/product1.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -386,7 +386,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a    class="home_products--product-detail" href="" *ngIf="id==='tieuhoa'">
+                        <a    class="home_products--product-detail" href="" *ngIf="th==='tieuhoa'">
                             <img src="/assets/image/home/product1.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -394,7 +394,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='chamsoclamdep'">
+                        <a class="home_products--product-detail" href="" *ngIf="th==='chamsoclamdep'">
                             <img src="/assets/image/home/product2.png" alt="">
                             <p class="home_products--product-detail-name" >Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price" href="">220.000đ</p>
@@ -402,7 +402,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='chamsoclamdep'">
+                        <a class="home_products--product-detail" href="" *ngIf="th==='chamsoclamdep'">
                             <img src="/assets/image/home/product2.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -410,7 +410,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='chamsoclamdep'">
+                        <a class="home_products--product-detail" href="" *ngIf="th==='chamsoclamdep'">
                             <img src="/assets/image/home/product2.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -418,7 +418,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='chamsoclamdep'">
+                        <a class="home_products--product-detail" href="" *ngIf="th==='chamsoclamdep'">
                             <img src="/assets/image/home/product2.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -426,7 +426,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a    class="home_products--product-detail" href="" *ngIf="id==='chamsoclamdep'">
+                        <a    class="home_products--product-detail" href="" *ngIf="th==='chamsoclamdep'">
                             <img src="/assets/image/home/product2.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -435,7 +435,7 @@
                             </div>
                         </a>
 
-                        <a class="home_products--product-detail" href="" *ngIf="id==='dieutri'">
+                        <a class="home_products--product-detail" href="" *ngIf="th==='dieutri'">
                             <img src="/assets/image/home/product3.png" alt="">
                             <p class="home_products--product-detail-name" >Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price" href="">220.000đ</p>
@@ -443,7 +443,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='dieutri'">
+                        <a class="home_products--product-detail" href="" *ngIf="th==='dieutri'">
                             <img src="/assets/image/home/product3.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -451,7 +451,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='dieutri'">
+                        <a class="home_products--product-detail" href="" *ngIf="th==='dieutri'">
                             <img src="/assets/image/home/product3.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -459,7 +459,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='dieutri'">
+                        <a class="home_products--product-detail" href="" *ngIf="th==='dieutri'">
                             <img src="/assets/image/home/product3.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -467,7 +467,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a    class="home_products--product-detail" href="" *ngIf="id==='dieutri'">
+                        <a    class="home_products--product-detail" href="" *ngIf="th==='dieutri'">
                             <img src="/assets/image/home/product3.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -475,7 +475,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='timmach'">
+                        <a class="home_products--product-detail" href="" *ngIf="th==='timmach'">
                             <img src="/assets/image/home/product4.png" alt="">
                             <p class="home_products--product-detail-name" >Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price" href="">220.000đ</p>
@@ -483,7 +483,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='timmach'">
+                        <a class="home_products--product-detail" href="" *ngIf="th==='timmach'">
                             <img src="/assets/image/home/product4.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -491,7 +491,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='timmach'">
+                        <a class="home_products--product-detail" href="" *ngIf="th==='timmach'">
                             <img src="/assets/image/home/product4.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -499,7 +499,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='timmach'">
+                        <a class="home_products--product-detail" href="" *ngIf="th==='timmach'">
                             <img src="/assets/image/home/product4.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -507,7 +507,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a    class="home_products--product-detail" href="" *ngIf="id==='timmach'">
+                        <a    class="home_products--product-detail" href="" *ngIf="th==='timmach'">
                             <img src="/assets/image/home/product4.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -515,7 +515,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='caithienchucnang'">
+                        <a class="home_products--product-detail" href="" *ngIf="th==='caithienchucnang'">
                             <img src="/assets/image/home/product5.png" alt="">
                             <p class="home_products--product-detail-name" >Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price" href="">220.000đ</p>
@@ -523,7 +523,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='caithienchucnang'">
+                        <a class="home_products--product-detail" href="" *ngIf="th==='caithienchucnang'">
                             <img src="/assets/image/home/product5.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -531,7 +531,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='caithienchucnang'">
+                        <a class="home_products--product-detail" href="" *ngIf="th==='caithienchucnang'">
                             <img src="/assets/image/home/product5.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -539,7 +539,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='caithienchucnang'">
+                        <a class="home_products--product-detail" href="" *ngIf="th==='caithienchucnang'">
                             <img src="/assets/image/home/product5.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -547,7 +547,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a    class="home_products--product-detail" href="" *ngIf="id==='caithienchucnang'">
+                        <a    class="home_products--product-detail" href="" *ngIf="th==='caithienchucnang'">
                             <img src="/assets/image/home/product5.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -562,26 +562,26 @@
                     </div>
                     <div class="products-category">
 
-                            <a class="products-category--detail"  id="chamsoccothe" [class.active]="id === 'chamsoccothe'" (click)="tabChange('chamsoccothe')" >
+                            <a class="products-category--detail"  nk="chamsoccothe" [class.active]="csct === 'chamsoccothe'" (click)="tabChamsoccothe('chamsoccothe')" >
                                 Chăm sóc cơ thể
                             </a>
-                            <a class="products-category--detail"  id="chamsocdamat" [class.active]="id === 'chamsocdamat'" (click)="tabChange('chamsocdamat')" >
+                            <a class="products-category--detail"  csct="chamsocdamat" [class.active]="csct === 'chamsocdamat'" (click)="tabChamsoccothe('chamsocdamat')" >
                                 Chăm sóc da mặt
                             </a>
-                            <a class="products-category--detail"  id="chamsoctoc" [class.active]="id === 'chamsoctoc'" (click)="tabChange('chamsoctoc')" >
+                            <a class="products-category--detail"  csct="chamsoctoc" [class.active]="csct === 'chamsoctoc'" (click)="tabChamsoccothe('chamsoctoc')" >
                                 Chăm sóc tóc
                             </a>
-                            <a class="products-category--detail"  id="mypham" [class.active]="id === 'mypham'" (click)="tabChange('mypham')" >
+                            <a class="products-category--detail"  csct="mypham" [class.active]="csct === 'mypham'" (click)="tabChamsoccothe('mypham')" >
                                 Mỹ phẩm
                             </a>
-                            <a class="products-category--detail"  id="tinhtrangda" [class.active]="id === 'tinhtrangda'" (click)="tabChange('tinhtrangda')" >
+                            <a class="products-category--detail"  csct="tinhtrangda" [class.active]="csct === 'tinhtrangda'" (click)="tabChamsoccothe('tinhtrangda')" >
                                Tình trạng da
                             </a>
 
                     </div>
 
                     <div class="home_products--product">
-                        <a class="home_products--product-detail" href="" *ngIf="id==='chamsoccothe'">
+                        <a class="home_products--product-detail" href="" *ngIf="csct==='chamsoccothe'">
                             <img src="/assets/image/home/product1.png" alt="">
                             <p class="home_products--product-detail-name" >Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price" href="">220.000đ</p>
@@ -589,7 +589,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='chamsoccothe'">
+                        <a class="home_products--product-detail" href="" *ngIf="csct==='chamsoccothe'">
                             <img src="/assets/image/home/product1.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -597,7 +597,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='chamsoccothe'">
+                        <a class="home_products--product-detail" href="" *ngIf="csct==='chamsoccothe'">
                             <img src="/assets/image/home/product1.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -605,7 +605,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='chamsoccothe'">
+                        <a class="home_products--product-detail" href="" *ngIf="csct==='chamsoccothe'">
                             <img src="/assets/image/home/product1.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -613,7 +613,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a    class="home_products--product-detail" href="" *ngIf="id==='chamsoccothe'">
+                        <a    class="home_products--product-detail" href="" *ngIf="csct==='chamsoccothe'">
                             <img src="/assets/image/home/product1.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -621,7 +621,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='chamsocdamat'">
+                        <a class="home_products--product-detail" href="" *ngIf="csct==='chamsocdamat'">
                             <img src="/assets/image/home/product2.png" alt="">
                             <p class="home_products--product-detail-name" >Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price" href="">220.000đ</p>
@@ -629,7 +629,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='chamsocdamat'">
+                        <a class="home_products--product-detail" href="" *ngIf="csct==='chamsocdamat'">
                             <img src="/assets/image/home/product2.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -637,7 +637,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='chamsocdamat'">
+                        <a class="home_products--product-detail" href="" *ngIf="csct==='chamsocdamat'">
                             <img src="/assets/image/home/product2.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -645,7 +645,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='chamsocdamat'">
+                        <a class="home_products--product-detail" href="" *ngIf="csct==='chamsocdamat'">
                             <img src="/assets/image/home/product2.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -653,7 +653,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a    class="home_products--product-detail" href="" *ngIf="id==='chamsocdamat'">
+                        <a    class="home_products--product-detail" href="" *ngIf="csct==='chamsocdamat'">
                             <img src="/assets/image/home/product2.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -662,7 +662,7 @@
                             </div>
                         </a>
 
-                        <a class="home_products--product-detail" href="" *ngIf="id==='chamsoctoc'">
+                        <a class="home_products--product-detail" href="" *ngIf="csct==='chamsoctoc'">
                             <img src="/assets/image/home/product3.png" alt="">
                             <p class="home_products--product-detail-name" >Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price" href="">220.000đ</p>
@@ -670,7 +670,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='chamsoctoc'">
+                        <a class="home_products--product-detail" href="" *ngIf="csct==='chamsoctoc'">
                             <img src="/assets/image/home/product3.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -678,7 +678,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='chamsoctoc'">
+                        <a class="home_products--product-detail" href="" *ngIf="csct==='chamsoctoc'">
                             <img src="/assets/image/home/product3.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -686,7 +686,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='chamsoctoc'">
+                        <a class="home_products--product-detail" href="" *ngIf="csct==='chamsoctoc'">
                             <img src="/assets/image/home/product3.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -694,7 +694,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a    class="home_products--product-detail" href="" *ngIf="id==='chamsoctoc'">
+                        <a    class="home_products--product-detail" href="" *ngIf="csct==='chamsoctoc'">
                             <img src="/assets/image/home/product3.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -702,7 +702,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='mypham'">
+                        <a class="home_products--product-detail" href="" *ngIf="csct==='mypham'">
                             <img src="/assets/image/home/product4.png" alt="">
                             <p class="home_products--product-detail-name" >Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price" href="">220.000đ</p>
@@ -710,7 +710,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='mypham'">
+                        <a class="home_products--product-detail" href="" *ngIf="csct==='mypham'">
                             <img src="/assets/image/home/product4.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -718,7 +718,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='mypham'">
+                        <a class="home_products--product-detail" href="" *ngIf="csct==='mypham'">
                             <img src="/assets/image/home/product4.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -726,7 +726,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='mypham'">
+                        <a class="home_products--product-detail" href="" *ngIf="csct==='mypham'">
                             <img src="/assets/image/home/product4.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -734,7 +734,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a    class="home_products--product-detail" href="" *ngIf="id==='mypham'">
+                        <a    class="home_products--product-detail" href="" *ngIf="csct==='mypham'">
                             <img src="/assets/image/home/product4.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -742,7 +742,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='tinhtrangda'">
+                        <a class="home_products--product-detail" href="" *ngIf="csct==='tinhtrangda'">
                             <img src="/assets/image/home/product5.png" alt="">
                             <p class="home_products--product-detail-name" >Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price" href="">220.000đ</p>
@@ -750,7 +750,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='tinhtrangda'">
+                        <a class="home_products--product-detail" href="" *ngIf="csct==='tinhtrangda'">
                             <img src="/assets/image/home/product5.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -758,7 +758,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='tinhtrangda'">
+                        <a class="home_products--product-detail" href="" *ngIf="csct==='tinhtrangda'">
                             <img src="/assets/image/home/product5.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -766,7 +766,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='tinhtrangda'">
+                        <a class="home_products--product-detail" href="" *ngIf="csct==='tinhtrangda'">
                             <img src="/assets/image/home/product5.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -774,7 +774,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a    class="home_products--product-detail" href="" *ngIf="id==='tinhtrangda'">
+                        <a    class="home_products--product-detail" href="" *ngIf="csct==='tinhtrangda'">
                             <img src="/assets/image/home/product5.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -789,26 +789,26 @@
                     </div>
                     <div class="products-category">
 
-                            <a class="products-category--detail"  id="nhietke" [class.active]="id === 'nhietke'" (click)="tabChange('nhietke')" >
+                            <a class="products-category--detail"  nk="nhietke" [class.active]="nk === 'nhietke'" (click)="tabNhietke('nhietke')" >
                                 Nhiệt kế
                             </a>
-                            <a class="products-category--detail"  id="maydohuyetap" [class.active]="id === 'maydohuyetap'" (click)="tabChange('maydohuyetap')" >
+                            <a class="products-category--detail"  nk="maydohuyetap" [class.active]="nk === 'maydohuyetap'" (click)="tabNhietke('maydohuyetap')" >
                                 Máy đo huyết áp
                             </a>
-                            <a class="products-category--detail"  id="maydoduonghuyet" [class.active]="id === 'maydoduonghuyet'" (click)="tabChange('maydoduonghuyet')" >
+                            <a class="products-category--detail"  nk="maydoduonghuyet" [class.active]="nk === 'maydoduonghuyet'" (click)="tabNhietke('maydoduonghuyet')" >
                                 Máy đo đường huyết
                             </a>
-                            <a class="products-category--detail"  id="khautrang" [class.active]="id === 'khautrang'" (click)="tabChange('khautrang')" >
+                            <a class="products-category--detail"  nk="khautrang" [class.active]="nk === 'khautrang'" (click)="tabNhietke('khautrang')" >
                                 Khẩu trang
                             </a>
-                            <a class="products-category--detail"  id="kittestcovid" [class.active]="id === 'kittestcovid'" (click)="tabChange('kittestcovid')" >
-                               Kit test covid
+                            <a class="products-category--detail"  nk="kittestcovid" [class.active]="nk === 'kittestcovid'" (click)="tabNhietke('kittestcovid')" >
+                               Kit test covnk
                             </a>
 
                     </div>
 
                     <div class="home_products--product">
-                        <a class="home_products--product-detail" href="" *ngIf="id==='nhietke'">
+                        <a class="home_products--product-detail" href="" *ngIf="nk==='nhietke'">
                             <img src="/assets/image/home/product1.png" alt="">
                             <p class="home_products--product-detail-name" >Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price" href="">220.000đ</p>
@@ -816,7 +816,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='nhietke'">
+                        <a class="home_products--product-detail" href="" *ngIf="nk==='nhietke'">
                             <img src="/assets/image/home/product1.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -824,7 +824,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='nhietke'">
+                        <a class="home_products--product-detail" href="" *ngIf="nk==='nhietke'">
                             <img src="/assets/image/home/product1.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -832,7 +832,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='nhietke'">
+                        <a class="home_products--product-detail" href="" *ngIf="nk==='nhietke'">
                             <img src="/assets/image/home/product1.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -840,7 +840,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a    class="home_products--product-detail" href="" *ngIf="id==='nhietke'">
+                        <a    class="home_products--product-detail" href="" *ngIf="nk==='nhietke'">
                             <img src="/assets/image/home/product1.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -848,7 +848,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='maydohuyetap'">
+                        <a class="home_products--product-detail" href="" *ngIf="nk==='maydohuyetap'">
                             <img src="/assets/image/home/product2.png" alt="">
                             <p class="home_products--product-detail-name" >Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price" href="">220.000đ</p>
@@ -856,7 +856,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='maydohuyetap'">
+                        <a class="home_products--product-detail" href="" *ngIf="nk==='maydohuyetap'">
                             <img src="/assets/image/home/product2.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -864,7 +864,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='maydohuyetap'">
+                        <a class="home_products--product-detail" href="" *ngIf="nk==='maydohuyetap'">
                             <img src="/assets/image/home/product2.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -872,7 +872,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='maydohuyetap'">
+                        <a class="home_products--product-detail" href="" *ngIf="nk==='maydohuyetap'">
                             <img src="/assets/image/home/product2.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -880,7 +880,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a    class="home_products--product-detail" href="" *ngIf="id==='maydohuyetap'">
+                        <a    class="home_products--product-detail" href="" *ngIf="nk==='maydohuyetap'">
                             <img src="/assets/image/home/product2.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -889,7 +889,7 @@
                             </div>
                         </a>
 
-                        <a class="home_products--product-detail" href="" *ngIf="id==='maydoduonghuyet'">
+                        <a class="home_products--product-detail" href="" *ngIf="nk==='maydoduonghuyet'">
                             <img src="/assets/image/home/product3.png" alt="">
                             <p class="home_products--product-detail-name" >Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price" href="">220.000đ</p>
@@ -897,7 +897,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='maydoduonghuyet'">
+                        <a class="home_products--product-detail" href="" *ngIf="nk==='maydoduonghuyet'">
                             <img src="/assets/image/home/product3.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -905,7 +905,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='maydoduonghuyet'">
+                        <a class="home_products--product-detail" href="" *ngIf="nk==='maydoduonghuyet'">
                             <img src="/assets/image/home/product3.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -913,7 +913,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='maydoduonghuyet'">
+                        <a class="home_products--product-detail" href="" *ngIf="nk==='maydoduonghuyet'">
                             <img src="/assets/image/home/product3.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -921,7 +921,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a    class="home_products--product-detail" href="" *ngIf="id==='maydoduonghuyet'">
+                        <a    class="home_products--product-detail" href="" *ngIf="nk==='maydoduonghuyet'">
                             <img src="/assets/image/home/product3.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -929,7 +929,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='khautrang'">
+                        <a class="home_products--product-detail" href="" *ngIf="nk==='khautrang'">
                             <img src="/assets/image/home/product4.png" alt="">
                             <p class="home_products--product-detail-name" >Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price" href="">220.000đ</p>
@@ -937,7 +937,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='khautrang'">
+                        <a class="home_products--product-detail" href="" *ngIf="nk==='khautrang'">
                             <img src="/assets/image/home/product4.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -945,7 +945,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='khautrang'">
+                        <a class="home_products--product-detail" href="" *ngIf="nk==='khautrang'">
                             <img src="/assets/image/home/product4.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -953,7 +953,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='khautrang'">
+                        <a class="home_products--product-detail" href="" *ngIf="nk==='khautrang'">
                             <img src="/assets/image/home/product4.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -961,7 +961,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a    class="home_products--product-detail" href="" *ngIf="id==='khautrang'">
+                        <a    class="home_products--product-detail" href="" *ngIf="nk==='khautrang'">
                             <img src="/assets/image/home/product4.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -969,7 +969,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='kittestcovid'">
+                        <a class="home_products--product-detail" href="" *ngIf="nk==='kittestcovid'">
                             <img src="/assets/image/home/product5.png" alt="">
                             <p class="home_products--product-detail-name" >Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price" href="">220.000đ</p>
@@ -977,7 +977,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='kittestcovid'">
+                        <a class="home_products--product-detail" href="" *ngIf="nk==='kittestcovid'">
                             <img src="/assets/image/home/product5.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -985,7 +985,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='kittestcovid'">
+                        <a class="home_products--product-detail" href="" *ngIf="nk==='kittestcovid'">
                             <img src="/assets/image/home/product5.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -993,7 +993,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a class="home_products--product-detail" href="" *ngIf="id==='kittestcovid'">
+                        <a class="home_products--product-detail" href="" *ngIf="nk==='kittestcovid'">
                             <img src="/assets/image/home/product5.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>
@@ -1001,7 +1001,7 @@
                                 <input type="button" value="CHỌN MUA" >
                             </div>
                         </a>
-                        <a    class="home_products--product-detail" href="" *ngIf="id==='kittestcovid'">
+                        <a    class="home_products--product-detail" href="" *ngIf="nk==='kittestcovid'">
                             <img src="/assets/image/home/product5.png" alt="">
                             <p class="home_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
                             <p class="home_products--product-detail-price">220.000đ</p>

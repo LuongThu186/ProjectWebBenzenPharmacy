@@ -13,6 +13,7 @@ import { CategoryComponent } from './category/category.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PaymentComponent } from './payment/payment.component';
 import { OrderdetailComponent } from './orderdetail/orderdetail.component';
+import { InforComponent } from './infor/infor.component';
 
 const routes: Routes = [
   {path:"app-home", component:HomeComponent},
@@ -27,7 +28,8 @@ const routes: Routes = [
   {path:"app-category", component:CategoryComponent},
   {path:"app-payment", component: PaymentComponent},
   {path:"app-profile", component: ProfileComponent},
-  {path:"app-orderdetail", component: OrderdetailComponent}
+  {path:"app-orderdetail", component: OrderdetailComponent},
+  {path:"app-infor", component: InforComponent}
 
 ];
 
