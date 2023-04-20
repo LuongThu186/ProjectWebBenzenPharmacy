@@ -1,0 +1,152 @@
+.body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+.main-right{
+    background-color: #EAEAEA;
+    position: fixed;
+    left: 15%;
+    top: 0;
+    width: 85%;
+    height: 100%;
+    
+}
+.admin-info{
+    position: absolute;
+    width: 100px;
+    right: 60px;
+    display: flex;
+    align-items: center;
+}
+.admin-ava{
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    float: right;
+    padding: 10px
+}
+.material-icons-outlined{
+    float: left;
+}
+.admin-name{
+    float: left;
+    width: 20px;
+    height: 20px;
+    padding-right: 20px;
+    padding-left: 10px;
+    text-align: center;
+}
+.page-title{
+    margin: 50px 0 20px 80px;
+    font-weight: bold;
+    font-size: 35px;
+}
+.page-body{
+    background-color: #FFFF;
+    margin: 0 80px;
+    border-radius: 5px;
+}
+
+.page-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 5px;
+}
+.page-title-main{
+    font-size: 25px;
+}
+.page-body-title{
+    margin-top: 50px;
+    margin-left: 60px;
+    font-weight: bold;
+    font-size: 35px;
+}
+#search{
+    color: #f2f2f2;
+    border-radius: 25px;
+    margin-right: 80px;
+    height: 30px;
+    width: 220px;
+}
+.page-body-header{
+    height: 200px;
+    
+}
+.cus-info-title{
+    font-size: 15px;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.cus-info-content{
+    display: flex;
+}
+.cus-image{
+    width: 25%;;
+    display:block;
+}
+.cus-img{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    padding: 20px 10px;
+    margin: 0 auto;
+}
+.cus-point{
+    font-size: 16px;
+    text-align: center;
+    padding-top: 5px;
+    margin: 0;
+}
+#point{
+    color: #2D982A;
+    font-weight: bold;
+}
+.cus-info-data{
+    width:75%;
+    display: block;
+    list-style: none;
+    text-decoration: none;
+    left:0;
+    padding: 0;
+    margin: 8px;
+
+}
+.cus-info-data-detail{
+    display: flex;
+    align-items: center;
+	font-size: 14px;
+    text-decoration: none;
+    flex-direction: row;
+    margin: 5px 0;
+    padding-left: 150px;
+    color:#000000;
+}
+.cus-title{
+	display: inline-block;
+    left: 0px;
+    width: 150px;
+    height: 20px;
+    font-weight: bold;
+}
+.cus-data{
+    margin-left: 20px;
+    width: 150px;
+    height: 20px;
+}
+
+.page-history-order{
+    background-color:#FFFF;
+    border-radius: 5px;
+    margin-top: 5px;
+    height: 380px;
+}
+.his-order-title{
+    font-size: 15px;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-left: 10px;
+}

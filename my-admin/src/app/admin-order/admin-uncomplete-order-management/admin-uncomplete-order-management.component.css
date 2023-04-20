@@ -1,0 +1,117 @@
+.main-right{
+    background: #EAEAEA;
+    position: fixed;
+    left: 15%;
+    top: 0;
+    width: 85%;
+    height: 100%;
+    padding: 20px 0;
+}
+.admin-info{
+    position: absolute;
+    width: 100px;
+    right: 60px;
+    display: flex;
+    align-items: center;
+}
+.admin-ava{
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    float: right;
+    padding: 10px
+}
+.material-icons-outlined{
+    float: left;
+}
+.admin-name{
+    float: left;
+    width: 20px;
+    height: 20px;
+    padding-right: 20px;
+    padding-left: 10px;
+    text-align: center;
+}
+.page-title{
+    font-size: 20px;
+    margin-top: 50px;
+    margin-left: 20px;
+    font-weight: bold;
+}
+.page-body{
+    margin: 50px 0 20px 80px;
+    font-weight: bold;
+    font-size: 35px;
+}
+.page-body-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 5px;
+}
+.title__main{
+    font-size: 25px;
+}
+.page-body-title{
+    margin-top: 50px;
+    margin-left: 60px;
+    font-weight: bold;
+    font-size: 35px;
+}
+#search{
+    color: #f2f2f2;
+    border-radius: 25px;
+    margin-right: 20px;
+}
+#unorders{
+    text-align: center;
+    width: 100%;
+}
+#unorders th{
+    text-align: center;
+    background-color: #dcf4db;
+    border: 1px solid #dcf4db;
+    color: black;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding: 8px;
+}
+#unorders td {
+    padding: 8px;
+    text-align: center;
+}
+#unorders tr:nth-child(even){background-color: #f2f2f2}
+
+#unorders tr:hover {background-color: #FFFF}
+
+#check{
+    border: none;
+    cursor: pointer;
+}
+
+#cancel{
+    border: none;
+    cursor: pointer;
+}
+#visual tr:nth-child(even){background-color: #f2f2f2}
+
+#visual tr:hover {background-color: #FFFF}
+
+.page-body-nav a {
+    margin-top: 20px;
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border-radius: 5px;
+  }
+  
+  .page-body-nav a.active {
+    background-color: #225730;
+    color: white;
+  }
+  .page-body-nav a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+  }
