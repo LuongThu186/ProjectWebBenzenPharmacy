@@ -260,7 +260,7 @@ margin-bottom: 25px;
     margin-bottom: 20px;
 }
 .content__address--item{
-    height: 150px;
+    height: max-content;
     width: 831px;
     display: flex;
     flex-direction: column;
@@ -285,16 +285,35 @@ margin-bottom: 25px;
 .address__title--infor p:nth-child(1), .address__title--infor p:nth-child(3){
     font-weight: bold;
 }
-.address__title button{
+.address__function{
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    float: right;
+    display: flex;;
+}
+.address__function button{
     width: 100px;
 box-sizing: border-box;
 background: #F2F2F2;
 border: 1px solid #000000;
 border-radius: 15px;
-position: relative;
-float: right;
 height: -webkit-fill-available;
 }
+.address__function button:nth-child(2){
+    width: fit-content;
+    border: none;
+    height: -webkit-fill-available;
+}
+.address__function button:nth-child(2) .material-symbols-outlined {
+   font-variation-settings:
+  'FILL' 1,
+  'wght' 600,
+  'GRAD' -25,
+  'opsz' 48;
+  color: #7C7C7C;
+}
+
 .address__add{
     text-align: center;
     margin-bottom: 20px;
@@ -308,7 +327,114 @@ border-radius: 20px;
 font-weight: 400;
 border: none;
 }
-
+.address__content--row{
+    width: max-content;
+}
+.address__row--top{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    justify-content: space-between;
+    
+}
+.address__row--top label, .address__row--bottom label{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-between;
+}
+.address__row--top label .material{
+    width: 7px;
+    height: 16px;
+    
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    align-items:flex-start;
+    float: right;
+    color: #FF0F0F;   
+}
+.address__content--row div label input{
+    font-size: 14px;
+}
+.address__content--row{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+.address__row--bottom{
+    width:initial
+}
+.address__row--bottom label div{
+    width:inherit;
+    float: right;
+    position: relative;
+    display: flex;
+    gap: 10px
+}
+.address__row--bottom label div input{
+    width: 600px;
+}
+.address__content--row label{
+    align-self: self-start;
+}
+.address__row--bottom label .material{
+    width: 7px;
+    height: 16px;
+    
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    align-items:flex-start;
+    float: right;
+    color: #FF0F0F;   
+}
+.address__button--function button:nth-child(1){
+    margin-left: 10px;
+    background: #2D982A;
+    border-radius: 15px;
+    color: #FFFFFF;
+    font-weight: bold;
+    border: none;
+}
+.address__button--function button:nth-child(2){
+    background: #E0F8E4;
+border: 1px solid #2D982A;
+border-radius: 15px;
+color: #2D982A;
+font-weight: bold;
+}
+.address__button--function{
+    position: relative;
+    float: right;
+  
+}
+.address__button--function button{
+    width: fit-content;
+    padding: 0 30px;
+    float: right;
+    margin: 5px 10px;
+}
+.content__address--item:last-child{
+    padding: 30px 40px;
+    display: flex;
+}
+/* .content__address--item--add{
+    padding: 30px 40px;
+    text-align: right;
+    height: max-content;
+    width: 831px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #DFDFDF;
+    background: #F8F8F8;
+    border-radius: 15px;
+} */
 
 /* CSS content order history*/
 .box__content--value{

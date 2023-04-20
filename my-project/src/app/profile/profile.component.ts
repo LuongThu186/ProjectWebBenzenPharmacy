@@ -46,7 +46,10 @@ export class ProfileComponent {
     this.phoneEdit=this.phone;
     this.birthdayEdit = this.birthday;
     this.emailEdit = this.email;
+
     this.editing = true;
+    this.adding = false;
+    this.editingAddress=false;
   }
 
   saveInfor() {
@@ -55,6 +58,7 @@ export class ProfileComponent {
     this.phone=this.phoneEdit;
     this.birthday = this.birthdayEdit;
     this.email = this.emailEdit;
+
     this.editing = false;
   }
 
@@ -67,14 +71,86 @@ export class ProfileComponent {
     };
   }
 
-  // src="" 
   cancelEdit() {
     this.name = this.name;
     this.gender = this.gender;
     this.phone=this.phone;
     this.birthday = this.birthday;
     this.email = this.email;
+
     this.editing = false;
+  }
+
+
+  nameAddress = 'Nhà thuốc Benzen';
+  phoneAddress = '0332583xxx';
+  addressDelivery='Số 669, QL1, Khu phố 3, Phường Linh Xuân, Quận Thủ Đức, Thành phố Hồ Chí Minh Số 669, QL1, Khu phố 3, Phường Linh Xuân, Quận Thủ Đức, Thành phố Hồ Chí Minh ';
+  defaultAddress = 'true';
+
+  nameAddressAdd: string='';
+  phoneAddressAdd='';
+  addressDeliveryAdd: string='';
+
+  nameAddressNew: string='';
+  phoneAddressNew='';
+  addressDeliveryNew: string='';
+
+  adding =false;
+  addNewAddress=false
+// haha làm sai rồi chỉnh dùm đi chỉnh sao khum có biết - Thêm đia chỉ
+  addAddress(){
+    this.nameAddressAdd = ' ';
+    this.phoneAddressAdd= ' ';
+    this.addressDeliveryAdd = ' ';
+
+    this.adding = true;
     this.editing = false;
+    this.editingAddress=false;
+  }
+
+  saveAddress(){
+    this.nameAddressNew = this.nameAddressAdd;
+    this.phoneAddressNew=this.phoneAddressAdd;
+    this.addressDeliveryNew = this.addressDeliveryAdd;
+
+    this.adding= false;
+    this.addNewAddress=true
+  }
+
+  cancelAddress(){
+    this.nameAddress = ' ';
+    this.phoneAddress= ' ';
+    this.addressDelivery = ' ';
+
+    this.adding = false;
+  }
+  // edit địa chỉ
+  nameAddressEdit: string=' ';
+  phoneAddressEdit= '';
+  addressDeliveryEdit: string='';
+  editingAddress=false;
+
+  editAddress(){
+    this.nameAddressEdit = this.nameAddress;
+    this.phoneAddressEdit=this.phoneAddress;
+    this.addressDeliveryEdit = this.addressDelivery;
+
+    this.editingAddress = true;
+    this.adding = false;
+    this.editing = false;
+  }
+  saveEditAddress(){
+    this.nameAddress = this.nameAddressEdit;
+    this.phoneAddress=this.phoneAddressEdit;
+    this.addressDelivery = this.addressDeliveryEdit;
+
+    this.editingAddress= false;
+  }
+  cancelEditAddress() {
+    this.nameAddress = this.nameAddress;
+    this.phoneAddress=this.phoneAddress;
+    this.addressDelivery = this.addressDelivery;
+    
+    this.editingAddress = false;
   }
 }
