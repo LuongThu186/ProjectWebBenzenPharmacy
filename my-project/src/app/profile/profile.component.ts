@@ -118,9 +118,6 @@ export class ProfileComponent {
   }
 
   cancelAddress(){
-    this.nameAddress = ' ';
-    this.phoneAddress= ' ';
-    this.addressDelivery = ' ';
 
     this.adding = false;
   }
@@ -150,7 +147,7 @@ export class ProfileComponent {
     this.nameAddress = this.nameAddress;
     this.phoneAddress=this.phoneAddress;
     this.addressDelivery = this.addressDelivery;
-    
+
     this.editingAddress = false;
   }
 }
