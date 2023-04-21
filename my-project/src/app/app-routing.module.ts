@@ -30,9 +30,7 @@ const routes: Routes = [
   {path:"app-payment", component: PaymentComponent},
   {path:"app-profile", component: ProfileComponent},
   {path:"app-orderdetail", component: OrderdetailComponent},
-  {path:"app-infor", component: InforComponent},
-  {path:"app-chatbox", component: ChatboxComponent}
-
+  {path:"app-infor", component: InforComponent}
 
 ];
 

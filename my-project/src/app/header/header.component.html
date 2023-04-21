@@ -1,117 +1,124 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <title></title>
-</head>
-<body>
-    <div class="header" id="header">
-        <div class="header__infor">
-            <span class="header__infor--iconClose">&times;</span>
-            <p class="header__infor--content">
-                MUA HÀNG TÍCH LŨY - NHẬN NGAY NHIỀU ƯU ĐÃI
-                <br>
-                <span class="header__infor--time">Đăng ký thành viên ngay <a href="app-login">tại đây!</a></span>
-            </p>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<div class="header" id="header">
+    <div class="header__infor">
+        <span class="header__infor--iconClose">&times;</span>
+        <p class="header__infor--content">
+            MUA HÀNG TÍCH LŨY - NHẬN NGAY NHIỀU ƯU ĐÃI
+            <br>
+            <span class="header__infor--time">Đăng ký thành viên ngay <a href="app-signup">tại đây!</a></span>
+        </p>
+    </div>
+    <div class="header__content">
+        <div class="header__content--logo">
+            <img src="assets/image/header/LogoBenzen.png">
         </div>
-        <div class="header__content">
-            <div class="header__content--logo">
-                <img src="assets/image/header/LogoBenzen.png">
-            </div>
-            <div class="header__content--list">
-                <div class="content__top">
-                    <div class="content__top--menu">
-                        <nav>
-                            <ul>
-                              <li><a href="app-home">Trang chủ</a></li>
-                              <li><a href="app-infor">Giới thiệu</a></li>
-                              <li><a href="app-infor">Thể lệ tích điểm</a></li>
-                              <li><a href="app-infor">Hỗ trợ</a></li>
-                            </ul>
-                          </nav>
-                    </div>
-                </div>
-                <div class="content__bottom">
-                    <div class="search">
-                        <span class="material-icons">search</span>
-                        <input type="text" placeholder="  Search..." >
-                    </div>
+        <div class="header__content--list">
+            <div class="content__top">
+                <div class="content__top--menu">
+                    <nav>
+                        <ul>
+                          <li><a href="app-home">Trang chủ</a></li>
+                          <li><a [routerLink]="['app-infor', { id: 'overview'}]" >Giới thiệu</a></li>
+                          <li><a [routerLink]="['app-infor', { id: 'memberpoint'}]" >Thể lệ tích điểm</a></li>
+                          <li><a [routerLink]="['app-infor', { id: 'instruction'}]" >Mua hàng Online</a></li>
+                        </ul>
+                      </nav>
                 </div>
             </div>
-            <div class="header__content--function">
-                <div class="content__top--signIn">
-                    <p class="hotLine"><span>Hotline: </span>1800 29YY</p>
-                    <div class="box--signIn"  onclick="window.location='app-login'">
+            <div class="content__bottom">
+                <div class="search">
+                    <span class="material-icons">search</span>
+                    <input type="text" placeholder="  Search..." >
+                </div>
+            </div>
+        </div>
+        <div class="header__content--function">
+            <div class="content__top--signIn">
+                <p class="hotLine"><span>Hotline: </span>1800 29YY</p>
+                <div class="dropdown--signIn">
+
+                    <!-- CHƯA ĐĂNG NHẬP -->
+
+                    <!-- <div class="content__dropdown--signIn" onclick="window.location='app-login'">
                         <p class="signIn">Đăng nhập</p>
                         <span class="material-icons">account_circle</span>
+                    </div> -->
+
+                    <!-- ĐĂNG NHẬP RỒI -->
+
+                    <div class="content__dropdown--signIn">
+                        <p class="signIn">Nhà thuốc Benzen</p>
+                        <span class="material-icons"><img src="assets/image/profile/avt.png"></span>
                     </div>
+                    <ul class="dropdown__menu--item">
+                        <li><a href="app-profile">Trang cá nhân</a></li>
+                        <li><a href="app-change-psw">Đổi mật khẩu</a></li>
+                        <li><a href="#">Đăng xuất <span class="material-symbols-outlined">logout</span></a></li>
+                    </ul>
                 </div>
-                <div class="content__bottom--button">
-                    <div class="history" onclick="window.location='app-profile'">
-                        <span class="material-icons">description</span>
-                        <span class="text">Lịch sử đơn hàng</span>
-                    </div>
-                    <div class="cart" onclick="window.location='app-shopping_cart'">
-                        <p class="text">Giỏ hàng</p>
-                        <span class="material-icons">shopping_cart</span>
-                    </div>
+            </div>
+            <div class="content__bottom--button">
+                <div class="history" onclick="window.location='app-profile'">
+                    <span class="material-icons">description</span>
+                    <span class="text">Lịch sử đơn hàng</span>
+                </div>
+                <div class="cart" onclick="window.location='app-shopping_cart'">
+                    <p class="text">Giỏ hàng</p>
+                    <span class="material-icons">shopping_cart</span>
                 </div>
             </div>
         </div>
-        <!-- <div class="header__navbar">
-            <div onclick="window.location='app-category'">
-                <p>THUỐC <span class="material-icons">arrow_drop_down</span></p>
-            </div>
-            <div onclick="window.location='app-category'">
-                <p>THỰC PHẨM CHỨC NĂNG <span class="material-icons">arrow_drop_down</span></p>
-            </div>
-            <div onclick="window.location='app-category'">
-                <p>DƯỢC-MỸ PHẨM <span class="material-icons">arrow_drop_down</span></p>
-            </div>
-            <div onclick="window.location='app-category'">
-                <p>THIẾT BỊ Y TẾ <span class="material-icons">arrow_drop_down</span></p>
-            </div> -->
-
-            <div class="header__navbar">
-                <nav class="menu">
-                  <ul>
-                    <li class="dropdown">
-                      <a href="#">THUỐC </a> <span class="material-icons">expand_more</span>
-                      <ul class="dropdown-menu">
-                        <li><a href="#">XEM TẤT CẢ THUỐC</a></li>
-                        <li><a href="#">Option 2</a></li>
-                      </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#">THỰC PHẨM CHỨC NĂNG </a> <span class="material-icons">expand_more</span>
-                        <ul class="dropdown-menu">
-                          <li><a href="#">XEM TẤT CẢ THỰC PHẨM CHỨC NĂNG</a></li>
-                          <li><a href="#">Option 2</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#">DƯỢC - MỸ PHẨM </a> <span class="material-icons">expand_more</span>
-                        <ul class="dropdown-menu">
-                          <li><a href="#">XEM TẤT CẢ DƯỢC - MỸ PHẨM</a></li>
-                          <li><a href="#">Option 2</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown">
-                        <a href="#">THIẾT BỊ Y TẾ </a> <span class="material-icons">expand_more</span>
-                        <ul class="dropdown-menu">
-                          <li><a href="#">XEM TẤT CẢ THIẾT BỊ Y TẾ</a></li>
-                          <li><a href="#">Option 2</a></li>
-                        </ul>
-                    </li>
-                  </ul>
-                </nav>
-            </div>
-
     </div>
-</body>
-</html>
+    <!-- <div class="header__navbar">
+        <div onclick="window.location='app-category'">
+            <p>THUỐC <span class="material-icons">arrow_drop_down</span></p>
+        </div>
+        <div onclick="window.location='app-category'">
+            <p>THỰC PHẨM CHỨC NĂNG <span class="material-icons">arrow_drop_down</span></p>
+        </div>
+        <div onclick="window.location='app-category'">
+            <p>DƯỢC-MỸ PHẨM <span class="material-icons">arrow_drop_down</span></p>
+        </div>
+        <div onclick="window.location='app-category'">
+            <p>THIẾT BỊ Y TẾ <span class="material-icons">arrow_drop_down</span></p>
+        </div> -->
+
+        <div class="header__navbar">
+            <nav class="menu">
+              <ul>
+                <li class="dropdown">
+                  <a href="#">THUỐC </a> <span class="material-icons">expand_more</span>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">XEM TẤT CẢ THUỐC</a></li>
+                    <li><a href="#">Option 2</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">THỰC PHẨM CHỨC NĂNG </a> <span class="material-icons">expand_more</span>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">XEM TẤT CẢ THỰC PHẨM CHỨC NĂNG</a></li>
+                      <li><a href="#">Option 2</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">DƯỢC - MỸ PHẨM </a> <span class="material-icons">expand_more</span>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">XEM TẤT CẢ DƯỢC - MỸ PHẨM</a></li>
+                      <li><a href="#">Option 2</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">THIẾT BỊ Y TẾ </a> <span class="material-icons">expand_more</span>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">XEM TẤT CẢ THIẾT BỊ Y TẾ</a></li>
+                      <li><a href="#">Option 2</a></li>
+                    </ul>
+                </li>
+              </ul>
+            </nav>
+        </div>
+
+</div>
 
