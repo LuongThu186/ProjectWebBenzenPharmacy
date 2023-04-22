@@ -17,7 +17,7 @@ import { InforComponent } from './infor/infor.component';
 
 const routes: Routes = [
   {path:"app-home", component:HomeComponent},
-  {path:"shopping-cart", component:ShoppingcartComponent},
+  {path:"app-shoppingcart", component:ShoppingcartComponent},
   {path:"app-signup", component: SignupComponent},
   {path:"app-login",component:LoginComponent},
   {path:"app-forgotpassword",component:ForgotpasswordComponent},
