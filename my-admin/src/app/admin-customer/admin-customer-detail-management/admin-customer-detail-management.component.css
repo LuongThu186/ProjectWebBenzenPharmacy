@@ -1,5 +1,7 @@
+*{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 .body{
-    font-family: Arial, Helvetica, sans-serif;
     margin: 0px;
     padding: 0px;
 }
@@ -10,7 +12,6 @@
     top: 0;
     width: 85%;
     height: 100%;
-
 }
 .admin-info{
     position: absolute;
@@ -47,7 +48,6 @@
     margin: 0 80px;
     border-radius: 5px;
 }
-
 .page-title{
     display: flex;
     align-items: center;
@@ -82,7 +82,6 @@
     border: none;
     padding: 4px;
     width: 100%;
-
 }
 .page-body-header{
     height: 200px;
@@ -127,7 +126,6 @@
     left:0;
     padding: 0;
     margin: 8px;
-
 }
 .cus-info-data-detail{
     display: flex;
@@ -163,4 +161,86 @@
     font-weight: bold;
     padding-top: 10px;
     padding-left: 10px;
+}
+.his-order-status{
+    overflow: hidden;
+    border: none;
+    background-color: #CEEFCD;
+    border-radius: 5px;
+    margin: 10px 80px;
+}
+.his-order-status button{
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 100px;
+    height: 28px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 100px;
+    text-align: center;
+}
+.his-order-status button:hover {
+    background-color: #CEEFCD;
+}
+.his-order-status button.active {
+    background-color: #91D88E;
+  }
+.tab_status{
+    text-align: center;
+}
+.order_detail{
+    border-radius: 10px;
+    width: 80px;
+    height: 20px;
+    font-size: 10px;
+    margin: 0 auto;
+    float: right;
+}
+.status_content__section{
+    display: block;
+    margin: 30px 80px;
+}
+.status_content__header{
+    display: flex;
+    align-items: center;
+    height: 20px;
+
+}
+.status_content__header p{
+    font-weight: bold;
+    font-size: 16px;
+    padding-left: 18px;
+    width: 754px
+}
+
+.status_content__data{
+    display: flex;
+    height: 45px;
+    line-height: 5px;
+    align-items: center;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+.status_content__data--img img{
+    width: 54px;
+    align-items: center;
+}
+.status_content__data--info{
+    height: 45px;
+    width: 718px;
+    display: block;
+    align-items: center;
+    font-size: 14px;
+}
+.status_content__data--name{
+    font-weight: bold;
+}
+.status_content__data--price{
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+    width: 213.6px;
 }

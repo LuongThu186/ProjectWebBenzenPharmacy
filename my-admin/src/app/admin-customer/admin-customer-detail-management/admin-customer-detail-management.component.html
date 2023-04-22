@@ -27,7 +27,6 @@
                 </span>
                 <input type="search" id="search" placeholder="Tìm kiếm..." />
             </div>
-
         </div>
         <div class="page-body">
             <div class="page-body-header">
@@ -38,7 +37,6 @@
                             <img class= "cus-img" src="assets/man.png">
                             <p class="cus-point">Điểm tích lũy: <span id="point">1.420.000</span></p>
                         </div>
-
                     <ul class="cus-info-data">
                         <li>
                             <a href="#" class="cus-info-data-detail">
@@ -51,7 +49,7 @@
                                 <span class="cus-title">Giới tính:</span>
                                 <span class="cus-data">Nam</span>
                             </a>
-                            </li>
+                        </li>
                         <li>
                             <a href="#" class="cus-info-data-detail">
                                 <span class="cus-title">Số điện thoại:</span>
@@ -77,13 +75,72 @@
                                 </a>
                         </li>
                     </ul>
+                    </div>
                 </div>
             </div>
             <div class="page-history-order">
                 <div class="his-order-title">Lịch sử mua hàng</div>
-            </div>
+                <div class="his-order-content">
+                    <div class="his-order-status">
+                        <button class="tab_status" onclick="status(event, 'Success')">Thành công</button>
+                        <button class="tab_status" onclick="status(event, 'Canceled')">Đã hủy</button>
+                    </div>
+                    <div class="status_content" id="Success">
+                        <div class="status_content__section">
+                            <div class="status_content__header">
+                                <p>Đơn hàng ngày 15/03/2023</p>
+                                <button class="order_detail" onclick>Xem chi tiết</button>
+                            </div>
+                            <hr>
+                            <div class="status_content__data">
+                                <div class="status_content__data--img">
+                                    <img src="/assets/product.jpg">
+                                </div>
+                                <div class="status_content__data--info">
+                                    <p class="status_content__data--name">Nat C 1000 hỗ trợ tăng đề kháng lọ 60 viên</p>
+                                    <p class="status_content__data--quanity">Số lượng: 1</p>
+                                </div>
+                                <div class="status_content__data--price">
+                                    <p>105.000đ</p>
+                                </div>
+                            </div>
+                            <div class="status_content__data">
+                                <div class="status_content__data--img">
+                                    <img src="/assets/product.jpg">
+                                </div>
+                                <div class="status_content__data--info">
+                                    <p class="status_content__data--name">Nat C 1000 hỗ trợ tăng đề kháng lọ 60 viên</p>
+                                    <p class="status_content__data--quanity">Số lượng: 2</p>
+                                </div>
+                                <div class="status_content__data--price">
+                                    <p>210.000đ</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="status_content__section">
+                            <div class="status_content__header">
+                                <p>Đơn hàng ngày 15/11/2022</p>
+                                <button class="order_detail" onclick>Xem chi tiết</button>
+                            </div>
+                            <hr>
+                            <div class="status_content__data">
+                                <div class="status_content__data--img">
+                                    <img src="/assets/product.jpg">
+                                </div>
+                                <div class="status_content__data--info">
+                                    <p class="status_content__data--name">Nat C 1000 hỗ trợ tăng đề kháng lọ 60 viên</p>
+                                    <p class="status_content__data--quanity">Số lượng: 1</p>
+                                </div>
+                                <div class="status_content__data--price">
+                                    <p>105.000đ</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 </body>
+

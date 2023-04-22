@@ -1,1 +1,122 @@
-<p>admin-order-detail-management works!</p>
+<html lang="en">
+<header>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</header>
+<body>
+    <a hrel="./navigate_bar"></a>
+    <div class="main">
+        <div class="main-left">
+            <a href=".navigate-bar"></a>
+        </div>
+        <div class="main-right">
+            <div class="admin-info">
+                <span class="material-icons-outlined">notifications</span>
+                <span class="admin-name">Admin</span>
+                <img src="assets/admin-avatar.png" class="admin-ava">
+            </div>
+            <div class="page-title">
+                <div class="page-title-main">
+                    <p> Chi tiết đơn hàng</p>
+                </div>
+                <div class="page-body-search">
+                    <span class="material-icons-outlined">search</span>
+                    <input type="search" id="search" placeholder="Tìm kiếm..." />
+                </div>
+            </div>
+            <div class="page-body">
+                <div class="page-body-header">
+                    <div class="order_info">
+                        <div class="order_info--detail">
+                            <p class="title"> Mã đơn hàng </p>
+                            <p class="data" id="ord_id"> #10002005 </p>
+                        </div>
+                        <hr>
+                        <div class="order_info--detail">
+                            <p class="title"> Ngày tạo đơn </p>
+                            <p class="data"> 02/06/2022 | 9:22 SA </p>
+                        </div>
+                        <hr>
+                        <div class="order_info--detail">
+                            <p class="title"> Kênh bán hàng </p>
+                            <p class="data"> WEB </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-body-content">
+                    <div class="page-body-table">
+                        <table class="order_table" >
+                            <thead class="table_title">
+                                <th>STT</th>
+                                <th>Ảnh</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Đơn giá</th>
+                                <th>Thành tiền</th>
+                            </thead>
+                            <tbody class="table_content">
+                                <tr class="table_data">
+                                    <td>1</td>
+                                    <td class="image"><img src="/assets/product.jpg"></td>
+                                    <td>Nat C 1000</td>
+                                    <td>1</td>
+                                    <td>90.000đ</td>
+                                    <td>90.000đ</td>
+                                </tr>
+                                <tr class="table_data">
+                                    <td>2</td>
+                                    <td class="image"><img src="/assets/product.jpg"></td>
+                                    <td>Nat C 1000</td>
+                                    <td>1</td>
+                                    <td>90.000đ</td>
+                                    <td>90.000đ</td>
+                                </tr>
+                                <tr class="table_data">
+                                    <td>3</td>
+                                    <td class="image"><img src="/assets/product.jpg"></td>
+                                    <td>Nat C 1000</td>
+                                    <td>3</td>
+                                    <td>27.000đ</td>
+                                    <td>81.000đ</td>
+                                </tr>
+                                <tr class="table_data">
+                                    <td colspan="5" class="total">Tổng cộng</td>
+                                    <td>413.000đ</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="order_action">
+                            <span><button id="approve" onclick="">Duyệt</button></span>
+                            <span><button id="cancel" onclick="">Hủy đơn</button></span>
+                        </div>
+                    </div>
+                    <div class="page-body-detail">
+                        <div class="order-info">
+                            <div>
+                                <p class="order-info-title">Thông tin người mua</p>
+                                <p>Khách hàng: Phan Kim Ngân</p>
+                                <p>Đã đặt: 1 đơn hàng</p>
+                            </div>
+                            <hr>
+                            <div class="deli-info">
+                                <p class="order-info-title">Thông tin giao hàng</p>
+                                <p>Sđt: 0333233456</p>
+                                <p>Địa chỉ: Rạch Giá - Kiên Giang</p>
+                            </div>
+                            <hr>
+                            <div class="note-info">
+                                <p class="order-info-title">Ghi chú về đơn hàng</p>
+                                <p id="note">Không có ghi chú</p>
+                            </div>
+                        
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
