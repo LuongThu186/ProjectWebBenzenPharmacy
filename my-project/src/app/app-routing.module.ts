@@ -15,6 +15,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { OrderdetailComponent } from './orderdetail/orderdetail.component';
 import { InforComponent } from './infor/infor.component';
 import { ChatboxComponent } from './chatbox/chatbox.component';
+import { PaymentKVLComponent } from './payment-kvl/payment-kvl.component';
 
 const routes: Routes = [
   {path:"app-home", component:HomeComponent},

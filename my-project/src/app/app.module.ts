@@ -29,6 +29,8 @@ import { SignupOTPComponent } from './signup/signup-otp/signup-otp.component';
 import { ResetpswComponent } from './forgotpassword/resetpsw/resetpsw.component';
 import { ChangePswComponent } from './profile/change-psw/change-psw.component';
 import { ProfileComponent } from './profile/profile.component';
+import { PaymentKVLComponent } from './payment-kvl/payment-kvl.component';
+import { TypeBankAccountComponent } from './type-bank-account/type-bank-account.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,8 @@ import { ProfileComponent } from './profile/profile.component';
     ResetpswComponent,
     ChangePswComponent,
     ProfileComponent,
+    PaymentKVLComponent,
+    TypeBankAccountComponent,
   ],
   imports: [
     BrowserModule,
