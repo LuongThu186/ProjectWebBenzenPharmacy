@@ -117,6 +117,7 @@ a{
     font-size: 16px;
     background-color: #CEEFCD !important;
     margin: 20px 0;
+    cursor: pointer;
 }
 
 .right_content{
