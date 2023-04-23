@@ -1,5 +1,8 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppRoutingModule, RoutingComponent } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -17,7 +20,6 @@ import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { PaymentComponent } from './payment/payment.component';
 import { PaymentMomoComponent } from './payment-momo/payment-momo.component';
 import { PaymentBankingComponent } from './payment-banking/payment-banking.component';
-import { FormsModule } from '@angular/forms';
 import { PolicywarrantyComponent } from './infor/policywarranty/policywarranty.component';
 import { OverviewComponent } from './infor/overview/overview.component';
 import { InstructionComponent } from './infor/instruction/instruction.component';
@@ -32,7 +34,7 @@ import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
-  AppComponent,
+    AppComponent,
     RoutingComponent,
     HeaderComponent,
     FooterComponent,
@@ -65,6 +67,7 @@ import { ProfileComponent } from './profile/profile.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
