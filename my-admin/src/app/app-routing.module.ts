@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddCategoryComponent } from './admin-caterogy-management/add-category/add-category.component';
 import { AdminCaterogyManagementComponent } from './admin-caterogy-management/admin-caterogy-management.component';
 import { AdminCustomerDetailManagementComponent } from './admin-customer/admin-customer-detail-management/admin-customer-detail-management.component';
 import { AdminCustonerManagementComponent } from './admin-customer/admin-custoner-management/admin-custoner-management.component';
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path:"admin-custoner-management", component: AdminCustonerManagementComponent},
   {path:"admin-customer-detail-management", component: AdminCustomerDetailManagementComponent},
   {path:"admin-messenger", component: AdminMessengerComponent},
-  {path:"admin-caterogy-management", component: AdminCaterogyManagementComponent}
+  {path:"admin-caterogy-management", component: AdminCaterogyManagementComponent},
+  {path:"add-category", component:AddCategoryComponent}
 ];
 
 @NgModule({
