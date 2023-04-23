@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms'; 
+import { AppRoutingModule, RoutingComponent } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminCaterogyManagementComponent } from './admin-caterogy-management/admin-caterogy-management.component';
 import { AdminCustonerManagementComponent } from './admin-customer/admin-custoner-management/admin-custoner-management.component';
@@ -14,12 +14,17 @@ import { AdminProductManagementComponent } from './admin-product/admin-product-m
 import { AdminProductDetailManagementComponent} from './admin-product/admin-product-detail-management/admin-product-detail-management.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { NavigateBarComponent } from './navigate-bar/navigate-bar.component';
+import { AddCategoryLevel2Component } from './admin-caterogy-management/add-category-level2/add-category-level2.component';
+import { AddCategoryLevel1Component } from './admin-caterogy-management/add-category-level1/add-category-level1.component';
+import { EditCategoryLevel1Component } from './admin-caterogy-management/edit-category-level1/edit-category-level1.component';
+import { EditCategoryLevel2Component } from './admin-caterogy-management/edit-category-level2/edit-category-level2.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+  AppComponent,
+    RoutingComponent,
     AdminCaterogyManagementComponent,
     AdminCustonerManagementComponent,
     AdminMessengerComponent,
@@ -30,11 +35,16 @@ import { NavigateBarComponent } from './navigate-bar/navigate-bar.component';
     AdminUncompleteOrderManagementComponent,
     AdminOrderDetailManagementComponent,
     AdminCustomerDetailManagementComponent,
+    AddCategoryLevel2Component,
+    AddCategoryLevel1Component,
+    EditCategoryLevel1Component,
+    EditCategoryLevel2Component,
     AdminProductDetailManagementComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

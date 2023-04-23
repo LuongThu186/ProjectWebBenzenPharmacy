@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./infor.component.css']
 })
 export class InforComponent {
-  id: any = "overview";
+  id: any = "overview/";
   tabChange(ids:any){
     this.id= ids;
     console.log(this.id)
@@ -16,9 +16,9 @@ export class InforComponent {
   constructor(private route: ActivatedRoute) { }
   
   // điều hướng routerLink đến Id thông tin
-  ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.id = params['id'];
-    });
-  }
+    ngOnInit() {
+      this.route.params.subscribe(params => {
+        this.id = params['id'];
+      });
+    }
 }
