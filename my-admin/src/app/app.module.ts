@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'; 
-
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, RoutingComponent } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminCaterogyManagementComponent } from './admin-caterogy-management/admin-caterogy-management.component';
 import { AdminCustonerManagementComponent } from './admin-customer/admin-custoner-management/admin-custoner-management.component';
@@ -22,7 +21,8 @@ import { EditCategoryLevel2Component } from './admin-caterogy-management/edit-ca
 
 @NgModule({
   declarations: [
-    AppComponent,
+  AppComponent,
+    RoutingComponent,
     AdminCaterogyManagementComponent,
     AdminCustonerManagementComponent,
     AdminMessengerComponent,

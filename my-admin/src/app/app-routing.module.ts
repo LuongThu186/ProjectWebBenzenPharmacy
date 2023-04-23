@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddCategoryLevel1Component } from './admin-caterogy-management/add-category-level1/add-category-level1.component';
 import { AddCategoryLevel2Component } from './admin-caterogy-management/add-category-level2/add-category-level2.component';
 import { AdminCaterogyManagementComponent } from './admin-caterogy-management/admin-caterogy-management.component';
+import { EditCategoryLevel1Component } from './admin-caterogy-management/edit-category-level1/edit-category-level1.component';
+import { EditCategoryLevel2Component } from './admin-caterogy-management/edit-category-level2/edit-category-level2.component';
 import { AdminCustomerDetailManagementComponent } from './admin-customer/admin-customer-detail-management/admin-customer-detail-management.component';
 import { AdminCustonerManagementComponent } from './admin-customer/admin-custoner-management/admin-custoner-management.component';
 import { AdminMessengerComponent } from './admin-messenger/admin-messenger.component';
@@ -19,7 +21,9 @@ const routes: Routes = [
   {path:"admin-messenger", component: AdminMessengerComponent},
   {path:"admin-caterogy-management", component: AdminCaterogyManagementComponent},
   {path:"add-category-level1", component: AddCategoryLevel1Component},
-  {path:"add-category-level2", component: AddCategoryLevel2Component}
+  {path:"add-category-level2", component: AddCategoryLevel2Component},
+  {path:"edit-category-level1", component: EditCategoryLevel1Component},
+  {path:"edit-category-level2", component: EditCategoryLevel2Component}
 ];
 
 @NgModule({
@@ -27,3 +31,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+export const RoutingComponent=[
+  
+]

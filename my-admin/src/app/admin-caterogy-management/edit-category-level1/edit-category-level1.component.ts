@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./edit-category-level1.component.css']
 })
 export class EditCategoryLevel1Component {
-
+  avatarUrl = '';
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      this.avatarUrl = reader.result as string;
+    };
+  }
 }
