@@ -1,1 +1,329 @@
-<p>admin-caterogy-management works!</p>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,500,0,0" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<!-- Cố định admin page-->
+<a hrel="./navigate_bar"></a>
+<div class="main">
+    <div class="main-left">
+        <a href=".navigate-bar"></a>
+    </div>
+    <!--  -->
+
+    <div class="main-right">
+        <!-- Cố định admin page -->
+        <div class="admin-info">
+            <span class="material-symbols-outlined">notifications</span>
+            <span class="admin-name">Admin</span>
+            <img src="assets/admin-avatar.png" class="admin-ava">
+        </div>
+        <div class="page-title">
+            <p>Danh mục sản phẩm</p>
+            <div class="page-search">
+                <input type="search" id="search" placeholder="Tìm kiếm..." />
+                <span class="material-symbols-outlined">search</span>
+            </div>
+        </div>
+        
+        <!-- content page catogory -->
+        <div class="page-body">
+            <div class="page-body-category">
+                <h3>Danh mục cấp 1</h3>
+                <table class="box__category--father">
+                    <thead>
+                        <th></th>
+                        <th>Ảnh</th>
+                        <th>Tên danh mục</th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        <tr id="duocpham" [class.active]="id === 'duocpham'" (click)="tabChange('duocpham')">
+                            <td><input type="checkbox" class="check-input" id="checking"></td>
+                            <td><img src="assets\image\category\medicine\duoc pham\Serum Welhair copy.jpg"></td>
+                            <td>Dược phẩm</td>
+                            <td class="category__row--function">
+                                <button id="visual"><span class="material-symbols-outlined">edit</span></button>
+                                <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                            </td>
+                        </tr>
+                        <tr id="tpcn" [class.active]="id === 'tpcn'" (click)="tabChange('tpcn')">
+                            <td><input type="checkbox" class="check-input" id="checking"></td>
+                            <td><img src="assets\image\category\medicine\duoc pham\Serum Welhair copy.jpg"></td>
+                            <td>Thực phẩm chức năng</td>
+                            <td class="category__row--function">
+                                <button id="visual"><span class="material-symbols-outlined">edit</span></button>
+                                <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                            </td>
+                        </tr>
+                        <tr id="suckhoe" [class.active]="id === 'suckhoe'" (click)="tabChange('suckhoe')">
+                            <td><input type="checkbox" class="check-input" id="checking"></td>
+                            <td><img src="assets\image\category\medicine\duoc pham\Serum Welhair copy.jpg"></td>
+                            <td>Chăm sóc sức khỏe</td>
+                            <td class="category__row--function">
+                                <button id="visual"><span class="material-symbols-outlined">edit</span></button>
+                                <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                            </td>
+                        </tr>
+                        <tr id="sacdep" [class.active]="id === 'sacdep'" (click)="tabChange('sacdep')">
+                            <td><input type="checkbox" class="check-input" id="checking"></td>
+                            <td><img src="assets\image\category\medicine\duoc pham\Serum Welhair copy.jpg"></td>
+                            <td>Chăm sóc sắc đẹp</td>
+                            <td class="category__row--function">
+                                <button id="visual"><span class="material-symbols-outlined">edit</span></button>
+                                <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                            </td>
+                        </tr>
+                        <tr id="canhan" [class.active]="id === 'canhan'" (click)="tabChange('canhan')">
+                            <td><input type="checkbox" class="check-input" id="checking"></td>
+                            <td><img src="assets\image\category\medicine\duoc pham\Serum Welhair copy.jpg"></td>
+                            <td>Chăm sóc cá nhân</td>
+                            <td class="category__row--function">
+                                <button id="visual"><span class="material-symbols-outlined">edit</span></button>
+                                <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div  class="add-category" >
+                    <button routerLink="' ">Thêm danh mục</button>
+                </div>
+            </div>
+            <div class="page-body-child">
+                <h3>Danh mục cấp 2</h3>
+                <table class="box__category--child">
+                    <thead>
+                        <th></th>
+                        <th>Ảnh</th>
+                        <th>Tên danh mục</th>
+                        <th>Số lượng sản phẩm</th>
+                        <th></th>
+                    </thead>
+                    <tbody *ngIf="id === 'duocpham'">
+                        <tr>
+                            <td><input type="checkbox" class="check-input" id="checking"></td>
+                            <td><img src="assets\image\category\medicine\duoc pham\Serum Welhair copy.jpg"></td>
+                            <td>Thuốc không kê đơn</td>
+                            <td>34</td>
+                            <td class="category__row--function">
+                                <button id="visual"><span class="material-symbols-outlined">edit</span></button>
+                                <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="check-input" id="checking"></td>
+                            <td><img src="assets\image\category\medicine\duoc pham\Serum Welhair copy.jpg"></td>
+                            <td>Thuốc kháng viêm</td>
+                            <td>23</td>
+                            <td class="category__row--function">
+                                <button id="visual"><span class="material-symbols-outlined">edit</span></button>
+                                <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody *ngIf="id === 'tpcn'">
+                        <tr>
+                            <td><input type="checkbox" class="check-input" id="checking"></td>
+                            <td><img src="assets\image\category\medicine\duoc pham\Serum Welhair copy.jpg"></td>
+                            <td>TPCN giảm cân</td>
+                            <td>34</td>
+                            <td class="category__row--function">
+                                <button id="visual"><span class="material-symbols-outlined">edit</span></button>
+                                <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="check-input" id="checking"></td>
+                            <td><img src="assets\image\category\medicine\duoc pham\Serum Welhair copy.jpg"></td>
+                            <td>TPCN Nhóm dạ dày</td>
+                            <td>23</td>
+                            <td class="category__row--function">
+                                <button id="visual"><span class="material-symbols-outlined">edit</span></button>
+                                <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="check-input" id="checking"></td>
+                            <td><img src="assets\image\category\medicine\duoc pham\Serum Welhair copy.jpg"></td>
+                            <td>TPCN Nhóm đường huyết</td>
+                            <td>23</td>
+                            <td class="category__row--function">
+                                <button id="visual"><span class="material-symbols-outlined">edit</span></button>
+                                <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="check-input" id="checking"></td>
+                            <td><img src="assets\image\category\medicine\duoc pham\Serum Welhair copy.jpg"></td>
+                            <td>đẩy data vô đi ai rảnh liệt kê ra</td>
+                            <td>23</td>
+                            <td class="category__row--function">
+                                <button id="visual"><span class="material-symbols-outlined">edit</span></button>
+                                <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody *ngIf="id === 'suckhoe'">
+                        <tr>
+                            <td><input type="checkbox" class="check-input" id="checking"></td>
+                            <td><img src="assets\image\category\medicine\duoc pham\Serum Welhair copy.jpg"></td>
+                            <td>Băng dán cá nhân</td>
+                            <td>34</td>
+                            <td class="category__row--function">
+                                <button id="visual"><span class="material-symbols-outlined">edit</span></button>
+                                <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="check-input" id="checking"></td>
+                            <td><img src="assets\image\category\medicine\duoc pham\Serum Welhair copy.jpg"></td>
+                            <td>Chăm sóc chân</td>
+                            <td>23</td>
+                            <td class="category__row--function">
+                                <button id="visual"><span class="material-symbols-outlined">edit</span></button>
+                                <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="check-input" id="checking"></td>
+                            <td><img src="assets\image\category\medicine\duoc pham\Serum Welhair copy.jpg"></td>
+                            <td>Chăm sóc mắt tai mũi</td>
+                            <td>23</td>
+                            <td class="category__row--function">
+                                <button id="visual"><span class="material-symbols-outlined">edit</span></button>
+                                <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="check-input" id="checking"></td>
+                            <td><img src="assets\image\category\medicine\duoc pham\Serum Welhair copy.jpg"></td>
+                            <td>Chống muỗi</td>
+                            <td>23</td>
+                            <td class="category__row--function">
+                                <button id="visual"><span class="material-symbols-outlined">edit</span></button>
+                                <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="check-input" id="checking"></td>
+                            <td><img src="assets\image\category\medicine\duoc pham\Serum Welhair copy.jpg"></td>
+                            <td>Chống muỗi</td>
+                            <td>23</td>
+                            <td class="category__row--function">
+                                <button id="visual"><span class="material-symbols-outlined">edit</span></button>
+                                <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="check-input" id="checking"></td>
+                            <td><img src="assets\image\category\medicine\duoc pham\Serum Welhair copy.jpg"></td>
+                            <td>Dầu tràn dầu xoa bóp</td>
+                            <td>23</td>
+                            <td class="category__row--function">
+                                <button id="visual"><span class="material-symbols-outlined">edit</span></button>
+                                <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="check-input" id="checking"></td>
+                            <td><img src="assets\image\category\medicine\duoc pham\Serum Welhair copy.jpg"></td>
+                            <td>Kế hoạch gia đình</td>
+                            <td>23</td>
+                            <td class="category__row--function">
+                                <button id="visual"><span class="material-symbols-outlined">edit</span></button>
+                                <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="check-input" id="checking"></td>
+                            <td><img src="assets\image\category\medicine\duoc pham\Serum Welhair copy.jpg"></td>
+                            <td>Khẩu trang y tế</td>
+                            <td>23</td>
+                            <td class="category__row--function">
+                                <button id="visual"><span class="material-symbols-outlined">edit</span></button>
+                                <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="check-input" id="checking"></td>
+                            <td><img src="assets\image\category\medicine\duoc pham\Serum Welhair copy.jpg"></td>
+                            <td>Thực phẩm dinh dưỡng</td>
+                            <td>23</td>
+                            <td class="category__row--function">
+                                <button id="visual"><span class="material-symbols-outlined">edit</span></button>
+                                <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody *ngIf="id === 'sacdep'">
+                        <tr>
+                            <td><input type="checkbox" class="check-input" id="checking"></td>
+                            <td><img src="assets\image\category\medicine\duoc pham\Serum Welhair copy.jpg"></td>
+                            <td>Chăm sóc mặt</td>
+                            <td>34</td>
+                            <td class="category__row--function">
+                                <button id="visual"><span class="material-symbols-outlined">edit</span></button>
+                                <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="check-input" id="checking"></td>
+                            <td><img src="assets\image\category\medicine\duoc pham\Serum Welhair copy.jpg"></td>
+                            <td>Sản phẩm chống nắng</td>
+                            <td>23</td>
+                            <td class="category__row--function">
+                                <button id="visual"><span class="material-symbols-outlined">edit</span></button>
+                                <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="check-input" id="checking"></td>
+                            <td><img src="assets\image\category\medicine\duoc pham\Serum Welhair copy.jpg"></td>
+                            <td>đẩy data vô đi ai rảnh liệt kê ra</td>
+                            <td>23</td>
+                            <td class="category__row--function">
+                                <button id="visual"><span class="material-symbols-outlined">edit</span></button>
+                                <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody *ngIf="id === 'canhan'">
+                        <tr>
+                            <td><input type="checkbox" class="check-input" id="checking"></td>
+                            <td><img src="assets\image\category\medicine\duoc pham\Serum Welhair copy.jpg"></td>
+                            <td>Phòng tắm</td>
+                            <td>34</td>
+                            <td class="category__row--function">
+                                <button id="visual"><span class="material-symbols-outlined">edit</span></button>
+                                <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="check-input" id="checking"></td>
+                            <td><img src="assets\image\category\medicine\duoc pham\Serum Welhair copy.jpg"></td>
+                            <td>Vệ sinh phụ nữ</td>
+                            <td>23</td>
+                            <td class="category__row--function">
+                                <button id="visual"><span class="material-symbols-outlined">edit</span></button>
+                                <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="check-input" id="checking"></td>
+                            <td><img src="assets\image\category\medicine\duoc pham\Serum Welhair copy.jpg"></td>
+                            <td>đẩy data vô đi ai rảnh liệt kê ra</td>
+                            <td>23</td>
+                            <td class="category__row--function">
+                                <button id="visual"><span class="material-symbols-outlined">edit</span></button>
+                                <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <div  class="add-category" >
+                    <button routerLink="' ">Thêm danh mục</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
