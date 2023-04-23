@@ -16,9 +16,10 @@ import { OrderdetailComponent } from './orderdetail/orderdetail.component';
 import { InforComponent } from './infor/infor.component';
 import { ChatboxComponent } from './chatbox/chatbox.component';
 import { PaymentKVLComponent } from './payment-kvl/payment-kvl.component';
+import { TypeBankAccountComponent } from './type-bank-account/type-bank-account.component';
 
 const routes: Routes = [
-  {path:"app-home", component:HomeComponent},
+  {path:"", component:HomeComponent},
   {path:"app-shoppingcart", component:ShoppingcartComponent},
   {path:"app-signup", component: SignupComponent},
   {path:"app-login",component:LoginComponent},
@@ -32,7 +33,9 @@ const routes: Routes = [
   {path:"app-profile", component: ProfileComponent},
   {path:"app-orderdetail", component: OrderdetailComponent},
   {path:"app-infor", component: InforComponent},
-  {path:"app-chatbox", component: ChatboxComponent}
+  {path:"app-chatbox", component: ChatboxComponent},
+  {path:"payment-kvl", component:PaymentKVLComponent},
+  {path:"type-bank-account", component:TypeBankAccountComponent}
 
 ];
 
