@@ -13,7 +13,8 @@ import { AdminUncompleteOrderManagementComponent } from './admin-order/admin-unc
 import { AdminProductManagementComponent } from './admin-product-management/admin-product-management.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { NavigateBarComponent } from './navigate-bar/navigate-bar.component';
-import { AddCategoryComponent } from './admin-caterogy-management/add-category/add-category.component';
+import { AddCategoryLevel2Component } from './admin-caterogy-management/add-category-level2/add-category-level2.component';
+import { AddCategoryLevel1Component } from './admin-caterogy-management/add-category-level1/add-category-level1.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { AddCategoryComponent } from './admin-caterogy-management/add-category/a
     AdminUncompleteOrderManagementComponent,
     AdminOrderDetailManagementComponent,
     AdminCustomerDetailManagementComponent,
-    AddCategoryComponent
+    AddCategoryLevel2Component,
+    AddCategoryLevel1Component
   ],
   imports: [
     BrowserModule,
