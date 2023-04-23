@@ -10,9 +10,11 @@ import { AdminMessengerComponent } from './admin-messenger/admin-messenger.compo
 import { AdminOrderManagementComponent } from './admin-order/admin-order-management/admin-order-management.component';
 import { AdminOrderDetailManagementComponent } from './admin-order/admin-order-detail-management/admin-order-detail-management.component';
 import { AdminUncompleteOrderManagementComponent } from './admin-order/admin-uncomplete-order-management/admin-uncomplete-order-management.component';
-import { AdminProductManagementComponent } from './admin-product-management/admin-product-management.component';
+import { AdminProductManagementComponent } from './admin-product/admin-product-management/admin-product-management.component';
+import { AdminProductDetailManagementComponent} from './admin-product/admin-product-detail-management/admin-product-detail-management.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { NavigateBarComponent } from './navigate-bar/navigate-bar.component';
+
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { NavigateBarComponent } from './navigate-bar/navigate-bar.component';
     NavigateBarComponent,
     AdminUncompleteOrderManagementComponent,
     AdminOrderDetailManagementComponent,
-    AdminCustomerDetailManagementComponent
+    AdminCustomerDetailManagementComponent,
+    AdminProductDetailManagementComponent
   ],
   imports: [
     BrowserModule,
