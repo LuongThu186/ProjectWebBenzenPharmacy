@@ -28,13 +28,18 @@
             <button>Lưu</button>
             <button routerLink="'admin-category-managemnet'">Hủy</button>
            </div>
-            <h3>Thêm danh mục cấp 1</h3>
+            <h3>Thêm danh mục cấp 2</h3>
             <div class="content__box">
                 <label for="imgAdd">Ảnh:
                     <input type="file" id="imgAdd" (change)="onFileSelected($event)">
                 </label>
                 <label for="nameAdd">Tên danh mục:
                     <input type="text" id="nameAdd">
+                </label>
+                <label for="categoryL1">Danh mục cấp 1:
+                    <select id='categoryL1' [(ngModel)]="selectedOption">
+                        <option *ngFor="let opt of options" [value]="opt.value">{{opt.label}}</option>
+                    </select>                     
                 </label>
                 <label for="descriptionAdd">Mô tả danh mục:
                     <textarea type="text" id="descriptionAdd" placeholder="Số lượng từ không vượt quá 150 từ"></textarea>

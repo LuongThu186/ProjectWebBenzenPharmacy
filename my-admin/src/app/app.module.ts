@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,8 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { NavigateBarComponent } from './navigate-bar/navigate-bar.component';
 import { AddCategoryLevel2Component } from './admin-caterogy-management/add-category-level2/add-category-level2.component';
 import { AddCategoryLevel1Component } from './admin-caterogy-management/add-category-level1/add-category-level1.component';
+import { EditCategoryLevel1Component } from './admin-caterogy-management/edit-category-level1/edit-category-level1.component';
+import { EditCategoryLevel2Component } from './admin-caterogy-management/edit-category-level2/edit-category-level2.component';
 
 
 @NgModule({
@@ -31,11 +34,14 @@ import { AddCategoryLevel1Component } from './admin-caterogy-management/add-cate
     AdminOrderDetailManagementComponent,
     AdminCustomerDetailManagementComponent,
     AddCategoryLevel2Component,
-    AddCategoryLevel1Component
+    AddCategoryLevel1Component,
+    EditCategoryLevel1Component,
+    EditCategoryLevel2Component
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -131,7 +131,7 @@
     flex-direction: column;
     padding: 0 10px;
 }
-.content__box label input, .content__box label textarea{
+.content__box label input, .content__box label textarea, select{
     margin-top: 5px;
     border: 1px solid #ccc;
     box-sizing: border-box;
@@ -142,10 +142,21 @@
 .content__box label:nth-child(2) input{
     padding: 5px 10px;
 }
+.content__box label section{
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        color: #333;     
+}
 .content__box label textarea{
     height: 180px;
     padding: 5px 10px;
     font-size: 16px;
     resize: none;
   }
-  
+select{
+    padding: 3px;
+    width: 30%;
+}
