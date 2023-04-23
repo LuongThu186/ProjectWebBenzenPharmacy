@@ -11,6 +11,8 @@ import { AdminMessengerComponent } from './admin-messenger/admin-messenger.compo
 import { AdminOrderDetailManagementComponent } from './admin-order/admin-order-detail-management/admin-order-detail-management.component';
 import { AdminOrderManagementComponent } from './admin-order/admin-order-management/admin-order-management.component';
 import { AdminUncompleteOrderManagementComponent } from './admin-order/admin-uncomplete-order-management/admin-uncomplete-order-management.component';
+import { AdminProductManagementComponent } from './admin-product/admin-product-management/admin-product-management.component';
+import { AdminProductDetailManagementComponent } from './admin-product/admin-product-detail-management/admin-product-detail-management.component';
 
 
 
@@ -26,7 +28,8 @@ const routes: Routes = [
   {path:"add-category-level2", component: AddCategoryLevel2Component},
   {path:"edit-category-level1", component: EditCategoryLevel1Component},
   {path:"edit-category-level2", component: EditCategoryLevel2Component},
-
+  {path:"admin-product-management", component:AdminProductManagementComponent},
+  {path:"admin-product-detail-management", component: AdminProductDetailManagementComponent},
 ];
 
 @NgModule({
