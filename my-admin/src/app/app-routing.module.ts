@@ -13,10 +13,12 @@ import { AdminOrderManagementComponent } from './admin-order/admin-order-managem
 import { AdminUncompleteOrderManagementComponent } from './admin-order/admin-uncomplete-order-management/admin-uncomplete-order-management.component';
 import { AdminProductManagementComponent } from './admin-product/admin-product-management/admin-product-management.component';
 import { AdminProductDetailManagementComponent } from './admin-product/admin-product-detail-management/admin-product-detail-management.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 
 
 const routes: Routes = [
+  {path:"", component: AdminLoginComponent},
   {path:"admin-order-management", component: AdminOrderManagementComponent },
   {path:"admin-order-detail-management", component: AdminOrderDetailManagementComponent},
   {path:"admin-uncomplete-order-management", component: AdminUncompleteOrderManagementComponent},
