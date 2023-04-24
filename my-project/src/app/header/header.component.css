@@ -56,7 +56,8 @@
     display: flex;
     margin: auto;
     align-items: center;
-    width: 95%;
+    width: 90%;
+    margin-top: 5px;
 }
 .header__content--logo{
     margin-left: 17px;
@@ -164,7 +165,7 @@ b{
 .content__top--signIn .hotLine{
     flex-direction: row;
 align-items: flex-end;
-margin: 0 35px 0 0;
+margin: 0 30px 0 0;
 width:fit-content;
 font-size: 15px;
 font-weight: bold;
@@ -185,16 +186,20 @@ margin-right: 2px;
     display: flex;
 }
 .content__bottom--button{
-width: 256px;
-height: 50px;
-display: block;
-top: 78px;
-align-items: flex-end   ;
+  display: flex;
+  gap: 20px;
+  justify-content: right;
 }
 .material-icons{
     color: #2D982A !important;
     display: flex;
     align-items: center;
+
+}
+.material-icons img{
+  width: 20px;
+  height: 20px;
+  border-radius: 360px;
 }
 .history, .cart{cursor: pointer;}
 
@@ -206,7 +211,6 @@ padding: 7px 14px;
 gap: 10px;
 justify-content: flex-end;
 float: left;
-position: absolute;
 width: 125.06px;
 height: 50px;
 background: #FFFFFF;
@@ -394,4 +398,77 @@ padding-top: 0;
   }
   .dropdown a {
     text-transform: uppercase;
+    
+  /* css menu avt */
+  .dropdown__menu--item{
+    display: none;
+    visibility: hidden;
+  }
+  .content__dropdown--signIn{
+    width: fit-content;
+    display: flex;
+  }
+  .dropdown--signIn{
+    display: flex;
+    justify-content: center;
+
+  }
+  .dropdown--signIn:hover .content__dropdown--signIn{
+
+    border-radius: 10px;
+  }
+  .dropdown--signIn:hover .dropdown__menu--item{
+    display:flex;
+    flex-direction: column;
+    position:absolute;
+    visibility:visible;
+    width: max-content;
+    border-radius:  0 0 12px 12px;
+    margin-top: 20px;
+    z-index: 3;
+    padding: 3px;
+    box-shadow: 0 4px 4px rgba(0,0,0,.25);
+    background: #CEEFCD !important;
+
+  }
+  .dropdown--signIn:hover .dropdown__menu--item li{
+    width: 100%;
+    padding: 0 10px;
+    list-style: none;
+    border: #000 1px;
+    background: #FFFFFF !important;
+    border-radius: 5px;    
+  }
+  .dropdown--signIn:hover .dropdown__menu--item li:last-child{
+    display: flex;
+    align-items: center;
+    align-self: center;
+  }
+  .dropdown--signIn:hover .dropdown__menu--item li .material-symbols-outlined{
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 200,
+    'GRAD' 0,
+    'opsz' 20,
+  }
+  .dropdown--signIn:hover .dropdown__menu--item li:hover{
+    display: block;
+    background: #CEEFCD !important;
+    border: #2D982A 2px;
+  }
+  .dropdown--signIn:hover .dropdown__menu--item li:hover a{
+    color: #2D982A !important;
+    font-weight: 600;
+  }
+  .dropdown--signIn:hover .dropdown__menu--item li a{
+    text-decoration: none;
+    cursor: pointer;
+    color: #000 !important;
+    display: block;
+    overflow: hidden;
+    font-weight: 450;
+    line-height: 16px;
+    font-size: 15px;
+    padding: 12px 20px;
+    width: 100%;
   }

@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.main {
+  padding: 0 400px;
+  margin: 170px 0 24px 0;
+}
+.heading {
+  font-weight: bold;
+  font-size: 30px;
+}
+.row {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 16px 0;
+}
+.row__title {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.row__input {
+  padding: 4px;
+  outline: none;
+
+}

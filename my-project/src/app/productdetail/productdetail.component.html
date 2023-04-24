@@ -1,0 +1,206 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+<div class="container">
+    <div class="section">
+        <ol>
+            <li>Trang chủ</li>
+            <li>category</li>
+            <li>product</li>
+        </ol>
+    </div>
+    <div class="content">
+        <div class="content__item">
+            <div class="item__img">
+                <div class="item__img--main">
+                    <img src="/assets/image/productdetail/Serum Welhair.jpg" >
+                </div>
+                <div class="item__img--extra">
+                    <img src="/assets/image/productdetail/Welhair 1.jpg" >
+                    <img src="/assets/image/productdetail/Welhair 2.jpg" >
+                    <img src="/assets/image/productdetail/Welhair 3.jpg" >
+                </div>
+            </div>
+            <div class="item__infor">
+                <h2 class="item__infor--title">Serum Welhair ngăn rụng tóc, kích thích mọc tóc chai 100ml</h2>
+                <h2 class="item__infor--price">225.100đ</h2>
+                <ul>
+                    <li><span class="bold">Thành phần:</span> Acetylcystein 200mg</li>
+                    <li><span class="bold">Công dụng:</span> Điều trị rối loạn tiết dịch phế quản, đặc biệt là trong các rối loạn phế quản cấp tính như viêm phế quản cấp và bệnh phổi tắc nghẽn mãn tính</li>
+                    <li><span class="bold">Thương hiệu:</span> Vidipha</li>
+                    <li><span class="bold">Nơi sản xuất:</span> Việt Nam</li>
+                </ul>
+                <div class="amount">
+                    <p>
+                        Chọn số lượng:
+                    </p>
+                    <div class="item--amount">
+                        <button (click)="decrease()"><span class="material-symbols-outlined">remove</span></button>
+                        <input type="text" [(ngModel)]="quantity">
+                        <button (click)="increase()"><span class="material-symbols-outlined">add</span></button>
+                    </div>
+                </div>
+                <div class="item--button">
+                    <button class="buy--button" onclick="window.location='app-shoppingcart'">CHỌN MUA</button>
+                    <button class="add--cart">THÊM VÀO GIỎ HÀNG</button>
+                </div>
+            </div>
+        </div>
+        <div class="content__description">
+            <h2>Serum Welhair ngăn rụng tóc, kích thích mọc tóc chai 100ml</h2>
+            <div class="img"><img src="/assets/image/productdetail/Serum Welhair.jpg"></div>
+            <div>
+                <h3>Thành phần</h3>
+                <p>Acetylcystein 200mg</p>
+            </div>
+            <div>
+                <h3>Thương hiệu:</h3>
+                <p>Vidipha</p>
+            </div>
+            <div>
+                <h3>Nhà sản xuất:</h3>
+                <p>Việt Nam</p>
+            </div>
+            <div [ngClass]="{'expanded': expandDiv==true}"  *ngIf="expandDiv">
+                <div>
+                    <h3>Công dụng</h3>
+                    <p>Dùng trong các chứng bệnh đường hô hấp kèm theo tiết chất nhầy: Bệnh về phổi: Viêm phế quản, viêm khí phế quản, ngăn ngừa các biến chứng hô hấp ở bệnh nhân nhiễm khuẩn,tăng tiết phế quản, khí phế thủng. Bệnh tai mũi họng: Viêm xoang, viêm mũi, viêm họng.</p>
+                </div>
+               <div>
+                <h3>Hướng dẫn sử dụng:</h3>
+                <p>Liều dùng- Người lớn: 200mg (1 viên) x 3 lần/ngày- Trẻ em từ 2 đến 6 tuổi: 200mg (1 viên) x 2 lần/ngày.</p>
+               </div>
+                <div>
+                    <h3>Bảo quản:</h3>
+                    <p>Nơi khô ráo thoáng mát, tránh ánh nắng trực tiếp.</p>
+                </div>
+                <div>
+                    <h3>Lưu ý:</h3>
+                    <p>Bệnh nhân bị loét dạ dày, tá tràng. Thận trọng khi sử dụng cho phụ nữ có thai hoặc phụ nữ đang cho con bú. Giám sát chặt chẽ người bệnh có nguy cơ phát hen, người có tiền sử dị ứng nếu có co thắt phế quản phải ngưng thuốc.</p>
+                </div>
+                <div class="more--button" (click)="HiddenMore()">
+                    Thu hẹp
+                    <span class="material-symbols-outlined">expand_less</span>
+                </div>
+              </div>
+
+              <div  *ngIf="!expandDiv" (click)="showMore()" class="more--button">
+                Xem thêm
+                <span class="material-symbols-outlined" >expand_more</span>
+            </div>
+
+        </div>
+        </div>
+        <div class="more--item">
+            <h3>SẢN PHẨM LIÊN QUAN</h3>
+            <div class="more_products--product">
+                <a class="more_products--product-detail" href="" >
+                    <img src="/assets/image/products/product1.png" alt="">
+                    <p class="more_products--product-detail-name" >Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
+                    <p class="more_products--product-detail-price" href="">220.000đ</p>
+                    <div class="more_products--product-detail-button">
+                        <input type="button" value="CHỌN MUA" >
+                    </div>
+                </a>
+                <a class="more_products--product-detail" href="">
+                    <img src="/assets/image/products/product1.png" alt="">
+                    <p class="more_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
+                    <p class="more_products--product-detail-price">220.000đ</p>
+                    <div class="more_products--product-detail-button">
+                        <input type="button" value="CHỌN MUA" >
+                    </div>
+                </a>
+                <a class="more_products--product-detail" href="">
+                    <img src="/assets/image/products/product1.png" alt="">
+                    <p class="more_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
+                    <p class="more_products--product-detail-price">220.000đ</p>
+                    <div class="more_products--product-detail-button">
+                        <input type="button" value="CHỌN MUA" >
+                    </div>
+                </a>
+                <a class="more_products--product-detail" href="">
+                    <img src="/assets/image/products/product1.png" alt="">
+                    <p class="more_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
+                    <p class="more_products--product-detail-price">220.000đ</p>
+                    <div class="more_products--product-detail-button">
+                        <input type="button" value="CHỌN MUA" >
+                    </div>
+                </a>
+                <a    class="more_products--product-detail" href="">
+                    <img src="/assets/image/products/product1.png" alt="">
+                    <p class="more_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
+                    <p class="more_products--product-detail-price">220.000đ</p>
+                    <div class="more_products--product-detail-button">
+                        <input type="button" value="CHỌN MUA" >
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="comment">
+            <p>BÌNH LUẬN</p>
+            <div class="comment__box--input">
+                <div class="commit__infor">
+                    <div class="commit--gender">
+                        <label class="gender">
+                         <input type="radio" checked="checked" name="radio" >Anh
+                        </label>
+                        <label class="gender">
+                          <input type="radio" checked="checked" name="radio">Chị
+                        </label>
+                    </div>
+                    <div class="commit--name">
+                        <label for="name">
+                          <input type="text" id="name" value="Họ và tên">
+                          <span class="material">*</span>
+                        </label>
+                        <label for="phone">
+                          <input type="text" id="phone" value="Số điện thoại">
+                        </label>
+                    </div>
+                </div>
+                <textarea name="comment" id="comment" placeholder="Nhập nội dung..."></textarea>
+                <div class="sendComment">
+                    <button id="sendComment">Gửi bình luận</button>
+                </div>
+            </div>
+            <div>
+                <div class="comment__box--cus">
+                    <div class="comment__cus--content">
+                        <h3>Cus01</h3>
+                        <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.
+                        <br>
+                        Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet
+                        <p>
+                    </div>
+                    <div class="comment__cus--reply">
+                        <h3>Nhà thuốc Benzen</h3>
+                        <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.
+                        <br>
+                        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.
+                        <p>
+                    </div>
+                </div>
+            </div>
+            <div class="comment__box--cus">
+                <div class="comment__cus--content">
+                    <h3>Cus01</h3>
+                    <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.
+                    <br>
+                    Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet
+                    <p>
+                </div>
+                <div class="comment__cus--reply">
+                    <h3>Nhà thuốc Benzen</h3>
+                    <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.
+                    <br>
+                    Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.
+                    <p>
+                </div>
+            </div>
+            <div class="comment__button--more">
+                <button><span class="material-symbols-outlined">chevron_left</span> Trước</button>
+                <button >Sau <span class="material-symbols-outlined">chevron_right</span></button>
+            </div>
+        </div>
+    </div>
