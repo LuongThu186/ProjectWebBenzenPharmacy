@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./navigate-bar.component.css']
 })
 export class NavigateBarComponent {
-
 }

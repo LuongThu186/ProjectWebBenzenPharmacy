@@ -18,6 +18,8 @@ import { AddCategoryLevel2Component } from './admin-caterogy-management/add-cate
 import { AddCategoryLevel1Component } from './admin-caterogy-management/add-category-level1/add-category-level1.component';
 import { EditCategoryLevel1Component } from './admin-caterogy-management/edit-category-level1/edit-category-level1.component';
 import { EditCategoryLevel2Component } from './admin-caterogy-management/edit-category-level2/edit-category-level2.component';
+import { HomeComponent } from '../../../my-project/src/app/home/home.component';
+import { PopupDeleteComponent } from './admin-caterogy-management/popup-delete/popup-delete.component';
 
 
 
@@ -39,12 +41,14 @@ import { EditCategoryLevel2Component } from './admin-caterogy-management/edit-ca
     AddCategoryLevel1Component,
     EditCategoryLevel1Component,
     EditCategoryLevel2Component,
-    AdminProductDetailManagementComponent
+    AdminProductDetailManagementComponent,
+    HomeComponent,
+    PopupDeleteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

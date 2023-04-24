@@ -14,7 +14,8 @@ import { AdminUncompleteOrderManagementComponent } from './admin-order/admin-unc
 import { AdminProductManagementComponent } from './admin-product/admin-product-management/admin-product-management.component';
 import { AdminProductDetailManagementComponent } from './admin-product/admin-product-detail-management/admin-product-detail-management.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
-
+import { HomeComponent } from '../../../my-project/src/app/home/home.component';
+import { PopupDeleteComponent } from './admin-caterogy-management/popup-delete/popup-delete.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,8 @@ const routes: Routes = [
   {path:"edit-category-level2", component: EditCategoryLevel2Component},
   {path:"admin-product-management", component:AdminProductManagementComponent},
   {path:"admin-product-detail-management", component: AdminProductDetailManagementComponent},
+  {path: 'home', component: HomeComponent},
+  {path: "popup-delete", component: PopupDeleteComponent}
 ];
 
 @NgModule({
