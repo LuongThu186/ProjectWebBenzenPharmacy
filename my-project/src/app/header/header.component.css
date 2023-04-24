@@ -396,7 +396,9 @@ padding-top: 0;
     padding: 12px 20px;
     width: 100%;
   }
-
+  .dropdown a {
+    text-transform: uppercase;
+    
   /* css menu avt */
   .dropdown__menu--item{
     display: none;
