@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-caterogy-management.component.css']
 })
 export class AdminCaterogyManagementComponent {
-
+  id: any = "duocpham";
+  tabChange(ids:any){
+    this.id= ids;
+    console.log(this.id)
+  }
 }

@@ -1,0 +1,208 @@
+*{
+    font-size: 15px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.main{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: max-content;
+}
+.main-left{
+    width: 15%;
+}
+/* -----Cố định--------- */
+.main-right{
+    background: #F6F8FB;
+    width: 85%;
+    height: 100vh;
+    display: flex;
+    padding: 0 38px;
+    flex-direction: column;
+}
+.admin-info{
+    display: flex;
+    background: #F6F8FB;
+    padding: 24px 0px;
+    justify-content: flex-end;
+
+}
+.admin-ava{
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
+.admin-info .material-symbols-outlined{
+    cursor: pointer;
+}
+.material-icons-outlined{
+    float: left;
+}
+.material-symbols-outlined{
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 40
+}
+.admin-name{
+    width: fit-content;
+    height: fit-content;
+    margin: 0 10px;
+    text-align: center;
+}
+.page-title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 70px;
+}
+.page-title p{
+    font-weight: bold;
+    font-size: 35px !important;
+    margin: 0;
+    padding: 0;
+}
+.page-search{
+    color: #f2f2f2;
+    border-radius: 25px;
+    border: 1px solid #000000;
+    padding: 0px 10px;
+    display: flex;
+    flex-direction: row;
+}
+#search{
+    font-size: 13px;
+    border: none;
+}
+.page-search .material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 20;
+  color: #979797;
+}
+/* --------------------------- */
+.page-body-header{
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+.header{
+    margin: 5px auto;
+}
+.header p{
+    font-weight: bold;
+    font-size: 22px;
+    
+
+    align-items: center;
+}
+.product__action{
+    display: block;
+    height: 50px
+}
+.product__action button{
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 15px;
+    padding: 5px 10px;
+    float: right;
+}
+#save{
+    background-color: #225730;
+    color: #ffffff;
+    width:max-content;
+    padding: 3px 15px;
+}
+#back{
+    background-color: transparent;
+    width:max-content;
+    padding: 3px 10px;
+    border: #225730 1px solid;
+    color: #225730;
+}
+
+.page-body-content{
+    display: flex;
+}
+
+.page-body-content label{
+    font-weight: bold;
+}
+.content_left{
+    width: 50%;
+    padding: 20px;
+}
+.content_right{
+    width: 50%;
+    padding: 20px;
+}
+#myFile{
+    width: 100%;
+    border: 1px solid #000;
+    border-collapse: collapse;
+    margin: 8px 0;
+    height: 22px;
+}
+#nameEdit{
+    width: 100%;
+    height: 18px;
+    margin: 8px 0;
+    border-collapse: collapse;
+}
+#categoryEdit{
+    width: 100%;
+    height: 25px;
+    margin: 8px 0;
+}
+#sub-categoryEdit{
+    width: 100%;
+    height: 25px;
+    margin: 8px 0;
+}
+#priceEdit{
+    width: 100%;
+    height: 18px;
+    margin: 8px 0;
+}
+#stockEdit{
+    width: 100%;
+    height: 18px;
+    margin: 8px 0;
+}
+#useEdit{
+    width: 100%;
+    height: 18px;
+    margin: 8px 0;
+}
+#ingredientEdit{
+    width: 100%;
+    height: 18px;
+    margin: 8px 0;
+}
+#originEdit{
+    width: 100%;
+    height: 18px;
+    margin: 8px 0;
+}
+#descriptionEdit{
+    width: 100%;
+    margin: 8px 0;
+}
+#warningEdit{
+    width: 100%;
+    height: 18px;
+    margin: 8px 0;
+}
+#preserveEdit{
+    width: 100%;
+    height: 18px;
+    margin: 8px 0;
+}
