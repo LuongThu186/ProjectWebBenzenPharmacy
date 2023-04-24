@@ -70,3 +70,14 @@
     width:100%;
 
 }
+.sub__nav-list {
+  list-style: none;
+}
+.sub__nav-item {
+  margin: 8px 0;
+}
+.sub__nav-item a {
+    text-decoration: none;
+    color: #fff;
+}
+

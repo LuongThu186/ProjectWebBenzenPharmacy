@@ -13,25 +13,29 @@
             </div>
             <ul class="nav__content">
                 <li>
-                    <a href="#" class="navigate__bar--link">
+                    <a href="messenger" class="navigate__bar--link">
                         <span class="material-icons-outlined">chat</span>
                         <span class="nav__item">Quản lý tư vấn</span>
                     </a>
                 </li>
-                <li>
-                    <a href="#" class="navigate__bar--link"> 
+                <li >
+                    <span href="" class="navigate__bar--link navigate__bar--link-click"  (click)="toggleMenu()">
                         <span class="material-icons-outlined">shopping_cart</span>
                         <span class="nav__item">Quản lý đơn hàng</span>
-                    </a>
+                    </span>
+                    <ul class="sub__nav-list" *ngIf="isMenuOpen">
+                      <li class="sub__nav-item"> <a href="">Quản lý sản phẩm</a> </li>
+                      <li class="sub__nav-item"><a href="">Quản lý danh mục</a> </li>
+                    </ul>
                 </li>
                 <li>
-                    <a href="#" class="navigate__bar--link">
+                    <a href="product" class="navigate__bar--link">
                         <span class="material-icons-outlined">share</span>
                         <span class="nav__item">Quản lý sản phẩm</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="navigate__bar--link">
+                    <a href="customer" class="navigate__bar--link">
                         <span class="material-icons-outlined">person</span>
                         <span class="nav__item">Quản lý khách hàng</span>
                     </a>
