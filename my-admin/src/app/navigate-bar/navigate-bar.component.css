@@ -1,11 +1,6 @@
 *{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-.body{
-    margin: 0px;
-    padding: 0px;
-}
-
 .navigate__bar{
     position: fixed;
     background: #225730;
@@ -13,6 +8,7 @@
     left: 0;
     width: 15%;
     height: 100%;
+    padding: 20px 0;
 }
 
 .nav__title{
@@ -30,9 +26,9 @@
     display: block;
     list-style: none;
     text-decoration: none;
-    left:0;
     padding-inline-start: 20px;
-    margin-block-end: 1em;
+    padding-right: 10px;
+    margin-top: 30px;
 }
 
 .navigate__bar--link{
@@ -41,10 +37,53 @@
 	color:#FFFFFF;
 	font-size: 16px;
     text-decoration: none;
-    flex-direction: row;
-    margin: 18px 0;
+    margin: 8px 0;
 }
+li{
+    height: fit-content;
+    padding: 1px 0;
+    margin: 5px 0;
+}
+.nav__content li:focus{
+    background-color: #fdfdfd7e !important;
+    color: #225730 !important;
+    font-weight: 700 !important;  
+}
+ul li:hover{
+    background-color: #ffffff3f;  
+}
+#dropdown-tab{
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.dropdown-list{
+    visibility: hidden;
+    display: none;
+    cursor: pointer;
 
+}
+.item--dropdown{
+    color: #FFFFFF !important;
+    text-decoration: none;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-left: 40px;
+
+}
+.item--dropdown:hover{
+    background-color: #ffffff3f;
+}
+.item--dropdown:focus{
+    background-color: #fdfdfd7e;
+    color: #225730 !important;
+    font-weight: 700;
+}
+.nav__item--dropdown:hover .dropdown-list{
+    visibility:visible;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
 .material-icons-outlined{
 	color: #FFFFFF;
 	display: inline-block;
@@ -62,11 +101,12 @@
 .nav__back{
     color: #FFFFFF;
     position:absolute;
-    padding-left: 60px;
     display: flex;
     align-items: center;
     float:right;
-    bottom:0;
+    bottom:30px;
+    left: 10px;
     width:100%;
-
+    cursor: pointer;
 }
+

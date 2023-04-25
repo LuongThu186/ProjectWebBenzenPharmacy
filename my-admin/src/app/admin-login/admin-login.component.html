@@ -1,1 +1,12 @@
-<p>admin-login works!</p>
+
+  <div class="login-page">
+    <div class="form">
+      <form class="login-form" (ngSubmit)="onSubmit()">
+        <h2>ĐĂNG NHẬP ADMIN</h2>
+        <input type="text" name="username" placeholder="Tên đăng nhập *" [(ngModel)]="username" required />
+        <input type="password" name="password" placeholder="Mật khẩu *" [(ngModel)]="password" required />
+        <button type="submit">ĐĂNG NHẬP</button>
+      </form>
+    </div>
+  </div>
+  
