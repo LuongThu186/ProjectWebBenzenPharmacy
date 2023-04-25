@@ -25,7 +25,7 @@ import { PopupDeleteComponent } from './admin-caterogy-management/popup-delete/p
 
 @NgModule({
   declarations: [
-  AppComponent,
+    AppComponent,
     RoutingComponent,
     AdminCaterogyManagementComponent,
     AdminCustonerManagementComponent,
