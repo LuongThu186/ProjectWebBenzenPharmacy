@@ -216,8 +216,11 @@
     justify-content: center;
     margin: 20px;
 }
+.more_products--product>div{
+  width: 300px;
+}
 .more_products--product-detail {
-    width: 20%; 
+    width: 80%;
     background-color: #F2F2F2;
     padding: 15px;
     border-radius: 15px;
@@ -275,7 +278,7 @@
     font-weight: 700;
     line-height: 35px;
 }
-.gender input{ 
+.gender input{
     width: 16px !important;height: 16px;
     margin-right: 5px;
   }
@@ -295,10 +298,10 @@
 .commit--name{
     display: flex;
     flex-direction: row;
-    gap: 30px; 
+    gap: 30px;
 }
 .commit--name label input{
-    padding: 0 10px;  
+    padding: 0 10px;
 }
 .commit--name label .material{
     width: 7px;
@@ -311,7 +314,7 @@
     line-height: 16px;
     align-items:flex-start;
     float: right;
-    color: #FF0F0F;   
+    color: #FF0F0F;
 }
 .commit__infor{
     display: flex;
@@ -334,7 +337,7 @@ margin-bottom: 30px;
     height: 100px;
     text-align: left;
     padding: 10px;
-    border: 1px solid #000000;  
+    border: 1px solid #000000;
     border-radius: 10px;
 }
 .sendComment{
@@ -409,7 +412,7 @@ margin-bottom: 30px;
     flex-direction: row;
     align-items: center;
     padding: 0;
-    
+
     width: 80px;
     height: 32px;
     margin: 5px;

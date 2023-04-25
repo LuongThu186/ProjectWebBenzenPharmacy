@@ -6,30 +6,26 @@
     <div class="section">
         <ol>
             <li>Trang chủ</li>
-            <li>category</li>
-            <li>product</li>
+            <li>{{ medicine.Category }}</li>
+            <li>{{ medicine.SubCategory }}</li>
+            <li>{{ medicine.Name }}</li>
         </ol>
     </div>
     <div class="content">
         <div class="content__item">
             <div class="item__img">
-                <div class="item__img--main">
-                    <img src="/assets/image/productdetail/Serum Welhair.jpg" >
-                </div>
-                <div class="item__img--extra">
-                    <img src="/assets/image/productdetail/Welhair 1.jpg" >
-                    <img src="/assets/image/productdetail/Welhair 2.jpg" >
-                    <img src="/assets/image/productdetail/Welhair 3.jpg" >
-                </div>
+              <div class="item__img--main">
+                  <img src="{{ medicine.Image }}" >
+              </div>
             </div>
             <div class="item__infor">
-                <h2 class="item__infor--title">Serum Welhair ngăn rụng tóc, kích thích mọc tóc chai 100ml</h2>
-                <h2 class="item__infor--price">225.100đ</h2>
+                <h2 class="item__infor--title">{{ medicine.Name }}</h2>
+                <h2 class="item__infor--price">{{ medicine.Price }}</h2>
                 <ul>
-                    <li><span class="bold">Thành phần:</span> Acetylcystein 200mg</li>
-                    <li><span class="bold">Công dụng:</span> Điều trị rối loạn tiết dịch phế quản, đặc biệt là trong các rối loạn phế quản cấp tính như viêm phế quản cấp và bệnh phổi tắc nghẽn mãn tính</li>
-                    <li><span class="bold">Thương hiệu:</span> Vidipha</li>
-                    <li><span class="bold">Nơi sản xuất:</span> Việt Nam</li>
+                    <li><span class="bold">Thành phần:</span> {{ medicine.Ingredients }}</li>
+                    <li><span class="bold">Công dụng:</span> {{ medicine.Uses }}</li>
+                    <li><span class="bold">Thương hiệu:</span> {{ medicine.Brand }}</li>
+                    <li><span class="bold">Nơi sản xuất:</span> {{ medicine.Manufacturer }}</li>
                 </ul>
                 <div class="amount">
                     <p>
@@ -48,36 +44,36 @@
             </div>
         </div>
         <div class="content__description">
-            <h2>Serum Welhair ngăn rụng tóc, kích thích mọc tóc chai 100ml</h2>
-            <div class="img"><img src="/assets/image/productdetail/Serum Welhair.jpg"></div>
+            <h2>{{ medicine.Name }}</h2>
+            <div class="img"><img src="{{ medicine.Image }}"></div>
             <div>
                 <h3>Thành phần</h3>
-                <p>Acetylcystein 200mg</p>
+                <p>{{ medicine.Ingredients }}</p>
             </div>
             <div>
                 <h3>Thương hiệu:</h3>
-                <p>Vidipha</p>
+                <p>{{ medicine.Brand }}</p>
             </div>
             <div>
                 <h3>Nhà sản xuất:</h3>
-                <p>Việt Nam</p>
+                <p>{{ medicine.Manufacturer }}</p>
             </div>
             <div [ngClass]="{'expanded': expandDiv==true}"  *ngIf="expandDiv">
                 <div>
                     <h3>Công dụng</h3>
-                    <p>Dùng trong các chứng bệnh đường hô hấp kèm theo tiết chất nhầy: Bệnh về phổi: Viêm phế quản, viêm khí phế quản, ngăn ngừa các biến chứng hô hấp ở bệnh nhân nhiễm khuẩn,tăng tiết phế quản, khí phế thủng. Bệnh tai mũi họng: Viêm xoang, viêm mũi, viêm họng.</p>
+                    <p>{{ medicine.Uses }}</p>
                 </div>
                <div>
                 <h3>Hướng dẫn sử dụng:</h3>
-                <p>Liều dùng- Người lớn: 200mg (1 viên) x 3 lần/ngày- Trẻ em từ 2 đến 6 tuổi: 200mg (1 viên) x 2 lần/ngày.</p>
+                <p>{{ medicine.Directions }}</p>
                </div>
                 <div>
                     <h3>Bảo quản:</h3>
-                    <p>Nơi khô ráo thoáng mát, tránh ánh nắng trực tiếp.</p>
+                    <p>{{ medicine.Store }}</p>
                 </div>
                 <div>
                     <h3>Lưu ý:</h3>
-                    <p>Bệnh nhân bị loét dạ dày, tá tràng. Thận trọng khi sử dụng cho phụ nữ có thai hoặc phụ nữ đang cho con bú. Giám sát chặt chẽ người bệnh có nguy cơ phát hen, người có tiền sử dị ứng nếu có co thắt phế quản phải ngưng thuốc.</p>
+                    <p>{{ medicine.Warnings }}</p>
                 </div>
                 <div class="more--button" (click)="HiddenMore()">
                     Thu hẹp
@@ -88,53 +84,23 @@
               <div  *ngIf="!expandDiv" (click)="showMore()" class="more--button">
                 Xem thêm
                 <span class="material-symbols-outlined" >expand_more</span>
-            </div>
+              </div>
 
         </div>
         </div>
         <div class="more--item">
             <h3>SẢN PHẨM LIÊN QUAN</h3>
             <div class="more_products--product">
-                <a class="more_products--product-detail" href="" >
-                    <img src="/assets/image/products/product1.png" alt="">
-                    <p class="more_products--product-detail-name" >Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
-                    <p class="more_products--product-detail-price" href="">220.000đ</p>
+              <div *ngFor="let same_medicine of medicines.slice(0,5)">
+                <a class="more_products--product-detail" href="" *ngIf="same_medicine.SubCategory === medicine.SubCategory">
+                    <img src="{{ same_medicine.Image }}" alt="">
+                    <p class="more_products--product-detail-name" >{{ same_medicine.Name }}</p>
+                    <p class="more_products--product-detail-price" href="">{{ same_medicine.Price }}</p>
                     <div class="more_products--product-detail-button">
                         <input type="button" value="CHỌN MUA" >
                     </div>
                 </a>
-                <a class="more_products--product-detail" href="">
-                    <img src="/assets/image/products/product1.png" alt="">
-                    <p class="more_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
-                    <p class="more_products--product-detail-price">220.000đ</p>
-                    <div class="more_products--product-detail-button">
-                        <input type="button" value="CHỌN MUA" >
-                    </div>
-                </a>
-                <a class="more_products--product-detail" href="">
-                    <img src="/assets/image/products/product1.png" alt="">
-                    <p class="more_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
-                    <p class="more_products--product-detail-price">220.000đ</p>
-                    <div class="more_products--product-detail-button">
-                        <input type="button" value="CHỌN MUA" >
-                    </div>
-                </a>
-                <a class="more_products--product-detail" href="">
-                    <img src="/assets/image/products/product1.png" alt="">
-                    <p class="more_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
-                    <p class="more_products--product-detail-price">220.000đ</p>
-                    <div class="more_products--product-detail-button">
-                        <input type="button" value="CHỌN MUA" >
-                    </div>
-                </a>
-                <a    class="more_products--product-detail" href="">
-                    <img src="/assets/image/products/product1.png" alt="">
-                    <p class="more_products--product-detail-name">Pentymax hỗ trợ ăn ngon miệng, ngủ ngon giấc hộp 60 viên</p>
-                    <p class="more_products--product-detail-price">220.000đ</p>
-                    <div class="more_products--product-detail-button">
-                        <input type="button" value="CHỌN MUA" >
-                    </div>
-                </a>
+              </div>
             </div>
         </div>
         <div class="comment">

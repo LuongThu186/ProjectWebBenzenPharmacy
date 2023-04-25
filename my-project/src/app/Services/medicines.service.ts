@@ -41,7 +41,7 @@ export class MedicineService {
       headers: headers,
       responseType: 'text',
     };
-    return this._http.get<any>('/medicines/' + medicineId, requestOptions).pipe(
+    return this._http.get<any>('/medicines/detail/' + medicineId, requestOptions).pipe(
       map((res) => JSON.parse(res) as Medicines),
       retry(3),
       catchError(this.handleError)
