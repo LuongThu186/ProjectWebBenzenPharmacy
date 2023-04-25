@@ -86,13 +86,14 @@
 
             <div class="header__navbar">
                 <nav class="menu">
-                  <ul>
+                  <nav>
                     <li class="dropdown" *ngFor="let category of categories">
                       <a href="app-category">{{ category.Category }}</a> <span class="material-icons">expand_more</span>
                       <ul class="dropdown-menu">
                         <li *ngFor="let subcategory of category.SubCategories"><a href="#">{{ subcategory }}</a></li>
                       </ul>
                     </li>
+                </nav>
                 </nav>
             </div>
 
