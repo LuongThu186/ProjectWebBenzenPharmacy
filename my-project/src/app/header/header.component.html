@@ -88,11 +88,12 @@
                 <nav class="menu">
                   <ul>
                     <li class="dropdown" *ngFor="let category of categories">
-                      <a href="app-category">{{ category.Category }}</a> <span class="material-icons">expand_more</span>
+                      <a (click)="viewCategory(category)">{{ category.Category }}</a> <span class="material-icons">expand_more</span>
                       <ul class="dropdown-menu">
-                        <li *ngFor="let subcategory of category.SubCategories"><a href="#">{{ subcategory }}</a></li>
+                        <li *ngFor="let subcategory of category.SubCategories"><a (click)="viewSubCategory(subcategory)">{{ subcategory }}</a></li>
                       </ul>
                     </li>
+                  </ul>
                 </nav>
             </div>
 
