@@ -1,3 +1,3 @@
-<app-header *ngIf="router.url !== '/'"></app-header>
+<app-header *ngIf="!['/app-login', '/app-signup', '/app-forgotpassword', '/app-signup-otp', '/app-resetpsw', '/app-change-psw'].includes(router.url)"></app-header>
 <router-outlet></router-outlet>
-<app-footer *ngIf="router.url !== '/'"></app-footer>
+<app-footer *ngIf="!['/app-login', '/app-signup', '/app-forgotpassword', '/app-signup-otp', '/app-resetpsw', '/app-change-psw'].includes(router.url)"></app-footer> 
