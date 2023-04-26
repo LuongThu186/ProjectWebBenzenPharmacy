@@ -20,6 +20,7 @@ import { TypeBankAccountComponent } from './type-bank-account/type-bank-account.
 
 const routes: Routes = [
   {path:"", component:HomeComponent},
+  {path:"app-home", component:HomeComponent},
   {path:"app-shoppingcart", component:ShoppingcartComponent},
   {path:"app-signup", component: SignupComponent},
   {path:"app-login",component:LoginComponent},
@@ -27,8 +28,9 @@ const routes: Routes = [
   {path:"app-signup-otp", component: SignupOTPComponent },
   {path:"app-resetpsw", component: ResetpswComponent},
   {path:"app-change-psw", component:ChangePswComponent},
-  {path:"app-productdetail", component:ProductdetailComponent},
+  {path:"app-productdetail/:id", component:ProductdetailComponent},
   {path:"app-category", component:CategoryComponent},
+  {path:"app-category/:category", component:CategoryComponent},
   {path:"app-payment", component: PaymentComponent},
   {path:"app-profile", component: ProfileComponent},
   {path:"app-orderdetail", component: OrderdetailComponent},

@@ -437,7 +437,7 @@ padding-top: 0;
     list-style: none;
     border: #000 1px;
     background: #FFFFFF !important;
-    border-radius: 5px;    
+    border-radius: 5px;
   }
   .dropdown--signIn:hover .dropdown__menu--item li:last-child{
     display: flex;

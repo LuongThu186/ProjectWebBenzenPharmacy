@@ -66,7 +66,7 @@
               </div>
               <div class="home_products--product">
                 <div *ngFor="let medicine of medicines">
-                  <a href="" class="home_products--product-detail" *ngIf="medicine.SubCategory === category.SubCategories[0] || medicine.SubCategory === subCategory">
+                  <a (click)="viewMedicineDetail(medicine)" class="home_products--product-detail" *ngIf="medicine.SubCategory === category.SubCategories[0] || medicine.SubCategory === subCategory">
                     <img src="{{ medicine.Image }}" alt="" />
                     <p class="home_products--product-detail-name">
                       {{ medicine.Name }}

@@ -6,78 +6,12 @@
         <img src="/assets/image/products/product1.png" alt="" class="background-space--image">
     </div>
     <div class="category-main--list">
-        <div class="category-list">
-                <a class="category-detail" id="giamdauhasotkhangsinh" [class.active]="id === 'giamdauhasotkhangsinh'" (click)="tabChange('giamdauhasotkhangsinh')"  >
-                    <img src="/assets/image/products/product1.png" alt="">
-                    <p class="category-detail-name" >Giảm đau, hạ sốt, kháng sinh</p>
-                </a>
-        </div>
-        <div class="category-list">
-            <a class="category-detail" id="timmachtieuduongmomau" [class.active]="id === 'timmachtieuduongmomau'" (click)="tabChange('timmachtieuduongmomau')"  >
-                <img src="/assets/image/products/product1.png" alt="">
-                <p class="category-detail-name" >Tim mạch, tiểu đường, mỡ máu</p>
-            </a>
-        </div>
-        <div class="category-list">
-            <a class="category-detail" id="thankinh" [class.active]="id === 'thankinh'" (click)="tabChange('thankinh')"  >
-                <img src="/assets/image/products/product1.png" alt="">
-                <p class="category-detail-name" >Thần kinh</p>
-            </a>
-        </div>
-        <div class="category-list">
-            <a class="category-detail" id="tieuhoaganmat" [class.active]="id === 'tieuhoaganmat'" (click)="tabChange('tieuhoaganmat')"  >
-                <img src="/assets/image/products/product1.png" alt="">
-                <p class="category-detail-name" >Tiêu hóa, gan mật</p>
-            </a>
-        </div>
-        <div class="category-list">
-            <a class="category-detail" id="mattaimuihong" [class.active]="id === 'mattaimuihong'" (click)="tabChange('mattaimuihong')"  >
-                <img src="/assets/image/products/product1.png" alt="">
-                <p class="category-detail-name" >Mắt, tai, mũi, họng</p>
-            </a>
-        </div>
-        <div class="category-list">
-            <a class="category-detail" id="hohap" [class.active]="id === 'hohap'" (click)="tabChange('hohap')"  >
-                <img src="/assets/image/products/product1.png" alt="">
-                <p class="category-detail-name" >Hô hấp</p>
-            </a>
-        </div>
-        <div class="category-list">
-            <a class="category-detail" id="khangsinhkhangnam" [class.active]="id === 'khangsinhkhangnam'" (click)="tabChange('khangsinhkhangnam')"  >
-                <img src="/assets/image/products/product1.png" alt="">
-                <p class="category-detail-name" >Kháng sinh, kháng nấm</p>
-            </a>
-        </div>  
-        <div class="category-list">
-            <a class="category-detail" id="sinhli" [class.active]="id === 'sinhli'" (click)="tabChange('sinhli')"  >
-                <img src="/assets/image/products/product1.png" alt="">
-                <p class="category-detail-name" >Sinh lí</p>
-            </a>
-        </div>  
-        <div class="category-list">
-            <a class="category-detail" id="coxuong" [class.active]="id === 'coxuong'" (click)="tabChange('coxuong')"  >
-                <img src="/assets/image/products/product1.png" alt="">
-                <p class="category-detail-name" >Cơ xương</p>
-            </a>
-        </div>  
-        <div class="category-list">
-            <a class="category-detail"  id="dalieudiung" [class.active]="id === 'dalieudiung'" (click)="tabChange('dalieudiung')"  >
-                <img src="/assets/image/products/product1.png" alt="">
-                <p class="category-detail-name" >Da liễu, dị ứng</p>
-            </a>
-        </div>  
-        <div class="category-list">
-            <a class="category-detail"  id="thuoctriungthu" [class.active]="id === 'thuoctriungthu'" (click)="tabChange('thuoctriungthu')"  >
-                <img src="/assets/image/products/product1.png" alt="">
-                <p class="category-detail-name" >Thuốc trị ung thư</p>
-            </a>
-        </div>  
-        <div class="category-list">
-            <a class="category-detail"  id="thuocgiamcanlamdep" [class.active]="id === 'thuocgiamcanlamdep'" (click)="tabChange('thuocgiamcanlamdep')"  >
-                <img src="/assets/image/products/product1.png" alt="">
-                <p class="category-detail-name" >Thuốc giảm cân, làm đẹp</p>
-            </a>
-        </div>      
+      <div class="category-list" *ngFor="let subcategory of subcategories">
+        <a class="category-detail">
+            <img src="/assets/image/products/product1.png" alt="">
+            <p class="category-detail-name" >{{ subcategory }}</p>
+        </a>
+      </div>
     </div>
 
     <div class="box__products--list">
@@ -93,7 +27,7 @@
                     </div>
                 </a>
             </div>
-    
+
             <div class="product-detail" *ngIf="id==='giamdauhasotkhangsinh'" >
                 <a class="products--product-detail" href="" >
                     <img src="/assets/image/products/product1.png" alt="">
@@ -1005,9 +939,9 @@
                     </div>
                 </a>
             </div>
-        </div> 
+        </div>
     </div>
-    
-        <a href="" class="products--product-add">Xem thêm</a>   
+
+        <a href="" class="products--product-add">Xem thêm</a>
 </div>
-            
+
