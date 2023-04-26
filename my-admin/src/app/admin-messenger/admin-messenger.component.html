@@ -1,38 +1,66 @@
-<html lang="en">
-<header>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</header>
-<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,500,0,0" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<!-- Cố định admin page-->
 <a hrel="./navigate_bar"></a>
 <div class="main">
     <div class="main-left">
         <a href=".navigate-bar"></a>
     </div>
+    <!--  -->
+
     <div class="main-right">
+        <!-- Cố định admin page -->
         <div class="admin-info">
-            <span class="material-icons-outlined" id="admin-noti">notifications</span>
+            <span class="material-symbols-outlined">notifications</span>
             <span class="admin-name">Admin</span>
             <img src="assets/admin-avatar.png" class="admin-ava">
         </div>
         <div class="page-title">
-            <p> Tư vấn</p>
+            <p>Tư vấn</p>
+            <div class="page-search">
+                <input type="search" id="search" placeholder="Tìm kiếm..." />
+                <span class="material-symbols-outlined">search</span>
+            </div>
         </div>
-        <div class="page-body">
-            <div class="chat-list">
-                <div class="page-body-search">
-                    <input type="search" id="search" placeholder=" Tìm kiếm..." />
-                </div>
+        <div class="content-chat">
+            <div class="box__chat--list">
                 <ul class="chat-list-content">
-                    <li> 
-                        <div class="chat-list-content-detail" id="active">
+                    <li id="active"> 
+                        <div class="chat-list-content-detail" >
                             <div class="cus-ava">
                                 <img src="assets/woman.png">
                             </div>
                             <div class="info">
                                 <div class="name">Lương Anh Thư</div>
+                                <div class="status">
+                                    <span class="time">15 phút trước</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <hr>
+                    <li> 
+                        <div class="chat-list-content-detail">
+                            <div class="cus-ava">
+                                <img src="assets/woman.png">
+                            </div>
+                            <div class="info">
+                                <div class="name">Lương Anh Thư</div>
+                                <div class="status">
+                                    <span class="time">15 phút trước</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <hr>
+                    <li> 
+                        <div class="chat-list-content-detail">
+                            <div class="cus-ava">
+                                <img src="assets/woman.png">
+                            </div>
+                            <div class="info">
+                                <div class="name">Bùi Nguyễn Bích Ngọc</div>
                                 <div class="status">
                                     <span class="time">15 phút trước</span>
                                 </div>
@@ -109,53 +137,70 @@
                             </div>
                         </div>
                     </li>
+                    <hr>
+                    <li> 
+                        <div class="chat-list-content-detail">
+                            <div class="cus-ava">
+                                <img src="assets/woman.png">
+                            </div>
+                            <div class="info">
+                                <div class="name">Phan Kim Ngân</div>
+                                <div class="status">
+                                    <span class="time">20 phút trước</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>   
+                    
                 </ul>
-                <div class="page-body-nav">
-                    <!--<a href="#">&laquo;</a>-->
+                <!-- <div class="page-body-nav">
+                    <a href="#">&laquo;</a>
                     <a class="active" href="#">1</a>
                     <a href="#">2</a>
                     <a href="#">3</a>
                     <a href="#">4</a>
                     <a href="#">5</a>
                     <a href="#">&raquo;</a>
-                </div>
+                </div> -->
             </div>
+    
             <div class="chat-main">
-                <div class="chat-header">
-                    <div class="chat-header-img">
-                        <img src="assets/woman.png">
+                    <div class="chat-header">
+                        <div class="chat-header-img">
+                            <img src="assets/woman.png">
+                        </div>
+                        <div class="chat-info">
+                            <p id="chat-info-name">Lương Anh Thư</p>
+                            <p>0332583000</p>
+                        </div>
+                    </div>   
+                    <hr>
+                    <div class="chat-content">
+                        <ul class="texting">
+                            <li class="texting1">
+                                <div class="texting1-data-time">
+                                    Thứ 2, 1:10 PM
+                                </div>
+                                <div class="texting1-data">
+                                    <span><img src="assets/woman.png" class="cus-ava"></span>
+                                    <span class="texting1-data-content"> Chị ơi, em bị đau bụng 2 ngày rồi thì em nên mua thuốc gì vậy chị?</span>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="chat-info">
-                        <p id="chat-info-name">Lương Anh Thư</p>
-                        <p>0332583000</p>
+                    <hr>
+                    <div class="chat-tag">
+                        <button id="tag"><span class="material-icons-outlined" id="link">link</span></button>
+                        <button id="tag"><span class="material-icons-outlined" id="mood">mood</span></button>
+                        <button id="tag"><span class="material-icons-outlined" id="image">image</span></button>
                     </div>
-                </div>   
-                <hr>
-                <div class="chat-content">
-                    <ul class="texting">
-                        <li class="texting1">
-                            <div class="texting1-data-time">
-                                Thứ 2, 1:10 PM
-                            </div>
-                            <div class="texting1-data">
-                                <span><img src="assets/woman.png" class="cus-ava"></span>
-                                <span class="texting1-data-content"> Chị ơi, em bị đau bụng 2 ngày rồi thì em nên mua thuốc gì vậy chị?</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <hr>
-                <div class="chat-tag">
-                    <button id="tag"><span class="material-icons-outlined" id="link">link</span></button>
-                    <button id="tag"><span class="material-icons-outlined" id="mood">mood</span></button>
-                    <button id="tag"><span class="material-icons-outlined" id="image">image</span></button>
-                </div>
-                <hr>
-                <div class="chat-send">
-                    <input type="text" class="form-control" placeholder="Nhập tin nhắn ...">
-                    <button id="tag"><span class="material-icons-outlined">send</span></button>
-                </div>
+                    <hr>
+                    <div class="chat-send">
+                        <textarea type="text" class="form-control" placeholder="Nhập tin nhắn ..."></textarea>
+                        <button id="tag"><span class="material-icons-outlined">send</span></button>
+                    </div>
             </div>
         </div>
+
     </div>
 </div>

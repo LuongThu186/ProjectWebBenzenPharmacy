@@ -32,9 +32,11 @@
     width: 20px;
     height: 20px;
 }
+.admin-info .material-symbols-outlined{
+    cursor: pointer;
+}
 .material-icons-outlined{
     float: left;
-    
 }
 .material-symbols-outlined{
   font-variation-settings:

@@ -5,10 +5,13 @@ import { Component } from '@angular/core';
   templateUrl: './admin-caterogy-management.component.html',
   styleUrls: ['./admin-caterogy-management.component.css']
 })
+
 export class AdminCaterogyManagementComponent {
   id: any = "duocpham";
   tabChange(ids:any){
     this.id= ids;
     console.log(this.id)
   }
+
+
 }

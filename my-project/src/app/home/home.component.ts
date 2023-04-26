@@ -68,6 +68,9 @@ export class HomeComponent implements OnInit {
     this.subCategory = subCategory;
   }
 
+  viewMedicineDetail(f: any){
+    this.router.navigate(['app-productdetail', f._id]);
+  }
 
 
 
