@@ -63,4 +63,33 @@ export class MedicineService {
       catchError(this.handleError)
     );
   }
+  getMedicineSubCategory(category:string, subcategory: string): Observable<any> {
+    const headers = new HttpHeaders().set(
+      'Content-Type',
+      'text/plain;charset=utf8'
+    );
+    const requestOptions: Object = {
+      headers: headers,
+      responseType: 'text',
+    };
+    return this._http.get<any>('/medicines/' + category + '/' + subcategory, requestOptions).pipe(
+      map((res) => JSON.parse(res) as Array<Medicines>),
+      retry(3),
+      catchError(this.handleError)
+    );
+  }
+
+
+  addToCart(med: any): Observable<any> {
+    return this._http.post('/cart', med);
+  }
+  removeFromCart(medId: string): Observable<any> {
+    return this._http.delete('/cart/delete/' + medId);
+  }
+  updateQuantityCart(med: any): Observable<any> {
+    return this._http.put('/cart', med);
+  }
+  getCart(): Observable<any> {
+    return this._http.get('/cart');
+  }
 }

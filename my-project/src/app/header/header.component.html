@@ -90,7 +90,7 @@
                     <li class="dropdown" *ngFor="let category of categories">
                       <a (click)="viewCategory(category)">{{ category.Category }}</a> <span class="material-icons">expand_more</span>
                       <ul class="dropdown-menu">
-                        <li *ngFor="let subcategory of category.SubCategories"><a (click)="viewSubCategory(subcategory)">{{ subcategory }}</a></li>
+                        <li *ngFor="let subcategory of category.SubCategories"><a (click)="viewCategory(category)">{{ subcategory }}</a></li>
                       </ul>
                     </li>
                   </ul>

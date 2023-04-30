@@ -19,7 +19,7 @@ import { PopupDeleteComponent } from './admin-caterogy-management/popup-delete/p
 
 
 const routes: Routes = [
-  {path:"", component: AdminLoginComponent},
+  // {path:"", component: AdminLoginComponent},
   {path:"admin-order-management", component: AdminOrderManagementComponent },
   {path:"admin-order-detail-management", component: AdminOrderDetailManagementComponent},
   {path:"admin-uncomplete-order-management", component: AdminUncompleteOrderManagementComponent},
@@ -42,5 +42,5 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const RoutingComponent=[
-  
+
 ]

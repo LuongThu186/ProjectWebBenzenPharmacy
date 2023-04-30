@@ -39,7 +39,7 @@
                 </div>
                 <div class="item--button">
                     <button class="buy--button" onclick="window.location='app-shoppingcart'">CHỌN MUA</button>
-                    <button class="add--cart">THÊM VÀO GIỎ HÀNG</button>
+                    <button class="add--cart" (click)="addToCart(medicine)">THÊM VÀO GIỎ HÀNG</button>
                 </div>
             </div>
         </div>
@@ -92,7 +92,7 @@
             <h3>SẢN PHẨM LIÊN QUAN</h3>
             <div class="more_products--product">
               <div *ngFor="let same_medicine of medicines.slice(0,5)">
-                <a class="more_products--product-detail" href="" *ngIf="same_medicine.SubCategory === medicine.SubCategory">
+                <a (click)="viewMedicineDetail(same_medicine)" class="more_products--product-detail" href="" *ngIf="same_medicine.SubCategory === medicine.SubCategory">
                     <img src="{{ same_medicine.Image }}" alt="">
                     <p class="more_products--product-detail-name" >{{ same_medicine.Name }}</p>
                     <p class="more_products--product-detail-price" href="">{{ same_medicine.Price }}</p>

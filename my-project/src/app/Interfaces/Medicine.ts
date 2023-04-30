@@ -14,6 +14,7 @@ export class Medicines{
     public Manufacturer: string = '',
     public Category: string = '',
     public SubCategory: string = '',
+    public quantity: string = '',
     public Create_date: string = `${new Date().getDate()}-${new Date().getMonth()+1}-${new Date().getFullYear()}`
   ) {}
 }
