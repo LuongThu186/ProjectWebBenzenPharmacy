@@ -6,71 +6,41 @@
   <div class="shopping__cart">
     <div class="shopping__cart-left">
       <div class="shopping__cart-left--header">
-        <p>Giỏ hàng (3)</p>
+        <p>Giỏ hàng ({{quantityItem}})</p>
       </div>
-      <div class="shopping__cart-left--detail">
-        <div class="shopping__cart-left--detail-row">
-          <p class="shopping__cart-left--detail-row1"></p>
-          <p class="shopping__cart-left--detail-row2">Sản phẩm</p>
-          <p class="shopping__cart-left--detail-row3">Giá thành</p>
-          <p class="shopping__cart-left--detail-row4">Số lượng</p>
-          <p class="shopping__cart-left--detail-row5"></p>
-        </div>
-        <div class="shopping__cart-left--detail-row">
-          <div class="shopping__cart-left--detail-row-check">
-            <input type="checkbox">
-          </div>
-          <div class="shopping__cart-left--detail-row-info">
-            <img src="/assets/image/shopping-cart/product.jpg" alt="">
-            <p>Nat C 1000 hỗ trợ tăng đề kháng lọ 60 viên</p>
-          </div>
-          <p class="shopping__cart-left--detail-row-price">105.000đ</p>
-          <div class="shopping__cart-left--detail-row-quantity">
-            <button (click)="decrease()">-</button>
-            <input type="text" [(ngModel)]="quantity">
-            <button (click)="increase()">+</button>
-          </div>
-          <button class="material-icons-outlined shopping__cart-left--detail-row-delete ">
-            delete
-          </button>
-        </div>
-        <div class="shopping__cart-left--detail-row">
-          <div class="shopping__cart-left--detail-row-check">
-            <input type="checkbox">
-          </div>
-          <div class="shopping__cart-left--detail-row-info">
-            <img src="/assets/image/shopping-cart/product.jpg" alt="">
-            <p>Nat C 1000 hỗ trợ tăng đề kháng lọ 60 viên</p>
-          </div>
-          <p class="shopping__cart-left--detail-row-price">105.000đ</p>
-          <div class="shopping__cart-left--detail-row-quantity">
-            <button (click)="decrease()">-</button>
-            <input type="text" [(ngModel)]="quantity">
-            <button (click)="increase()">+</button>
-          </div>
-          <button class="material-icons-outlined shopping__cart-left--detail-row-delete ">
-            delete
-          </button>
-        </div>
-        <div class="shopping__cart-left--detail-row">
-          <div class="shopping__cart-left--detail-row-check">
-            <input type="checkbox">
-          </div>
-          <div class="shopping__cart-left--detail-row-info">
-            <img src="/assets/image/shopping-cart/product.jpg" alt="">
-            <p>Nat C 1000 hỗ trợ tăng đề kháng lọ 60 viên</p>
-          </div>
-          <p class="shopping__cart-left--detail-row-price">105.000đ</p>
-          <div class="shopping__cart-left--detail-row-quantity">
-            <button (click)="decrease()">-</button>
-            <input type="text" [(ngModel)]="quantity">
-            <button (click)="increase()">+</button>
-          </div>
-          <button class="material-icons-outlined shopping__cart-left--detail-row-delete ">
-            delete
-          </button>
-        </div>
+      <div *ngIf="display; else viewItem">
+        <br><br><br>
+        <h2>Bạn chưa có sản phẩm nào trong giỏ hàng!</h2>
       </div>
+      <ng-template #viewItem>
+        <div class="shopping__cart-left--detail">
+          <div class="shopping__cart-left--detail-row">
+            <p class="shopping__cart-left--detail-row1"></p>
+            <p class="shopping__cart-left--detail-row2">Sản phẩm</p>
+            <p class="shopping__cart-left--detail-row3">Giá thành</p>
+            <p class="shopping__cart-left--detail-row4">Số lượng</p>
+            <p class="shopping__cart-left--detail-row5"></p>
+          </div>
+          <div class="shopping__cart-left--detail-row" *ngFor="let item of cartItems">
+            <div class="shopping__cart-left--detail-row-check">
+              <input type="checkbox" (click)="calculateTotalPrice(item)">
+            </div>
+            <div class="shopping__cart-left--detail-row-info">
+              <img src="{{ item.Image }}" alt="">
+              <p>{{ item.Name }}</p>
+            </div>
+            <p class="shopping__cart-left--detail-row-price">{{ item.Price }}</p>
+            <div class="shopping__cart-left--detail-row-quantity">
+              <button (click)="decrease(item)">-</button>
+              <input type="text" value="{{ item.quantity }}">
+              <button (click)="increase(item)">+</button>
+            </div>
+            <button (click)="removeFromCart(item._id)" class="material-icons-outlined shopping__cart-left--detail-row-delete ">
+              delete
+            </button>
+          </div>
+        </div>
+      </ng-template>
     </div>
     <div class="shopping__cart-right">
       <p class="shopping__cart-right--header">
@@ -81,15 +51,15 @@
       </p>
       <p class="shopping__cart-right--row">
         <span class="shopping__cart-right--row-left">Tổng tiền</span>
-        <span class="shopping__cart-right--row-right">105.000đ</span>
+        <span class="shopping__cart-right--row-right">{{ total }} VNĐ</span>
       </p>
       <p class="shopping__cart-right--row">
         <span class="shopping__cart-right--row-left">Tạm tính</span>
-        <span class="shopping__cart-right--row-right">105.000đ</span>
+        <span class="shopping__cart-right--row-right">{{ preprice }} VNĐ</span>
       </p>
 
       <p class="shopping__cart-right--row shopping__cart-right--row--button">
-        <button class="shopping__cart-right--row--button">Đặt hàng</button>
+        <button class="shopping__cart-right--row--button" (click)="viewOrderDetail()">Đặt hàng</button>
       </p>
     </div>
   </div>
@@ -97,57 +67,18 @@
     Sản phẩm khác
   </p>
   <div class="shopping__orther-product">
-    <div class="orther__product-item">
-      <div class="orther__product-item--img">
-        <img src="/assets/image/shopping-cart/product.jpg" alt="">
+    <div class="orther__product-item" *ngFor="let same_medicine of medicines.slice(0,5)">
+      <div>
+        <div class="orther__product-item--img">
+          <img src="{{ same_medicine.Image }}" alt="">
+        </div>
+        <p class="orther__product-item--info">
+          {{ same_medicine.Name }}
+        </p>
+        <p class="orther__product-item--price">{{ same_medicine.Price }}</p>
+        <button class="orther__product-item--add" (click)="addToCart(same_medicine)">Thêm vào giỏ hàng</button>
       </div>
-      <p class="orther__product-item--info">
-        Nat C 1000 hỗ trợ tăng đề kháng  lọ 60 viên
-      </p>
-      <p class="orther__product-item--price">105.000đ</p>
-      <button class="orther__product-item--add">Thêm vào giỏ hàng</button>
     </div>
-    <div class="orther__product-item">
-      <div class="orther__product-item--img">
-        <img src="/assets/image/shopping-cart/product.jpg" alt="">
-      </div>
-      <p class="orther__product-item--info">
-        Nat C 1000 hỗ trợ tăng đề kháng  lọ 60 viên
-      </p>
-      <p class="orther__product-item--price">105.000đ</p>
-      <button class="orther__product-item--add">Thêm vào giỏ hàng</button>
-    </div>
-    <div class="orther__product-item">
-      <div class="orther__product-item--img">
-        <img src="/assets/image/shopping-cart/product.jpg" alt="">
-      </div>
-      <p class="orther__product-item--info">
-        Nat C 1000 hỗ trợ tăng đề kháng  lọ 60 viên
-      </p>
-      <p class="orther__product-item--price">105.000đ</p>
-      <button class="orther__product-item--add">Thêm vào giỏ hàng</button>
-    </div>
-    <div class="orther__product-item">
-      <div class="orther__product-item--img">
-        <img src="/assets/image/shopping-cart/product.jpg" alt="">
-      </div>
-      <p class="orther__product-item--info">
-        Nat C 1000 hỗ trợ tăng đề kháng  lọ 60 viên
-      </p>
-      <p class="orther__product-item--price">105.000đ</p>
-      <button class="orther__product-item--add">Thêm vào giỏ hàng</button>
-    </div>
-    <div class="orther__product-item">
-      <div class="orther__product-item--img">
-        <img src="/assets/image/shopping-cart/product.jpg" alt="">
-      </div>
-      <p class="orther__product-item--info">
-        Nat C 1000 hỗ trợ tăng đề kháng  lọ 60 viên
-      </p>
-      <p class="orther__product-item--price">105.000đ</p>
-      <button class="orther__product-item--add">Thêm vào giỏ hàng</button>
-    </div>
-
   </div>
 </div>
 

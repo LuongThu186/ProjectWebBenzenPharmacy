@@ -31,13 +31,15 @@ const routes: Routes = [
   {path:"app-productdetail/:id", component:ProductdetailComponent},
   {path:"app-category", component:CategoryComponent},
   {path:"app-category/:category", component:CategoryComponent},
+  {path:"app-category/:category/:subcategory", component:CategoryComponent},
   {path:"app-payment", component: PaymentComponent},
   {path:"app-profile", component: ProfileComponent},
   {path:"app-orderdetail", component: OrderdetailComponent},
   {path:"app-infor", component: InforComponent},
   {path:"app-chatbox", component: ChatboxComponent},
   {path:"payment-kvl", component:PaymentKVLComponent},
-  {path:"type-bank-account", component:TypeBankAccountComponent}
+  {path:"type-bank-account", component:TypeBankAccountComponent},
+  {path:"app-shoppingcart", component:ShoppingcartComponent}
 
 ];
 
@@ -47,5 +49,23 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const RoutingComponent=[
+  HomeComponent,
+  ShoppingcartComponent,
+  SignupComponent,
+  LoginComponent,
+  ForgotpasswordComponent,
+  SignupOTPComponent,
+  ResetpswComponent,
+  ChangePswComponent,
+  ProductdetailComponent,
+  CategoryComponent,
+  ProfileComponent,
+  PaymentComponent,
+  OrderdetailComponent,
+  InforComponent,
+  ChatboxComponent,
+  PaymentKVLComponent,
+  TypeBankAccountComponent,
+  ShoppingcartComponent
 
 ]
