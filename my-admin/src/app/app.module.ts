@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule, RoutingComponent } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 import { AdminCaterogyManagementComponent } from './admin-caterogy-management/admin-caterogy-management.component';
 import { AdminCustonerManagementComponent } from './admin-customer/admin-custoner-management/admin-custoner-management.component';
 import { AdminCustomerDetailManagementComponent } from './admin-customer/admin-customer-detail-management/admin-customer-detail-management.component';
@@ -20,6 +21,14 @@ import { EditCategoryLevel1Component } from './admin-caterogy-management/edit-ca
 import { EditCategoryLevel2Component } from './admin-caterogy-management/edit-category-level2/edit-category-level2.component';
 import { HomeComponent } from '../../../my-project/src/app/home/home.component';
 import { PopupDeleteComponent } from './admin-caterogy-management/popup-delete/popup-delete.component';
+
+import { NgxPaginationModule } from 'ngx-pagination';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdminProductEditManagementComponent } from './admin-product/admin-product-edit-management/admin-product-edit-management.component';
+import { AdminProductAddManagementComponent } from './admin-product/admin-product-add-management/admin-product-add-management.component';
 
 
 
@@ -43,12 +52,21 @@ import { PopupDeleteComponent } from './admin-caterogy-management/popup-delete/p
     EditCategoryLevel2Component,
     AdminProductDetailManagementComponent,
     HomeComponent,
-    PopupDeleteComponent
+    PopupDeleteComponent,
+    AdminProductEditManagementComponent,
+    AdminProductAddManagementComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
+
+    NgxPaginationModule,
+    MatTableModule,
+    MatButtonModule,
+    MatPaginatorModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

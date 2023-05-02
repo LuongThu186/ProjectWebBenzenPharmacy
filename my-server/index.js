@@ -36,23 +36,31 @@ client = new MongoClient("mongodb://127.0.0.1:27017");
 client.connect();
 database = client.db("BenZenPharmacyData");
 medicineCollection = database.collection("MedicineData");
+accountCollection = database.collection("AccountCustomerData");
 
 app.get("/medicines", cors(), async (req, res) => {
   const result = await medicineCollection.find({}).toArray();
   res.send(result);
 });
-app.get("/medicines/:category", cors(), async (req, res) => {
-  const category = req.params["category"];
-  const result = await medicineCollection
-    .find({ Category: category })
-    .toArray();
-  res.send(result);
-});
-
 app.get("/medicines/detail/:id", cors(), async (req, res) => {
   var o_id = new ObjectId(req.params["id"]);
   const result = await medicineCollection.find({ _id: o_id }).toArray();
   res.send(result[0]);
+});
+app.get("/medicines/:category", cors(), async (req, res) => {
+  const category = req.params["category"];
+  const result = await medicineCollection
+    .find({ Category: category})
+    .toArray();
+  res.send(result);
+});
+app.get("/medicines/:category/:subcategory", cors(), async (req, res) => {
+  const category = req.params["category"];
+  const subcategory = req.params["subcategory"];
+  const result = await medicineCollection
+    .find({ Category: category, SubCategory: subcategory })
+    .toArray();
+  res.send(result);
 });
 
 app.post("/medicines", cors(), async (req, res) => {
@@ -69,11 +77,20 @@ app.put("/medicines", cors(), async (req, res) => {
     {
       $set: {
         //Field for updating
-        style: req.body.style,
-        fashion_subject: req.body.fashion_subject,
-        fashion_detail: req.body.fashion_detail,
-        fashion_image: req.body.fashion_image,
-        cDate: req.body.cDate,
+        Name: req.body.Name,
+        Price: req.body.Price,
+        Image: req.body.Image,
+        Description: req.body.Description,
+        Ingredients: req.body.Ingredients,
+        Uses: req.body.Uses,
+        Directions: req.body.Directions,
+        Store: req.body.Store,
+        Warnings: req.body.Warnings,
+        Brand: req.body.Brand,
+        Manufacturer: req.body.Manufacturer,
+        Category: req.body.Category,
+        SubCategory: req.body.SubCategory,
+        Create_date: req.body.Create_date,
       },
     }
   );
@@ -93,3 +110,73 @@ app.delete("/medicines/:id", cors(), async (req, res) => {
   res.send(result[0]);
 });
 
+
+const session = require('express-session');
+const { hasSubscribers } = require('diagnostics_channel');
+app.use(session({secret: "Shh, its a secret!"}));
+app.get("/contact",cors(),(req,res)=>{
+    if(req.session.visited!=null)
+    {
+        req.session.visited++
+        res.send("You visited this page "+req.session.visited +" times")
+    }
+    else
+    {
+        req.session.visited=1
+        res.send("Welcome to this page for the first time!")
+    }
+})
+
+app.post("/cart/",cors(),(req,res)=>{
+  const med = req.body
+  if(req.session.carts==null){
+      req.session.carts=[]
+  }
+  const existingMed = req.session.carts.find((m) => m._id === med._id);
+
+  if (existingMed) {
+    // Nếu sản phẩm đã tồn tại trong giỏ hàng, tăng số lượng sản phẩm của sản phẩm đó
+    existingMed.quantity += med.quantity;
+  }else{
+    req.session.carts.push(med)
+  }
+  res.send(med)
+})
+app.get("/cart",cors(),(req,res)=>{
+  res.send(req.session.carts)
+})
+app.get("/cart/:id",cors(),(req,res)=>{
+  if(req.session.carts!=null)
+  {
+
+      p=req.session.carts.find(x=>x.barcode==req.body.barcode)
+      res.send(p)
+  }
+  else
+      res.send(null)
+})
+app.delete("/cart/delete/:id",cors(),(req,res)=>{
+  if(req.session.carts!=null)
+  {
+      id=req.params["id"]
+      req.session.carts =req.session.carts.filter(x => x._id !== id);        
+  }
+  res.send(req.session.carts)
+})
+app.put("/cart",cors(),(req,res)=>{
+  if(req.session.carts!=null)
+  {
+
+      p=req.session.carts.find(x=>x.barcode==req.body.barcode)
+      if(p!=null)
+      {
+          p.quantity=req.body.quantity            
+      }
+  }
+  res.send(req.session.carts)
+})
+
+app.get("/accounts", cors(), async (req, res) => {
+  const result = await accountCollection.find({}).toArray();
+  res.send(result);
+});

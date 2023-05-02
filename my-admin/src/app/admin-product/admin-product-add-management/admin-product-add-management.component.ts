@@ -4,11 +4,11 @@ import { Medicines } from 'src/app/Interfaces/Medicine';
 import { AdminMedicineService } from 'src/app/Services/admin-medicine.service';
 
 @Component({
-  selector: 'app-add-category-level1',
-  templateUrl: './add-category-level1.component.html',
-  styleUrls: ['./add-category-level1.component.css']
+  selector: 'app-admin-product-add-management',
+  templateUrl: './admin-product-add-management.component.html',
+  styleUrls: ['./admin-product-add-management.component.css']
 })
-export class AddCategoryLevel1Component {
+export class AdminProductAddManagementComponent {
   medicine = new Medicines();
   errMessage: string = '';
   constructor(public _service: AdminMedicineService, private router: Router, private activateRoute: ActivatedRoute) {}
@@ -37,10 +37,11 @@ export class AddCategoryLevel1Component {
         this.errMessage = err;
       },
     });
+    alert('Add medicine successfully!');
     this.goBack();
   }
 
   goBack() {
-    this.router.navigate(['admin-caterogy-management']);
+    this.router.navigate(['admin-product-management']);
   }
 }

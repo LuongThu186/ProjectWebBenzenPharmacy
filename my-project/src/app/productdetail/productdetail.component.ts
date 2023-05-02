@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MedicineService } from '../Services/medicines.service';
+import { Medicines } from '../Interfaces/Medicine';
 
 @Component({
   selector: 'app-productdetail',
@@ -60,6 +61,7 @@ export class ProductdetailComponent {
     });
   }
 
+
   increase() {
     this.quantity++;
   }
@@ -78,6 +80,27 @@ export class ProductdetailComponent {
 
   HiddenMore(){
     this.expandDiv = false;
+  }
+
+
+  // Thêm vào giỏ hàng
+  addToCart(med: any): void {
+    this.medicine.quantity = this.quantity;
+    this._service.addToCart(med).subscribe(
+      (response) => {
+        console.log(response);
+        alert("Thêm sản phẩm vào giỏ hàng thành công");
+        // Thêm sản phẩm vào giỏ hàng thành công
+      },
+      (error) => {
+        console.log(error);
+        // Xảy ra lỗi khi thêm sản phẩm vào giỏ hàng
+      }
+    );
+  }
+
+  viewMedicineDetail(f: any){
+    this.router.navigate(['app-productdetail', f._id]);
   }
 
 }

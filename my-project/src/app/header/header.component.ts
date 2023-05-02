@@ -53,7 +53,7 @@ export class HeaderComponent {
   viewCategory(c:any){
     this.router.navigate(['app-category', c.Category])
   }
-  viewSubCategory(sub_cat:any){
-    this.router.navigate(['app-category', sub_cat])
+  viewSubCategory(c:any, sub_cat:any){
+    this.router.navigate(['app-category', c.Category, sub_cat])
   }
 }
