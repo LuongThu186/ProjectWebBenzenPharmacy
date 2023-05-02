@@ -76,11 +76,20 @@ app.put("/medicines", cors(), async (req, res) => {
     {
       $set: {
         //Field for updating
-        style: req.body.style,
-        fashion_subject: req.body.fashion_subject,
-        fashion_detail: req.body.fashion_detail,
-        fashion_image: req.body.fashion_image,
-        cDate: req.body.cDate,
+        Name: req.body.Name,
+        Price: req.body.Price,
+        Image: req.body.Image,
+        Description: req.body.Description,
+        Ingredients: req.body.Ingredients,
+        Uses: req.body.Uses,
+        Directions: req.body.Directions,
+        Store: req.body.Store,
+        Warnings: req.body.Warnings,
+        Brand: req.body.Brand,
+        Manufacturer: req.body.Manufacturer,
+        Category: req.body.Category,
+        SubCategory: req.body.SubCategory,
+        Create_date: req.body.Create_date,
       },
     }
   );

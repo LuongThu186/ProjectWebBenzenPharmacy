@@ -7,7 +7,6 @@ import { Injectable } from '@angular/core';
 import { catchError, map, Observable, retry, throwError } from 'rxjs';
 import { Medicines } from '../Interfaces/Medicine';
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -41,11 +40,13 @@ export class MedicineService {
       headers: headers,
       responseType: 'text',
     };
-    return this._http.get<any>('/medicines/detail/' + medicineId, requestOptions).pipe(
-      map((res) => JSON.parse(res) as Medicines),
-      retry(3),
-      catchError(this.handleError)
-    );
+    return this._http
+      .get<any>('/medicines/detail/' + medicineId, requestOptions)
+      .pipe(
+        map((res) => JSON.parse(res) as Medicines),
+        retry(3),
+        catchError(this.handleError)
+      );
   }
 
   getMedicineCategory(category: string): Observable<any> {
@@ -63,7 +64,10 @@ export class MedicineService {
       catchError(this.handleError)
     );
   }
-  getMedicineSubCategory(category:string, subcategory: string): Observable<any> {
+  getMedicineSubCategory(
+    category: string,
+    subcategory: string
+  ): Observable<any> {
     const headers = new HttpHeaders().set(
       'Content-Type',
       'text/plain;charset=utf8'
@@ -72,13 +76,14 @@ export class MedicineService {
       headers: headers,
       responseType: 'text',
     };
-    return this._http.get<any>('/medicines/' + category + '/' + subcategory, requestOptions).pipe(
-      map((res) => JSON.parse(res) as Array<Medicines>),
-      retry(3),
-      catchError(this.handleError)
-    );
+    return this._http
+      .get<any>('/medicines/' + category + '/' + subcategory, requestOptions)
+      .pipe(
+        map((res) => JSON.parse(res) as Array<Medicines>),
+        retry(3),
+        catchError(this.handleError)
+      );
   }
-
 
   addToCart(med: any): Observable<any> {
     return this._http.post('/cart', med);
