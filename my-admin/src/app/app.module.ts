@@ -22,6 +22,14 @@ import { EditCategoryLevel2Component } from './admin-caterogy-management/edit-ca
 import { HomeComponent } from '../../../my-project/src/app/home/home.component';
 import { PopupDeleteComponent } from './admin-caterogy-management/popup-delete/popup-delete.component';
 
+import { NgxPaginationModule } from 'ngx-pagination';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdminProductEditManagementComponent } from './admin-product/admin-product-edit-management/admin-product-edit-management.component';
+import { AdminProductAddManagementComponent } from './admin-product/admin-product-add-management/admin-product-add-management.component';
+
 
 
 @NgModule({
@@ -44,13 +52,21 @@ import { PopupDeleteComponent } from './admin-caterogy-management/popup-delete/p
     EditCategoryLevel2Component,
     AdminProductDetailManagementComponent,
     HomeComponent,
-    PopupDeleteComponent
+    PopupDeleteComponent,
+    AdminProductEditManagementComponent,
+    AdminProductAddManagementComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+
+    NgxPaginationModule,
+    MatTableModule,
+    MatButtonModule,
+    MatPaginatorModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
