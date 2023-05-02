@@ -171,3 +171,11 @@ app.get("/accounts", cors(), async (req, res) => {
   const result = await accountCollection.find({}).toArray();
   res.send(result);
 });
+
+app.get("/accounts/:phoneNumber", cors(), async (req, res) => {
+  const phone = req.params["phoneNumber"];
+  const result = await accountCollection
+    .find({ Phone: phone})
+    .toArray();
+  res.send(result);
+});

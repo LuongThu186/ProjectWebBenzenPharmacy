@@ -23,7 +23,7 @@ export class AccountcustomerService {
           headers: headers,
           responseType: 'text',
         }
-        return this._http.get<any>(`${"/accounts/"}?phone=${phoneNumber}`, requestOptions).pipe(
+        return this._http.get<any>('/accounts/' + phoneNumber, requestOptions).pipe(
           map(res => JSON.parse(res) as Array<AccountCustomer>),
           retry(3),
           catchError(this.handleError)
@@ -32,8 +32,4 @@ export class AccountcustomerService {
       handleError(error: HttpErrorResponse) {
         return throwError(() => new Error(error.message));
       }
-
-      // checkPhoneNumberBE(phoneNumber: string): Observable<any> {
-      //   return this._http.get(`${"/accounts/"}/phone/${phoneNumber}`);
-      // }
 }
