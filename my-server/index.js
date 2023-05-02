@@ -36,6 +36,7 @@ client = new MongoClient("mongodb://127.0.0.1:27017");
 client.connect();
 database = client.db("BenZenPharmacyData");
 medicineCollection = database.collection("MedicineData");
+accountCollection = database.collection("AccountCustomerData");
 
 app.get("/medicines", cors(), async (req, res) => {
   const result = await medicineCollection.find({}).toArray();
@@ -165,3 +166,8 @@ app.put("/cart",cors(),(req,res)=>{
   }
   res.send(req.session.carts)
 })
+
+app.get("/accounts", cors(), async (req, res) => {
+  const result = await accountCollection.find({}).toArray();
+  res.send(result);
+});
