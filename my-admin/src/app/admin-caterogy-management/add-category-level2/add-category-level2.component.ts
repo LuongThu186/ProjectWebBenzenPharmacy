@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Medicines } from 'src/app/Interfaces/Medicine';
+import { AdminMedicineService } from 'src/app/Services/admin-medicine.service';
 
 @Component({
   selector: 'app-add-category-level2',
@@ -7,15 +10,54 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class AddCategoryLevel2Component implements OnInit{
-  
-  avatarUrl = ''
-  onFileSelected(event: any) {
-    const file: File = event.target.files[0];
-    const reader = new FileReader();
+  medicine = new Medicines();
+  errMessage: string = '';
+  medicines: any;
+  categories: any;
+  constructor(public _service: AdminMedicineService, private router: Router, private activateRoute: ActivatedRoute) {
+    this._service.getMedicines().subscribe({
+      next: (data) => {
+        // Lấy danh sách các Medicines
+        this.medicines = data;
+        this.categories = Array.from(
+          new Set(this.medicines.map((x: { Category: any }) => x.Category))
+        );
+      },
+      error: (err) => {
+        this.errMessage = err;
+      },
+    });
+  }
+  public setFashion(f: Medicines) {
+    this.medicine = f;
+  }
+  onFileSelected(event: any, medicine: Medicines) {
+    let me = this;
+    let file = event.target.files[0];
+    let reader = new FileReader();
     reader.readAsDataURL(file);
-    reader.onload = () => {
-      this.avatarUrl = reader.result as string;
+    reader.onload = function () {
+      medicine.Image = reader.result!.toString();
     };
+    reader.onerror = function (error) {
+      console.log('Error: ', error);
+    };
+  }
+  postMedicine() {
+    this.medicine.Create_date= `${new Date().getDate()}-${new Date().getMonth() + 1}-${new Date().getFullYear()}`;
+    this._service.postMedicine(this.medicine).subscribe({
+      next: (data) => {
+        this.medicine = data;
+      },
+      error: (err) => {
+        this.errMessage = err;
+      },
+    });
+    this.goBack();
+  }
+
+  goBack() {
+    this.router.navigate(['admin-caterogy-management']);
   }
 
   public selectedOption: Option | undefined;
@@ -27,7 +69,6 @@ export class AddCategoryLevel2Component implements OnInit{
   ngOnInit() {
     // Call API to get data and push it to the options array
     // This will automatically add a new option to the select element
-    this.options.push({ value: 'datane', label: 'đầy data lên đi ai rảnh liệt kê' });
   }
 }
 

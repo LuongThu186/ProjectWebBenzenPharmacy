@@ -101,6 +101,8 @@
 .table_content{
     max-height: 200px !important; /* chiều cao tối đa của phần nội dung */
     overflow-y: auto; /* thêm thanh cuộn nếu phần nội dung vượt quá max-height */
+    table-layout: fixed;
+
 }
 .table_data:hover{
     background: #f3fccf;
@@ -112,6 +114,10 @@
 }
 .table_data td{
     border-bottom: 1px solid #ddd;
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .table_content tr:nth-child(even){background-color: #dcf4db}
 .table_content tr:nth-child(even):hover{background-color: #f3fccf}
@@ -149,7 +155,7 @@
     display: block;
 }
 .page_navigation a {
-    
+
     color: black;
     float: left;
     padding: 8px 16px;
@@ -164,6 +170,12 @@
 .page_navigation a:hover:not(.active) {
     background-color: #ddd;
     border-radius: 5px;
+}
+
+.ngx-pagination{
+  background-color: #225730;
+  color: white;
+  padding: 0;
 }
 .product_edit{
     text-align: center;

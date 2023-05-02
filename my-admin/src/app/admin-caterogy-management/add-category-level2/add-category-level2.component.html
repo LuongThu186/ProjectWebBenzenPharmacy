@@ -25,24 +25,25 @@
         </div>
         <div class="page__content">
            <div class="content-button">
-            <button>Lưu</button>
-            <button routerLink="'admin-category-managemnet'">Hủy</button>
+            <button style="cursor: pointer;" (click)="postMedicine()">Lưu</button>
+            <button style="cursor: pointer;" (click)="goBack()">Hủy</button>
            </div>
             <h3>Thêm danh mục cấp 2</h3>
             <div class="content__box">
                 <label for="imgAdd">Ảnh:
-                    <input type="file" id="imgAdd" (change)="onFileSelected($event)">
+                    <input type="file" id="imgAdd" (change)="onFileSelected($event, medicine)">
                 </label>
                 <label for="nameAdd">Tên danh mục:
-                    <input type="text" id="nameAdd">
+                    <input type="text" id="nameAdd" [(ngModel)]="medicine.SubCategory">
                 </label>
                 <label for="categoryL1">Danh mục cấp 1:
-                    <select id='categoryL1' [(ngModel)]="selectedOption">
-                        <option *ngFor="let opt of options" [value]="opt.value">{{opt.label}}</option>
-                    </select>                     
+                    <select id='categoryL1' [(ngModel)]="medicine.Category">
+                        <option></option>
+                        <option *ngFor="let opt of categories">{{opt}}</option>
+                    </select>
                 </label>
                 <label for="descriptionAdd">Mô tả danh mục:
-                    <textarea type="text" id="descriptionAdd" placeholder="Số lượng từ không vượt quá 150 từ"></textarea>
+                    <textarea type="text" id="descriptionAdd" placeholder="Số lượng từ không vượt quá 150 từ" [(ngModel)]="medicine.Description"></textarea>
                 </label>
 
             </div>

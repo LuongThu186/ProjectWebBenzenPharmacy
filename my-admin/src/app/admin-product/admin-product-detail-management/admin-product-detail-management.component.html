@@ -26,67 +26,63 @@
                 <div class="page-body-header">
                     <div class="product__action">
                         <span><button id="save" onclick="">Lưu</button></span>
-                        <span><button id="back" onclick="">Quay lại</button></span>
+                        <span><button id="back" (click)="goBack()">Quay lại</button></span>
                     </div>
-                    <div class="header"> 
+                    <div class="header">
                         <p>Thông tin chi tiết sản phẩm</p>
                     </div>
-                </div>      
+                </div>
                 <div class="page-body-content">
                     <div class="content_left">
                         <label for="myFile">Ảnh:
-                            <form action="/action_page.php">
-                                <input type="file" id="myFile" name="filename">
-                            </form>
+                            <div><img src="{{medicine.Image}}" alt=""></div>
                         </label>
                         <label for="nameEdit">Tên sản phẩm:
-                            <div><input type="text" id="nameEdit"></div>
+                            <div><span>{{medicine.Name}}</span></div>
                         </label>
                         <label for="categoryEdit">Danh mục:
                             <div>
                             <select name="category" id="categoryEdit">
-                                <option value="duocmypham">Dược mỹ phẩm</option>
-                                <option value="thietbiyte">Thiết bị y tế</option>
+                              <option value="">{{medicine.Category}}</option>
                             </select>
                             </div>
                         </label>
                         <label for="sub-categoryEdit">Danh mục con:
                             <div>
                             <select name="sub-category" id="sub-categoryEdit">
-                                <option value="thuockhongkedon">Thuốc không kê đơn</option>
-                                <option value="thuockhangviem">Thuốc kháng viêm</option>
+                                <option value="thuockhongkedon">{{medicine.SubCategory}}</option>
                             </select>
                             </div>
                         </label>
                         <label for="priceEdit">Đơn giá:
-                            <div><input type="text" id="priceEdit"></div>
+                            <div><span>{{medicine.Price}}</span></div>
                         </label>
                         <label for="stockEdit">Tồn kho:
-                            <div><input type="text" id="stockEdit"></div>
+                            <div></div>
                         </label>
                     </div>
-                    
+
                     <div class="content_right">
                         <label for="useEdit">Công dụng:
-                            <input type="text" id="useEdit" placeholder="Số lượng từ không vượt quá 50 từ">
+                            <div><span>{{ medicine.Uses }}</span></div>
                         </label>
                         <label for="ingredientEdit">Thành phần:
-                            <input type="text" id="ingredientEdit">
+                          <div><span>{{ medicine.Ingredients }}</span></div>
                         </label>
                         <label for="originEdit">Xuất xứ:
-                            <input type="text" id="originEdit">
+                          <div><span>{{ medicine.Manufacturer }}</span></div>
                         </label>
                         <label for="descriptionEdit">Mô tả:
-                            <textarea type="text" id="descriptionEdit" placeholder="Số lượng từ không vượt quá 150 từ"></textarea>
+                          <div><span>{{ medicine.Description }}</span></div>
                         </label>
                         <label for="warningEdit">Lưu ý sử dụng:
-                            <input type="text" id="warningEdit">
+                          <div><span>{{ medicine.Warnings }}</span></div>
                         </label>
                         <label for="preserveEdit">Cách bảo quản:
-                            <input type="text" id="preserveEdit">
+                          <div><span>{{ medicine.Store }}</span></div>
                         </label>
                     </div>
-                </div> 
+                </div>
         </div>
     </div>
 </div>

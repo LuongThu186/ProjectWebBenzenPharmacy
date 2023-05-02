@@ -16,6 +16,8 @@ import { AdminProductManagementComponent } from './admin-product/admin-product-m
 import { AdminProductDetailManagementComponent } from './admin-product/admin-product-detail-management/admin-product-detail-management.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { PopupDeleteComponent } from './admin-caterogy-management/popup-delete/popup-delete.component';
+import { AdminProductEditManagementComponent } from './admin-product/admin-product-edit-management/admin-product-edit-management.component';
+import { AdminProductAddManagementComponent } from './admin-product/admin-product-add-management/admin-product-add-management.component';
 
 
 const routes: Routes = [
@@ -32,7 +34,9 @@ const routes: Routes = [
   {path:"edit-category-level1", component: EditCategoryLevel1Component},
   {path:"edit-category-level2", component: EditCategoryLevel2Component},
   {path:"admin-product-management", component:AdminProductManagementComponent},
-  {path:"admin-product-detail-management", component: AdminProductDetailManagementComponent},
+  {path:"admin-product-add-management", component:AdminProductAddManagementComponent},
+  {path:"admin-product-detail-management/:id", component: AdminProductDetailManagementComponent},
+  {path:"admin-product-detail-management/edit/:id", component: AdminProductEditManagementComponent},
   {path: "popup-delete", component: PopupDeleteComponent}
 ];
 

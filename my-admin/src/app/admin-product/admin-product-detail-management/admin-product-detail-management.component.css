@@ -98,7 +98,7 @@
 .header p{
     font-weight: bold;
     font-size: 22px;
-    
+
 
     align-items: center;
 }
@@ -135,6 +135,9 @@
 
 .page-body-content label{
     font-weight: bold;
+}
+.page-body-content label div{
+    font-weight: normal;
 }
 .content_left{
     width: 50%;
