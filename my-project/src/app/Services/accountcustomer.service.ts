@@ -39,5 +39,5 @@ export class AccountcustomerService {
       }
       handleError(error: HttpErrorResponse) {
         return throwError(() => new Error(error.message));
-      }  
+      }
 }
