@@ -13,7 +13,7 @@ export class ForgotpasswordComponent implements OnInit {
 
   phoneNumber: string =" ";
   isPhoneNumberValid: boolean = true;
-  phoneExist: string="";
+  phoneNumberExist = true;
   errMessage: string = '';
 
   constructor(
@@ -33,25 +33,6 @@ export class ForgotpasswordComponent implements OnInit {
     this.isPhoneNumberValid = phoneNumberRegex.test(this.phoneNumber);
   }
 
-  getAccountCustomers() {
-    this._service.getAccountCustomers().subscribe(
-      { next:(data) => {
-        // Số điện thoại tồn tại trong cơ sở dữ liệu
-        if(data===this.phoneNumber){
-          this.isPhoneNumberValid = true;
-        }
-        else{
-          this.isPhoneNumberValid = false;
-        };
-      },
-      error:(err) => {
-        // Số điện thoại không tồn tại trong cơ sở dữ liệu
-        this.isPhoneNumberValid = false;
-      }
-      }
-    );
-  }
-
   //kiểm tra mã xác nhận
   verificationCode: string = '';
   isVerificationCodeValid: boolean = true;
@@ -64,7 +45,7 @@ export class ForgotpasswordComponent implements OnInit {
     }
   }
 
-  onComplete() {    
+  onComplete() {   
       // Kiểm tra số điện thoại hợp lệ và mã xác nhận đúng
     if (!this.isPhoneNumberValid) {
       // Hiển thị thông báo lỗi nếu không hợp lệ
@@ -79,14 +60,28 @@ export class ForgotpasswordComponent implements OnInit {
       alert('Vui lòng nhập đúng số điện thoại và mã xác nhận!');
       return false;
     }
+    else if (!this.phoneNumberExist){
+      alert('Số điện thoại không tồn tại trong hệ thống!');
+      return false;
+    }
     // Xử lý khi các điều kiện đúng
     else {
-        // điều hướng đến trang app-login
-
-        alert('Số điện thoại tồn tại trong hệ thống');
-        return false
+      // Gọi API kiểm tra số điện thoại
+      this._service.checkPhoneNumberExist(this.phoneNumber)
+      .subscribe(exist => {
+        if (!exist){
+          alert('Số điện thoại không tồn tại trong hệ thống!');
+          return false;
+        }
+        else {
+          // Điều hướng đến trang app-login
+          this.router.navigate(['/app-resetpsw']);
+          return true;
+        }
+      }
+      );
     }
-
+    return;
 }
 }
  

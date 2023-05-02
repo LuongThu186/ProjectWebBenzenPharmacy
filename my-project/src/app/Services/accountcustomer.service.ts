@@ -14,15 +14,7 @@ export class AccountcustomerService {
 
   constructor(private _http: HttpClient) { }
 
-      // if (err) {
-      //   console.error(err);
-      //   res.status(500).send('Internal server error');
-      // } else {
-      //   const jsonData = JSON.parse(data);
-      //   res.status(200).send(jsonData);
-      // }
-
-      getAccountCustomers(): Observable<any> {
+        checkPhoneNumberExist(phoneNumber: string): Observable<any> {
         const headers = new HttpHeaders().set(
           'Content-Type',
           'text/plain;charset=utf8'
@@ -31,7 +23,7 @@ export class AccountcustomerService {
           headers: headers,
           responseType: 'text',
         }
-        return this._http.get<any>("/accounts/", requestOptions).pipe(
+        return this._http.get<any>(`${"/accounts/"}?phone=${phoneNumber}`, requestOptions).pipe(
           map(res => JSON.parse(res) as Array<AccountCustomer>),
           retry(3),
           catchError(this.handleError)
@@ -40,4 +32,8 @@ export class AccountcustomerService {
       handleError(error: HttpErrorResponse) {
         return throwError(() => new Error(error.message));
       }
+
+      // checkPhoneNumberBE(phoneNumber: string): Observable<any> {
+      //   return this._http.get(`${"/accounts/"}/phone/${phoneNumber}`);
+      // }
 }
