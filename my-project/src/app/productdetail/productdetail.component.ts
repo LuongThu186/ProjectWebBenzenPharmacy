@@ -103,4 +103,8 @@ export class ProductdetailComponent {
     this.router.navigate(['app-productdetail', f._id]);
   }
 
+
+  onClickBuy(f: any){
+    this.router.navigate(['app-payment', f._id])
+  }
 }

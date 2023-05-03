@@ -182,6 +182,14 @@ app.get("/accounts", cors(), async (req, res) => {
   res.send(result);
 });
 
+app.get("/accounts/:phoneNumber", cors(), async (req, res) => {
+  const phone = req.params["phoneNumber"];
+  const result = await accountCollection
+    .find({ Phone: phone})
+    .toArray();
+  res.send(result);
+});
+
 app.get("/customers", cors(), async (req, res) => {
   const result = await customerCollection.find({}).toArray();
   res.send(result);
@@ -192,4 +200,5 @@ app.get("/customers/:id",cors(), async (req, res) =>{
   const result = await customerCollection.find({_id:o_id}).toArray();
   res.send(result[0])
 })
+
 
