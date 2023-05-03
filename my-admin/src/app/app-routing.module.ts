@@ -26,7 +26,7 @@ const routes: Routes = [
   {path:"admin-order-detail-management", component: AdminOrderDetailManagementComponent},
   {path:"admin-uncomplete-order-management", component: AdminUncompleteOrderManagementComponent},
   {path:"admin-custoner-management", component: AdminCustonerManagementComponent},
-  {path:"admin-customer-detail-management", component: AdminCustomerDetailManagementComponent},
+  {path:"admin-customer-detail-management/:id", component: AdminCustomerDetailManagementComponent},
   {path:"admin-messenger", component: AdminMessengerComponent},
   {path:"admin-caterogy-management", component: AdminCaterogyManagementComponent},
   {path:"add-category-level1", component: AddCategoryLevel1Component},
@@ -37,7 +37,8 @@ const routes: Routes = [
   {path:"admin-product-add-management", component:AdminProductAddManagementComponent},
   {path:"admin-product-detail-management/:id", component: AdminProductDetailManagementComponent},
   {path:"admin-product-detail-management/edit/:id", component: AdminProductEditManagementComponent},
-  {path: "popup-delete", component: PopupDeleteComponent}
+  {path: "popup-delete", component: PopupDeleteComponent},
+
 ];
 
 @NgModule({

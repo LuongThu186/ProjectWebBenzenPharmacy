@@ -149,3 +149,9 @@ tr:nth-child(even):hover #visual  {background-color: #FFFFFF}
     background-color: #ddd;
     border-radius: 5px;
   }
+  #visual{
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: #A0A4A8;
+}
