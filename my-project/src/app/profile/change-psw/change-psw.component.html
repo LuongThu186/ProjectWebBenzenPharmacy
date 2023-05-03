@@ -33,8 +33,7 @@
                     <label for="uname">Nhập mật khẩu: </label>
                     <div class="input--content">
                         <input
-                        type="text"
-                        name="uname"
+                        type="password" id="pwd" [(ngModel)]="password" (blur)="onChecked()" #passwordInput
                         required
                       />
                       <span class="material">*</span>
@@ -45,7 +44,7 @@
                     <div class="input--content">
                         <input
                         type="password"
-                        name="psw"
+                        [(ngModel)]="confirmPassword" name="confirmPassword" #confirmPasswordInput (blur)="checkPasswordsMatch()"
                         required
                       /><span class="material">*</span>
                     </div>

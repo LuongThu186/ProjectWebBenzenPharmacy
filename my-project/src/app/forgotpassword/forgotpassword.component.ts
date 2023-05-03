@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormBuilder,FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AccountcustomerService } from '../Services/accountcustomer.service';
+import { throwError } from 'rxjs';
+import { tap, catchError } from 'rxjs/operators';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-forgotpassword',
@@ -14,12 +16,13 @@ export class ForgotpasswordComponent implements OnInit {
   phoneNumber: string =" ";
   isPhoneNumberValid: boolean = true;
   phoneNumberExist = true;
-  errMessage: string = '';
+  phoneData: string="";
+  errorMessage: string="";
 
   constructor(
     private router: Router,
     private http: HttpClient, 
-    private _service: AccountcustomerService,
+    private accountService: AccountcustomerService,
   ){}
 
   ngOnInit() {
@@ -60,28 +63,18 @@ export class ForgotpasswordComponent implements OnInit {
       alert('Vui lòng nhập đúng số điện thoại và mã xác nhận!');
       return false;
     }
-    else if (!this.phoneNumberExist){
-      alert('Số điện thoại không tồn tại trong hệ thống!');
-      return false;
-    }
-    // Xử lý khi các điều kiện đúng
     else {
-      // Gọi API kiểm tra số điện thoại
-      this._service.checkPhoneNumberExist(this.phoneNumber)
-      .subscribe(exist => {
-        if (!exist){
-          alert('Số điện thoại không tồn tại trong hệ thống!');
-          return false;
+      this.accountService.checkPhoneNumberExist(this.phoneNumber).subscribe((data: any[])=> {
+        const phoneNumberExist = data.find(account => account.phoneNumber === this.phoneNumber);
+        if (phoneNumberExist===true) {
+          this.router.navigate(["/app-resetpsw"]);
+        } else {
+          // Số điện thoại không tồn tại trong RESTful API
+          this.phoneNumberExist=false
         }
-        else {
-          // Điều hướng đến trang app-login
-          this.router.navigate(['/app-resetpsw']);
-          return true;
-        }
-      }
-      );
-    }
-    return;
+    })
+      return
+}
 }
 }
  
