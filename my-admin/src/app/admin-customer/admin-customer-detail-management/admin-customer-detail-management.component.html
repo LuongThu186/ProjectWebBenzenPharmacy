@@ -37,44 +37,34 @@
                             <img class= "cus-img" src="assets/man.png">
                             <p class="cus-point">Điểm tích lũy: <span id="point">1.420.000</span></p>
                         </div>
-                    <ul class="cus-info-data">
-                        <li>
-                            <a href="#" class="cus-info-data-detail">
-                                <span class="cus-title">Tên khách hàng:</span>
-                                <span class="cus-data">Võ Bá Tùng</span>
-                                </a>
-                        </li>
-                        <li>
-                            <a href="#" class="cus-info-data-detail">
-                                <span class="cus-title">Giới tính:</span>
-                                <span class="cus-data">Nam</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="cus-info-data-detail">
+                    <tbody class="cus-info-data">
+                        <tr class="cus-info-data-detail">
+                                <td class="cus-title">Tên khách hàng:</td>
+                                <td class="cus-data">{{customer.CustomerName}}</td>
+                        </tr>
+                        <tr class="cus-info-data-detail">
+                                <td class="cus-title">Giới tính:</td>
+                                <td class="cus-data">{{customer.Gender}}</td>
+                        </tr>
+                        <tr class="cus-info-data-detail">
                                 <span class="cus-title">Số điện thoại:</span>
-                                <span class="cus-data">0332583xxx</span>
-                                </a>
-                        </li>
-                        <li>
-                            <a href="#" class="cus-info-data-detail">
+                                <span class="cus-data">{{customer.Phone}}</span>
+                        </tr>
+                        <tr class="cus-info-data-detail">
                                 <span class="cus-title">Ngày sinh:</span>
-                                <span class="cus-data">03/04/2002</span>
-                                </a>
-                        </li>
-                        <li>
-                            <a href="#" class="cus-info-data-detail">
+                                <span class="cus-data">{{customer.BOD}}</span>
+                        </tr>
+                        <tr class="cus-info-data-detail">
                                 <span class="cus-title">Email:</span>
-                                <span class="cus-data">benzen20406@gmail.com</span>
-                                </a>
-                        </li>
-                        <li>
+                                <span class="cus-data">{{customer.Mail}}</span>
+                        </tr>
+                        <!-- <li>
                             <a href="#" class="cus-info-data-detail">
                                 <span class="cus-title">Địa chỉ:</span>
-                                <span class="cus-data">Thừa Thiên - Huế</span>
+                                <span class="cus-data"></span>
                                 </a>
-                        </li>
-                    </ul>
+                        </li> -->
+                    </tbody>
                     </div>
                 </div>
             </div>

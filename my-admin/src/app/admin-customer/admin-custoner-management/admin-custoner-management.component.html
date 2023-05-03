@@ -21,8 +21,8 @@
             <p>Quản lý khách hàng</p>
             <div class="page-body-header">
                 <div class="page-body-title">
-                    <p class="title__main">Khách hàng</p>
-                    <p>12.227 khách hàng</p>
+                    <label >Số lượng khách hàng</label>
+                    <p id="count">{{totalCustomer(customers)}} người đã đăng ký</p>
                 </div>
                 <div class="page-search">
                     <input type="search" id="search" placeholder="Tìm kiếm..." />
@@ -33,119 +33,39 @@
             <div class="page-body-content">
                 <table id="customers">
                     <thead>
-                        <th style="width: 56px"></th>
-                        <th style="width: 120px">ID</th>
-                        <th style="width: 200px">Tài khoản</th>
-                        <th style="width: 150px">Ngày đăng ký </th>
-                        <th style="width: 200px">Địa chỉ</th>
-                        <th style="width: 100px;">Giới tính</th>
-                        <th style="width: 100px">Tích điểm</th>
-                        <th style="width: 120px;">SĐT</th>
-                        <th style="width: 56px"></th>
+                        <tr>
+                            <th></th>
+                            <th >ID</th>
+                            <th >Tên khách hàng</th>
+                            <th>SĐT</th>
+                            <th >Mail</th>
+                            <th >Ngày sinh</th>
+                            <th >Giới tính</th>
+                            <th >Hạng thành viên</th>
+                            <th ></th>
+                        </tr>
                     </thead>
-                    <tbody>
-                        <tr>
+                    <tbody >
+                        <tr *ngFor="let customer of customers| paginate: { itemsPerPage: 12, currentPage: page }; let count = index">
                             <td>
-                                <div class="cus-check">
-                                    <input type="checkbox" class="cus-check-input" id="cus-checking1">
-                                    <label class="cus-check-label" for="cus-checking1"></label>
-                                </div>
+                                <input type="checkbox" class="pro_check--input" />
                             </td>
-                            <td> 10000425</td>
-                            <td> Phan Kim Ngân </td>
-                            <td> 14/4/2020 </td>
-                            <td> Kiên Giang </td>
-                            <td> Nữ </td>
-                            <td> 1200 </td>
-                            <td> 0332781902 </td>
-                            <td>
-                               <button id="visual"><span class="material-icons-outlined">visibility</span></button> 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="cus-check">
-                                    <input type="checkbox" class="cus-check-input" id="cus-checking2">
-                                    <label class="cus-check-label" for="cus-checking2"></label>
-                                </div>
-                            </td>
-                            <td> 10000425</td>
-                            <td> Phan Kim Ngân </td>
-                            <td> 14/4/2020 </td>
-                            <td> Kiên Giang </td>
-                            <td> Nữ </td>
-                            <td> 1200 </td>
-                            <td> 0332781902 </td>
-                            <td>
-                                <button id="visual"><span class="material-icons-outlined">visibility</span></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="cus-check">
-                                    <input type="checkbox" class="cus-check-input" id="cus-checking3">
-                                    <label class="cus-check-label" for="cus-checking3"></label>
-                                </div>
-                            </td>
-                            <td> 10000425</td>
-                            <td> Phan Kim Ngân </td>
-                            <td> 14/4/2020 </td>
-                            <td> Kiên Giang </td>
-                            <td> Nữ </td>
-                            <td> 1200 </td>
-                            <td> 0332781902 </td>
-                            <td>
-                                <button id="visual"><span class="material-icons-outlined">visibility</span></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="cus-check">
-                                    <input type="checkbox" class="cus-check-input" id="cus-checking4">
-                                    <label class="cus-check-label" for="cus-checking4"></label>
-                                </div>
-                            </td>
-                            <td> 10000425</td>
-                            <td> Phan Kim Ngân </td>
-                            <td> 14/4/2020 </td>
-                            <td> Kiên Giang </td>
-                            <td> Nữ </td>
-                            <td> 1200 </td>
-                            <td> 0332781902 </td>
-                            <td>
-                                <button id="visual"><span class="material-icons-outlined">visibility</span></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="cus-check">
-                                    <input type="checkbox" class="cus-check-input" id="cus-checking5">
-                                    <label class="cus-check-label" for="cus-checking5"></label>
-                                </div>
-                            </td>
-                            <td> 10000425</td>
-                            <td> Phan Kim Ngân </td>
-                            <td> 14/4/2020 </td>
-                            <td> Kiên Giang </td>
-                            <td> Nữ </td>
-                            <td> 1200 </td>
-                            <td> 0332781902 </td>
-                            <td>
-                                <button id="visual"><span class="material-icons-outlined">visibility</span></button>
+                            <td> {{customer.CustomerID}}</td>
+                            <td> {{customer.CustomerName}} </td>
+                            <td> {{customer.Phone}} </td>
+                            <td>{{customer.Mail}}</td>
+                            <td> {{customer.BOD}} </td>
+                            <td> {{customer.Gender}} </td>
+                            <td> {{customer.Membership}} </td>
+                            <td class="pro_action">
+                               <button id="visual" (click)="viewCustomerDetail(customer)"><span class="material-icons-outlined">visibility</span></button> 
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="page-body-nav">
-                <!--<a href="#">&laquo;</a>-->
-                <a class="active" href="#">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">6</a>
-                <a href="#">&raquo;</a>
+            <div class="product_action">
+                <pagination-controls (pageChange)="page = $event"></pagination-controls>
             </div>
     </div>
 </div>
