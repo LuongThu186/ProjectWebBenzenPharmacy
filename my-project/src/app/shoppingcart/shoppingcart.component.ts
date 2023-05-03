@@ -132,4 +132,8 @@ export class ShoppingcartComponent {
     this.router.navigate(['app-orderdetail']);
   }
 
+  goToPayment() {
+    // Chuyển đến trang thanh toán
+    this.router.navigate(['app-payment'], {state:{ items: this.selectedItems} });
+  }
 }

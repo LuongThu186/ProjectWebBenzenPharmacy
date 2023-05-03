@@ -25,40 +25,23 @@
               Số lượng
             </p>
           </div>
-          <div class="cart__main-row">
+          <div class="cart__main-row" *ngFor="let item of selectedItems">
             <div class="cart__main-row--product">
               <div class="cart__main-row--product-img">
                 <img src="/assets/image/shopping-cart/product.jpg" alt="">
               </div>
-              <p class="cart__main-row--product-info">Nat C 1000 hỗ trợ tăng đề kháng
-                lọ 60 viên
+              <p class="cart__main-row--product-info">{{ item.name }}
               </p>
             </div>
             <p class="cart__main-row--price">
-              105.000đ
+              {{ item.price }}
             </p>
             <p class="cart__main-row--quantity">
-              1
+              {{ item.quantity }}
             </p>
           </div>
-          <div class="cart__main-row">
-            <div class="cart__main-row--product">
-              <div class="cart__main-row--product-img">
-                <img src="/assets/image/shopping-cart/product.jpg" alt="">
-              </div>
-              <p class="cart__main-row--product-info">Nat C 1000 hỗ trợ tăng đề kháng
-                lọ 60 viên
-              </p>
-            </div>
-            <p class="cart__main-row--price">
-              105.000đ
-            </p>
-            <p class="cart__main-row--quantity">
-              1
-            </p>
-          </div>
-
         </div>
+        
       </div>
       <div class="information">
         <div class="information__heading">Thông tin nhận hàng</div>
