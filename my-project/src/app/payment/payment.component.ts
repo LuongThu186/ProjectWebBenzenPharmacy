@@ -13,7 +13,8 @@ export class PaymentComponent implements OnInit{
   categories: any[] | undefined;
   quantityItem: number = 0;
   selectedItems: any []=[];
-
+  items: any []=[]
+  
   constructor(
     private route: ActivatedRoute,
     private _service: MedicineService,
