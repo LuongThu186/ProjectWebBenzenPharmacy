@@ -1,9 +1,10 @@
 export class AccountCustomer{
     constructor(
         public _id: any = null,
-        public AccountCode: number,
-        public Phone:string ='',
+        public Name:string='',
+        public phonenumber:string ='',
         public Mail: string='',
-        public Password: string=''
+        public Address:string='',
+        public password: string=''
     ){}
 }
