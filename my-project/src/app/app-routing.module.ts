@@ -33,6 +33,7 @@ const routes: Routes = [
   {path:"app-category/:category", component:CategoryComponent},
   {path:"app-category/:category/:subcategory", component:CategoryComponent},
   {path:"app-payment", component: PaymentComponent},
+  {path: 'app-payment/:id', component: PaymentComponent},
   {path:"app-profile", component: ProfileComponent},
   {path:"app-orderdetail", component: OrderdetailComponent},
   {path:"app-infor", component: InforComponent},

@@ -37,6 +37,7 @@ client.connect();
 database = client.db("BenZenPharmacyData");
 medicineCollection = database.collection("MedicineData");
 accountCollection = database.collection("AccountCustomerData");
+customerCollection = database.collection("CustomerData");
 
 app.get("/medicines", cors(), async (req, res) => {
   const result = await medicineCollection.find({}).toArray();
@@ -181,6 +182,14 @@ app.get("/accounts", cors(), async (req, res) => {
   res.send(result);
 });
 
+app.get("/accounts/:phoneNumber", cors(), async (req, res) => {
+  const phone = req.params["phoneNumber"];
+  const result = await accountCollection
+    .find({ Phone: phone})
+    .toArray();
+  res.send(result);
+});
+
 //Phần này là Đăng ký và Đăng nhập
 app.post("/accounts", cors(), async(req, res) => {
   var crypto = require('crypto');
@@ -209,3 +218,17 @@ app.post('/login', cors(), async (req, res) => {
     }
   }
 });
+
+
+app.get("/customers", cors(), async (req, res) => {
+  const result = await customerCollection.find({}).toArray();
+  res.send(result);
+});
+
+app.get("/customers/:id",cors(), async (req, res) =>{
+  var o_id = new ObjectId(req.params["id"]);
+  const result = await customerCollection.find({_id:o_id}).toArray();
+  res.send(result[0])
+})
+
+
