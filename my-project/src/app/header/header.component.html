@@ -64,7 +64,12 @@
                     <span class="text">Lịch sử đơn hàng</span>
                 </div>
                 <div class="cart" onclick="window.location='app-shoppingcart'">
+                  <div *ngIf="displayItem; else showItem">
                     <p class="text">Giỏ hàng</p>
+                  </div>
+                  <ng-template #showItem>
+                    <p class="text">Giỏ hàng ({{quantityItem}})</p>
+                  </ng-template>
                     <span class="material-icons">shopping_cart</span>
                 </div>
             </div>

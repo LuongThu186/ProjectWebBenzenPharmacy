@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+
 import { Medicines } from '../Interfaces/Medicine';
 import { MedicineService } from '../Services/medicines.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -17,11 +18,15 @@ export class HeaderComponent implements OnInit{
   categories: any[] | undefined;
   medicines: any;
   medicine = new Medicines();
+  cartItems: any[] = [];
+  quantityItem: number = 0;
+  displayItem: boolean = true;
   errMessage: string = '';
   constructor(
     public _service: MedicineService,
     private router: Router,
     private activateRoute: ActivatedRoute,
+    private cd: ChangeDetectorRef,
     private authService: AuthService
   ) {
     this._service.getMedicines().subscribe({
@@ -52,6 +57,18 @@ export class HeaderComponent implements OnInit{
         this.errMessage = err;
       },
     });
+
+    this._service.getCart().subscribe({
+      next: (data) => {
+        this.cartItems = data;
+        this.quantityItem = this.cartItems.length;
+        if(this.cartItems.length > 0){
+          this.displayItem = false;
+        };
+        this.cd.detectChanges();
+      }
+    });
+
     this.isLoggedIn = this.authService.isLoggedIn();
     this.currentUser = this.authService.getCurrentUser();
   }

@@ -86,13 +86,38 @@ export class ShoppingcartComponent {
   }
 
   increase(medicine: any) {
+    console.log("increase called");
     medicine.quantity++;
+    this._service.updateQuantityCart(medicine).subscribe(
+      response => {
+        console.log(response);
+        // Cập nhật số lượng sản phẩm thành công
+      }
+    );
   }
 
   decrease(medicine: any) {
+    console.log("decrease called");
     if (medicine.quantity > 1) {
       medicine.quantity--;
+      this._service.updateQuantityCart(medicine).subscribe(
+        response => {
+          console.log(response);
+          // Cập nhật số lượng sản phẩm thành công
+        }
+      );
     }
+  }
+
+  updateQuantity(med: any) {
+    // med.quantity = med.ngModel;
+    console.log(med);
+    this._service.updateQuantityCart(med).subscribe(
+      response => {
+        console.log(response);
+        // Cập nhật số lượng sản phẩm thành công
+      }
+    );
   }
 
   addToCart(med: any): void {
@@ -128,8 +153,8 @@ export class ShoppingcartComponent {
     }
   }
 
-  viewOrderDetail(){
-    this.router.navigate(['app-orderdetail']);
+  makePayment(){
+    this.router.navigate(['app-payment']);
   }
 
 }
