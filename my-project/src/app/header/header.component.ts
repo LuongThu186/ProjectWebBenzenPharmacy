@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { Medicines } from '../Interfaces/Medicine';
 import { MedicineService } from '../Services/medicines.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -14,11 +14,15 @@ export class HeaderComponent {
   categories: any[] | undefined;
   medicines: any;
   medicine = new Medicines();
+  cartItems: any[] = [];
+  quantityItem: number = 0;
+  displayItem: boolean = true;
   errMessage: string = '';
   constructor(
     public _service: MedicineService,
     private router: Router,
-    private activateRoute: ActivatedRoute
+    private activateRoute: ActivatedRoute,
+    private cd: ChangeDetectorRef
   ) {
     this._service.getMedicines().subscribe({
       next: (data) => {
@@ -47,6 +51,17 @@ export class HeaderComponent {
       error: (err) => {
         this.errMessage = err;
       },
+    });
+
+    this._service.getCart().subscribe({
+      next: (data) => {
+        this.cartItems = data;
+        this.quantityItem = this.cartItems.length;
+        if(this.cartItems.length > 0){
+          this.displayItem = false;
+        };
+        this.cd.detectChanges();
+      }
     });
   }
 

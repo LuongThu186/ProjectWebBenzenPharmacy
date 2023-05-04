@@ -168,7 +168,7 @@ app.put("/cart",cors(),(req,res)=>{
   if(req.session.carts!=null)
   {
 
-      p=req.session.carts.find(x=>x.barcode==req.body.barcode)
+      p=req.session.carts.find(x=>x._id==req.body._id)
       if(p!=null)
       {
           p.quantity=req.body.quantity            
@@ -187,7 +187,7 @@ app.get("/accounts/:phoneNumber", cors(), async (req, res) => {
   const result = await accountCollection
     .find({ Phone: phone})
     .toArray();
-  res.send(result);
+  res.send(result[0]);
 });
 
 app.get("/customers", cors(), async (req, res) => {
