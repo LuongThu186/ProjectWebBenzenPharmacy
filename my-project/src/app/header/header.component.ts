@@ -1,14 +1,18 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+
 import { Medicines } from '../Interfaces/Medicine';
 import { MedicineService } from '../Services/medicines.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../Services/auth.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
+  isLoggedIn = false;
+    currentUser: any;
   [x: string]: any;
   category: string = '';
   categories: any[] | undefined;
@@ -22,7 +26,8 @@ export class HeaderComponent {
     public _service: MedicineService,
     private router: Router,
     private activateRoute: ActivatedRoute,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    private authService: AuthService
   ) {
     this._service.getMedicines().subscribe({
       next: (data) => {
@@ -63,6 +68,9 @@ export class HeaderComponent {
         this.cd.detectChanges();
       }
     });
+
+    this.isLoggedIn = this.authService.isLoggedIn();
+    this.currentUser = this.authService.getCurrentUser();
   }
 
   viewCategory(c:any){
@@ -71,4 +79,26 @@ export class HeaderComponent {
   viewSubCategory(c:any, sub_cat:any){
     this.router.navigate(['app-category', c.Category, sub_cat])
   }
+
+  //Phần này là của đăng nhập
+  Name:any
+  ngOnInit(): void {
+    const user = JSON.parse(sessionStorage.getItem('CurrentUser')!);
+      if (user) {
+        this.Name = user.Name;
+      }}
+
+    logOut() {
+      const confirmed = confirm('Bạn có muốn đăng xuất không?');
+      if(confirmed) {
+        sessionStorage.removeItem('CurrentUser');
+        this.router.navigate(['/login'])
+      }
+
+    }
+
+
+
+
+
 }
