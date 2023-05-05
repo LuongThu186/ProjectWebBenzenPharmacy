@@ -14,18 +14,14 @@
       </div>
 
       <div class="right-content">
-        <form action="app-home" method="get" class="login_form">
+        <form (ngSubmit)="onSubmit()" class="login_form">
           <h2 class="header">ĐĂNG NHẬP</h2>
           <div class="container">
             <div class="container__input">
                 <div class="container__input--item">
-                    <label for="uname">Số điện thoại: </label>
+                    <label for="phonenumber">Số điện thoại: </label>
                     <div class="input--content">
-                        <input
-                        type="text"
-                        placeholder="Số điện thoại"
-                        name="uname"
-                        required
+                        <input type="text" placeholder="Số điện thoại" name="phonenumber" [(ngModel)]="phonenumber" required
                       />
                       <span class="material">*</span>
                     </div>
@@ -34,24 +30,22 @@
                     <label for="psw">Mật khẩu: </label>
                     <div class="input--content">
                         <input
-                        type="password"
-                        placeholder="Mật khẩu"
-                        name="psw"
-                        required
-                      /><span class="material">*</span>
+                        type="password" placeholder="Mật khẩu" name="psw" [(ngModel)]="password" required/>
+                        <span class="material">*</span>
+
                     </div>
                     </div>
             </div>
-            
+
             <div class="container__checkbox">
                 <label>
                     <input type="checkbox" checked="checked" name="remember" class="checkbox"/>Nhớ mật khẩu
                 </label>
                 <a href="app-forgotpassword">Quên mật khẩu?</a>
             </div>
-            
+
             <div>
-              <button type="submit" class="login_button" onclick="window.location='app-home'">ĐĂNG NHẬP</button>
+              <button type="submit" class="login_button">ĐĂNG NHẬP</button>
             </div>
           </div>
           <div class="content--bottom">
