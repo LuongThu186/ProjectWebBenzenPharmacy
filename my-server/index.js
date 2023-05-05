@@ -314,46 +314,8 @@ app.delete("orders/:id", cors(), async (req, res) => {
 });
 
 
-app.put("/orderConfirm/:id", cors(), async (req, res) => {
-  var o_id = new ObjectId(req.params["id"]);
-  //update json Fashion into database
-  await medicineCollection.updateOne(
-    { _id: o_id }, //condition for update
-    {
-      $set: {
-        //Field for updating
-        Status: "Đã xác nhận"
-      },
-    }
-  );
-  //send Fahsion after updating
-  var i_id = new ObjectId(req.body._id);
-  const result = await orderCollection.find({ _id: i_id }).toArray();
-  res.send(result[0]);
-});
 
 app.post("/customers", cors(), async (req, res) =>{
   await customerCollection.insertOne(req.body)
   res.send(req.body)
 })
-
-app.put("/customers", cors(), async (req, res) => {
-  //update json Fashion into database
-  await customerCollection.updateOne(
-    { _id: new ObjectId(req.body._id) }, //condition for update
-    {
-      $set: {
-        //Field for updating
-        CustomerName: req.body.CustomerName,
-        Phone: req.body.Phone,
-        Mail: req.body.Mail,
-        BOD: req.body.BOD,
-        Gender: req.body.Gender,
-      },
-    }
-  );
-  //send Fahsion after updating
-  var o_id = new ObjectId(req.body._id);
-  const result = await customerCollection.find({ _id: o_id }).toArray();
-  res.send(result[0]);
-});

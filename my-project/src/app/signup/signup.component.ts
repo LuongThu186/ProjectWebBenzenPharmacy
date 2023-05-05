@@ -40,16 +40,7 @@ export class SignupComponent {
       next: (data) => {
         this.account = data;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    })
-    this._ps.postCustomer(this.account).subscribe({
-      next:(data)=>{this.customer=data},
-      error:(err)=>{this.errMessage=err}
-    })
-=======
-=======
->>>>>>> 79195124d9c18ed03c869aa320644c6322e180da
+
         // alert('Đăng ký thành công');
         this.router.navigate(['/app-login']);
       },

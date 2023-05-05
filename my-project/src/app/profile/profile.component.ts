@@ -72,32 +72,12 @@ export class ProfileComponent {
   // email = 'benzen@gmail.com';
   avatarUrl = 'assets/image/profile/avt.png';
 
-  putCustomer(){
-    this._service.updateCustomer(this.customer).subscribe({
-      next:(data)=>{this.customer=data},
-      error:(err)=>{this.errMessage=err}
-    })
-  }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-  
-  postCustomer(){
-    this._service.postCustomer(this.customer).subscribe({
-      next:(data)=>{this.customer=data},
-      error:(err)=>{this.errMessage=err}
-    })
-  }
-=======
->>>>>>> 79195124d9c18ed03c869aa320644c6322e180da
-=======
->>>>>>> 79195124d9c18ed03c869aa320644c6322e180da
-
-  // nameEdit: string='';
-  // genderEdit = '';
-  // phoneEdit='';
-  // birthdayEdit = '';
-  // emailEdit: string='';
+  nameEdit: string='';
+  genderEdit = '';
+  phoneEdit='';
+  birthdayEdit = '';
+  emailEdit: string='';
 
   editing =false;
 
@@ -114,19 +94,11 @@ export class ProfileComponent {
   }
 
   saveInfor() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    this.putCustomer()
->>>>>>> 79195124d9c18ed03c869aa320644c6322e180da
-=======
-    this.putCustomer()
->>>>>>> 79195124d9c18ed03c869aa320644c6322e180da
-    this.Name = this.customer.CustomerName;
-    this.Gender = this.customer.Gender;
-    this.phonenumber = this.customer.Phone;
-    this.BOD = this.customer.BOD;
-    this.Mail = this.customer.Mail;
+    this.name = this.nameEdit;
+    this.gender = this.genderEdit;
+    this.phone=this.phoneEdit;
+    this.birthday = this.birthdayEdit;
+    this.email = this.emailEdit;
 
     this.editing = false;
   }
