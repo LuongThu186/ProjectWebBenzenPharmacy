@@ -19,8 +19,8 @@
             <p>Quản lý đơn hàng</p>
             <div class="page-body-header">
                 <div class="page-body-title">
-                    <p class="title__main">Đơn hàng</p>
-                    <p>2.267 đơn hàng</p>
+                    <p class="title__main">Tổng số lượng đơn hàng</p>
+                    <p>{{totalOrder(orders)}} đơn hàng</p>
                 </div>
                 <div class="page-search">
                     <input type="search" id="search" placeholder="Tìm kiếm..." />
@@ -43,205 +43,28 @@
                         <th></th>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr *ngFor="let order of orders| paginate: { itemsPerPage: 12, currentPage: page }; let count = index">
                             <td>
                                 <div class="ord-check">
                                     <input type="checkbox" class="ord-check-input" id="ord-checking1">
                                     <label class="ord-check-label" for="ord-checking1"></label>
                                 </div>
                             </td>
-                            <td> #10022002</td>
-                            <td> Phan Kim Ngân </td>
-                            <td> 02/06/2022 | 9:22 SA </td>
-                            <td> 251.000 ₫ </td>
-                            <td id="completing"> Hoàn thành </td>
+                            <td>{{order.OrderID}}</td>
+                            <td>{{order.CustomerName}} </td>
+                            <td> {{order.OrderDate}} </td>
+                            <td>  </td>
+                            <td id="completing"> {{order.Status}} </td>
                             <td>
-                               <button id="visual"><span class="material-icons-outlined"> visibility</span></button>
-                               <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="ord-check">
-                                    <input type="checkbox" class="ord-check-input" id="ord-checking2">
-                                    <label class="ord-check-label" for="ord-checking2"></label>
-                                </div>
-                            </td>
-                            <td> #10022003</td>
-                            <td> Lương Anh Thư </td>
-                            <td> 02/06/2022 | 9:22 SA </td>
-                            <td> 251.000 ₫ </td>
-                            <td id="waiting"> Chờ xác nhận </td>
-                            <td>
-                               <button id="visual"><span class="material-icons-outlined">visibility</span></button>
-                               <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="ord-check">
-                                    <input type="checkbox" class="ord-check-input" id="ord-checking3">
-                                    <label class="ord-check-label" for="ord-checking3"></label>
-                                </div>
-                            </td>
-                            <td> #10022004</td>
-                            <td> Võ Bá Tùng </td>
-                            <td> 02/06/2022 | 9:22 SA </td>
-                            <td> 251.000 ₫ </td>
-                            <td id="completing"> Hoàn thành </td>
-                            <td>
-                               <button id="visual"><span class="material-icons-outlined">visibility</span></button>
-                               <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="ord-check">
-                                    <input type="checkbox" class="ord-check-input" id="ord-checking4">
-                                    <label class="ord-check-label" for="ord-checking4"></label>
-                                </div>
-                            </td>
-                            <td> #10022005</td>
-                            <td> Bùi Nguyễn Bích Ngọc </td>
-                            <td> 02/06/2022 | 9:22 SA </td>
-                            <td> 251.000 ₫ </td>
-                            <td id="deleting"> Hủy </td>
-                            <td>
-                               <button id="visual"><span class="material-icons-outlined">visibility</span></button>
-                               <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="ord-check">
-                                    <input type="checkbox" class="ord-check-input" id="ord-checking5">
-                                    <label class="ord-check-label" for="ord-checking5"></label>
-                                </div>
-                            </td>
-                            <td> #10022006</td>
-                            <td> Nguyễn Thị Thanh Bình </td>
-                            <td> 02/06/2022 | 9:22 SA </td>
-                            <td> 251.000 ₫ </td>
-                            <td id="completing"> Hoàn thành </td>
-                            <td>
-                               <button id="visual"><span class="material-icons-outlined">visibility</span></button>
-                               <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="ord-check">
-                                    <input type="checkbox" class="ord-check-input" id="ord-checking6">
-                                    <label class="ord-check-label" for="ord-checking6"></label>
-                                </div>
-                            </td>
-                            <td> #10022007</td>
-                            <td> Nguyễn Thành Danh </td>
-                            <td> 02/06/2022 | 9:22 SA </td>
-                            <td> 251.000 ₫ </td>
-                            <td id="delivering"> Chờ vận chuyển </td>
-                            <td>
-                               <button id="visual"><span class="material-icons-outlined">visibility</span></button>
-                               <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="ord-check">
-                                    <input type="checkbox" class="ord-check-input" id="ord-checking4">
-                                    <label class="ord-check-label" for="ord-checking4"></label>
-                                </div>
-                            </td>
-                            <td> #10022005</td>
-                            <td> Bùi Nguyễn Bích Ngọc </td>
-                            <td> 02/06/2022 | 9:22 SA </td>
-                            <td> 251.000 ₫ </td>
-                            <td id="deleting"> Hủy </td>
-                            <td>
-                               <button id="visual"><span class="material-icons-outlined">visibility</span></button>
-                               <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="ord-check">
-                                    <input type="checkbox" class="ord-check-input" id="ord-checking5">
-                                    <label class="ord-check-label" for="ord-checking5"></label>
-                                </div>
-                            </td>
-                            <td> #10022006</td>
-                            <td> Nguyễn Thị Thanh Bình </td>
-                            <td> 02/06/2022 | 9:22 SA </td>
-                            <td> 251.000 ₫ </td>
-                            <td id="completing"> Hoàn thành </td>
-                            <td>
-                               <button id="visual"><span class="material-icons-outlined">visibility</span></button>
-                               <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="ord-check">
-                                    <input type="checkbox" class="ord-check-input" id="ord-checking6">
-                                    <label class="ord-check-label" for="ord-checking6"></label>
-                                </div>
-                            </td>
-                            <td> #10022007</td>
-                            <td> Nguyễn Thành Danh </td>
-                            <td> 02/06/2022 | 9:22 SA </td>
-                            <td> 251.000 ₫ </td>
-                            <td id="delivering"> Chờ vận chuyển </td>
-                            <td>
-                               <button id="visual"><span class="material-icons-outlined">visibility</span></button>
-                               <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="ord-check">
-                                    <input type="checkbox" class="ord-check-input" id="ord-checking5">
-                                    <label class="ord-check-label" for="ord-checking5"></label>
-                                </div>
-                            </td>
-                            <td> #10022006</td>
-                            <td> Nguyễn Thị Thanh Bình </td>
-                            <td> 02/06/2022 | 9:22 SA </td>
-                            <td> 251.000 ₫ </td>
-                            <td id="completing"> Hoàn thành </td>
-                            <td>
-                               <button id="visual"><span class="material-icons-outlined">visibility</span></button>
-                               <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="ord-check">
-                                    <input type="checkbox" class="ord-check-input" id="ord-checking6">
-                                    <label class="ord-check-label" for="ord-checking6"></label>
-                                </div>
-                            </td>
-                            <td> #10022007</td>
-                            <td> Nguyễn Thành Danh </td>
-                            <td> 02/06/2022 | 9:22 SA </td>
-                            <td> 251.000 ₫ </td>
-                            <td id="delivering"> Chờ vận chuyển </td>
-                            <td>
-                               <button id="visual"><span class="material-icons-outlined">visibility</span></button>
-                               <button id="delete"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                               <button id="visual" (click)="viewCustomerDetail(order)"><span class="material-icons-outlined"> visibility</span></button>
+                               <button id="delete" (click)="deleteOrder(order._id)"><span class="material-icons-outlined" style="color:red">delete</span></button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="page-body-nav">
-                <!-- <a href="#">&laquo;</a> -->
-                <a class="active" href="#">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">6</a>
-                <a href="#">&raquo;</a>
+            <div class="product_action">
+                <pagination-controls (pageChange)="page = $event"></pagination-controls>
             </div>
         </div>
     </div>
