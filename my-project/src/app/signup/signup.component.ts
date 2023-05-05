@@ -38,12 +38,12 @@ export class SignupComponent {
   }
 
   postCustomer() {
-    // this.customer.CustomerName = this.account.Name;
-    // this.customer.Phone = this.account.phonenumber;
-    // this.customer.Mail = this.account.Mail;
-    this._customerService.postCustomer(this.account).subscribe({
+    this.customer.CustomerName = this.account.Name;
+    this.customer.Phone = this.account.phonenumber;
+    this.customer.Mail = this.account.Mail;
+    this._customerService.postCustomer(this.customer).subscribe({
       next: (data) => {
-        this.account = data;
+        this.customer = data;
         alert('Đăng ký thành công');
       },
       error: (err) => {
