@@ -38,6 +38,7 @@ database = client.db("BenZenPharmacyData");
 medicineCollection = database.collection("MedicineData");
 accountCollection = database.collection("AccountCustomerData");
 customerCollection = database.collection("CustomerData");
+orderCollection = database.collection("OrderData");
 deliveryCustomerCollection = database.collection("DeliveryCustomerData");
 
 // Thông tin của Sản phẩm
@@ -248,4 +249,68 @@ app.post('/login', cors(), async (req, res) => {
 
 
 
+app.get("/orders", cors(), async (req, res) => {
+  const result = await orderCollection.find({}).toArray();
+  res.send(result);
+});
 
+app.get("/orders/:id",cors(), async (req, res) =>{
+  var o_id = new ObjectId(req.params["id"]);
+  const result = await orderCollection.find({_id:o_id}).toArray();
+  res.send(result[0])
+})
+
+app.delete("orders/:id", cors(), async (req, res) => {
+  //find detail Fashion with id
+  var o_id = new ObjectId(req.params["id"]);
+  const result = await orderCollection.find({ _id: o_id }).toArray();
+  //update json Fashion into database
+  await orderCollection.deleteOne({ _id: o_id });
+  //send Fahsion after remove
+  res.send(result[0]);
+});
+
+
+app.put("/orderConfirm/:id", cors(), async (req, res) => {
+  var o_id = new ObjectId(req.params["id"]);
+  //update json Fashion into database
+  await medicineCollection.updateOne(
+    { _id: o_id }, //condition for update
+    {
+      $set: {
+        //Field for updating
+        Status: "Đã xác nhận"
+      },
+    }
+  );
+  //send Fahsion after updating
+  var i_id = new ObjectId(req.body._id);
+  const result = await orderCollection.find({ _id: i_id }).toArray();
+  res.send(result[0]);
+});
+
+app.post("/customers", cors(), async (req, res) =>{
+  await customerCollection.insertOne(req.body)
+  res.send(req.body)
+})
+
+app.put("/customers", cors(), async (req, res) => {
+  //update json Fashion into database
+  await customerCollection.updateOne(
+    { _id: new ObjectId(req.body._id) }, //condition for update
+    {
+      $set: {
+        //Field for updating
+        CustomerName: req.body.CustomerName,
+        Phone: req.body.Phone,
+        Mail: req.body.Mail,
+        BOD: req.body.BOD,
+        Gender: req.body.Gender,
+      },
+    }
+  );
+  //send Fahsion after updating
+  var o_id = new ObjectId(req.body._id);
+  const result = await customerCollection.find({ _id: o_id }).toArray();
+  res.send(result[0]);
+});

@@ -23,7 +23,7 @@ import { AdminProductAddManagementComponent } from './admin-product/admin-produc
 const routes: Routes = [
   // {path:"", component: AdminLoginComponent},
   {path:"admin-order-management", component: AdminOrderManagementComponent },
-  {path:"admin-order-detail-management", component: AdminOrderDetailManagementComponent},
+  {path:"admin-order-detail-management/:id", component: AdminOrderDetailManagementComponent},
   {path:"admin-uncomplete-order-management", component: AdminUncompleteOrderManagementComponent},
   {path:"admin-custoner-management", component: AdminCustonerManagementComponent},
   {path:"admin-customer-detail-management/:id", component: AdminCustomerDetailManagementComponent},
