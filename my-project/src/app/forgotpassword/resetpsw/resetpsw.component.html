@@ -19,14 +19,14 @@
           <div class="container">
             <div class="container__input">
                 <div class="container__input--item">
-                    <label for="uname">Nhập mật khẩu: </label>
+                    <label for="pwd" >Nhập mật khẩu: </label>
                     <div class="input--content">
                         <input
-                        type="text"
-                        name="uname"
-                        required
-                      />
+                        type="password" id="pwd" [(ngModel)]="password" (blur)="onChecked()" #passwordInput/>
                       <span class="material">*</span>
+                      <!-- <div *ngIf="pwd.invalid && pwd.touched">
+                        <small class="text-danger" *ngIf="pwd.errors['required']">Bạn chưa nhập Mật khẩu</small>
+                    </div> -->
                     </div>
                   </div>
                   <div class="container__input--item">
@@ -34,7 +34,7 @@
                     <div class="input--content">
                         <input
                         type="password"
-                        name="psw"
+                        [(ngModel)]="confirmPassword" name="confirmPassword" #confirmPasswordInput (blur)="checkPasswordsMatch()"
                         required
                       /><span class="material">*</span>
                     </div>

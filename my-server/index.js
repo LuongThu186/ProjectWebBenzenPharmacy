@@ -183,6 +183,14 @@ app.get("/accounts", cors(), async (req, res) => {
   res.send(result);
 });
 
+app.get("/accounts/:phoneNumber", cors(), async (req, res) => {
+  const phone = req.params["phoneNumber"];
+  const result = await accountCollection
+    .find({ Phone: phone})
+    .toArray();
+  res.send(result);
+});
+
 app.get("/customers", cors(), async (req, res) => {
   const result = await customerCollection.find({}).toArray();
   res.send(result);
@@ -193,76 +201,4 @@ app.get("/customers/:id",cors(), async (req, res) =>{
   const result = await customerCollection.find({_id:o_id}).toArray();
   res.send(result[0])
 })
-
-app.get("/orders", cors(), async (req, res) => {
-  const result = await orderCollection.find({}).toArray();
-  res.send(result);
-});
-
-app.delete("/orders/:id", cors(), async (req, res) => {
-  //find detail Fashion with id
-  var o_id = new ObjectId(req.params["id"]);
-  const result = await orderCollection.find({ _id: o_id }).toArray();
-  //update json Fashion into database
-  await orderCollection.deleteOne({ _id: o_id });
-  //send Fahsion after remove
-  res.send(result[0]); 
-});
-
-
-app.post("/orders", cors(), async (req, res) => {
-  //put json Fashion into database
-  await orderCollection.insertOne(req.body);
-  //send message to client(send all database to client)
-  res.send(req.body);
-});
-
-app.get("/orders/:id",cors(), async (req, res) =>{
-  var o_id = new ObjectId(req.params["id"]);
-  const result = await orderCollection.find({_id:o_id}).toArray();
-  res.send(result[0])
-})
-
-app.put("/orderConfirm/:id", cors(), async (req, res) => {
-  var o_id = new ObjectId(req.params["id"]);
-  await orderCollection.updateOne(
-    { _id: o_id }, //condition for update
-    {
-      $set: {
-        //Field for updating
-       Status: "Đã xác nhận" 
-      },
-    }
-  );
-  //send Fahsion after updating
-  var i_id = new ObjectId(req.body._id);
-  const result = await orderCollection.find({ _id: i_id }).toArray();
-  res.send(result[0]);
-});
-
-app.get("/orders/:id",cors(), async (req, res) =>{
-  var o_id = new ObjectId(req.params["id"]);
-  const result = await orderCollection.find({_id:o_id}).toArray();
-  res.send(result[0])
-})
-
-app.put("/orderConfirm", cors(), async (req, res) => {
-  
-  await orderCollection.updateOne(
-    { _id: new ObjectId(req.body._id)}, //condition for update
-    {
-      $set: {
-        //Field for updating
-       Status: "Đã xác nhận" 
-      },
-    }
-  );
-  //send Fahsion after updating
-  var o_id = new ObjectId(req.body._id);
-  const result = await orderCollection.find({ _id: o_id }).toArray();
-  res.send(result[0]);
-});
-
-
-
 
