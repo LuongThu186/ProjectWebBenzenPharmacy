@@ -1,5 +1,10 @@
 import { ViewChild } from "@angular/core";
 import { Component, ElementRef } from '@angular/core';
+import { AuthService } from "../Services/auth.service";
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProfileService } from "../Services/profile.service";
+import { Profile } from '../Interfaces/profile'
+
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +12,45 @@ import { Component, ElementRef } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
-  constructor(){}
+  isLoggedIn = true;
+  currentUser: any;
+  errMessage:string='';
+  customer = new Profile();
+  public setProfile(p:Profile){
+    this.customer = p;
+  }
 
-  ngOnInit(){}
+  constructor(private authService: AuthService,
+              private router: Router,
+              private activateRoute: ActivatedRoute,
+              private _service: ProfileService
+              ){
+                this.isLoggedIn = this.authService.isLoggedIn();
+                this.currentUser = this.authService.getCurrentUser();
+                this._service.updateCustomer(this.customer).subscribe({
+                  next:(data)=>{this.customer=data},
+                  error:(err)=>{this.errMessage=err}
+                })
+              }
+
+  Name:any;
+  phonenumber:any;
+  Mail:any;
+  Address:any;
+  Gender:any;
+  BOD:any;
+
+  ngOnInit():void{
+    const user = JSON.parse(sessionStorage.getItem('CurrentUser')!);
+      if (user) {
+        this.Name = user.Name;
+        this.phonenumber = user.phonenumber;
+        this.Mail = user.Mail;
+        this.Address = user.Address;
+        this.Gender = user.Gender;
+        this.BOD = user.BOD
+      }
+  }
   
   id: any = "address";
   tabChange(ids:any){
@@ -24,28 +65,48 @@ export class ProfileComponent {
   }
 
   
-  name = 'Nhà thuốc Benzen';
-  gender = 'Nữ';
-  phone = '0332583xxx'
-  birthday = '03/04/2002';
-  email = 'benzen@gmail.com';
+  // name = 'Nhà thuốc Benzen';
+  // gender = 'Nữ';
+  // phone = '0332583xxx'
+  // birthday = '03/04/2002';
+  // email = 'benzen@gmail.com';
   avatarUrl = 'assets/image/profile/avt.png';
 
+  putCustomer(){
+    this._service.updateCustomer(this.customer).subscribe({
+      next:(data)=>{this.customer=data},
+      error:(err)=>{this.errMessage=err}
+    })
+  }
 
-  nameEdit: string='';
-  genderEdit = '';
-  phoneEdit='';
-  birthdayEdit = '';
-  emailEdit: string='';
+<<<<<<< HEAD
+<<<<<<< HEAD
+  
+  postCustomer(){
+    this._service.postCustomer(this.customer).subscribe({
+      next:(data)=>{this.customer=data},
+      error:(err)=>{this.errMessage=err}
+    })
+  }
+=======
+>>>>>>> 79195124d9c18ed03c869aa320644c6322e180da
+=======
+>>>>>>> 79195124d9c18ed03c869aa320644c6322e180da
+
+  // nameEdit: string='';
+  // genderEdit = '';
+  // phoneEdit='';
+  // birthdayEdit = '';
+  // emailEdit: string='';
 
   editing =false;
 
   edit() {
-    this.nameEdit = this.name;
-    this.genderEdit = this.gender;
-    this.phoneEdit=this.phone;
-    this.birthdayEdit = this.birthday;
-    this.emailEdit = this.email;
+    this.customer.CustomerName = this.Name;
+    this.customer.Gender = this.Gender;
+    this.customer.Phone=this.phonenumber;
+    this.customer.BOD = this.BOD;
+    this.customer.Mail = this.Mail;
 
     this.editing = true;
     this.adding = false;
@@ -53,11 +114,19 @@ export class ProfileComponent {
   }
 
   saveInfor() {
-    this.name = this.nameEdit;
-    this.gender = this.genderEdit;
-    this.phone=this.phoneEdit;
-    this.birthday = this.birthdayEdit;
-    this.email = this.emailEdit;
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    this.putCustomer()
+>>>>>>> 79195124d9c18ed03c869aa320644c6322e180da
+=======
+    this.putCustomer()
+>>>>>>> 79195124d9c18ed03c869aa320644c6322e180da
+    this.Name = this.customer.CustomerName;
+    this.Gender = this.customer.Gender;
+    this.phonenumber = this.customer.Phone;
+    this.BOD = this.customer.BOD;
+    this.Mail = this.customer.Mail;
 
     this.editing = false;
   }
@@ -72,11 +141,11 @@ export class ProfileComponent {
   }
 
   cancelEdit() {
-    this.name = this.name;
-    this.gender = this.gender;
-    this.phone=this.phone;
-    this.birthday = this.birthday;
-    this.email = this.email;
+    this.Name = this.Name;
+    this.Gender = this.Gender;
+    this.phonenumber=this.phonenumber;
+    this.BOD = this.BOD;
+    this.BOD = this.BOD;
 
     this.editing = false;
   }
@@ -128,25 +197,25 @@ export class ProfileComponent {
   editingAddress=false;
 
   editAddress(){
-    this.nameAddressEdit = this.nameAddress;
-    this.phoneAddressEdit=this.phoneAddress;
-    this.addressDeliveryEdit = this.addressDelivery;
+    this.nameAddressEdit = this.Name;
+    this.phoneAddressEdit=this.phonenumber;
+    this.addressDeliveryEdit = this.Address;
 
     this.editingAddress = true;
     this.adding = false;
     this.editing = false;
   }
   saveEditAddress(){
-    this.nameAddress = this.nameAddressEdit;
-    this.phoneAddress=this.phoneAddressEdit;
-    this.addressDelivery = this.addressDeliveryEdit;
+    this.Name = this.nameAddressEdit;
+    this.phonenumber = this.phoneAddressEdit;
+    this.Address = this.addressDeliveryEdit;
 
     this.editingAddress= false;
   }
   cancelEditAddress() {
-    this.nameAddress = this.nameAddress;
-    this.phoneAddress=this.phoneAddress;
-    this.addressDelivery = this.addressDelivery;
+    this.Name = this.Name;
+    this.phonenumber = this.phonenumber;
+    this.Address = this.Address;
 
     this.editingAddress = false;
   }

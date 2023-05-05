@@ -48,25 +48,25 @@
                       <div class="content__infor--detail">
                         <ul>
                           <li>Tên khách hàng:</li>
-                          <li>{{name}}</li>
+                          <li>{{Name}}</li>
                         </ul>
                         <ul>
                           <li>Giới tính:</li>
-                          <li>{{ gender }} </li>
+                          <li>{{ Gender }} </li>
                         </ul>
                         <ul>
                           <li>Số điện thoại:</li>
-                          <li>{{phone}}</li>
+                          <li>{{phonenumber}}</li>
                         </ul>
                         <ul>
                           <li>Ngày sinh:</li>
-                          <li>{{birthday}}</li>
+                          <li>{{BOD}}</li>
                         </ul>
                         <ul>
                           <li>Email:</li>
-                          <li>{{email}}</li>
+                          <li>{{Mail}}</li>
                         </ul>
-                      </div>
+                      </div> 
                       <button (click)="edit()">Chỉnh sửa</button>
                     </div>
                     </div>
@@ -87,33 +87,34 @@
                       <div class="content__infor--detail">
                         <ul>
                           <li>Tên khách hàng:</li>
-                          <li><input [(ngModel)]="nameEdit" required></li>
+                          <li><input [(ngModel)]="customer.CustomerName" required></li>
                         </ul>
                         <ul>
                           <li>Giới tính:</li>
                           <li>
-                              <input type="radio" id="male" name="genderEdit" [(ngModel)]="genderEdit" value="Nam">
+                              <input type="radio" id="male" name="genderEdit" [(ngModel)]="customer.Gender" value="Nam">
                               <label for="male">Nam</label><br>
-                              <input type="radio" id="female" name="genderEdit" value="Nữ" [(ngModel)]="genderEdit">
+                              <input type="radio" id="female" name="genderEdit" value="Nữ" [(ngModel)]="customer.Gender">
                               <label for="female">Nữ</label><br>
                           </li>
                         </ul>
                         <ul>
                           <li>Số điện thoại:</li>
-                          <li><input type="text" [(ngModel)]="phoneEdit" required></li>
+                          <li><input type="text" [(ngModel)]="customer.Phone" required></li>
                         </ul>
                         <ul>
                           <li>Ngày sinh:</li>
-                          <li><input type="text" [(ngModel)]="birthdayEdit"></li>
+                          <li><input type="text" [(ngModel)]="customer.BOD"></li>
                         </ul>
                         <ul>
                           <li>Email:</li>
-                          <li><input [(ngModel)]="emailEdit"></li>
+                          <li><input [(ngModel)]="customer.Mail"></li>
                         </ul>
                       </div>
                       <div class="edit__infor--button">
-                        <button (click)="saveInfor()">Cập nhật</button>
+                        <button (click)="saveInfor();putCustomer()">Cập nhật</button>
                         <button (click)="cancelEdit()">Hủy</button>
+                        <button (click)="postCustomer()">Tạo mới</button>
                       </div>
                     </div>                    
                   </div>
@@ -128,9 +129,9 @@
                   <div class="content__address--item" *ngIf="!editingAddress">
                     <div class="address__title">
                       <div class="address__title--infor">
-                        <p>{{nameAddress}}</p>
+                        <p>{{Name}}</p>
                         <p>|</p>
-                        <p>{{phoneAddress}}</p>
+                        <p>{{phonenumber}}</p>
                       </div>
                       <div class="address__function">
                         <button (click)="editAddress()">Chỉnh sửa</button>
@@ -139,7 +140,7 @@
                       </div>
                     </div>
                     <div class="address__body">
-                      <p>{{addressDelivery}}</p>
+                      <p>{{Address}}</p>
                     </div>
                     <div class="address__default">
                       <label for="default">
@@ -148,28 +149,6 @@
                     </div>
                   </div>
 
-                  <div class="content__address--item" *ngIf="!editingAddress">
-                    <div class="address__title">
-                      <div class="address__title--infor">
-                        <p>{{nameAddress}}</p>
-                        <p>|</p>
-                        <p>{{phoneAddress}}</p>
-                      </div>
-                      <div class="address__function">
-                        <button (click)="editAddress()">Chỉnh sửa</button>
-                        <button ><span class="material-symbols-outlined">
-                          delete</span></button>
-                      </div>
-                    </div>
-                    <div class="address__body">
-                      <p>{{addressDelivery}}</p>
-                    </div>
-                    <div class="address__default">
-                      <label for="default">
-                          <input type="radio" id="default" name="default" value="true"> Đặt làm địa chỉ mặc định
-                      </label>
-                    </div>
-                  </div>
                   <div class="content__address--item" *ngIf="addNewAddress">
                     <div class="address__title">
                       <div class="address__title--infor">
