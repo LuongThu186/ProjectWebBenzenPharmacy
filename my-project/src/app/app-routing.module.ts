@@ -17,9 +17,10 @@ import { InforComponent } from './infor/infor.component';
 import { ChatboxComponent } from './chatbox/chatbox.component';
 import { PaymentKVLComponent } from './payment-kvl/payment-kvl.component';
 import { TypeBankAccountComponent } from './type-bank-account/type-bank-account.component';
+import { PaymentMomoComponent } from './payment-momo/payment-momo.component';
 
 const routes: Routes = [
-  {path:"", component:HomeComponent},
+  {path:"", component:LoginComponent},
   {path:"app-home", component:HomeComponent},
   {path:"app-shoppingcart", component:ShoppingcartComponent},
   {path:"app-signup", component: SignupComponent},
@@ -33,14 +34,15 @@ const routes: Routes = [
   {path:"app-category/:category", component:CategoryComponent},
   {path:"app-category/:category/:subcategory", component:CategoryComponent},
   {path:"app-payment", component: PaymentComponent},
-  {path: 'app-payment/:id', component: PaymentComponent},
+  {path:"app-payment/:id", component: PaymentComponent},
   {path:"app-profile", component: ProfileComponent},
   {path:"app-orderdetail", component: OrderdetailComponent},
   {path:"app-infor", component: InforComponent},
   {path:"app-chatbox", component: ChatboxComponent},
   {path:"payment-kvl", component:PaymentKVLComponent},
   {path:"type-bank-account", component:TypeBankAccountComponent},
-  {path:"app-shoppingcart", component:ShoppingcartComponent}
+  {path:"app-shoppingcart", component:ShoppingcartComponent},
+  {path:"app-payment-momo", component:PaymentMomoComponent},
 
 ];
 

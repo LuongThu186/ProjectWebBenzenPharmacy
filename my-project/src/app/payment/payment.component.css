@@ -177,3 +177,17 @@
 .information__row-info {
   margin-left: 24px;
 }
+
+.information__banking {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 12px;
+}
+.information__banking-img {
+  width: 20%;
+  padding:  8px;
+}
+.information__banking-img img {
+  width: 100%;
+  height: 100px;
+}
