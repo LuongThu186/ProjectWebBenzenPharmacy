@@ -156,5 +156,8 @@ export class ShoppingcartComponent {
   makePayment(){
     this.router.navigate(['app-payment']);
   }
+  makePaymentKVL(){
+    this.router.navigate(['payment-kvl']);
+  }
 
 }

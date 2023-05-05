@@ -7,7 +7,7 @@
       <div class="cart">
         <div class="cart__top">
           <p class="cart__top-header">
-            Giỏ hàng (3)
+            Giỏ hàng ({{ quantityItem }})
           </p>
           <div class="cart__top-button">
             <button>Chỉnh sửa giỏ hàng</button>
@@ -25,39 +25,16 @@
               Số lượng
             </p>
           </div>
-          <div class="cart__main-row">
+          <div class="cart__main-row" *ngFor="let item of cartItems">
             <div class="cart__main-row--product">
               <div class="cart__main-row--product-img">
-                <img src="/assets/image/shopping-cart/product.jpg" alt="">
+                <img src="{{ item.Image }}" alt="">
               </div>
-              <p class="cart__main-row--product-info">Nat C 1000 hỗ trợ tăng đề kháng
-                lọ 60 viên
-              </p>
+              <p class="cart__main-row--product-info"> {{ item.Name }}</p>
             </div>
-            <p class="cart__main-row--price">
-              105.000đ
-            </p>
-            <p class="cart__main-row--quantity">
-              1
-            </p>
+            <p class="cart__main-row--price">{{ item.Price }}</p>
+            <p class="cart__main-row--quantity">{{ item.quantity }}</p>
           </div>
-          <div class="cart__main-row">
-            <div class="cart__main-row--product">
-              <div class="cart__main-row--product-img">
-                <img src="/assets/image/shopping-cart/product.jpg" alt="">
-              </div>
-              <p class="cart__main-row--product-info">Nat C 1000 hỗ trợ tăng đề kháng
-                lọ 60 viên
-              </p>
-            </div>
-            <p class="cart__main-row--price">
-              105.000đ
-            </p>
-            <p class="cart__main-row--quantity">
-              1
-            </p>
-          </div>
-
         </div>
       </div>
       <div class="information">
@@ -66,25 +43,25 @@
           <div class="form__information-row">
             <label for="" class="form__information-label">Tên khách hàng:</label>
             <div class="form__information-input">
-              <span>Nhà thuốc Benzen</span>
+              <span>{{ currentUser.Name }}</span>
             </div>
           </div>
           <div class="form__information-row">
             <label for="" class="form__information-label">Số điện thoại:</label>
             <div class="form__information-input">
-              <span>0123456789</span>
+              <span>{{ currentUser.phonenumber }}</span>
             </div>
           </div>
           <div class="form__information-row">
             <label for="" class="form__information-label">Email:</label>
             <div class="form__information-input">
-              <span>nhathuocbenzen123@gmail.com</span>
+              <span>{{ currentUser.Mail }}</span>
             </div>
           </div>
           <div class="form__information-row">
             <label for="" class="form__information-label">Địa chỉ:</label>
             <div class="form__information-input">
-              <span>Số 669, QL1, Khu phố 3, Phường Linh Xuân, Quận Thủ Đức, Thành phố Hồ Chí Minh</span>
+              <span>{{ currentUser.Address }}</span>
             </div>
           </div>
           <div class="form__information-row">
@@ -98,16 +75,50 @@
       <div class="information">
         <div class="information__heading">Hình thức thanh toán</div>
         <div class="information__row">
-          <input type="radio" class="information__row-input" name="check">
+          <input type="radio" class="information__row-input" name="check" value="COD" [(ngModel)]="isChecked_COD">
           <span class="information__row-info">Thanh toán khi nhận hàng</span>
         </div>
-        <div class="information__row">
-          <input type="radio" class="information__row-input" name="check">
+        <div class="information__row" (click)="checkBanking()">
+          <input type="radio" class="information__row-input" name="check" value="Banking" [(ngModel)]="isChecked_Banking">
           <span class="information__row-info">Thanh toán qua thẻ ATM nội địa/ Internet Banking</span>
         </div>
         <div class="information__row">
-          <input type="radio" class="information__row-input" name="check">
+          <input type="radio" class="information__row-input" name="check" value="MoMo" [(ngModel)]="isChecked_MoMo">
           <span class="information__row-info">Thanh toán qua ví điện tử Momo</span>
+        </div>
+        <div *ngIf="isChecked_Banking ==='Banking'">
+          <div class="information__banking">
+            <div class="information__banking-img">
+              <img src="/assets/image/thanhtoanbanking/ACB.jpg" alt="">
+            </div>
+            <div class="information__banking-img">
+              <img src="/assets/image/thanhtoanbanking/Agribank.jpg" alt="">
+            </div>
+            <div class="information__banking-img">
+              <img src="/assets/image/thanhtoanbanking/BIDV.png" alt="">
+            </div>
+            <div class="information__banking-img">
+              <img src="/assets/image/thanhtoanbanking/MBBank.jpg" alt="">
+            </div>
+            <div class="information__banking-img">
+              <img src="/assets/image/thanhtoanbanking/Sacombank.jpg" alt="">
+            </div>
+            <div class="information__banking-img">
+              <img src="/assets/image/thanhtoanbanking/SHB.jpg" alt="">
+            </div>
+            <div class="information__banking-img">
+              <img src="/assets/image/thanhtoanbanking/Techcombank.jpg" alt="">
+            </div>
+            <div class="information__banking-img">
+              <img src="/assets/image/thanhtoanbanking/TPBank.jpg" alt="">
+            </div>
+            <div class="information__banking-img">
+              <img src="/assets/image/thanhtoanbanking/VIB.jpg" alt="">
+            </div>
+            <div class="information__banking-img">
+              <img src="/assets/image/thanhtoanbanking/Vietcombank.jpg" alt="">
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -123,7 +134,7 @@
           Tổng tiền
         </p>
         <p class="order__row-right">
-          315.000đ
+          {{ totalPrice.toLocaleString("vi-VN", { minimumFractionDigits: 0 }) }}đ
         </p>
       </div>
       <div class="order__row">
@@ -131,7 +142,7 @@
           Giảm giá
         </p>
         <p class="order__row-right">
-          0đ
+          {{ discountPrice.toLocaleString("vi-VN", { minimumFractionDigits: 0 }) }}đ
         </p>
       </div>
       <div class="order__row">
@@ -139,7 +150,7 @@
           Tạm tính
         </p>
         <p class="order__row-right">
-          315.000đ
+          {{ prePrice.toLocaleString("vi-VN", { minimumFractionDigits: 0 }) }}đ
         </p>
       </div>
       <div class="order__row">
@@ -147,29 +158,29 @@
           Phí vận chuyển
         </p>
         <p class="order__row-right">
-          25.000đ
+          {{ deliveryFee.toLocaleString("vi-VN", { minimumFractionDigits: 0 }) }}đ
         </p>
       </div>
       <div class=" order__row-discount">
         <span class="material-icons-outlined">
           local_offer
         </span>
-        <input type="text" placeholder="Nhập mã giảm giá">
+        <input type="text" placeholder="Nhập mã giảm giá" [(ngModel)]="discountCode" (input)="applyDiscountCode()">
       </div>
       <div class="order__row">
         <p class="order__row-left bold">
           Thành tiền
         </p>
         <p class="order__row-right">
-          340.000đ
+          {{ price.toLocaleString("vi-VN", { minimumFractionDigits: 0 }) }}đ
         </p>
       </div>
       <div class="order__row">
-        <input type="checkbox">
+        <input type="checkbox" [(ngModel)]="isChecked_Confirm">
         <span>Đồng ý với các chính sách của Nhà thuốc Benzen để hoàn tất đơn hàng</span>
       </div>
       <div class="orer__row-button">
-        <button>Hoàn tất</button>
+        <button (click)="onComplete()">Hoàn tất</button>
       </div>
     </div>
   </div>
