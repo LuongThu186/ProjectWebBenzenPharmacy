@@ -32,7 +32,7 @@
             <p class="shopping__cart-left--detail-row-price">{{ item.Price }}</p>
             <div class="shopping__cart-left--detail-row-quantity">
               <button (click)="decrease(item)">-</button>
-              <input type="text" value="{{ item.quantity }}">
+              <input type="text" [(ngModel)]="item.quantity" (input)="updateQuantity(item)">
               <button (click)="increase(item)">+</button>
             </div>
             <button (click)="removeFromCart(item._id)" class="material-icons-outlined shopping__cart-left--detail-row-delete ">
@@ -57,9 +57,8 @@
         <span class="shopping__cart-right--row-left">Tạm tính</span>
         <span class="shopping__cart-right--row-right">{{ preprice }} VNĐ</span>
       </p>
-
       <p class="shopping__cart-right--row shopping__cart-right--row--button">
-        <button class="shopping__cart-right--row--button" (click)=" goToPayment()">Đặt hàng</button>
+        <button class="shopping__cart-right--row--button" (click)="makePayment()">Đặt hàng</button>
       </p>
     </div>
   </div>

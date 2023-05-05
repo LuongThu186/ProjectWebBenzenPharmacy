@@ -14,84 +14,55 @@
       </div>
 
       <div class="right-content">
-        <form action="app-home" method="get" class="login_form">
+        <form class="login_form">
           <h2 class="header">ĐĂNG KÝ</h2>
           <div class="container">
             <div class="container__input">
                 <div class="container__input--item name">
-                    <label for="uname">Tên: </label>
+                    <label for="name">Tên: </label>
                     <div class="input--content">
-                        <input
-                        type="text"
-                        name="uname"
-                        required
-                      />
-                      <span class="material">*</span>
+                        <input type="text" name="name" [(ngModel)]="account.Name" #name="ngModel" required/>
+                        <span class="material">*</span>
                     </div>
                   </div>
                 <div class="container__input--item phone">
-                    <label for="uname">Số điện thoại: </label>
+                    <label for="phonenumber">Số điện thoại: </label>
                     <div class="input--content">
-                        <input
-                        type="text"
-                        name="uname"
-                        required
-                      />
+                        <input type="text" name="phonenumber" [(ngModel)]="account.phonenumber" #name="ngModel"  required/>
                       <span class="material">*</span>
                     </div>
                   </div>
                   <div class="container__input--item email">
-                    <label for="uname">Email: </label>
+                    <label for="email">Email: </label>
                     <div class="input--content">
-                        <input
-                        type="text"
-                        name="uname"/>
+                        <input type="text" name="email" [(ngModel)]="account.Mail" #name="ngModel"/>
                         <span class="material"> </span>
                     </div>
                   </div>
                   <div class="container__input--item address">
-                    <label for="uname">Địa chỉ: </label>
+                    <label for="address">Địa chỉ: </label>
                     <div class="input--content">
-                        <input
-                        type="text"
-                        name="uname"/>
+                        <input type="text" name="address" [(ngModel)]="account.Address" #name="ngModel"/>
                         <span class="material"> </span>
-                    </div>
-                  </div>
-                  <div class="container__input--item gender">
-                    <label for="uname">Giới tính: </label>
-                    <div class="input--content">
-                          <label class="gender">
-                            <input type="radio" checked="checked" name="radio" >Nam
-                          </label>
-                          <label class="gender">
-                            <input type="radio" checked="checked" name="radio">Nữ
-                          </label>
                     </div>
                   </div>
                   <div class="container__input--item pass">
                     <label for="psw">Mật khẩu: </label>
                     <div class="input--content">
-                        <input
-                        type="password"
-                        name="psw"
-                        required
-                      /><span class="material">*</span>
+                        <input type="password" name="psw" [(ngModel)]="account.password" #name="ngModel" required/>
+                        <span class="material">*</span>
                     </div>
                     </div>
                     <div class="container__input--item repass">
                         <label for="psw">Nhập lại mật khẩu: </label>
                         <div class="input--content">
-                            <input
-                            type="password"
-                            name="psw"
-                            required
-                          /><span class="material">*</span>
+                            <input type="password" name="psw" required/>
+                            <span class="material">*</span>
                         </div>
                     </div>
             </div>
             <div>
-              <button type="submit" class="login_button" onclick="window.location='app-login'">HOÀN TẤT</button>
+              <button (click)="postAccount()" class="login_button">HOÀN TẤT</button>
             </div>
           </div>
           <div class="content--bottom">

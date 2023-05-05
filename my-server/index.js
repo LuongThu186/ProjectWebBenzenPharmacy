@@ -168,7 +168,7 @@ app.put("/cart",cors(),(req,res)=>{
   if(req.session.carts!=null)
   {
 
-      p=req.session.carts.find(x=>x.barcode==req.body.barcode)
+      p=req.session.carts.find(x=>x._id==req.body._id)
       if(p!=null)
       {
           p.quantity=req.body.quantity            
@@ -187,8 +187,38 @@ app.get("/accounts/:phoneNumber", cors(), async (req, res) => {
   const result = await accountCollection
     .find({ Phone: phone})
     .toArray();
-  res.send(result);
+  res.send(result[0]);
 });
+
+//Phần này là Đăng ký và Đăng nhập
+app.post("/accounts", cors(), async(req, res) => {
+  var crypto = require('crypto');
+  salt = crypto.randomBytes(16).toString('hex');
+  userCollection = database.collection("AccountCustomerData");
+  user=req.body;
+  hash = crypto.pbkdf2Sync(user.password, salt,1000, 64, `sha512`).toString(`hex`);
+  user.password=hash;
+  user.salt=salt
+  await userCollection.insertOne(user)
+  res.send(req.body)
+})
+app.post('/login', cors(), async (req, res) => {
+  const { phonenumber, password } = req.body;
+  const crypto = require('crypto');
+  const userCollection = database.collection('AccountCustomerData');
+  const user = await userCollection.findOne({ phonenumber });
+  if (user == null) {
+    res.status(401).send({ message: 'Tên đăng nhập không tồn tại' });
+  } else {
+    const hash = crypto.pbkdf2Sync(password, user.salt, 1000, 64, 'sha512').toString('hex');
+    if (user.password === hash) {
+      res.send(user);
+    } else {
+      res.status(401).send({ message: 'Mật khẩu không đúng' });
+    }
+  }
+});
+
 
 app.get("/customers", cors(), async (req, res) => {
   const result = await customerCollection.find({}).toArray();

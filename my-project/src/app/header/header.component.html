@@ -40,21 +40,20 @@
 
                     <!-- CHƯA ĐĂNG NHẬP -->
 
-                    <!-- <div class="content__dropdown--signIn" onclick="window.location='app-login'">
+                    <div class="content__dropdown--signIn" routerLink="app-login" *ngIf="!isLoggedIn">
                         <p class="signIn">Đăng nhập</p>
                         <span class="material-icons">account_circle</span>
-                    </div> -->
+                    </div>
 
                     <!-- ĐĂNG NHẬP RỒI -->
-
-                    <div class="content__dropdown--signIn">
-                        <p class="signIn">Nhà thuốc Benzen</p>
+                    <div class="content__dropdown--signIn" *ngIf="isLoggedIn">
+                        <p class="signIn">{{Name}}</p>
                         <span class="material-icons"><img src="assets/image/profile/avt.png"></span>
                     </div>
-                    <ul class="dropdown__menu--item">
+                    <ul class="dropdown__menu--item" *ngIf="isLoggedIn">
                         <li><a href="app-profile">Trang cá nhân</a></li>
                         <li><a href="app-change-psw">Đổi mật khẩu</a></li>
-                        <li><a href="#">Đăng xuất <span class="material-symbols-outlined">logout</span></a></li>
+                        <li><a (click)="logOut()">Đăng xuất <span class="material-symbols-outlined">logout</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -64,7 +63,12 @@
                     <span class="text">Lịch sử đơn hàng</span>
                 </div>
                 <div class="cart" onclick="window.location='app-shoppingcart'">
+                  <div *ngIf="displayItem; else showItem">
                     <p class="text">Giỏ hàng</p>
+                  </div>
+                  <ng-template #showItem>
+                    <p class="text">Giỏ hàng ({{quantityItem}})</p>
+                  </ng-template>
                     <span class="material-icons">shopping_cart</span>
                 </div>
             </div>

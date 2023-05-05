@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   medicineCategory: any;
   medicine= new Medicines();
   errMessage: string = '';
+
   constructor(public _service: MedicineService, private router: Router, private activateRoute: ActivatedRoute) {
     activateRoute.paramMap.subscribe((param) => {
       let category = param.get('category');
@@ -46,6 +47,7 @@ export class HomeComponent implements OnInit {
         this.errMessage = err;
       },
     });
+
   }
 
   searchMedicinesCategory(category: string) {
