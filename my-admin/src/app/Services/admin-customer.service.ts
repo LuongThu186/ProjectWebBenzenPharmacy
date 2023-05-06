@@ -8,6 +8,9 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
   providedIn: 'root'
 })
 export class AdminCustomerService {
+  static getCustomerDetail(_id: any): any {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(private _http:HttpClient) { }
   getCustomers():Observable<any>
@@ -28,7 +31,7 @@ export class AdminCustomerService {
     return throwError(()=>new Error(error.message))
   }
 
-  getCustomerDetail(_id:string):Observable<any>
+  getCustomerDetail(_id:any):Observable<any>
   {
     const headers = new HttpHeaders().set("Content-Type","text/plain;charset=utf-8")
     const requestOptions:Object={
@@ -41,4 +44,5 @@ export class AdminCustomerService {
       catchError(this.handleError)
     )
   }
+
 }

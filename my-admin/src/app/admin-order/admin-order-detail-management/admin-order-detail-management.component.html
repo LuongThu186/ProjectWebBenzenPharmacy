@@ -27,12 +27,12 @@
                     <div class="order_info">
                         <div class="order_info--detail">
                             <p class="title"> Mã đơn hàng </p>
-                            <p class="data" id="ord_id"> #10002005 </p>
+                            <p class="data" id="ord_id"> {{order.OrderID}} </p>
                         </div>
                         <hr>
                         <div class="order_info--detail">
                             <p class="title"> Ngày tạo đơn </p>
-                            <p class="data"> 02/06/2022 | 9:22 SA </p>
+                            <p class="data"> {{order.OrderDate}} </p>
                         </div>
                         <hr>
                         <div class="order_info--detail">
@@ -92,13 +92,13 @@
                         <div class="order-info">
                             <div>
                                 <p class="order-info-title">Thông tin người mua</p>
-                                <p>Khách hàng: Phan Kim Ngân</p>
+                                <p>Khách hàng: {{order.CustomerName}}</p>
                                 <p>Đã đặt: 1 đơn hàng</p>
                             </div>
                             <hr>
                             <div class="deli-info">
                                 <p class="order-info-title">Thông tin giao hàng</p>
-                                <p>Sđt: 0333233456</p>
+                                <p>Sđt: </p>
                                 <p>Địa chỉ: Rạch Giá - Kiên Giang</p>
                             </div>
                             <hr>

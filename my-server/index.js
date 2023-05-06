@@ -12,6 +12,7 @@
 // });
 
 const express = require("express");
+const cookieParser = require('cookie-parser');
 const app = express();
 const port = 3000;
 const morgan = require("morgan");
@@ -22,6 +23,7 @@ app.use(bodyParser.json({ limit: "10mb" }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" }));
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ limit: "10mb" }));
+app.use(cookieParser());
 
 const cors = require("cors");
 app.use(cors());
@@ -38,7 +40,10 @@ database = client.db("BenZenPharmacyData");
 medicineCollection = database.collection("MedicineData");
 accountCollection = database.collection("AccountCustomerData");
 customerCollection = database.collection("CustomerData");
+orderCollection = database.collection("OrderData");
+deliveryCustomerCollection = database.collection("DeliveryCustomerData");
 
+// Thông tin của Sản phẩm
 app.get("/medicines", cors(), async (req, res) => {
   const result = await medicineCollection.find({}).toArray();
   res.send(result);
@@ -111,7 +116,7 @@ app.delete("/medicines/:id", cors(), async (req, res) => {
   res.send(result[0]);
 });
 
-
+//Thông tin của Giỏ hàng
 const session = require('express-session');
 const { hasSubscribers } = require('diagnostics_channel');
 app.use(session({secret: "Shh, its a secret!"}));
@@ -177,6 +182,7 @@ app.put("/cart",cors(),(req,res)=>{
   res.send(req.session.carts)
 })
 
+//Thông tin của Khách hàng
 app.get("/accounts", cors(), async (req, res) => {
   const result = await accountCollection.find({}).toArray();
   res.send(result);
@@ -188,6 +194,29 @@ app.get("/accounts/:phoneNumber", cors(), async (req, res) => {
     .find({ Phone: phone})
     .toArray();
   res.send(result[0]);
+});
+
+app.get("/customers", cors(), async (req, res) => {
+  const result = await customerCollection.find({}).toArray();
+  res.send(result);
+});
+
+app.get("/customers/:id",cors(), async (req, res) =>{
+  var o_id = new ObjectId(req.params["id"]);
+  const result = await customerCollection.find({_id:o_id}).toArray();
+  res.send(result[0])
+});
+
+app.post("/customers", cors(), async (req, res) => {
+  //put json Customer into database
+  await customerCollection.insertOne(req.body);
+  //send message to client(send all database to client)
+  res.send(req.body);
+});
+
+app.get("/delivery", cors(), async (req, res) => {
+  const result = await deliveryCustomerCollection.find({}).toArray();
+  res.send(result);
 });
 
 //Phần này là Đăng ký và Đăng nhập
@@ -212,23 +241,75 @@ app.post('/login', cors(), async (req, res) => {
   } else {
     const hash = crypto.pbkdf2Sync(password, user.salt, 1000, 64, 'sha512').toString('hex');
     if (user.password === hash) {
-      res.send(user);
+      res.send(req.body);
     } else {
       res.status(401).send({ message: 'Mật khẩu không đúng' });
     }
   }
 });
 
-
-app.get("/customers", cors(), async (req, res) => {
-  const result = await customerCollection.find({}).toArray();
+app.get("/orders", cors(), async (req, res) => {
+  const result = await orderCollection.find({}).toArray();
   res.send(result);
 });
 
-app.get("/customers/:id",cors(), async (req, res) =>{
+app.get("/orders/:id",cors(), async (req, res) =>{
   var o_id = new ObjectId(req.params["id"]);
-  const result = await customerCollection.find({_id:o_id}).toArray();
+  const result = await orderCollection.find({_id:o_id}).toArray();
   res.send(result[0])
 })
 
+app.delete("orders/:id", cors(), async (req, res) => {
+  //find detail Fashion with id
+  var o_id = new ObjectId(req.params["id"]);
+  const result = await orderCollection.find({ _id: o_id }).toArray();
+  //update json Fashion into database
+  await orderCollection.deleteOne({ _id: o_id });
+  //send Fahsion after remove
+  res.send(result[0]);
+});
 
+
+app.put("/orderConfirm/:id", cors(), async (req, res) => {
+  var o_id = new ObjectId(req.params["id"]);
+  //update json Fashion into database
+  await medicineCollection.updateOne(
+    { _id: o_id }, //condition for update
+    {
+      $set: {
+        //Field for updating
+        Status: "Đã xác nhận"
+      },
+    }
+  );
+  //send Fahsion after updating
+  var i_id = new ObjectId(req.body._id);
+  const result = await orderCollection.find({ _id: i_id }).toArray();
+  res.send(result[0]);
+});
+
+app.post("/customers", cors(), async (req, res) =>{
+  await customerCollection.insertOne(req.body)
+  res.send(req.body)
+})
+
+app.put("/customers", cors(), async (req, res) => {
+  //update json Fashion into database
+  await customerCollection.updateOne(
+    { _id: new ObjectId(req.body._id) }, //condition for update
+    {
+      $set: {
+        //Field for updating
+        CustomerName: req.body.CustomerName,
+        Phone: req.body.Phone,
+        Mail: req.body.Mail,
+        BOD: req.body.BOD,
+        Gender: req.body.Gender,
+      },
+    }
+  );
+  //send Fahsion after updating
+  var o_id = new ObjectId(req.body._id);
+  const result = await customerCollection.find({ _id: o_id }).toArray();
+  res.send(result[0]);
+});

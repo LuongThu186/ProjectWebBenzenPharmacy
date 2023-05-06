@@ -22,7 +22,7 @@
                 <div class="container__input--item">
                 <label for="phone">Số điện thoại: </label>
                 <div class="input--content">
-                    <input type="text" placeholder="Số điện thoại" name="phonenumber" [(ngModel)]="phonenumber" required (blur)="checkPhoneNumber()" id="phone"
+                    <input type="text" placeholder="Số điện thoại" name="phonenumber" [(ngModel)]="phonenumber" required (blur)="checkPhoneNumber()" id="phone" value="{{ phonenumber }}"
                   />
                   <span class="material">*</span>
                 </div>
@@ -33,16 +33,15 @@
                     <label for="password">Mật khẩu: </label>
                     <div class="input--content">
                         <input
-                        type="password" placeholder="Mật khẩu" name="psw" [(ngModel)]="password" required id="password"/>
+                        type="password" placeholder="Mật khẩu" name="psw" [(ngModel)]="password" required id="password" value="{{ password }}"/>
                         <span class="material">*</span>
-
                     </div>
                     </div>
             </div>
 
             <div class="container__checkbox">
                 <label for="rememberMe">
-                    <input type="checkbox" name="remember" class="checkbox" id="rememberMe"/>Nhớ mật khẩu
+                    <input type="checkbox" name="remember" class="checkbox" [(ngModel)]="rememberMe" id="rememberMe"/>Nhớ mật khẩu
                 </label>
                 <a href="app-forgotpassword">Quên mật khẩu?</a>
             </div>
@@ -52,9 +51,9 @@
             </div>
           </div>
           <div class="content--bottom">
-            <p>Chưa có tài khoản?</p>
+            <p>Chưa có tài khoản?</p> 
             <a href="app-signup">Đăng ký ngay</a>
-          </div>
+          </div> 
         </form>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../Services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -11,17 +11,17 @@ import { AccountCustomer } from '../Interfaces/AccountCustomer';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   phonenumber: string= '';
   password: string= '';
+  rememberMe: boolean =false;
 
   constructor(
     private authService: AuthService,
     private router:Router,
     private route: ActivatedRoute,
-    private http: HttpClient
-    ) {
-    }
+    private http: HttpClient,
+    ) {}
 
   isPhoneNumberValid: boolean = true;
 
@@ -30,6 +30,16 @@ export class LoginComponent {
     this.isPhoneNumberValid = phoneNumberRegex.test(this.phonenumber);
   }
 
+  ngOnInit(){
+          // Nếu cookie "phonenumber" và "password" đã tồn tại thì sử dụng lại thông tin đăng nhập
+          const phonenumber = this.authService.getCookie('phonenumber');
+          const password = this.authService.getCookie('password');
+          if (phonenumber && password) {
+            this.phonenumber = phonenumber;
+            this.password = password;
+            this.rememberMe = true;
+          }
+  }
 
   onSubmit() {
     if(!this.isPhoneNumberValid){
@@ -41,9 +51,19 @@ export class LoginComponent {
         (user) => {
           // Đăng nhập thành công, chuyển hướng người dùng đến trang chính
           this.authService.setCurrentUser(user);
+          
+          // Lưu cookie nếu checkbox "Remember me" được chọn
+        if (this.rememberMe) {
+          // nếu chọn "nhớ mật khẩu" thì lưu thông tin đăng nhập
+          this.authService.setCookie('phonenumber', this.phonenumber, 30);
+          this.authService.setCookie('password', this.password, 30);
+        } else {
+          this.authService.deleteCookie('phonenumber');
+          this.authService.deleteCookie('password');
+        }
           alert("Đăng nhập thành công!")
-          this.router.navigate(['/app-home'], { relativeTo: this.route });
-
+          this.router.navigate(['/'], { relativeTo: this.route });
+          
         },
         (error) => {
           // Hiển thị thông báo lỗi
