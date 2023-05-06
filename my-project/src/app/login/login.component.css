@@ -14,7 +14,17 @@ body {
 .content {
   display: flex;
 }
-
+.error-message{
+    color: #FF0F0F;
+    font-weight: 400;
+    /* font-size: 14px; */
+    /* line-height: 16px; */
+    white-space: nowrap;
+    display: flex;
+    /* float: left; */
+    float: right;
+    margin-top: 10px;
+}
 .banner {
   margin-left: 250px;
   margin-top: 70px;
