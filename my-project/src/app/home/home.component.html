@@ -64,8 +64,8 @@
                   {{ subcategory }}
                 </a>
               </div>
-              <div class="home_products--product">
-                <div *ngFor="let medicine of medicines">
+              <div class="home_products--product" *ngIf="displayProduct; else view2">
+                <ng-container *ngFor="let medicine of medicines">
                   <a (click)="viewMedicineDetail(medicine)" class="home_products--product-detail" *ngIf="medicine.SubCategory === category.SubCategories[0] || medicine.SubCategory === subCategory">
                     <img src="{{ medicine.Image }}" alt="" />
                     <p class="home_products--product-detail-name">
@@ -78,8 +78,28 @@
                       <input type="button" value="CHỌN MUA" />
                     </div>
                   </a>
-                </div>
+                </ng-container>
               </div>
+
+              <ng-template #view2>
+                <div class="home_products--product">
+                  <ng-container *ngFor="let medicine of medicines">
+                    <a (click)="viewMedicineDetail(medicine)" class="home_products--product-detail" *ngIf="medicine.SubCategory === subCategory">
+                      <img src="{{ medicine.Image }}" alt="" />
+                      <p class="home_products--product-detail-name">
+                        {{ medicine.Name }}
+                      </p>
+                      <p class="home_products--product-detail-price" href="">
+                        {{ medicine.Price }}
+                      </p>
+                      <div class="home_products--product-detail-button">
+                        <input type="button" value="CHỌN MUA" />
+                      </div>
+                    </a>
+                  </ng-container>
+                </div>
+              </ng-template>
+
               <a class="products-view-all" href="">Xem tất cả</a>
               <div class="background-space">
                 <img src="/assets/image/products/product1.png" alt="" class="background-space--image" />
