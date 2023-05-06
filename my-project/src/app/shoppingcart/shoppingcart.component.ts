@@ -159,5 +159,4 @@ export class ShoppingcartComponent {
   makePaymentKVL(){
     this.router.navigate(['payment-kvl']);
   }
-
 }

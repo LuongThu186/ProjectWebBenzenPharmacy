@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit{
   quantityItem: number = 0;
   displayItem: boolean = true;
   errMessage: string = '';
+
   constructor(
     public _service: MedicineService,
     private router: Router,
@@ -71,6 +72,7 @@ export class HeaderComponent implements OnInit{
 
     this.isLoggedIn = this.authService.isLoggedIn();
     this.currentUser = this.authService.getCurrentUser();
+
   }
 
   viewCategory(c:any){
@@ -96,9 +98,5 @@ export class HeaderComponent implements OnInit{
       }
 
     }
-
-
-
-
 
 }
