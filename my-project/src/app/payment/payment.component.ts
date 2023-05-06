@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MedicineService } from '../Services/medicines.service';
 import { ActivatedRoute, Router } from '@angular/router';
-
 import { CustomersService } from '../Services/customers.service';
 import { OrdersService } from '../Services/orders.service';
 import { AuthService } from '../Services/auth.service';

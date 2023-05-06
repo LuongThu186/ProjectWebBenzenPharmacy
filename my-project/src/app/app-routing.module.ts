@@ -20,6 +20,7 @@ import { TypeBankAccountComponent } from './type-bank-account/type-bank-account.
 import { PaymentMomoComponent } from './payment-momo/payment-momo.component';
 
 const routes: Routes = [
+
   {path:"", component:HomeComponent},
   {path:"app-home", component:HomeComponent},
   {path:"app-shoppingcart", component:ShoppingcartComponent},

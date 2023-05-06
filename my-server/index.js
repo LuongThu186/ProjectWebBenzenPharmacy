@@ -12,6 +12,7 @@
 // });
 
 const express = require("express");
+const cookieParser = require('cookie-parser');
 const app = express();
 const port = 3000;
 const morgan = require("morgan");
@@ -22,6 +23,7 @@ app.use(bodyParser.json({ limit: "10mb" }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" }));
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ limit: "10mb" }));
+app.use(cookieParser());
 
 const cors = require("cors");
 app.use(cors());
@@ -239,15 +241,12 @@ app.post('/login', cors(), async (req, res) => {
   } else {
     const hash = crypto.pbkdf2Sync(password, user.salt, 1000, 64, 'sha512').toString('hex');
     if (user.password === hash) {
-      res.send(user);
+      res.send(req.body);
     } else {
       res.status(401).send({ message: 'Mật khẩu không đúng' });
     }
   }
 });
-
-
-
 
 app.get("/orders", cors(), async (req, res) => {
   const result = await orderCollection.find({}).toArray();

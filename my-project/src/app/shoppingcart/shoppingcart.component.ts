@@ -166,5 +166,4 @@ export class ShoppingcartComponent {
     //   // this.router.navigate(['payment-kvl']);
     // }
   }
-
 }
