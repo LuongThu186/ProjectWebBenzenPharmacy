@@ -2,37 +2,37 @@
     <h2 class="title">THÔNG TIN CHI TIẾT ĐƠN HÀNG</h2>
     <div class="content">
         <div class="content__order">
-            <h2>ĐƠN HÀNG 04/11/2022 <span class="completed">Hoàn thành</span></h2>
+            <h2>ĐƠN HÀNG {{ order.OrderDate }} <span class="completed">Hoàn thành</span></h2>
             <div class="content__order--infor">
                 <p>Thông tin nhận hàng và thanh toán</p>
                 <div class="order__form--row">
                     <div class="form__row">
                         <label class="form__label" for="orderID">Mã đơn hàng:</label>
-                        <label class="form__content" for="orderID">10000536</label>
+                        <label class="form__content" for="orderID">{{ order.OrderID }}</label>
                     </div>
                     <div class="form__row">
                         <label class="form__label" for="name_order">Họ và tên người nhận:</label>
-                        <label class="form__content" for="name_order">Nhà thuốc Bezen</label>
+                        <label class="form__content" for="name_order">{{ order.CustomerName }}</label>
                     </div>
                     <div class="form__row">
                         <label class="form__label" for="phone_order">Số điện thoại người nhận:</label>
-                        <label class="form__content" for="phone_order">0332583xxx</label>
+                        <label class="form__content" for="phone_order">{{ order.Phone }}</label>
                     </div>
                     <div class="form__row">
                         <label class="form__label" for="address_receive">Email:</label>
-                        <label class="form__content" for="address_receive">benzen20406@gmail.com</label>
+                        <label class="form__content" for="address_receive">{{ order.Email }}</label>
                     </div>
                     <div class="form__row">
                         <label class="form__label" for="address_receive">Địa chỉ nhận hàng:</label>
-                        <label class="form__content" for="address_receive">Số 669, QL1, Khu phố 3, Phường Linh Xuân, Quận Thủ Đức, Thành phố Hồ Chí Minh</label>
+                        <label class="form__content" for="address_receive">{{ order.Address }}</label>
                     </div>
                     <div class="form__row">
                         <label class="form__label" for="payment_method">Phương thức thanh toán:</label>
-                        <label class="form__content" for="payment_method">Thanh toán qua thẻ ATM nội địa/ Internet Banking</label>
+                        <label class="form__content" for="payment_method">{{ order.PaymentMethod }}</label>
                     </div>
                     <div class="form__row">
                         <label class="form__label" for="time_receive">Thời gian dự kiến:</label>
-                        <label class="form__content" for="time_receive">15/05/2023</label>
+                        <label class="form__content" for="time_receive">{{ order.ShipDate }}</label>
                     </div>
                 </div>
             </div>
@@ -81,16 +81,19 @@
         <div class="content__price">
             <div class="content__price--row">
                 <label class="voucher__label" for="voucher">Mã giảm giá:</label>
-                <label class="form__content" for="voucher">0đ</label>
+                <label class="form__content" for="voucher">{{ order.DiscountPrice.toLocaleString("vi-VN", { minimumFractionDigits: 0 }) }}đ</label>
             </div>
             <div class="content__price--row">
                 <label class="deliveryfee__label" for="voucher">Phí vận chuyển:</label>
-                <label class="form__content" for="voucher">20.000đ</label>
+                <label class="form__content" for="voucher">{{ order.DeliveryFee.toLocaleString("vi-VN", { minimumFractionDigits: 0 }) }}đ</label>
             </div>
             <div class="content__price--row">
                 <label class="total__label" for="voucher">Tổng tiền:</label>
-                <label class="form__content" for="voucher">230.000đ</label>
+                <label class="form__content" for="voucher">{{ order.TotalPrice.toLocaleString("vi-VN", { minimumFractionDigits: 0 }) }}đ</label>
             </div>
         </div>
+    </div>
+    <div class="button_continue">
+      <button (click)="gotoHome()">Tiếp tục mua sắm</button>
     </div>
 </div>

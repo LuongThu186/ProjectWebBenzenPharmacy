@@ -70,7 +70,7 @@ app.get("/medicines/:category/:subcategory", cors(), async (req, res) => {
 });
 
 app.post("/medicines", cors(), async (req, res) => {
-  //put json Fashion into database
+  //put json into database
   await medicineCollection.insertOne(req.body);
   //send message to client(send all database to client)
   res.send(req.body);
@@ -253,11 +253,17 @@ app.get("/orders", cors(), async (req, res) => {
   res.send(result);
 });
 
-app.get("/orders/:id",cors(), async (req, res) =>{
+app.get("/orders/detail/:id",cors(), async (req, res) =>{
   var o_id = new ObjectId(req.params["id"]);
   const result = await orderCollection.find({_id:o_id}).toArray();
   res.send(result[0])
 })
+
+app.post("/orders", cors(), async (req, res) => {
+  await orderCollection.insertOne(req.body);
+  //send message to client(send all database to client)
+  res.send(req.body);
+});
 
 app.delete("orders/:id", cors(), async (req, res) => {
   //find detail Fashion with id
