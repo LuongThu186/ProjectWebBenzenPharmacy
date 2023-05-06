@@ -37,6 +37,7 @@ const routes: Routes = [
   {path:"app-payment/:id", component: PaymentComponent},
   {path:"app-profile", component: ProfileComponent},
   {path:"app-orderdetail", component: OrderdetailComponent},
+  {path:"app-orderdetail/detail/:id", component: OrderdetailComponent},
   {path:"app-infor", component: InforComponent},
   {path:"app-chatbox", component: ChatboxComponent},
   {path:"payment-kvl", component:PaymentKVLComponent},

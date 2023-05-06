@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MedicineService } from '../Services/medicines.service';
+import { AuthService } from '../Services/auth.service';
 
 @Component({
   selector: 'app-shoppingcart',
@@ -19,10 +20,12 @@ export class ShoppingcartComponent {
   total:string = '0';
   preprice:string = '0';
   selectedItems: any[] = [];
+  currentUser: any;
   constructor(
     private activateRoute: ActivatedRoute,
     private _service: MedicineService,
-    private router: Router
+    private router: Router,
+    private _authService: AuthService
   ) {
     this._service.getMedicines().subscribe({
       next: (data) => {
@@ -63,6 +66,8 @@ export class ShoppingcartComponent {
         // this.preprice = this.prePrice.toLocaleString("vi-VN", {minimumFractionDigits: 0,});
       }
     });
+
+    this.currentUser = this._authService.getCurrentUser();
   }
   viewMedicineDetail(medicineId: string) {
     this.router.navigate(['app-productdetail', medicineId]);
@@ -154,10 +159,12 @@ export class ShoppingcartComponent {
   }
 
   makePayment(){
-    this.router.navigate(['app-payment']);
-  }
-  makePaymentKVL(){
-    this.router.navigate(['payment-kvl']);
+    if(this.currentUser != null){
+      this.router.navigate(['app-payment']);
+    }
+    // } else {
+    //   // this.router.navigate(['payment-kvl']);
+    // }
   }
 
 }
