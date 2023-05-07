@@ -32,15 +32,15 @@ export class ForgotpasswordComponent implements OnInit {
       alert('Vui lòng nhập đúng số điện thoại!');
     }
     else if(this.phoneNumber===" "){
-      alert('Vui lòng nhập số điện thoại!');     
+      alert('Vui lòng nhập số điện thoại!');
     }
     else {
       this.accountService.checkPhoneNumberExist(this.phoneNumber).subscribe({
         next: (data) => {
           this.phoneNumbers = data;
-          if (this.phoneNumbers.Phone === this.phoneNumber) {
+          if (this.phoneNumbers.phonenumber === this.phoneNumber) {
             alert('Gửi mã thành công!');
-            this.router.navigate(['/app-resetpsw']);
+            // this.router.navigate(['/app-resetpsw']);
           }
           else {
             alert('Số điện thoại không tồn tại!');
@@ -57,15 +57,15 @@ export class ForgotpasswordComponent implements OnInit {
       alert('Vui lòng nhập đúng số điện thoại!');
     }
     else if(this.phoneNumber===" "){
-      alert('Vui lòng nhập số điện thoại!');     
+      alert('Vui lòng nhập số điện thoại!');
     }
     else{
       this.accountService.checkPhoneNumberExist(this.phoneNumber).subscribe({
         next: (data) => {
           this.phoneNumbers = data;
-          if (this.phoneNumbers.Phone === this.phoneNumber) {
+          if (this.phoneNumbers.phonenumber == this.phoneNumber) {
             alert('Đã gửi lại mã xác nhận!');
-            this.router.navigate(['/app-resetpsw']);
+            // this.router.navigate(['/app-resetpsw']);
           }
           else {
             alert('Số điện thoại không tồn tại!');
@@ -103,10 +103,10 @@ export class ForgotpasswordComponent implements OnInit {
         return false
       }
       else if(this.phoneNumber===" "){
-        alert('Vui lòng nhập số điện thoại!');     
+        alert('Vui lòng nhập số điện thoại!');
         return false
       }
-    else if(this.isVerificationCodeValid===false){
+    else if(this.isVerificationCodeValid===false || this.verificationCode===''){
       alert('Vui lòng nhập đúng mã xác nhận!');
       return false;
     }
@@ -118,7 +118,7 @@ export class ForgotpasswordComponent implements OnInit {
       this.accountService.checkPhoneNumberExist(this.phoneNumber).subscribe({
         next: (data) => {
           this.phoneNumbers = data;
-          if (this.phoneNumbers.Phone === this.phoneNumber) {
+          if (this.phoneNumbers.phonenumber == this.phoneNumber) {
             alert('Số điện thoại hợp lệ!');
             this.router.navigate(['/app-resetpsw']);
           }

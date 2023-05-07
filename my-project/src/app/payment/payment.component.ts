@@ -113,6 +113,7 @@ export class PaymentComponent implements OnInit {
     this.order.PrePrice= this.prePrice,
     this.order.DeliveryFee= this.deliveryFee,
     this.order.DiscountPrice= this.discountPrice,
+    this.order.OrderMedicine= this.cartItems,
     this._orderService.postOrder(this.order).subscribe({
       next: (data) => {
         this.order = data;
