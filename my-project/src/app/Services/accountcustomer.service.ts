@@ -15,7 +15,7 @@ export class AccountcustomerService {
   constructor(private _http: HttpClient) { }
 
 
-        checkPhoneNumberExist(phoneNumber: string): Observable<any> {
+        checkPhoneNumberExist(phonenumber: string): Observable<any> {
         const headers = new HttpHeaders().set(
           'Content-Type',
           'text/plain;charset=utf8'
@@ -24,7 +24,7 @@ export class AccountcustomerService {
           headers: headers,
           responseType: 'text',
         }
-        return this._http.get<any>(`${"/accounts/"}?phone=${phoneNumber}`, requestOptions).pipe(
+        return this._http.get<any>("/accounts/" + phonenumber, requestOptions).pipe(
           map(res => JSON.parse(res) as Array<AccountCustomer>),
           retry(3),
           catchError(this.handleError)
