@@ -25,19 +25,25 @@
                         <span class="material">*</span>
                     </div>
                   </div>
-                <div class="container__input--item phone">
-                    <label for="phonenumber">Số điện thoại: </label>
-                    <div class="input--content">
-                        <input type="text" name="phonenumber" [(ngModel)]="account.phonenumber" #name="ngModel"  required/>
-                      <span class="material">*</span>
-                    </div>
+                  <div>
+                    <div class="container__input--item phone">
+                      <label for="phonenumber">Số điện thoại: </label>
+                      <div class="input--content">
+                          <input type="text" name="phonenumber" [(ngModel)]="account.phonenumber" #name="ngModel" (blur)="checkPhoneNumber()" required/>
+                        <span class="material">*</span>
+                      </div>
                   </div>
-                  <div class="container__input--item email">
-                    <label for="email">Email: </label>
-                    <div class="input--content">
-                        <input type="text" name="email" [(ngModel)]="account.Mail" #name="ngModel"/>
-                        <span class="material"> </span>
+                  <div *ngIf="!isPhoneNumberValid" class="error-message">Số điện thoại không hợp lệ!</div>
+                  </div>
+                  <div>
+                    <div class="container__input--item email">
+                      <label for="email">Email: </label>
+                      <div class="input--content">
+                          <input type="text" name="email" [(ngModel)]="account.Mail" #name="ngModel" (blur)="checkMail()">
+                          <span class="material"> </span>
+                      </div>
                     </div>
+                    <div class="error-message-mail" *ngIf="!isValidEmail">Email không hợp lệ!</div>
                   </div>
                   <div class="container__input--item address">
                     <label for="address">Địa chỉ: </label>
@@ -49,14 +55,14 @@
                   <div class="container__input--item pass">
                     <label for="psw">Mật khẩu: </label>
                     <div class="input--content">
-                        <input type="password" name="psw" [(ngModel)]="account.password" #name="ngModel" required/>
+                        <input type="password" name="psw" [(ngModel)]="account.password" #name="ngModel" (blur)="onChecked()" #passwordInput required/>
                         <span class="material">*</span>
                     </div>
                     </div>
                     <div class="container__input--item repass">
                         <label for="psw">Nhập lại mật khẩu: </label>
                         <div class="input--content">
-                            <input type="password" name="psw" required/>
+                            <input type="password" name="psw" [(ngModel)]="confirmPassword" #confirmPasswordInput (blur)="checkPasswordsMatch()" required/>
                             <span class="material">*</span>
                         </div>
                     </div>

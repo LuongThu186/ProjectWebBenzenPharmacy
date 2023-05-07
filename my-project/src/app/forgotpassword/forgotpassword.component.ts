@@ -31,7 +31,7 @@ export class ForgotpasswordComponent implements OnInit {
     if (!this.isPhoneNumberValid) {
       alert('Vui lòng nhập đúng số điện thoại!');
     }
-    else if(this.phoneNumber===" "){
+    else if(this.phoneNumber.trim().length === 0){
       alert('Vui lòng nhập số điện thoại!');     
     }
     else {
@@ -40,7 +40,6 @@ export class ForgotpasswordComponent implements OnInit {
           this.phoneNumbers = data;
           if (this.phoneNumbers.Phone === this.phoneNumber) {
             alert('Gửi mã thành công!');
-            this.router.navigate(['/app-resetpsw']);
           }
           else {
             alert('Số điện thoại không tồn tại!');
@@ -51,12 +50,13 @@ export class ForgotpasswordComponent implements OnInit {
         }
       });
     }
+    
 }
   resend(){
     if (!this.isPhoneNumberValid) {
       alert('Vui lòng nhập đúng số điện thoại!');
     }
-    else if(this.phoneNumber===" "){
+    else if(this.phoneNumber.trim().length === 0){
       alert('Vui lòng nhập số điện thoại!');     
     }
     else{
@@ -65,7 +65,6 @@ export class ForgotpasswordComponent implements OnInit {
           this.phoneNumbers = data;
           if (this.phoneNumbers.Phone === this.phoneNumber) {
             alert('Đã gửi lại mã xác nhận!');
-            this.router.navigate(['/app-resetpsw']);
           }
           else {
             alert('Số điện thoại không tồn tại!');
@@ -80,9 +79,17 @@ export class ForgotpasswordComponent implements OnInit {
 
   //-----FE
   checkPhoneNumber(): void {
-    const phoneNumberRegex = /^(\+84|0)[1-9][0-9]{7,8}$/; //kiểm tra chuỗi đã nhập là số điện thoại hợp lệ không?
-    this.isPhoneNumberValid = phoneNumberRegex.test(this.phoneNumber);
+    const phoneNumberRegex = /^(\+84|0)[1-9][0-9]{7,8}$/; // kiểm tra chuỗi đã nhập là số điện thoại hợp lệ không?
+    
+    if (this.phoneNumber.trim().length === 0) {
+      // Nếu giá trị của phoneNumber là chuỗi rỗng hoặc không chứa ký tự nào thì bỏ qua kiểm tra
+      this.isPhoneNumberValid = true;
+    } else {
+      // Nếu giá trị của phoneNumber chứa ký tự, kiểm tra số điện thoại hợp lệ
+      this.isPhoneNumberValid = phoneNumberRegex.test(this.phoneNumber);
+    }
   }
+  
 
   //kiểm tra mã xác nhận
   verificationCode: string = '';
@@ -102,9 +109,9 @@ export class ForgotpasswordComponent implements OnInit {
         alert('Vui lòng nhập đúng số điện thoại!');
         return false
       }
-      else if(this.phoneNumber===" "){
-        alert('Vui lòng nhập số điện thoại!');     
-        return false
+      else if(this.phoneNumber.trim().length === 0){
+        alert('Vui lòng nhập số điện thoại!');
+        return false     
       }
     else if(this.isVerificationCodeValid===false){
       alert('Vui lòng nhập đúng mã xác nhận!');

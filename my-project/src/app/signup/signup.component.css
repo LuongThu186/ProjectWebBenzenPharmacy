@@ -15,7 +15,29 @@ body {
   .content {
     display: flex;
   }
-  
+  .error-message{
+    color: #FF0F0F;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    white-space: nowrap;
+    display: flex;
+    float: right;
+    margin-right: 10px;
+    align-self: self-end;
+    margin-top: 10px;
+  }
+  .error-message-mail{
+    color: #FF0F0F;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    white-space: nowrap;
+    align-self: self-end;
+    margin-top: 10px;
+    display: flex;
+    justify-content: right;
+  }
   .banner {
     margin-left: 250px;
     margin-top: 70px;
