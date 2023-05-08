@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdminOrderService } from 'src/app/Services/admin-order.service';
 import { AdminCustomerService } from 'src/app/Services/admin-customer.service';
+import { Order } from 'src/app/Interfaces/order';
+
 
 @Component({
   selector: 'app-admin-order-detail-management',
@@ -9,9 +11,14 @@ import { AdminCustomerService } from 'src/app/Services/admin-customer.service';
   styleUrls: ['./admin-order-detail-management.component.css']
 })
 export class AdminOrderDetailManagementComponent {
+  orders = new Order();
+  public setOrder(o:Order){
+    this.orders = o
+  }
   customer:any;
   order:any;
   errMessage:string=""
+
   constructor(private activateRoute:ActivatedRoute,private _fs:AdminOrderService, private router:Router, private _service:AdminCustomerService )
   {
     activateRoute.paramMap.subscribe(
@@ -19,8 +26,7 @@ export class AdminOrderDetailManagementComponent {
         let id=param.get('id')
         if(id!=null)
         {
-          this.searchOrder(id),
-          this.searchCustomer(id)
+          this.searchOrder(id) 
         }
       }
     )
@@ -41,7 +47,16 @@ export class AdminOrderDetailManagementComponent {
     })
   }
 
+  cancelOrder(_id:any){
+    
+      this._fs.cancelOrder(_id).subscribe({
+        next:(data)=>{this.order=data},
+        error:(err)=>{this.errMessage=err}
+      })
   
+    }
+
+    
 
   goBack(){
     this.router.navigate(['admin-custoner-management'])

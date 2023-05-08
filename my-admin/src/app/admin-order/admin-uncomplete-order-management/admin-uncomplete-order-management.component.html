@@ -53,8 +53,8 @@
                             <td> {{order.OrderDate}}</td>
                             <td>  </td>
                             <td>
-                                <button id="check" (click)="orderConfirm()"><span class="material-icons-outlined" style="color:#2D982A" >check_circle</span></button>
-                               <button id="cancel"><span class="material-icons-outlined" style="color:red">cancel</span></button>
+                                <button id="check" (click)="orderConfirm(order._id)"><span class="material-icons-outlined" style="color:#2D982A" >check_circle</span></button>
+                               <button id="cancel" (click)="deleteOrder(order._id)"><span class="material-icons-outlined" style="color:red">cancel</span></button>
                             </td>
                         </tr>
                        

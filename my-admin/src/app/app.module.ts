@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { NgModule, importProvidersFrom } from '@angular/core';
+// import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule, RoutingComponent } from './app-routing.module';
@@ -54,7 +55,7 @@ import { AdminProductAddManagementComponent } from './admin-product/admin-produc
     HomeComponent,
     PopupDeleteComponent,
     AdminProductEditManagementComponent,
-    AdminProductAddManagementComponent
+    AdminProductAddManagementComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,8 +4,7 @@ import { Customers } from '../Interfaces/Customer';
 import { AccountcustomerService } from '../Services/accountcustomer.service';
 import { CustomersService } from '../Services/customers.service';
 import { Router } from '@angular/router';
-import { ProfileService } from '../Services/profile.service';
-import { Profile } from '../Interfaces/profile'
+
 
 @Component({
   selector: 'app-signup',

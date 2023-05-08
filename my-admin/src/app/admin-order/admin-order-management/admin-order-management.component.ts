@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AdminOrderService } from 'src/app/Services/admin-order.service';
 import { Router } from '@angular/router';
+import { AdminCustomerService } from 'src/app/Services/admin-customer.service';
 
 
 @Component({
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin-order-management.component.css']
 })
 export class AdminOrderManagementComponent {
+  customer:any;
   orders:any;
   errMessage:string=""
   page: number = 1;
@@ -16,7 +18,7 @@ export class AdminOrderManagementComponent {
   result : number
   value: any;
 
-  constructor(public _service: AdminOrderService, private router: Router){
+  constructor(public _service: AdminOrderService, private router: Router,private _fs:AdminCustomerService){
     this._service.getOrders().subscribe({
       next:(data)=>{this.orders=data},
       error:(err)=>{this.errMessage=err}
@@ -43,4 +45,11 @@ export class AdminOrderManagementComponent {
   viewCustomerDetail(f:any){
     this.router.navigate(['admin-order-detail-management',f._id])
    }
+
+   searchCustomer(CustomerID:any){
+    this._fs.getCustomerDetail(CustomerID).subscribe({
+      next:(data)=>{this.customer=data},
+      error:(err)=>{this.errMessage=err}
+    })
+  }
 }
