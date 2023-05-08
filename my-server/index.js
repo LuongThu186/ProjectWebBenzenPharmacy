@@ -297,7 +297,7 @@ app.post('/login', cors(), async (req, res) => {
   } else {
     const hash = crypto.pbkdf2Sync(password, user.salt, 1000, 64, 'sha512').toString('hex');
     if (user.password === hash) {
-      res.send(req.body);
+      res.send(user);
     } else {
       res.status(401).send({ message: 'Mật khẩu không đúng' });
     }

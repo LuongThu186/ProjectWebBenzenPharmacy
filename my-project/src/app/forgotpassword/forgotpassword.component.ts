@@ -31,48 +31,43 @@ export class ForgotpasswordComponent implements OnInit {
     if (!this.isPhoneNumberValid) {
       alert('Vui lòng nhập đúng số điện thoại!');
     }
-    else if(this.phoneNumber===" "){
-      alert('Vui lòng nhập số điện thoại!');
+    else if(this.phoneNumber.trim().length === 0){
+      alert('Vui lòng nhập số điện thoại!');     
     }
     else {
       this.accountService.checkPhoneNumberExist(this.phoneNumber).subscribe({
         next: (data) => {
           this.phoneNumbers = data;
-          if (this.phoneNumbers.phonenumber === this.phoneNumber) {
-            alert('Gửi mã thành công!');
-            // this.router.navigate(['/app-resetpsw']);
-          }
-          else {
-            alert('Số điện thoại không tồn tại!');
+          if (this.phoneNumbers.phonenumber == this.phoneNumber) {
+            alert('Gửi mã thành công!')
           }
         },
         error: (err) => {
           this.errorMessage = err;
+          alert('Số điện thoại không tồn tại!');
         }
       });
     }
+    
 }
   resend(){
     if (!this.isPhoneNumberValid) {
       alert('Vui lòng nhập đúng số điện thoại!');
     }
-    else if(this.phoneNumber===" "){
-      alert('Vui lòng nhập số điện thoại!');
+    else if(this.phoneNumber.trim().length === 0){
+      alert('Vui lòng nhập số điện thoại!');     
     }
-    else{
+    else {
       this.accountService.checkPhoneNumberExist(this.phoneNumber).subscribe({
         next: (data) => {
           this.phoneNumbers = data;
           if (this.phoneNumbers.phonenumber == this.phoneNumber) {
-            alert('Đã gửi lại mã xác nhận!');
-            // this.router.navigate(['/app-resetpsw']);
-          }
-          else {
-            alert('Số điện thoại không tồn tại!');
+            alert('Đã gửi lại mã xác nhận!')
           }
         },
         error: (err) => {
           this.errorMessage = err;
+          alert('Số điện thoại không tồn tại!');
         }
       });
     }
@@ -80,15 +75,26 @@ export class ForgotpasswordComponent implements OnInit {
 
   //-----FE
   checkPhoneNumber(): void {
-    const phoneNumberRegex = /^(\+84|0)[1-9][0-9]{7,8}$/; //kiểm tra chuỗi đã nhập là số điện thoại hợp lệ không?
-    this.isPhoneNumberValid = phoneNumberRegex.test(this.phoneNumber);
+    const phoneNumberRegex = /^(\+84|0)[1-9][0-9]{7,8}$/; // kiểm tra chuỗi đã nhập là số điện thoại hợp lệ không?
+    
+    if (this.phoneNumber.trim().length === 0) {
+      // Nếu giá trị của phoneNumber là chuỗi rỗng hoặc không chứa ký tự nào thì bỏ qua kiểm tra
+      this.isPhoneNumberValid = true;
+    } else {
+      // Nếu giá trị của phoneNumber chứa ký tự, kiểm tra số điện thoại hợp lệ
+      this.isPhoneNumberValid = phoneNumberRegex.test(this.phoneNumber);
+    }
   }
+  
 
   //kiểm tra mã xác nhận
   verificationCode: string = '';
   isVerificationCodeValid: boolean = true;
 
   checkVerificationCode() {
+    if (this.verificationCode.trim().length === 0) {
+      this.isVerificationCodeValid = true;
+    } else
     if (this.verificationCode === '666666') {
       this.isVerificationCodeValid = true;
     } else {
@@ -102,9 +108,9 @@ export class ForgotpasswordComponent implements OnInit {
         alert('Vui lòng nhập đúng số điện thoại!');
         return false
       }
-      else if(this.phoneNumber===" "){
+      else if(this.phoneNumber.trim().length === 0){
         alert('Vui lòng nhập số điện thoại!');
-        return false
+        return false     
       }
     else if(this.isVerificationCodeValid===false || this.verificationCode===''){
       alert('Vui lòng nhập đúng mã xác nhận!');
@@ -119,7 +125,7 @@ export class ForgotpasswordComponent implements OnInit {
         next: (data) => {
           this.phoneNumbers = data;
           if (this.phoneNumbers.phonenumber == this.phoneNumber) {
-            alert('Số điện thoại hợp lệ!');
+            // alert('Số điện thoại hợp lệ!');
             this.router.navigate(['/app-resetpsw']);
           }
           else {
@@ -128,6 +134,7 @@ export class ForgotpasswordComponent implements OnInit {
         },
         error: (err) => {
           this.errorMessage = err;
+          alert('Số điện thoại không tồn tại!');
         },
       });
       return

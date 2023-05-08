@@ -49,8 +49,4 @@ export class AccountcustomerService {
           catchError(this.handleError)
         )
       }
-
-      // checkPhoneNumberBE(phoneNumber: string): Observable<any> {
-      //   return this._http.get(`${"/accounts/"}/phone/${phoneNumber}`);
-      // }
 }
