@@ -16,7 +16,7 @@ export class OrderdetailComponent {
   quantityItem: number = 0;
   displayNumberItem: boolean = true;
   currentUser: any;
-  order= new Orders();
+  order = new Orders();
   constructor(
     private _service: MedicineService,
     private _authService: AuthService,

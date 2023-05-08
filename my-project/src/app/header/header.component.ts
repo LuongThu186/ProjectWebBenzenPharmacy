@@ -4,6 +4,7 @@ import { Medicines } from '../Interfaces/Medicine';
 import { MedicineService } from '../Services/medicines.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../Services/auth.service';
+import { windowCount } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -94,7 +95,7 @@ export class HeaderComponent implements OnInit{
       const confirmed = confirm('Bạn có muốn đăng xuất không?');
       if(confirmed) {
         sessionStorage.removeItem('CurrentUser');
-        this.router.navigate(['/login'])
+        window.location.reload();
       }
 
     }

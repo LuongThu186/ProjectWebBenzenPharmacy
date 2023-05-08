@@ -20,11 +20,11 @@
             <div class="container__input">
                 <div class="container__input--item">
                     <label for="uname">Mật khẩu hiện tại: </label>
-                    <div class="input--content">
+                    <div class="input--content"(blur)="onChecked()">
                         <input
-                        type="text"
+                        type="password"
                         name="uname"
-                        required
+                        required [(ngModel)]="passwordCurrent" (blur)="onCheckedCurrent()" #passwordInputCurrent
                       />
                       <span class="material">*</span>
                     </div>
@@ -32,9 +32,7 @@
                 <div class="container__input--item">
                     <label for="uname">Nhập mật khẩu: </label>
                     <div class="input--content">
-                        <input
-                        type="password" id="pwd" [(ngModel)]="password" (blur)="onChecked()" #passwordInput
-                        required
+                        <input type="password" name="uname" required [(ngModel)]="password" (blur)="onChecked()" #passwordInput
                       />
                       <span class="material">*</span>
                     </div>
@@ -51,7 +49,7 @@
                     </div>
             </div>
             <div>
-              <button type="submit" class="login_button" onclick="window.location='app-login'">HOÀN TẤT</button>
+              <button type="submit" class="login_button" onclick="window.location='app-login'" (click)="onClick()">HOÀN TẤT</button>
             </div>
             <div class="content--bottom">
                 <a href="app-home"> << Trở về</a>

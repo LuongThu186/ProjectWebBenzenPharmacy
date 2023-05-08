@@ -38,15 +38,13 @@ export class ForgotpasswordComponent implements OnInit {
       this.accountService.checkPhoneNumberExist(this.phoneNumber).subscribe({
         next: (data) => {
           this.phoneNumbers = data;
-          if (this.phoneNumbers.Phone === this.phoneNumber) {
-            alert('Gửi mã thành công!');
-          }
-          else {
-            alert('Số điện thoại không tồn tại!');
+          if (this.phoneNumbers.phonenumber == this.phoneNumber) {
+            alert('Gửi mã thành công!')
           }
         },
         error: (err) => {
           this.errorMessage = err;
+          alert('Số điện thoại không tồn tại!');
         }
       });
     }
@@ -59,19 +57,17 @@ export class ForgotpasswordComponent implements OnInit {
     else if(this.phoneNumber.trim().length === 0){
       alert('Vui lòng nhập số điện thoại!');     
     }
-    else{
+    else {
       this.accountService.checkPhoneNumberExist(this.phoneNumber).subscribe({
         next: (data) => {
           this.phoneNumbers = data;
-          if (this.phoneNumbers.Phone === this.phoneNumber) {
-            alert('Đã gửi lại mã xác nhận!');
-          }
-          else {
-            alert('Số điện thoại không tồn tại!');
+          if (this.phoneNumbers.phonenumber == this.phoneNumber) {
+            alert('Đã gửi lại mã xác nhận!')
           }
         },
         error: (err) => {
           this.errorMessage = err;
+          alert('Số điện thoại không tồn tại!');
         }
       });
     }
@@ -96,6 +92,9 @@ export class ForgotpasswordComponent implements OnInit {
   isVerificationCodeValid: boolean = true;
 
   checkVerificationCode() {
+    if (this.verificationCode.trim().length === 0) {
+      this.isVerificationCodeValid = true;
+    } else
     if (this.verificationCode === '666666') {
       this.isVerificationCodeValid = true;
     } else {
@@ -113,7 +112,7 @@ export class ForgotpasswordComponent implements OnInit {
         alert('Vui lòng nhập số điện thoại!');
         return false     
       }
-    else if(this.isVerificationCodeValid===false){
+    else if(this.isVerificationCodeValid===false || this.verificationCode===''){
       alert('Vui lòng nhập đúng mã xác nhận!');
       return false;
     }
@@ -125,8 +124,8 @@ export class ForgotpasswordComponent implements OnInit {
       this.accountService.checkPhoneNumberExist(this.phoneNumber).subscribe({
         next: (data) => {
           this.phoneNumbers = data;
-          if (this.phoneNumbers.Phone === this.phoneNumber) {
-            alert('Số điện thoại hợp lệ!');
+          if (this.phoneNumbers.phonenumber == this.phoneNumber) {
+            // alert('Số điện thoại hợp lệ!');
             this.router.navigate(['/app-resetpsw']);
           }
           else {
@@ -135,6 +134,7 @@ export class ForgotpasswordComponent implements OnInit {
         },
         error: (err) => {
           this.errorMessage = err;
+          alert('Số điện thoại không tồn tại!');
         },
       });
       return

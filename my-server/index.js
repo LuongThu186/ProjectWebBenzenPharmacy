@@ -188,10 +188,10 @@ app.get("/accounts", cors(), async (req, res) => {
   res.send(result);
 });
 
-app.get("/accounts/:phoneNumber", cors(), async (req, res) => {
-  const phone = req.params["phoneNumber"];
+app.get("/accounts/:phonenumber", cors(), async (req, res) => {
+  const phone = req.params["phonenumber"];
   const result = await accountCollection
-    .find({ Phone: phone})
+    .find({ phonenumber: phone})
     .toArray();
   res.send(result[0]);
 });
