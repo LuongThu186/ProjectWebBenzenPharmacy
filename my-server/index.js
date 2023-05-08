@@ -201,11 +201,6 @@ app.get("/customers", cors(), async (req, res) => {
   res.send(result);
 });
 
-// app.get("/customers/:id",cors(), async (req, res) =>{
-//   var o_id = new ObjectId (req.params["id"]);
-//   const result = await customerCollection.find({_id:o_id}).toArray();
-//   res.send(result[0])
-// });
 
 app.get("/customers/:phonenumber",cors(), async (req, res) =>{
   var phone = req.params["phonenumber"];
@@ -274,6 +269,29 @@ app.post("/delivery", cors(), async (req, res) =>{
   await deliveryCustomerCollection.insertOne(req.body)
   res.send(req.body)
 })
+
+app.get("/delivery/:phonenumber",cors(), async (req, res) =>{
+  var phone = req.params["phonenumber"];
+  const result = await deliveryCustomerCollection.find({Phone:phone}).toArray();
+  res.send(result[0])
+});
+
+app.put("/delivery", cors(), async (req, res) => {
+  //update json Fashion into database
+  await deliveryCustomerCollection.updateOne(
+    {_id: new ObjectId(req.body._id) }, //condition for update
+    {
+      $set: {
+        //Field for updating
+        Address: req.body.Address,
+      },
+    }
+  )
+    //send Fahsion after updating
+  var o_id = req.params._id;
+  const result = await deliveryCustomerCollection.find({_id:o_id}).toArray();
+  res.send(result[0])
+  })
 
 //Phần này là Đăng ký và Đăng nhập
 app.post("/accounts", cors(), async(req, res) => {

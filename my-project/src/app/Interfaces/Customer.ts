@@ -19,7 +19,7 @@ export class Delivery{
     public _id: any = null,
     public RecipientAddressID: number = 0,
     public RecipientName: string = '',
-    public Address: string = '',
+    public Address:string='',
     public Phone: string = ''
   ){}
 }

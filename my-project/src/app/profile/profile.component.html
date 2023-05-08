@@ -139,7 +139,7 @@
                       </div>
                     </div>
                     <div class="address__body">
-                      <p>{{Address}}</p>
+                      <p>{{delivery.Address}}</p>
                     </div>
                     <div class="address__default">
                       <label for="default">
@@ -196,7 +196,7 @@
                       </label>
                     </div>
                     <div class="address__button--function">
-                      <button (click)="postDelivery()">Lưu</button>
+                      <button (click)="saveEditAddress()">Lưu</button>
                       <button (click)="cancelAddress()">Hủy</button>
                     </div>
                   </div>
@@ -205,18 +205,18 @@
                     <div class="address__content--row">
                       <div class="address__row--top">
                         <label for="name">Tên người nhận:
-                          <input type="text" id="name" [(ngModel)]="nameAddressEdit">
+                          <input type="text" id="name" [(ngModel)]="customer.CustomerName">
                           <span class="material">*</span>
                         </label>
                         <label for="phone">Số điện thoại người nhận: 
-                          <input type="text" if="phone" [(ngModel)]="phoneAddressEdit" >
+                          <input type="text" if="phone" [(ngModel)]="customer.Phone" >
                           <span class="material">*</span>
                         </label>
                       </div>
                       <div class="address__row--bottom">
                         <label for="address">Địa chỉ:
                           <div>
-                            <input type="text" id="address" [(ngModel)]="addressDeliveryEdit" >
+                            <input type="text" id="address" [(ngModel)]="delivery.Address" >
                             <span class="material">*</span>
                           </div>
                         </label>
@@ -226,7 +226,7 @@
                       </label>
                     </div>
                     <div class="address__button--function">
-                      <button (click)="saveEditAddress()">Cập nhật</button>
+                      <button (click)="putDelivery()">Cập nhật</button>
                       <button (click)="cancelEditAddress()">Hủy</button>
                     </div>
                   </div>

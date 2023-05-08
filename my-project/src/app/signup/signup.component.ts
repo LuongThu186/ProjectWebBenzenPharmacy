@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { AccountCustomer } from '../Interfaces/AccountCustomer';
-import { Customers } from '../Interfaces/Customer';
+import { Customers, Delivery } from '../Interfaces/Customer';
 import { AccountcustomerService } from '../Services/accountcustomer.service';
 import { CustomersService } from '../Services/customers.service';
 import { Router } from '@angular/router';
@@ -14,12 +14,14 @@ import { Router } from '@angular/router';
 export class SignupComponent {
   account = new AccountCustomer();
   customer = new Customers();
+  delivery = new Delivery();
   errMessage: string = '';
   constructor(
     private _service: AccountcustomerService,
     private router: Router,
     private _customerService: CustomersService,
-    private accountService: AccountcustomerService
+    private accountService: AccountcustomerService,
+    
   ) {}
   public setAccount(a: AccountCustomer) {
     this.account = a;
@@ -113,6 +115,16 @@ export class SignupComponent {
       });
     }
   }
+
+  postDelivery(){
+    this.delivery.Phone = this.account.phonenumber;
+    this.delivery.Address = this.account.Address;
+    this._customerService.postDelivery(this.delivery).subscribe({
+      next:(data)=>{this.delivery=data},
+      error:(err)=>{this.errMessage=err}
+    })
+  }
+
   confirmPassword: string= '';
     
     @ViewChild('passwordInput') passwordInput: any;

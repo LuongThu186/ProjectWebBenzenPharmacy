@@ -75,7 +75,7 @@ export class ProfileService {
     )
   }
 
-  postDelivery(aDelivery:any): Observable<any> {
+  putDelivery(aDelivery:any): Observable<any> {
     const headers = new HttpHeaders().set(
       'Content-Type',
       'application/json;charset=utf-8'
@@ -84,7 +84,7 @@ export class ProfileService {
       headers: headers,
       responseType: 'text',
     };
-    return this._http.post<any>('/delivery',JSON.stringify(aDelivery), requestOptions).pipe(
+    return this._http.put<any>('/delivery',JSON.stringify(aDelivery), requestOptions).pipe(
       map((res) => JSON.parse(res) as Delivery),
       retry(3),
       catchError(this.handleError)
@@ -113,6 +113,20 @@ export class ProfileService {
       responseType:"text"
     }
     return this._http.get<any>('/customers/'+Phone,requestOptions).pipe(
+      map(res=>JSON.parse(res)as Customers),
+      retry(3),
+      catchError(this.handleError)
+    )
+  }
+
+  getAddress(Phone:string):Observable<any>
+  {
+    const headers = new HttpHeaders().set("Content-Type","text/plain;charset=utf-8")
+    const requestOptions:Object={
+      headers:headers,
+      responseType:"text"
+    }
+    return this._http.get<any>('/delivery/'+Phone,requestOptions).pipe(
       map(res=>JSON.parse(res)as Customers),
       retry(3),
       catchError(this.handleError)

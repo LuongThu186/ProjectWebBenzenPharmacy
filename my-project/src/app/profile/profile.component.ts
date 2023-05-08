@@ -55,6 +55,10 @@ export class ProfileComponent {
                       next:(data)=>{this.customer=data},
                       error:(err)=>{this.errMessage=err}
                     });
+                    this._service.getAddress(user.phonenumber).subscribe({
+                      next:(data)=>{this.delivery=data},
+                      error:(err)=>{this.errMessage=err}
+                    });
                 }
                
   }
@@ -76,13 +80,12 @@ export class ProfileComponent {
   //   })
   // }
 
-  postDelivery(){
-    this._service.postDelivery(this.delivery).subscribe({
+  putDelivery(){
+    this._service.putDelivery(this.delivery).subscribe({
       next:(data)=>{this.delivery=data},
       error:(err)=>{this.errMessage=err}
     })
-    this.adding= false;
-    this.addNewAddress=true
+    this.editingAddress= false;
   }
   id: any = "address";
   tabChange(ids:any){
@@ -128,11 +131,7 @@ export class ProfileComponent {
   }
 
   cancelEdit() {
-    // this.customer.CustomerName = this.customer.CustomerName;
-    // this.customer.Gender =  this.customer.Gender;
-    // this.customer.Phone = this.customer.Phone;
-    // this.customer.BOD = this.customer.BOD;
-    // this.customer.Mail = this.customer.Mail;
+  
     this.editing = false;
   }
 
