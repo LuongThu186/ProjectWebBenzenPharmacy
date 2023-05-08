@@ -36,10 +36,19 @@ export class AdminUncompleteOrderManagementComponent {
   return this.result = data.length
 }
 
-  orderConfirm(){
+  orderConfirm(_id:any){
     if (window.confirm('Are you sure you want to confirm this order?'))
     {
-    this._service.getOrderConfirm(this.order).subscribe({
+    this._service.getOrderConfirm(_id).subscribe({
+      next:(data)=>{this.orders=data},
+      error:(err)=>{this.errMessage=err}
+    })
+  }}
+
+  deleteOrder(_id:any){
+    if (window.confirm('Are you sure you want to delete this order?'))
+    {
+    this._service.deleteOrder(_id).subscribe({
       next:(data)=>{this.orders=data},
       error:(err)=>{this.errMessage=err}
     })
