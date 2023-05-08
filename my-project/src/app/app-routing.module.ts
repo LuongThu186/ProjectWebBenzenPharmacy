@@ -20,7 +20,8 @@ import { TypeBankAccountComponent } from './type-bank-account/type-bank-account.
 import { PaymentMomoComponent } from './payment-momo/payment-momo.component';
 
 const routes: Routes = [
-  {path:"", component:LoginComponent},
+
+  {path:"", component:HomeComponent},
   {path:"app-home", component:HomeComponent},
   {path:"app-shoppingcart", component:ShoppingcartComponent},
   {path:"app-signup", component: SignupComponent},
@@ -37,6 +38,7 @@ const routes: Routes = [
   {path:"app-payment/:id", component: PaymentComponent},
   {path:"app-profile", component: ProfileComponent},
   {path:"app-orderdetail", component: OrderdetailComponent},
+  {path:"app-orderdetail/detail/:id", component: OrderdetailComponent},
   {path:"app-infor", component: InforComponent},
   {path:"app-chatbox", component: ChatboxComponent},
   {path:"payment-kvl", component:PaymentKVLComponent},

@@ -2,17 +2,6 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
 
 <div class="main-home">
-  <h2>Categories</h2>
-  <ul>
-    <li *ngFor="let category of categories">
-      {{ category.Category }}:
-      <ul>
-        <li *ngFor="let subcategory of category.SubCategories">
-          {{ subcategory }}
-        </li>
-      </ul>
-    </li>
-  </ul>
   <div class="home_images-background">
     <div class="images-background-big">
       <img src="/assets/image/products/product1.png" alt="" />
@@ -25,7 +14,7 @@
       <div class="home_products-bestseller">
         <p class="home_products--header">SẢN PHẨM BÁN CHẠY</p>
         <div class="home_products--product">
-          <a class="home_products--product-detail" href="" *ngFor="let medicine of medicines">
+          <a (click)="viewMedicineDetail(medicine)" class="home_products--product-detail" href="" *ngFor="let medicine of medicines">
             <img src="{{ medicine.Image }}" alt="" />
             <p class="home_products--product-detail-name">
               {{ medicine.Name }}
@@ -42,7 +31,7 @@
           <div class="home_products-new">
             <p class="home_products--header">SẢN PHẨM MỚI</p>
             <div class="home_products--product">
-              <a class="home_products--product-detail" href="" *ngFor="let medicine of medicines">
+              <a  class="home_products--product-detail" href="" *ngFor="let medicine of medicines">
                 <img src="{{ medicine.Image }}" alt="" />
                 <p class="home_products--product-detail-name">
                   {{ medicine.Name }}
@@ -51,7 +40,7 @@
                   {{ medicine.Price }}
                 </p>
                 <div class="home_products--product-detail-button">
-                  <input type="button" value="CHỌN MUA" />
+                  <input (click)="viewMedicineDetail(medicine)" type="button" value="CHỌN MUA" />
                 </div>
               </a>
             </div>
@@ -64,8 +53,8 @@
                   {{ subcategory }}
                 </a>
               </div>
-              <div class="home_products--product">
-                <div *ngFor="let medicine of medicines">
+              <div class="home_products--product" *ngIf="displayProduct; else view2">
+                <ng-container *ngFor="let medicine of medicines">
                   <a (click)="viewMedicineDetail(medicine)" class="home_products--product-detail" *ngIf="medicine.SubCategory === category.SubCategories[0] || medicine.SubCategory === subCategory">
                     <img src="{{ medicine.Image }}" alt="" />
                     <p class="home_products--product-detail-name">
@@ -78,8 +67,28 @@
                       <input type="button" value="CHỌN MUA" />
                     </div>
                   </a>
-                </div>
+                </ng-container>
               </div>
+
+              <ng-template #view2>
+                <div class="home_products--product">
+                  <ng-container *ngFor="let medicine of medicines">
+                    <a (click)="viewMedicineDetail(medicine)" class="home_products--product-detail" *ngIf="medicine.SubCategory === subCategory">
+                      <img src="{{ medicine.Image }}" alt="" />
+                      <p class="home_products--product-detail-name">
+                        {{ medicine.Name }}
+                      </p>
+                      <p class="home_products--product-detail-price" href="">
+                        {{ medicine.Price }}
+                      </p>
+                      <div class="home_products--product-detail-button">
+                        <input type="button" value="CHỌN MUA" />
+                      </div>
+                    </a>
+                  </ng-container>
+                </div>
+              </ng-template>
+
               <a class="products-view-all" href="">Xem tất cả</a>
               <div class="background-space">
                 <img src="/assets/image/products/product1.png" alt="" class="background-space--image" />
@@ -98,7 +107,7 @@
               </div>
               <div class="easy__buy">
                 <div align="center">
-                  <img src="/assets/image//Mua trên website.jpg" />
+                  <img src="/assets/image/home/Mua_trên_website.png" />
                   <p>
                     Mua trực tiếp
                     <br />
@@ -106,7 +115,7 @@
                   </p>
                 </div>
                 <div align="center">
-                  <img src="/assets/image/home/purchase now.jpg" />
+                  <img src="/assets/image/home/purchase_now.png" />
                   <p>
                     Chọn và mua ngay sản phẩm
                     <br />

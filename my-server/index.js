@@ -12,6 +12,7 @@
 // });
 
 const express = require("express");
+const cookieParser = require('cookie-parser');
 const app = express();
 const port = 3000;
 const morgan = require("morgan");
@@ -22,6 +23,7 @@ app.use(bodyParser.json({ limit: "10mb" }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" }));
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ limit: "10mb" }));
+app.use(cookieParser());
 
 const cors = require("cors");
 app.use(cors());
@@ -68,7 +70,7 @@ app.get("/medicines/:category/:subcategory", cors(), async (req, res) => {
 });
 
 app.post("/medicines", cors(), async (req, res) => {
-  //put json Fashion into database
+  //put json into database
   await medicineCollection.insertOne(req.body);
   //send message to client(send all database to client)
   res.send(req.body);
@@ -186,10 +188,10 @@ app.get("/accounts", cors(), async (req, res) => {
   res.send(result);
 });
 
-app.get("/accounts/:phoneNumber", cors(), async (req, res) => {
-  const phone = req.params["phoneNumber"];
+app.get("/accounts/:phonenumber", cors(), async (req, res) => {
+  const phone = req.params["phonenumber"];
   const result = await accountCollection
-    .find({ Phone: phone})
+    .find({ phonenumber: phone})
     .toArray();
   res.send(result[0]);
 });
@@ -295,7 +297,7 @@ app.post('/login', cors(), async (req, res) => {
   } else {
     const hash = crypto.pbkdf2Sync(password, user.salt, 1000, 64, 'sha512').toString('hex');
     if (user.password === hash) {
-      res.send(user);
+      res.send(req.body);
     } else {
       res.status(401).send({ message: 'Mật khẩu không đúng' });
     }
@@ -306,6 +308,29 @@ app.get("/orders", cors(), async (req, res) => {
   const result = await orderCollection.find({}).toArray();
   res.send(result);
 });
+
+app.get("/orders/detail/:id",cors(), async (req, res) =>{
+  var o_id = new ObjectId(req.params["id"]);
+  const result = await orderCollection.find({_id:o_id}).toArray();
+  res.send(result[0])
+})
+
+app.post("/orders", cors(), async (req, res) => {
+  await orderCollection.insertOne(req.body);
+  //send message to client(send all database to client)
+  res.send(req.body);
+});
+
+app.delete("orders/:id", cors(), async (req, res) => {
+  //find detail Fashion with id
+  var o_id = new ObjectId(req.params["id"]);
+  const result = await orderCollection.find({ _id: o_id }).toArray();
+  //update json Fashion into database
+  await orderCollection.deleteOne({ _id: o_id });
+  //send Fahsion after remove
+  res.send(result[0]);
+});
+
 
 app.put("/orderConfirm/:id", cors(), async (req, res) => {
   var o_id = new ObjectId(req.params["id"]);

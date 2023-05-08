@@ -25,6 +25,7 @@
               Số lượng
             </p>
           </div>
+
           <div class="cart__main-row" *ngFor="let item of cartItems">
             <div class="cart__main-row--product">
               <div class="cart__main-row--product-img">
@@ -36,6 +37,7 @@
             <p class="cart__main-row--quantity">{{ item.quantity }}</p>
           </div>
         </div>
+        
       </div>
       <div class="information">
         <div class="information__heading">Thông tin nhận hàng</div>
@@ -180,9 +182,8 @@
         <span>Đồng ý với các chính sách của Nhà thuốc Benzen để hoàn tất đơn hàng</span>
       </div>
       <div class="orer__row-button">
-        <button (click)="onComplete()">Hoàn tất</button>
+        <button (click)="onComplete()" (click)="viewOrderDetail()">Hoàn tất</button>
       </div>
     </div>
   </div>
-
 </div>
