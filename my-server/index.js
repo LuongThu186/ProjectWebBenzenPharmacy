@@ -199,11 +199,18 @@ app.get("/customers", cors(), async (req, res) => {
   res.send(result);
 });
 
-app.get("/customers/:id",cors(), async (req, res) =>{
-  var o_id = new ObjectId(req.params["id"]);
-  const result = await customerCollection.find({_id:o_id}).toArray();
+// app.get("/customers/:id",cors(), async (req, res) =>{
+//   var o_id = new ObjectId (req.params["id"]);
+//   const result = await customerCollection.find({_id:o_id}).toArray();
+//   res.send(result[0])
+// });
+
+app.get("/customers/:phonenumber",cors(), async (req, res) =>{
+  var phone = req.params["phonenumber"];
+  const result = await customerCollection.find({Phone:phone}).toArray();
   res.send(result[0])
 });
+
 
 app.post("/customers", cors(), async (req, res) => {
   //put json Customer into database
@@ -212,10 +219,59 @@ app.post("/customers", cors(), async (req, res) => {
   res.send(req.body);
 });
 
+app.put("/customers/:id", cors(), async (req, res) => {
+  var o_id = new ObjectId(req.params["id"]);
+  //update json Fashion into database
+  await customerCollection.updateOne(
+    { _id: o_id}, //condition for update
+    {
+      $set: {
+        //Field for updating
+        CustomerName: req.body.CustomerName,
+        Phone: req.body.Phone,
+        Mail: req.body.Mail,
+        BOD: req.body.BOD,
+        Gender: req.body.Gender,
+      },
+    }
+  )
+    //send Fahsion after updating
+  var i_id = new ObjectId(req.body._id);
+  const result = await customerCollection.find({ _id: i_id }).toArray();
+  res.send(result[0])
+});
+
+app.put("/customers", cors(), async (req, res) => {
+  //update json Fashion into database
+  await customerCollection.updateOne(
+    {_id: new ObjectId(req.body._id) }, //condition for update
+    {
+      $set: {
+        //Field for updating
+        CustomerName: req.body.CustomerName,
+        Phone: req.body.Phone,
+        Mail: req.body.Mail,
+        BOD: req.body.BOD,
+        Gender: req.body.Gender,
+      },
+    }
+  )
+    //send Fahsion after updating
+  var o_id = req.params._id;
+  const result = await customerCollection.find({_id:o_id}).toArray();
+  res.send(result[0])
+});
+
+
 app.get("/delivery", cors(), async (req, res) => {
   const result = await deliveryCustomerCollection.find({}).toArray();
   res.send(result);
 });
+
+app.post("/delivery", cors(), async (req, res) =>{
+  await deliveryCustomerCollection.insertOne(req.body)
+  res.send(req.body)
+})
 
 //Phần này là Đăng ký và Đăng nhập
 app.post("/accounts", cors(), async(req, res) => {
@@ -246,10 +302,15 @@ app.post('/login', cors(), async (req, res) => {
   }
 });
 
+app.get("/orders", cors(), async (req, res) => {
+  const result = await orderCollection.find({}).toArray();
+  res.send(result);
+});
+
 app.put("/orderConfirm/:id", cors(), async (req, res) => {
   var o_id = new ObjectId(req.params["id"]);
   //update json Fashion into database
-  await medicineCollection.updateOne(
+  await orderCollection.updateOne(
     { _id: o_id }, //condition for update
     {
       $set: {
@@ -264,38 +325,40 @@ app.put("/orderConfirm/:id", cors(), async (req, res) => {
   res.send(result[0]);
 });
 
-app.post("/customers", cors(), async (req, res) =>{
-  await customerCollection.insertOne(req.body)
-  res.send(req.body)
-})
-
-<<<<<<< HEAD
-app.put("/customers", cors(), async (req, res) => {
+app.put("/orderCancel/:id", cors(), async (req, res) => {
+  var o_id = new ObjectId(req.params["id"]);
   //update json Fashion into database
-  await customerCollection.updateOne(
-    { _id: new ObjectId(req.body._id) }, //condition for update
+  await orderCollection.updateOne(
+    { _id: o_id}, //condition for update
     {
       $set: {
         //Field for updating
-        CustomerName: req.body.CustomerName,
-        Phone: req.body.Phone,
-        Mail: req.body.Mail,
-        BOD: req.body.BOD,
-        Gender: req.body.Gender,
+        Status: "Hủy"
       },
     }
   );
   //send Fahsion after updating
-  var o_id = new ObjectId(req.body._id);
-  const result = await customerCollection.find({ _id: o_id }).toArray();
+  var i_id = new ObjectId(req.body._id);
+  const result = await orderCollection.find({ _id: i_id }).toArray();
   res.send(result[0]);
-=======
-
-app.get("/orders", cors(), async (req, res) => {
-  const result = await orderCollection.find({}).toArray();
-  res.send(result);
->>>>>>> 79195124d9c18ed03c869aa320644c6322e180da
 });
+
+app.put("/orderStatus/:id", cors(), async (req, res) => {
+  //update json Fashion into database
+  await orderCollection.updateOne(
+    { _id: new ObjectId(req.body._id) }, //condition for update
+    {
+      $set: {
+        //Field for updating
+        Status: req.body.Status
+      },
+    }
+  );
+  //send Fahsion after updating
+  var i_id = new ObjectId(req.body._id);
+  const result = await orderCollection.find({ _id: i_id }).toArray();
+  res.send(result[0]);
+})
 
 app.get("/orders/:id",cors(), async (req, res) =>{
   var o_id = new ObjectId(req.params["id"]);
@@ -303,7 +366,7 @@ app.get("/orders/:id",cors(), async (req, res) =>{
   res.send(result[0])
 })
 
-app.delete("orders/:id", cors(), async (req, res) => {
+app.delete("/orders/:id", cors(), async (req, res) => {
   //find detail Fashion with id
   var o_id = new ObjectId(req.params["id"]);
   const result = await orderCollection.find({ _id: o_id }).toArray();
@@ -312,10 +375,3 @@ app.delete("orders/:id", cors(), async (req, res) => {
   //send Fahsion after remove
   res.send(result[0]);
 });
-
-
-
-app.post("/customers", cors(), async (req, res) =>{
-  await customerCollection.insertOne(req.body)
-  res.send(req.body)
-})

@@ -1,23 +1,34 @@
 import { ViewChild } from "@angular/core";
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
 import { AuthService } from "../Services/auth.service";
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProfileService } from "../Services/profile.service";
-import { Profile } from '../Interfaces/profile'
+import { Profile } from '../Interfaces/profile';
+import { Customers, Delivery } from '../Interfaces/Customer'
 
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css']  
 })
 export class ProfileComponent {
+  // @Input() customer = new Customers();
+  // changelog: string[] = [];
   isLoggedIn = true;
   currentUser: any;
   errMessage:string='';
-  customer = new Profile();
-  public setProfile(p:Profile){
-    this.customer = p;
+  customers:any
+  delivery = new Delivery();
+
+  customer = new Customers();
+ 
+  public setProfile(c:Customers){
+    this.customer = c;
+  }
+
+  public setDelivery(d:Delivery){
+    this.delivery = d
   }
 
   constructor(private authService: AuthService,
@@ -26,13 +37,10 @@ export class ProfileComponent {
               private _service: ProfileService
               ){
                 this.isLoggedIn = this.authService.isLoggedIn();
-                this.currentUser = this.authService.getCurrentUser();
-                this._service.updateCustomer(this.customer).subscribe({
-                  next:(data)=>{this.customer=data},
-                  error:(err)=>{this.errMessage=err}
-                })
-              }
-
+                this.currentUser = this.authService.getCurrentUser()
+      }
+       
+              
   Name:any;
   phonenumber:any;
   Mail:any;
@@ -42,16 +50,40 @@ export class ProfileComponent {
 
   ngOnInit():void{
     const user = JSON.parse(sessionStorage.getItem('CurrentUser')!);
-      if (user) {
-        this.Name = user.Name;
-        this.phonenumber = user.phonenumber;
-        this.Mail = user.Mail;
-        this.Address = user.Address;
-        this.Gender = user.Gender;
-        this.BOD = user.BOD
-      }
+                if (user){
+                    this._service.getCustomer(user.phonenumber).subscribe({
+                      next:(data)=>{this.customer=data},
+                      error:(err)=>{this.errMessage=err}
+                    });
+                }
+               
   }
-  
+
+  // ngOnChanges(changes: SimpleChanges) {
+  //   console.log('OnChanges');
+  //   console.log(JSON.stringify(changes));
+  //   for (const propName in changes) {
+  //     const change = changes[propName];
+  //     const to  = JSON.stringify(change.currentValue);
+  //     const from = JSON.stringify(change.previousValue);
+  //     const changeLog = `${propName}: changed from ${from} to ${to} `;
+  //     this.changelog.push(changeLog);
+  // }}
+  // searchCustomer(){
+  //   this._service.getCustomer(this.customer.Phone).subscribe({
+  //     next:(data)=>{this.customers=data},
+  //     error:(err)=>{this.errMessage=err}
+  //   })
+  // }
+
+  postDelivery(){
+    this._service.postDelivery(this.delivery).subscribe({
+      next:(data)=>{this.delivery=data},
+      error:(err)=>{this.errMessage=err}
+    })
+    this.adding= false;
+    this.addNewAddress=true
+  }
   id: any = "address";
   tabChange(ids:any){
     this.id= ids;
@@ -64,41 +96,24 @@ export class ProfileComponent {
     console.log(this.st)
   }
 
-  
-  // name = 'Nhà thuốc Benzen';
-  // gender = 'Nữ';
-  // phone = '0332583xxx'
-  // birthday = '03/04/2002';
-  // email = 'benzen@gmail.com';
   avatarUrl = 'assets/image/profile/avt.png';
-
-
-  nameEdit: string='';
-  genderEdit = '';
-  phoneEdit='';
-  birthdayEdit = '';
-  emailEdit: string='';
 
   editing =false;
 
   edit() {
-    this.customer.CustomerName = this.Name;
-    this.customer.Gender = this.Gender;
-    this.customer.Phone=this.phonenumber;
-    this.customer.BOD = this.BOD;
-    this.customer.Mail = this.Mail;
-
     this.editing = true;
     this.adding = false;
     this.editingAddress=false;
   }
 
+  putCustomer(){
+    this._service.updateCustomer(this.customer).subscribe({
+      next:(data)=>{this.customers=data},
+      error:(err)=>{this.errMessage=err}
+    })
+  }
+
   saveInfor() {
-    this.name = this.nameEdit;
-    this.gender = this.genderEdit;
-    this.phone=this.phoneEdit;
-    this.birthday = this.birthdayEdit;
-    this.email = this.emailEdit;
 
     this.editing = false;
   }
@@ -113,19 +128,14 @@ export class ProfileComponent {
   }
 
   cancelEdit() {
-    this.Name = this.Name;
-    this.Gender = this.Gender;
-    this.phonenumber=this.phonenumber;
-    this.BOD = this.BOD;
-    this.BOD = this.BOD;
-
+    // this.customer.CustomerName = this.customer.CustomerName;
+    // this.customer.Gender =  this.customer.Gender;
+    // this.customer.Phone = this.customer.Phone;
+    // this.customer.BOD = this.customer.BOD;
+    // this.customer.Mail = this.customer.Mail;
     this.editing = false;
   }
 
-
-  nameAddress = 'Nhà thuốc Benzen';
-  phoneAddress = '0332583xxx';
-  addressDelivery='Số 669, QL1, Khu phố 3, Phường Linh Xuân, Quận Thủ Đức, Thành phố Hồ Chí Minh Số 669, QL1, Khu phố 3, Phường Linh Xuân, Quận Thủ Đức, Thành phố Hồ Chí Minh ';
   defaultAddress = 'true';
 
   nameAddressAdd: string='';
@@ -149,14 +159,14 @@ export class ProfileComponent {
     this.editingAddress=false;
   }
 
-  saveAddress(){
-    this.nameAddressNew = this.nameAddressAdd;
-    this.phoneAddressNew=this.phoneAddressAdd;
-    this.addressDeliveryNew = this.addressDeliveryAdd;
+  // saveAddress(){
+  //   this.nameAddressNew = this.nameAddressAdd;
+  //   this.phoneAddressNew=this.phoneAddressAdd;
+  //   this.addressDeliveryNew = this.addressDeliveryAdd;
 
-    this.adding= false;
-    this.addNewAddress=true
-  }
+  //   this.adding= false;
+  //   this.addNewAddress=true
+  // }
 
   cancelAddress(){
 

@@ -7,8 +7,8 @@
                 <div class="avt-infor">
                     <img src="/assets/image/profile/avt.png" class="avt">
                     <div class="infor">
-                        <p class="bold">Nhà thuốc Benzen</p>
-                        <p>0332583xxx</p>
+                        <p class="bold">{{customer.CustomerName}}</p>
+                        <p>{{customer.Phone}}</p>
                         <p>Điểm: <span class="color-main bold">1.420.000</span></p>
                     </div>
                 </div>
@@ -48,23 +48,23 @@
                       <div class="content__infor--detail">
                         <ul>
                           <li>Tên khách hàng:</li>
-                          <li>{{Name}}</li>
+                          <li>{{customer.CustomerName}}</li>
                         </ul>
                         <ul>
                           <li>Giới tính:</li>
-                          <li>{{ Gender }} </li>
+                          <li>{{ customer.Gender }} </li>
                         </ul>
                         <ul>
                           <li>Số điện thoại:</li>
-                          <li>{{phonenumber}}</li>
+                          <li>{{customer.Phone}}</li>
                         </ul>
                         <ul>
                           <li>Ngày sinh:</li>
-                          <li>{{BOD}}</li>
+                          <li>{{customer.BOD}}</li>
                         </ul>
                         <ul>
                           <li>Email:</li>
-                          <li>{{Mail}}</li>
+                          <li>{{customer.Mail}}</li>
                         </ul>
                       </div> 
                       <button (click)="edit()">Chỉnh sửa</button>
@@ -87,34 +87,33 @@
                       <div class="content__infor--detail">
                         <ul>
                           <li>Tên khách hàng:</li>
-                          <li><input [(ngModel)]="customer.CustomerName" required></li>
+                          <li><input  [(ngModel)]="customer.CustomerName" required/></li>
                         </ul>
                         <ul>
                           <li>Giới tính:</li>
                           <li>
-                              <input type="radio" id="male" name="genderEdit" [(ngModel)]="customer.Gender" value="Nam">
+                              <input type="radio" id="male" name="genderEdit"  [(ngModel)]="customer.Gender" value="Nam"/>
                               <label for="male">Nam</label><br>
-                              <input type="radio" id="female" name="genderEdit" value="Nữ" [(ngModel)]="customer.Gender">
+                              <input type="radio" id="female" name="genderEdit"  value="Nữ" [(ngModel)]="customer.Gender"/>
                               <label for="female">Nữ</label><br>
                           </li>
                         </ul>
                         <ul>
                           <li>Số điện thoại:</li>
-                          <li><input type="text" [(ngModel)]="customer.Phone" required></li>
+                          <li><input type="text"  [(ngModel)]="customer.Phone" required/></li>
                         </ul>
                         <ul>
                           <li>Ngày sinh:</li>
-                          <li><input type="text" [(ngModel)]="customer.BOD"></li>
+                          <li><input type="text"  [(ngModel)]="customer.BOD"/></li>
                         </ul>
                         <ul>
                           <li>Email:</li>
-                          <li><input [(ngModel)]="customer.Mail"></li>
+                          <li><input type="text"  [(ngModel)]="customer.Mail"/></li>
                         </ul>
                       </div>
                       <div class="edit__infor--button">
-                        <button (click)="saveInfor();putCustomer()">Cập nhật</button>
+                        <button (click)="putCustomer()" (click)="saveInfor()">Cập nhật</button>
                         <button (click)="cancelEdit()">Hủy</button>
-                        <button (click)="postCustomer()">Tạo mới</button>
                       </div>
                     </div>                    
                   </div>
@@ -129,9 +128,9 @@
                   <div class="content__address--item" *ngIf="!editingAddress">
                     <div class="address__title">
                       <div class="address__title--infor">
-                        <p>{{Name}}</p>
+                        <p>{{customer.CustomerName}}</p>
                         <p>|</p>
-                        <p>{{phonenumber}}</p>
+                        <p>{{customer.Phone}}</p>
                       </div>
                       <div class="address__function">
                         <button (click)="editAddress()">Chỉnh sửa</button>
@@ -176,18 +175,18 @@
                     <div class="address__content--row">
                       <div class="address__row--top">
                         <label for="name">Tên người nhận:
-                          <input type="text" id="name"  [(ngModel)]="nameAddressAdd" >
+                          <input type="text" id="name"  [(ngModel)]="delivery.RecipientName" >
                           <span class="material">*</span>
                         </label>
                         <label for="phone">Số điện thoại người nhận: 
-                          <input type="text" id="phone"  [(ngModel)]="phoneAddressAdd">
+                          <input type="text" id="phone"  [(ngModel)]="delivery.Phone">
                           <span class="material">*</span>
                         </label>
                       </div>
                       <div class="address__row--bottom">
                         <label for="address">Địa chỉ:
                           <div>
-                            <input type="text" id="address" [(ngModel)]="addressDeliveryAdd">
+                            <input type="text" id="address" [(ngModel)]="delivery.Address">
                             <span class="material">*</span>
                           </div>
                         </label>
@@ -197,7 +196,7 @@
                       </label>
                     </div>
                     <div class="address__button--function">
-                      <button (click)="saveAddress()">Lưu</button>
+                      <button (click)="postDelivery()">Lưu</button>
                       <button (click)="cancelAddress()">Hủy</button>
                     </div>
                   </div>
