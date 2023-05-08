@@ -148,7 +148,7 @@ export class ProfileComponent {
 
   adding =false;
   addNewAddress=false
-// haha làm sai rồi chỉnh dùm đi chỉnh sao khum có biết - Thêm đia chỉ
+
   addAddress(){
     this.nameAddressAdd = ' ';
     this.phoneAddressAdd= ' ';

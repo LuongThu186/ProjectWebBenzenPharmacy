@@ -64,10 +64,6 @@ export class SignupComponent {
       alert('Mật khẩu không khớp')
       return 
     }
-    else if(this.account.phonenumber.trim().length === 0 || this.account.Name.trim().length === 0 || this.account.password.trim().length === 0 || this.confirmPassword.trim().length ===0 ){
-      alert('Vui lòng nhập đủ thông tin bắt buộc')
-      return 
-    }
     else {
       this._service.postAccount(this.account).subscribe({
         next: (data) => {
