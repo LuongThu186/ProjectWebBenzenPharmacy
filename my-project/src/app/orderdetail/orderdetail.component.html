@@ -1,99 +1,123 @@
 <div class="container">
-    <h2 class="title">THÔNG TIN CHI TIẾT ĐƠN HÀNG</h2>
-    <div class="content">
-        <div class="content__order">
-            <h2>ĐƠN HÀNG {{ order.OrderDate }} <span class="completed">Hoàn thành</span></h2>
-            <div class="content__order--infor">
-                <p>Thông tin nhận hàng và thanh toán</p>
-                <div class="order__form--row">
-                    <div class="form__row">
-                        <label class="form__label" for="orderID">Mã đơn hàng:</label>
-                        <label class="form__content" for="orderID">{{ order.OrderID }}</label>
-                    </div>
-                    <div class="form__row">
-                        <label class="form__label" for="name_order">Họ và tên người nhận:</label>
-                        <label class="form__content" for="name_order">{{ order.CustomerName }}</label>
-                    </div>
-                    <div class="form__row">
-                        <label class="form__label" for="phone_order">Số điện thoại người nhận:</label>
-                        <label class="form__content" for="phone_order">{{ order.Phone }}</label>
-                    </div>
-                    <div class="form__row">
-                        <label class="form__label" for="address_receive">Email:</label>
-                        <label class="form__content" for="address_receive">{{ order.Email }}</label>
-                    </div>
-                    <div class="form__row">
-                        <label class="form__label" for="address_receive">Địa chỉ nhận hàng:</label>
-                        <label class="form__content" for="address_receive">{{ order.Address }}</label>
-                    </div>
-                    <div class="form__row">
-                        <label class="form__label" for="payment_method">Phương thức thanh toán:</label>
-                        <label class="form__content" for="payment_method">{{ order.PaymentMethod }}</label>
-                    </div>
-                    <div class="form__row">
-                        <label class="form__label" for="time_receive">Thời gian dự kiến:</label>
-                        <label class="form__content" for="time_receive">{{ order.ShipDate }}</label>
-                    </div>
-                </div>
-            </div>
-     </div>
-        <div class="content__item">
-            <ul class="content__item--title">
-                <li>Thông tin đơn hàng</li>
-                <li>Đơn giá</li>
-                <li>Số lượng</li>
-            </ul>
-            <div class="cart__main">
-                <div class="cart__main-row">
-                  <div class="cart__main-row--product">
-                    <div class="cart__main-row--product-img">
-                      <img src="/assets/image/shopping-cart/product.jpg" alt="">
-                    </div>
-                    <p class="cart__main-row--product-info">Nat C 1000 hỗ trợ tăng đề kháng
-                      lọ 60 viên
-                    </p>
-                  </div>
-                  <p class="cart__main-row--price">
-                    105.000đ
-                  </p>
-                  <p class="cart__main-row--quantity">
-                    1
-                  </p>
-                </div>
-                <div class="cart__main-row">
-                  <div class="cart__main-row--product">
-                    <div class="cart__main-row--product-img">
-                      <img src="/assets/image/shopping-cart/product.jpg" alt="">
-                    </div>
-                    <p class="cart__main-row--product-info">Nat C 1000 hỗ trợ tăng đề kháng
-                      lọ 60 viên
-                    </p>
-                  </div>
-                  <p class="cart__main-row--price">
-                    105.000đ
-                  </p>
-                  <p class="cart__main-row--quantity">
-                    1
-                  </p>
-                </div>
-              </div>
+  <h2 class="title">THÔNG TIN CHI TIẾT ĐƠN HÀNG</h2>
+  <div class="content">
+    <div class="content__order">
+      <h2>
+        ĐƠN HÀNG {{ order.OrderDate }} <span class="completed">{{ order.Status }}</span>
+      </h2>
+      <div class="content__order--infor">
+        <p>Thông tin nhận hàng và thanh toán</p>
+        <div class="order__form--row">
+          <div class="form__row">
+            <label class="form__label" for="orderID">Mã đơn hàng:</label>
+            <label class="form__content" for="orderID">{{
+              order.OrderID
+            }}</label>
+          </div>
+          <div class="form__row">
+            <label class="form__label" for="name_order"
+              >Họ và tên người nhận:</label
+            >
+            <label class="form__content" for="name_order">{{
+              order.CustomerName
+            }}</label>
+          </div>
+          <div class="form__row">
+            <label class="form__label" for="phone_order"
+              >Số điện thoại người nhận:</label
+            >
+            <label class="form__content" for="phone_order">{{
+              order.Phone
+            }}</label>
+          </div>
+          <div class="form__row">
+            <label class="form__label" for="address_receive">Email:</label>
+            <label class="form__content" for="address_receive">{{
+              order.Email
+            }}</label>
+          </div>
+          <div class="form__row">
+            <label class="form__label" for="address_receive"
+              >Địa chỉ nhận hàng:</label
+            >
+            <label class="form__content" for="address_receive">{{
+              order.Address
+            }}</label>
+          </div>
+          <div class="form__row">
+            <label class="form__label" for="payment_method"
+              >Phương thức thanh toán:</label
+            >
+            <label class="form__content" for="payment_method">{{
+              order.PaymentMethod
+            }}</label>
+          </div>
+          <div class="form__row">
+            <label class="form__label" for="time_receive"
+              >Thời gian dự kiến:</label
+            >
+            <label class="form__content" for="time_receive">{{
+              order.ShipDate
+            }}</label>
+          </div>
         </div>
-        <div class="content__price">
-            <div class="content__price--row">
-                <label class="voucher__label" for="voucher">Mã giảm giá:</label>
-                <label class="form__content" for="voucher">{{ order.DiscountPrice.toLocaleString("vi-VN", { minimumFractionDigits: 0 }) }}đ</label>
+      </div>
+    </div>
+    <div class="content__item">
+      <ul class="content__item--title">
+        <li>Thông tin đơn hàng</li>
+        <li>Đơn giá</li>
+        <li>Số lượng</li>
+      </ul>
+      <div class="cart__main">
+        <div class="cart__main-row" *ngFor="let item of order.OrderMedicine">
+          <div class="cart__main-row--product">
+            <div class="cart__main-row--product-img">
+              <img src="{{ item.Image }}" alt="" />
             </div>
-            <div class="content__price--row">
-                <label class="deliveryfee__label" for="voucher">Phí vận chuyển:</label>
-                <label class="form__content" for="voucher">{{ order.DeliveryFee.toLocaleString("vi-VN", { minimumFractionDigits: 0 }) }}đ</label>
-            </div>
-            <div class="content__price--row">
-                <label class="total__label" for="voucher">Tổng tiền:</label>
-                <label class="form__content" for="voucher">{{ order.TotalPrice.toLocaleString("vi-VN", { minimumFractionDigits: 0 }) }}đ</label>
-            </div>
+            <p class="cart__main-row--product-info">
+              {{ item.Name }}
+            </p>
+          </div>
+          <p class="cart__main-row--price">{{ item.Price }}</p>
+          <p class="cart__main-row--quantity">{{ item.quantity }}</p>
         </div>
+      </div>
     </div>
-    <div class="button_continue">
-      <button (click)="gotoHome()">Tiếp tục mua sắm</button>
+    <div class="content__price">
+      <div class="content__price--row">
+        <label class="voucher__label" for="voucher">Mã giảm giá:</label>
+        <label class="form__content" for="voucher"
+          >{{
+            order.DiscountPrice.toLocaleString("vi-VN", {
+              minimumFractionDigits: 0
+            })
+          }}đ</label
+        >
+      </div>
+      <div class="content__price--row">
+        <label class="deliveryfee__label" for="voucher">Phí vận chuyển:</label>
+        <label class="form__content" for="voucher"
+          >{{
+            order.DeliveryFee.toLocaleString("vi-VN", {
+              minimumFractionDigits: 0
+            })
+          }}đ</label
+        >
+      </div>
+      <div class="content__price--row">
+        <label class="total__label" for="voucher">Tổng tiền:</label>
+        <label class="form__content" for="voucher"
+          >{{
+            order.TotalPrice.toLocaleString("vi-VN", {
+              minimumFractionDigits: 0
+            })
+          }}đ</label
+        >
+      </div>
     </div>
+  </div>
+  <div class="button_continue">
+    <button (click)="gotoHome()">Tiếp tục mua sắm</button>
+  </div>
 </div>
