@@ -11,13 +11,21 @@ import { Order } from 'src/app/Interfaces/order';
   styleUrls: ['./admin-order-detail-management.component.css']
 })
 export class AdminOrderDetailManagementComponent {
-  orders = new Order();
+  order = new Order();
   public setOrder(o:Order){
-    this.orders = o
+    this.order = o
   }
   customer:any;
-  order:any;
+  orders:any;
   errMessage:string=""
+  totalPrice: number = 0;
+  quantity: number = 0;
+  price: number = 0;
+
+  // calculatPrice(item:any){
+  //   const price: number = parseFloat((item.Price.replace(" đ/Hộp", "")).replace(".", ""));
+  //   this.totalPrice = price * item.quantity;
+  // }
 
   constructor(private activateRoute:ActivatedRoute,private _fs:AdminOrderService, private router:Router, private _service:AdminCustomerService )
   {
@@ -26,7 +34,7 @@ export class AdminOrderDetailManagementComponent {
         let id=param.get('id')
         if(id!=null)
         {
-          this.searchOrder(id) 
+          this.searchOrder(id)
         }
       }
     )
@@ -34,29 +42,23 @@ export class AdminOrderDetailManagementComponent {
 
   searchOrder(_id:string){
     this._fs.getOrderDetail(_id).subscribe({
-      next:(data)=>{this.order=data},
+      next:(data)=>{this.order=data
+        // this.price = parseFloat((this.order.OrderMedicine.Price.replace(" đ/Hộp", "")).replace(".", ""));
+        // this.totalPrice = this.price * this.order.OrderMedicine.quantity      
+      },
       error:(err)=>{this.errMessage=err}
-    })
-    return this.order
-  }
-  
-  searchCustomer(CustomerID:any){
-    this._service.getCustomerDetail(CustomerID).subscribe({
-      next:(data)=>{this.customer=data},
-      error:(err)=>{this.errMessage=err}
-    })
+    }) 
   }
 
   cancelOrder(_id:any){
-    
-      this._fs.cancelOrder(_id).subscribe({
-        next:(data)=>{this.order=data},
-        error:(err)=>{this.errMessage=err}
-      })
-  
+      if(window.confirm('Do you want to delete this order ?')){
+        this._fs.cancelOrder(_id).subscribe({
+          next:(data)=>{this.order=data},
+          error:(err)=>{this.errMessage=err}
+        }),
+        this.router.navigate(['admin-order-management'])
+      }
     }
-
-    
 
   goBack(){
     this.router.navigate(['admin-custoner-management'])
