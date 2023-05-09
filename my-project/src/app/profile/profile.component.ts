@@ -82,17 +82,16 @@ export class ProfileComponent {
 
   ngOnInit(): void {
     const user = JSON.parse(sessionStorage.getItem('CurrentUser')!);
-                if (user){
-                    this._service.getCustomer(user.phonenumber).subscribe({
-                      next:(data)=>{this.customer=data},
-                      error:(err)=>{this.errMessage=err}
-                    });
-                    this._service.getAddress(user.phonenumber).subscribe({
-                      next:(data)=>{this.delivery=data},
-                      error:(err)=>{this.errMessage=err}
-                    });
-                }
-               
+    if (user) {
+      this._service.getCustomer(user.phonenumber).subscribe({
+        next: (data) => {
+          this.customer = data;
+        },
+        error: (err) => {
+          this.errMessage = err;
+        },
+      });
+    }
   }
 
   // ngOnChanges(changes: SimpleChanges) {
@@ -112,12 +111,17 @@ export class ProfileComponent {
   //   })
   // }
 
-  putDelivery(){
-    this._service.putDelivery(this.delivery).subscribe({
-      next:(data)=>{this.delivery=data},
-      error:(err)=>{this.errMessage=err}
-    })
-    this.editingAddress= false;
+  postDelivery() {
+    this._service.postDelivery(this.delivery).subscribe({
+      next: (data) => {
+        this.delivery = data;
+      },
+      error: (err) => {
+        this.errMessage = err;
+      },
+    });
+    this.adding = false;
+    this.addNewAddress = true;
   }
   id: any = 'address';
   tabChange(ids: any) {
@@ -166,7 +170,11 @@ export class ProfileComponent {
   }
 
   cancelEdit() {
-  
+    // this.customer.CustomerName = this.customer.CustomerName;
+    // this.customer.Gender =  this.customer.Gender;
+    // this.customer.Phone = this.customer.Phone;
+    // this.customer.BOD = this.customer.BOD;
+    // this.customer.Mail = this.customer.Mail;
     this.editing = false;
   }
 
