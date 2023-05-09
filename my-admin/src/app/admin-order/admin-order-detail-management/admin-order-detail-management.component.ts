@@ -12,6 +12,7 @@ import { Order } from 'src/app/Interfaces/order';
 })
 export class AdminOrderDetailManagementComponent {
   order = new Order();
+  total: string;
   public setOrder(o:Order){
     this.order = o
   }
@@ -19,7 +20,7 @@ export class AdminOrderDetailManagementComponent {
   orders:any;
   errMessage:string=""
   totalPrice: number = 0;
-  quantity: number = 0;
+  // quantity: number = 0;
   price: number = 0;
 
   // calculatPrice(item:any){
@@ -43,12 +44,19 @@ export class AdminOrderDetailManagementComponent {
   searchOrder(_id:string){
     this._fs.getOrderDetail(_id).subscribe({
       next:(data)=>{this.order=data
-        // this.price = parseFloat((this.order.OrderMedicine.Price.replace(" đ/Hộp", "")).replace(".", ""));
-        // this.totalPrice = this.price * this.order.OrderMedicine.quantity      
       },
       error:(err)=>{this.errMessage=err}
     }) 
+    this.findSum(this.order)
   }
+
+  findSum(item:any){
+    this.price = parseFloat((item.Price.replace(" đ/Hộp", "")).replace(".", ""));
+    this.totalPrice = this.price * item.quantity   
+    this.total = this.totalPrice.toLocaleString("vi-VN", { minimumFractionDigits: 0 });
+    return this.total
+    }
+  
 
   cancelOrder(_id:any){
       if(window.confirm('Do you want to delete this order ?')){

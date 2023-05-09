@@ -60,11 +60,15 @@
                                     <td>{{prod.Name}}</td>
                                     <td>{{prod.quantity}}</td>
                                     <td>{{prod.Price}}</td>
-                                    <td>  </td>
+                                    <td> {{findSum(prod)}} </td>
                                 </tr>
                                 <tr class="table_data">
                                     <td colspan="5" class="total">Tổng cộng</td>
-                                    <td>{{order.TotalPrice}}</td>
+                                    <td>{{
+                                        order.TotalPrice.toLocaleString("vi-VN", {
+                                          minimumFractionDigits: 0
+                                        })
+                                      }}đ</td>
                                 </tr>
                             </tbody>
                         </table>
