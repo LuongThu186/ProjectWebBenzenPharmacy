@@ -134,7 +134,12 @@
 #visual tr:nth-child(even){background-color: #f2f2f2}
 
 #visual tr:hover {background-color: #FFFF}
-
+#visual{
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: #A0A4A8;
+}
 .page-body-nav a {
     margin-top: 20px;
     color: black;

@@ -54,33 +54,21 @@
                                 <th>Thành tiền</th>
                             </thead>
                             <tbody class="table_content">
-                                <tr class="table_data">
-                                    <td>1</td>
-                                    <td class="image"><img src="/assets/product.jpg"></td>
-                                    <td>Nat C 1000</td>
-                                    <td>1</td>
-                                    <td>90.000đ</td>
-                                    <td>90.000đ</td>
-                                </tr>
-                                <tr class="table_data">
-                                    <td>2</td>
-                                    <td class="image"><img src="/assets/product.jpg"></td>
-                                    <td>Nat C 1000</td>
-                                    <td>1</td>
-                                    <td>90.000đ</td>
-                                    <td>90.000đ</td>
-                                </tr>
-                                <tr class="table_data">
-                                    <td>3</td>
-                                    <td class="image"><img src="/assets/product.jpg"></td>
-                                    <td>Nat C 1000</td>
-                                    <td>3</td>
-                                    <td>27.000đ</td>
-                                    <td>81.000đ</td>
+                                <tr class="table_data" *ngFor="let prod of order.OrderMedicine; index as i">
+                                    <td>{{i + 1}}</td>
+                                    <td class="image"><img src="{{prod.Image}}"></td>
+                                    <td>{{prod.Name}}</td>
+                                    <td>{{prod.quantity}}</td>
+                                    <td>{{prod.Price}}</td>
+                                    <td> {{findSum(prod)}} </td>
                                 </tr>
                                 <tr class="table_data">
                                     <td colspan="5" class="total">Tổng cộng</td>
-                                    <td>413.000đ</td>
+                                    <td>{{
+                                        order.TotalPrice.toLocaleString("vi-VN", {
+                                          minimumFractionDigits: 0
+                                        })
+                                      }}đ</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -99,8 +87,8 @@
                             <hr>
                             <div class="deli-info">
                                 <p class="order-info-title">Thông tin giao hàng</p>
-                                <p>Sđt: </p>
-                                <p>Địa chỉ: </p>
+                                <p>Sđt: {{order.Phone}}</p>
+                                <p>Địa chỉ: {{order.Address}} </p>
                             </div>
                             <hr>
                             <div class="note-info">
