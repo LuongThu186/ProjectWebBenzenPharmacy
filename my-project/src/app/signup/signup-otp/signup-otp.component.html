@@ -10,7 +10,15 @@
   <body>
     <div class="content">
       <div class="left-content">
-        <img src="/assets/image/SignInUp/BannerHello.png" width="130px" class="banner"/>
+        <p>BENZEN MUA THUỐC DỄ DÀNG
+          <br>
+          AN TÂM CHẤT LƯỢNG
+        </p>
+        <div>
+          <img src="/assets/image/login cus/store.png" class="banner"/>
+        </div>
+        <p>Nhận nhiều ưu đãi khi trở thành thành viên tại Benzen Pharmacy <br>
+        <span class="bold">ĐĂNG KÝ NGAY !!!</span></p>
       </div>
 
       <div class="right-content">
@@ -28,17 +36,21 @@
             </div>
             
             <div class="container__checkbox">
-                <div>
+                <div class="container__checkbox--otp">
+                  <div>
                     <label for="uname">Nhập mã xác nhận: </label>
-                    <input type="text" id="otp-input">
+                    <input type="text" id="otp-input" [(ngModel)]="verificationCode" name="verificationCode" (blur)="checkVerificationCode()">
                 </div>
+                <div *ngIf="!isVerificationCodeValid" class="error-message">Mã xác nhận không hợp lệ</div>
+                </div>
+                
                 <div class="reset-OTP">
                   <span>Chưa nhận được mã?</span>
-                  <a id="otp-button" onclick="sendOTP()">Gửi lại mã</a>
+                  <a id="otp-button" (click)="resend()">Gửi lại mã</a>
                 </div>
             </div>
             <div>
-              <button type="submit" class="login_button" onclick="window.location='app-login'">HOÀN TẤT</button>
+              <button type="submit" class="login_button" (click)="onComplete()" >HOÀN TẤT</button>
             </div>
           </div>
           <div class="content--bottom">

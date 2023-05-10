@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Medicines } from '../Interfaces/Medicine';
 import { MedicineService } from '../Services/medicines.service';
@@ -51,6 +51,45 @@ export class HomeComponent implements OnInit {
 
   }
 
+  //slide ảnh banner
+  currentIndex: number = 0;
+  nextIndex: number = 1;
+
+  ngOnInit(){
+    this.showSlides();
+  }
+  showSlides(): void {
+    let i: number;
+    const slides = document.getElementsByClassName("slide") as HTMLCollectionOf<Element>;
+    const dots = document.getElementsByClassName("dot") as HTMLCollectionOf<Element>;
+    for (i = 0; i < slides.length; i++) {
+      (slides[i] as HTMLElement).style.display = "none";  
+    }
+    (slides[this.currentIndex] as HTMLElement).style.display = "block";
+    (slides[this.nextIndex] as HTMLElement).style.display = "block";
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    // (slides[this.currentIndex] as HTMLElement).style.display = "block";  
+    dots[this.currentIndex / 2].className += " active";
+    this.currentIndex += 2;
+    this.nextIndex += 2;
+    if (this.currentIndex >= slides.length) {
+      this.currentIndex = 0,
+      this.nextIndex = 1;
+    }    
+    setTimeout(()=>{
+      this.showSlides();
+    }, 4000);
+  }
+
+  currentSlide(n: number): void {
+    this.currentIndex = (n - 1) * 2;
+    this.nextIndex = this.currentIndex + 1;
+
+    this.showSlides();
+  }
+  
   searchMedicinesCategory(category: string) {
     this._service.getMedicineCategory(category).subscribe({
       next: (data) => {
@@ -62,9 +101,6 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  ngOnInit(){
-
-  }
 
   subCategory: string = '';
   changeSubCategory(subCategory: any) {
@@ -83,5 +119,4 @@ export class HomeComponent implements OnInit {
     this.th= ths;
     console.log(this.th)
   }
-
 }
