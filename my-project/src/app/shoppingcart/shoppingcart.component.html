@@ -6,11 +6,11 @@
   <div class="shopping__cart">
     <div class="shopping__cart-left">
       <div class="shopping__cart-left--header">
-        <p>Giỏ hàng ({{quantityItem}})</p>
+        <h3>Giỏ hàng ({{quantityItem}})</h3>
       </div>
-      <div *ngIf="display; else viewItem">
-        <br><br><br>
-        <h2>Bạn chưa có sản phẩm nào trong giỏ hàng!</h2>
+      <div class="content-error" *ngIf="display; else viewItem">
+        <img class="img_icon" src="assets/image/shopping-cart/empty-cart.png" alt="">
+        <h4 style="color:rgb(116, 116, 116);">Bạn chưa có sản phẩm nào trong giỏ hàng!</h4>
       </div>
       <ng-template #viewItem>
         <div class="shopping__cart-left--detail">
@@ -44,10 +44,8 @@
     </div>
     <div class="shopping__cart-right">
       <p class="shopping__cart-right--header">
-        <span class="material-icons-outlined">
-          shopping_bag
-        </span>
-        <span>Đơn hàng</span>
+        <img src="assets/image/shopping-cart/icon-order.png" width="25px">
+        <span class="title-bag">Đơn hàng</span>
       </p>
       <p class="shopping__cart-right--row">
         <span class="shopping__cart-right--row-left">Tổng tiền</span>
@@ -62,9 +60,9 @@
       </p>
     </div>
   </div>
-  <p class="shopping__orther-product--header">
+  <h3 class="shopping__orther-product--header">
     Sản phẩm khác
-  </p>
+  </h3>
   <div class="shopping__orther-product">
     <div class="orther__product-item" *ngFor="let same_medicine of medicines.slice(0,5)">
       <div>
@@ -82,7 +80,7 @@
 </div>
 
 <!-- popup -->
-<div class="popup">
+<!-- <div class="popup">
   <div class="popup-container">
     <h2 class="popup-title">Đặt hàng</h2>
     <hr>
@@ -92,5 +90,5 @@
       <button class="popup-button" (click)="onBack()">Trở lại</button>
     </div>
   </div>
-</div>
+</div> -->
 

@@ -18,11 +18,11 @@
     </div>
   </div>
 
-  <div class="box__products--list"  *ngIf="displaycategory; else displaySub">
+  <div class="box__products--list-sub"  *ngIf="displaycategory; else displaySub">
     <a class="products--header">Danh sách {{id}}: {{countMedicine}} sản phẩm</a>
-    <div class="products--product">
-      <ng-container class="product-detail" *ngFor="let medicine of medicineCategories">
-        <a (click)="navigateToProductDetail(medicine._id)" class="products--product-detail" href="" *ngIf="medicine.SubCategory === id" >
+    <div class="products--product-sub">
+      <ng-container class="product-detail-sub" *ngFor="let medicine of medicineCategories">
+        <a (click)="navigateToProductDetail(medicine._id)" class="products--product-detail-sub" *ngIf="medicine.SubCategory === id" >
             <img src="{{ medicine.Image }}" alt="" width="225px" height="255px">
             <p class="products--product-detail-name" >{{ medicine.Name }}</p>
             <p class="products--product-detail-price" href="">{{ medicine.Price }}</p>
@@ -39,7 +39,7 @@
     <a class="products--header"> {{category}}: {{countMedicine}} sản phẩm</a>
     <div class="products--product">
       <div class="product-detail" *ngFor="let medicine of medicineCategories">
-        <a (click)="navigateToProductDetail(medicine._id)" class="products--product-detail" href="">
+        <a (click)="navigateToProductDetail(medicine._id)" class="products--product-detail" >
             <img src="{{ medicine.Image }}" alt="">
             <p class="products--product-detail-name" >{{ medicine.Name }}</p>
             <p class="products--product-detail-price" href="">{{ medicine.Price }}</p>

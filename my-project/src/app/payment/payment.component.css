@@ -85,7 +85,13 @@
 .order__heading {
   display: flex;
   font-size: 30px;
+  font-weight: 500;
   align-items: center;
+}
+.title-bag{
+  font-weight: 625;
+  margin-left: 10px;
+  font-size: 25px;
 }
 .order__row {
   display: flex;
@@ -142,7 +148,14 @@
   margin-bottom: 36px;
 }
 .information__heading {
-  font-size: 30px;
+  font-size: 22px;
+  font-weight: 650;
+  padding: 0 10px;
+}
+.cart__top-header{
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight: 650;
 }
 .information__detail {
   padding: 12px 24px;

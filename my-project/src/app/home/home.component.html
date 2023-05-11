@@ -30,7 +30,7 @@
       <div class="home_products-bestseller">
         <p class="home_products--header">SẢN PHẨM BÁN CHẠY</p>
         <div class="home_products--product">
-          <a (click)="viewMedicineDetail(medicine)" class="home_products--product-detail" href="" *ngFor="let medicine of medicines">
+          <a (click)="viewMedicineDetail(medicine)" class="home_products--product-detail" *ngFor="let medicine of medicines">
             <img src="{{ medicine.Image }}" alt="" />
             <p class="home_products--product-detail-name">
               {{ medicine.Name }}
@@ -47,7 +47,7 @@
           <div class="home_products-new">
             <p class="home_products--header">SẢN PHẨM MỚI</p>
             <div class="home_products--product">
-              <a  class="home_products--product-detail" href="" *ngFor="let medicine of medicines">
+              <a  class="home_products--product-detail"  *ngFor="let medicine of medicines">
                 <img src="{{ medicine.Image }}" alt="" />
                 <p class="home_products--product-detail-name">
                   {{ medicine.Name }}
@@ -59,6 +59,29 @@
                   <input (click)="viewMedicineDetail(medicine)" type="button" value="CHỌN MUA" />
                 </div>
               </a>
+            </div>
+            <div class="easy__buy-main">
+              <div class="easy__buy-header">
+                <a>MUA HÀNG DỄ DÀNG TẠI BENZEN</a>
+              </div>
+              <div class="easy__buy">
+                <div align="center">
+                  <img src="/assets/image/home/Mua_trên_website.png" />
+                  <p>
+                    Mua trực tiếp
+                    <br />
+                    tại hệ thống cửa hàng Benzen
+                  </p>
+                </div>
+                <div align="center">
+                  <img src="/assets/image/home/purchase_now.png" />
+                  <p>
+                    Chọn và mua ngay sản phẩm
+                    <br />
+                    tại website của nhà thuốc Benzen
+                  </p>
+                </div>
+              </div>
             </div>
             <div *ngFor="let category of categories">
               <div class="background-space">
@@ -104,7 +127,7 @@
                 </div>
               </ng-template>
               
-              <a class="products-view-all" href="">Xem tất cả</a>
+              <!-- <a class="products-view-all" href="">Xem tất cả</a> -->
 
             </div>
 
@@ -114,29 +137,7 @@
               </a> -->
 
 
-            <div class="easy__buy-main">
-              <div class="easy__buy-header">
-                <a>MUA HÀNG DỄ DÀNG TẠI BENZEN</a>
-              </div>
-              <div class="easy__buy">
-                <div align="center">
-                  <img src="/assets/image/home/Mua_trên_website.png" />
-                  <p>
-                    Mua trực tiếp
-                    <br />
-                    tại hệ thống cửa hàng Benzen
-                  </p>
-                </div>
-                <div align="center">
-                  <img src="/assets/image/home/purchase_now.png" />
-                  <p>
-                    Chọn và mua ngay sản phẩm
-                    <br />
-                    tại website của nhà thuốc Benzen
-                  </p>
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>

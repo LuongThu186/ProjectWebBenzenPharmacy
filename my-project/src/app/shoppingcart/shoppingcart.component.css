@@ -9,6 +9,13 @@
   background-color: #F8F8F8;
   padding: 24px;
 }
+.img_icon{
+  width: 300px;
+  height: auto;
+}
+.content-error{
+  text-align: center;
+}
 .shopping-navigate {
   color: #776F6F;
   font-size: 14px;
@@ -150,13 +157,17 @@
   border: none;
 }
 .shopping__orther-product--header {
-  font-size: 30px;
-  margin: 12px 100px;
+  font-size: 28px;
+  margin: 15px 100px;
 }
 .shopping__orther-product {
   display: flex;
   padding: 0 100px;
 
+}
+.title-bag{
+  font-weight: 600;
+  margin-left: 10px;
 }
 .orther__product-item {
   border: 1px solid #ccc;

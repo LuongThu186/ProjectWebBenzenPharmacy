@@ -25,7 +25,7 @@ export class PaymentComponent implements OnInit {
   isChecked_Confirm: boolean = false;
   isChecked_COD: boolean = false;
   isChecked_MoMo: boolean = false;
-  isChecked_Banking: string = '';
+  isChecked_Banking: boolean = false;
   orders: any;
   order = new Orders();
 
@@ -85,11 +85,20 @@ export class PaymentComponent implements OnInit {
   }
 
   checkBanking(){
-    if(this.isChecked_Banking === 'Banking'){
-      this.isChecked_Banking = 'hideBanking';
-    }
+    this.isChecked_Banking=true;
+    this.isChecked_MoMo=false;
+    this.isChecked_COD=false;
   }
-
+  checkCOD(){
+    this.isChecked_Banking=false;
+    this.isChecked_MoMo=false;
+    this.isChecked_COD=true;
+  }
+  checkMoMo(){
+    this.isChecked_Banking=false;
+    this.isChecked_MoMo=true;
+    this.isChecked_COD=false;
+  }
   applyDiscountCode() {
     if (this.discountCode == '666666') {
       this.discountPrice = this.totalPrice * 0.05;
@@ -131,11 +140,9 @@ export class PaymentComponent implements OnInit {
         // this.router.navigate(['/app-orderdetail']);
       } else if (this.isChecked_Banking){
         this.order.PaymentMethod = 'Thanh toán qua thẻ ATM nội địa/ Internet Banking';
-        alert('Thanh toán thành công');
         this.router.navigate(['/app-type-bank-account']);
       } else if (this.isChecked_MoMo){
         this.order.PaymentMethod = 'Thanh toán qua ví điện tử Momo';
-        alert('Thanh toán thành công');
         this.router.navigate(['/app-payment-momo']);
       } else {
         alert('Vui lòng chọn phương thức thanh toán');
@@ -146,16 +153,25 @@ export class PaymentComponent implements OnInit {
   }
 
   viewOrderDetail() {
-    this._orderService.getOrders().subscribe({
-      next: (data) => {
-        this.orders = data;
-
-        this.router.navigate(['/app-orderdetail/detail/', this.orders[this.orders.length - 1]._id]);
-      },
-      error: (err) => {
-        this.errMessage = err;
+    if (this.isChecked_Confirm) {
+      if(!this.isChecked_COD){
+        return false
       }
-    });
+      else{
+        this._orderService.getOrders().subscribe({
+          next: (data) => {
+            this.orders = data;
+    
+            this.router.navigate(['/app-orderdetail/detail/', this.orders[this.orders.length - 1]._id]);
+          },
+          error: (err) => {
+            this.errMessage = err;
+          }
+        });
+        return
+      }     
+    }
+    else{ return false}
   }
 
   ngOnInit(): void {}

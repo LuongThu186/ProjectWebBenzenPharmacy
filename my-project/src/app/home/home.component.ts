@@ -108,8 +108,10 @@ export class HomeComponent implements OnInit {
     this.displayProduct = false;
   }
 
-  viewMedicineDetail(f: any){
-    this.router.navigate(['app-productdetail', f._id]);
+  viewMedicineDetail(f: any) {
+    this.router.navigate(['app-productdetail', f._id]).then(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    });
   }
 
 

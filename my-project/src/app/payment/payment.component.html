@@ -6,9 +6,9 @@
     <div class="left">
       <div class="cart">
         <div class="cart__top">
-          <p class="cart__top-header">
+          <h2 class="cart__top-header">
             Giỏ hàng ({{ quantityItem }})
-          </p>
+          </h2>
           <div class="cart__top-button">
             <button>Chỉnh sửa giỏ hàng</button>
           </div>
@@ -76,19 +76,19 @@
       </div>
       <div class="information">
         <div class="information__heading">Hình thức thanh toán</div>
-        <div class="information__row">
-          <input type="radio" class="information__row-input" name="check" value="COD" [(ngModel)]="isChecked_COD">
+        <label class="information__row" for="COD" (click)="checkCOD()">
+          <input type="radio" class="information__row-input" name="check" value="COD" [(ngModel)]="isChecked_COD" id="COD">
           <span class="information__row-info">Thanh toán khi nhận hàng</span>
-        </div>
-        <div class="information__row" (click)="checkBanking()">
-          <input type="radio" class="information__row-input" name="check" value="Banking" [(ngModel)]="isChecked_Banking">
+        </label>
+        <label class="information__row" (click)="checkBanking()" for="banking">
+          <input type="radio" class="information__row-input" name="check" value="Banking" [(ngModel)]="isChecked_Banking" id="banking">
           <span class="information__row-info">Thanh toán qua thẻ ATM nội địa/ Internet Banking</span>
-        </div>
-        <div class="information__row">
-          <input type="radio" class="information__row-input" name="check" value="MoMo" [(ngModel)]="isChecked_MoMo">
+        </label>
+        <label class="information__row" for="momo" (click)="checkMoMo()">
+          <input type="radio" class="information__row-input" name="check" value="MoMo" [(ngModel)]="isChecked_MoMo" id="momo">
           <span class="information__row-info">Thanh toán qua ví điện tử Momo</span>
-        </div>
-        <div *ngIf="isChecked_Banking ==='Banking'">
+        </label>
+        <div *ngIf="isChecked_Banking">
           <div class="information__banking">
             <div class="information__banking-img">
               <img src="/assets/image/thanhtoanbanking/ACB.jpg" alt="">
@@ -126,10 +126,8 @@
     </div>
     <div class="order">
       <div class="order__heading">
-        <span class="material-icons-outlined">
-          shopping_bag
-        </span>
-        <span>Đơn hàng</span>
+        <img src="assets/image/shopping-cart/icon-order.png" width="25px">
+        <span class="title-bag">Đơn hàng</span>
       </div>
       <div class="order__row">
         <p class="order__row-left">
@@ -189,7 +187,7 @@
 </div>
 
 <!-- popup -->
-<div class="popup">
+<!-- <div class="popup">
   <div class="popup-container">
     <h2 class="popup-title">Đặt hàng thành công</h2>
     <hr>
@@ -200,4 +198,4 @@
       <button class="popup-button" (click)="goHome()">Trở lại</button>
     </div>
   </div>
-</div>
+</div> -->
