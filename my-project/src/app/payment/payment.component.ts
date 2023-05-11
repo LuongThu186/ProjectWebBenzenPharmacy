@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { MedicineService } from '../Services/medicines.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomersService } from '../Services/customers.service';
@@ -132,7 +132,7 @@ export class PaymentComponent implements OnInit {
       } else if (this.isChecked_Banking){
         this.order.PaymentMethod = 'Thanh toán qua thẻ ATM nội địa/ Internet Banking';
         alert('Thanh toán thành công');
-        this.router.navigate(['/type-bank-account']);
+        this.router.navigate(['/app-type-bank-account']);
       } else if (this.isChecked_MoMo){
         this.order.PaymentMethod = 'Thanh toán qua ví điện tử Momo';
         alert('Thanh toán thành công');
@@ -159,4 +159,17 @@ export class PaymentComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+    //popup
+    @Input() title: string='';
+    @Input() message: string='';
+    @Output() confirmed = new EventEmitter<boolean>();
+  
+    viewDetail() {
+      this.confirmed.emit(true);
+    }
+  
+    goHome() {
+      this.confirmed.emit(false);
+    }
 }

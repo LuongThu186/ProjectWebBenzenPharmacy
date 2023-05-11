@@ -42,7 +42,7 @@ const routes: Routes = [
   {path:"app-infor", component: InforComponent},
   {path:"app-chatbox", component: ChatboxComponent},
   {path:"payment-kvl", component:PaymentKVLComponent},
-  {path:"type-bank-account", component:TypeBankAccountComponent},
+  {path:"app-type-bank-account", component:TypeBankAccountComponent},
   {path:"app-shoppingcart", component:ShoppingcartComponent},
   {path:"app-payment-momo", component:PaymentMomoComponent},
 
