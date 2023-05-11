@@ -1,0 +1,33 @@
+<!-- <div class="popup" id="myModal">
+    <div class="popup-container">
+      <h2 class="popup-title">Xác nhận</h2>
+      <hr>
+      <p class="popup-message">Tất cả sản phẩm trong danh mục sẽ bị xóa.
+        <br>Bạn có chắc chắn muốn xóa danh mục này?</p>
+      <div class="popup-buttons">
+        <button class="popup-button" >Xóa</button>
+        <button class="popup-button" >Hủy</button>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="e-dialog">
+    <button mat-icon-button style="float: right;" (click)="close()">
+      <mat-icon>close</mat-icon>  
+     </button>
+     <mat-dialog-content>
+       <header><h2 mat-dialog-title>Duyệt đơn hàng</h2></header>
+       <mat-form-field>
+         <mat-select placeholder="Tình trạng đơn">
+           <mat-option *ngFor="let s of status" [value]="s.Status" >
+             {{s.Status}}
+           </mat-option>
+         </mat-select>
+       </mat-form-field>
+     </mat-dialog-content>
+     <div mat-dialog-actions class="popup-button">
+        <button mat-raised-button (click)="save()" >Xác nhận</button>
+     </div>
+  </div>
+  
+  

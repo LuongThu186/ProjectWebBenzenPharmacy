@@ -368,11 +368,11 @@ app.put("/orderConfirm/:id", cors(), async (req, res) => {
   res.send(result[0]);
 });
 
-app.put("/orderCancel/:id", cors(), async (req, res) => {
-  var o_id = new ObjectId(req.params["id"]);
+app.put("/orderCancel", cors(), async (req, res) => {
+  // var o_id = new ObjectId(req.params["id"]);
   //update json Fashion into database
   await orderCollection.updateOne(
-    { _id: o_id}, //condition for update
+    { _id: new ObjectId(req.body._id)}, //condition for update
     {
       $set: {
         //Field for updating
@@ -381,8 +381,8 @@ app.put("/orderCancel/:id", cors(), async (req, res) => {
     }
   );
   //send Fahsion after updating
-  var i_id = new ObjectId(req.body._id);
-  const result = await orderCollection.find({ _id: i_id }).toArray();
+  var o_id = new ObjectId(req.body._id);
+  const result = await orderCollection.find({ _id: o_id }).toArray();
   res.send(result[0]);
 });
 
