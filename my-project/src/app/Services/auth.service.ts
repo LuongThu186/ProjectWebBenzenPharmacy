@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
+import { catchError, map, Observable, retry, throwError } from 'rxjs';
+import { AccountCustomer } from '../Interfaces/AccountCustomer';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -53,4 +55,20 @@ export class AuthService {
   public deleteCookie(name: string): void {
     this.setCookie(name, '', -1);
   }
+  private apiUrl = 'http://localhost:3000';
+  async changePassword(phonenumber: string, oldPassword: string, newPassword: string): Promise<string> {
+    try {
+      const response = await this.http.put<any>(`${this.apiUrl}/change-password`, { phonenumber, oldPassword, newPassword }).toPromise();
+      return response.message;
+    } catch (error:any) {
+      console.error(error);
+      if (error.status === 401) {
+        alert(error.error.message);
+      } else {
+        alert('An error occurred while changing password. Please try again later.');
+      }
+      throw error;
+    }
+  }
+
 }

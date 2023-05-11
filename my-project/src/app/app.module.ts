@@ -33,6 +33,7 @@ import { ChangePswComponent } from './profile/change-psw/change-psw.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PaymentKVLComponent } from './payment-kvl/payment-kvl.component';
 import { TypeBankAccountComponent } from './type-bank-account/type-bank-account.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { TypeBankAccountComponent } from './type-bank-account/type-bank-account.
     ProfileComponent,
     PaymentKVLComponent,
     TypeBankAccountComponent,
+    SearchResultComponent,
   ],
   imports: [
     BrowserModule,

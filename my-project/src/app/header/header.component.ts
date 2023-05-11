@@ -5,6 +5,8 @@ import { MedicineService } from '../Services/medicines.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../Services/auth.service';
 import { windowCount } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { SearchService } from '../Services/search.service';
 
 @Component({
   selector: 'app-header',
@@ -25,6 +27,8 @@ export class HeaderComponent implements OnInit{
   errMessage: string = '';
 
   constructor(
+    private searchService:SearchService,
+    private _http: HttpClient,
     public _service: MedicineService,
     private router: Router,
     private activateRoute: ActivatedRoute,
@@ -95,9 +99,17 @@ export class HeaderComponent implements OnInit{
       const confirmed = confirm('Bạn có muốn đăng xuất không?');
       if(confirmed) {
         sessionStorage.removeItem('CurrentUser');
+        this.router.navigate(['/']);
         window.location.reload();
       }
 
+    }
+
+    keyword: string = '';
+    search() {
+      this.searchService.search(this.keyword).subscribe((data) => {
+        this.router.navigate(['/search-result'], { state: { medicines: data } });
+      });
     }
 
 }

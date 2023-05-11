@@ -29,7 +29,8 @@
             <div class="content__bottom">
                 <div class="search">
                     <span class="material-icons">search</span>
-                    <input type="text" placeholder="  Search..." >
+                    <input type="text" placeholder="  Search..." [(ngModel)]="keyword">
+                    <button (click)="search()">Tìm kiếm</button>
                 </div>
             </div>
         </div>
@@ -74,20 +75,6 @@
             </div>
         </div>
 
-        <!-- <div class="header__navbar">
-            <div onclick="window.location='app-category'">
-                <p>THUỐC <span class="material-icons">arrow_drop_down</span></p>
-            </div>
-            <div onclick="window.location='app-category'">
-                <p>THỰC PHẨM CHỨC NĂNG <span class="material-icons">arrow_drop_down</span></p>
-            </div>
-            <div onclick="window.location='app-category'">
-                <p>DƯỢC-MỸ PHẨM <span class="material-icons">arrow_drop_down</span></p>
-            </div>
-            <div onclick="window.location='app-category'">
-                <p>THIẾT BỊ Y TẾ <span class="material-icons">arrow_drop_down</span></p>
-            </div> -->
-
             <div class="header__navbar">
                 <nav class="menu">
                   <ul>
@@ -100,5 +87,6 @@
                   </ul>
                 </nav>
             </div>
+
 
 </div>

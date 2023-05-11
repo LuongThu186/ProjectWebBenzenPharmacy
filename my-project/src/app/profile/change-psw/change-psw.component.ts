@@ -1,88 +1,30 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { AccountCustomer } from 'src/app/Interfaces/AccountCustomer';
 import { AuthService } from 'src/app/Services/auth.service';
 @Component({
   selector: 'app-change-psw',
   templateUrl: './change-psw.component.html',
   styleUrls: ['./change-psw.component.css']
 })
-export class ChangePswComponent implements OnInit{
-  phonenumber: string= '';
-  password: string='';
-  confirmPassword: string= '';
-  passwordCurrent: string='';
-  currentUser: any;
+export class ChangePswComponent {
+  phonenumber: string='';
+  oldPassword: string='';
+  newPassword: string='';
 
-  constructor(
-    public router: Router,
-    private activateRoute: ActivatedRoute,
-    private authService: AuthService
-  ){
-    this.currentUser = this.authService.getCurrentUser();
-  }
+  constructor(private authService: AuthService) { }
 
-  ngOnInit(): void {
-    // const user = JSON.parse(sessionStorage.getItem('CurrentUser')!);
-    // if (user) {
-    //   this.password = user.password;
-    // }
-  }
-
-  @ViewChild('passwordInput') passwordInput: any;
-  @ViewChild('confirmPasswordInput') confirmPasswordInput: any;
-  @ViewChild('passwordInputCurrent') passwordInputCurrent: any;
-
-  onCheckedCurrent(){
-    const passwordInputCurrent = this.passwordInputCurrent.nativeElement;
-
-    if(this.passwordCurrent.trim().length === 0){
-      this.passwordInputCurrent.value = true;
-      return    
-    }
-    else{
-      if (passwordInputCurrent.value.length < 6) {
-        alert('Mật khẩu phải từ 6 kí tự trở lên');
+  async changePassword() {
+    try {
+      if (!this.phonenumber) {
+        alert('Vui lòng nhập số điện thoại');
+        return;
       }
-    }
-  }
-
-  onChecked() {
-    const passwordInput = this.passwordInput.nativeElement;
-    if(this.password.trim().length === 0){
-      this.passwordInput.value = true;
-      return    
-    } else
-    if (passwordInput.value.length < 6) {
-      alert('Mật khẩu phải từ 6 kí tự trở lên');
-    }
-
-  }
-
-  checkPasswordsMatch() {
-    
-    const passwordInput = this.passwordInput.nativeElement;
-    const confirmPasswordInput = this.confirmPasswordInput.nativeElement;
-
-    if (this.confirmPassword.trim().length === 0) {
-      this.confirmPasswordInput = true;
-    } else
-    if (passwordInput.value !== confirmPasswordInput.value) {
-      alert('Mật khẩu không khớp');
-    }
-  }
-
-  onClick(){
-    if(this.passwordCurrent.trim().length === 0 || this.password.trim().length === 0 || this.confirmPassword.trim().length ===0 ){
-      alert('Vui lòng nhập đủ thông tin bắt buộc')
-      return 
-    }
-    else if (this.password !== this.confirmPassword) {
-      alert('Mật khẩu không khớp')
-      return 
-    }
-    else{
-      
-
+      const response = await this.authService.changePassword(this.phonenumber, this.oldPassword, this.newPassword);
+      alert(response);
+    } catch (error) {
+      console.error(error);
     }
   }
 }

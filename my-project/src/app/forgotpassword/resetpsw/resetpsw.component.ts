@@ -19,7 +19,7 @@ export class ResetpswComponent implements OnInit{
     const passwordInput = this.passwordInput.nativeElement;
     if(this.password.trim().length === 0){
       this.passwordInput.value = true;
-      return    
+      return
     } else
     if (passwordInput.value.length < 6) {
       alert('Mật khẩu phải từ 6 kí tự trở lên');
@@ -28,7 +28,7 @@ export class ResetpswComponent implements OnInit{
   }
 
   checkPasswordsMatch() {
-    
+
     const passwordInput = this.passwordInput.nativeElement;
     const confirmPasswordInput = this.confirmPasswordInput.nativeElement;
 

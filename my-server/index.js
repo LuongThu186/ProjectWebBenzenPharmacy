@@ -295,7 +295,7 @@ app.post('/login', cors(), async (req, res) => {
   if (user == null) {
     res.status(401).send({ message: 'Tên đăng nhập không tồn tại' });
   } else {
-    const hash = crypto.pbkdf2Sync(password, user.salt, 1000, 64, 'sha512').toString('hex');
+    const hash = crypto.pbkdf2Sync(password, user.salt, 1000, 64, `sha512`).toString(`hex`);
     if (user.password === hash) {
       res.send(user);
     } else {
@@ -303,6 +303,48 @@ app.post('/login', cors(), async (req, res) => {
     }
   }
 });
+app.put('/change-password', cors(), async (req, res) => {
+  const {phonenumber, oldPassword, newPassword } = req.body;
+  const crypto = require('crypto');
+  const userCollection = database.collection('AccountCustomerData');
+  const user = await userCollection.findOne({ phonenumber });
+  if (user == null) {
+    res.status(401).send({ message: 'Tên đăng nhập không tồn tại' });
+  } else {
+    const oldHash = crypto.pbkdf2Sync(oldPassword, user.salt, 1000, 64, `sha512`).toString(`hex`);
+    if (user.password !== oldHash) {
+      res.status(401).send({ message: 'Mật khẩu cũ không đúng' });
+    } else {
+      const newSalt = crypto.randomBytes(16).toString(`hex`);
+      const newHash = crypto.pbkdf2Sync(newPassword, newSalt, 1000, 64, `sha512`).toString(`hex`);
+      await userCollection.updateOne({ phonenumber }, { $set: { password: newHash, salt: newSalt } });
+      res.send({ message: 'Đổi mật khẩu thành công' });
+    }
+  }
+});
+
+// app.put('/change-password', cors(), async (req, res) => {
+//   const { oldPassword, newPassword } = req.body;
+//   const crypto = require('crypto');
+//   // const PASSWORD_SALT = crypto.randomBytes(16).toString('hex');
+//   const userCollection = database.collection('AccountCustomerData');
+//   const users = await userCollection.find().toArray(); // Lấy tất cả người dùng
+//   const oldHash = crypto.pbkdf2Sync(oldPassword, user.salt, 1000, 64, 'sha512').toString('hex');
+//   for (let i = 0; i < users.length; i++) {
+//     const user = users[i];
+//     if (user.password === oldHash) {
+//       const newSalt = crypto.randomBytes(16).toString('hex');
+//       const newHash = crypto.pbkdf2Sync(newPassword, newSalt, 1000, 64, 'sha512').toString('hex');
+//       await userCollection.updateOne({ _id: user._id }, { $set: { password: newHash, salt: newSalt } });
+//       res.send({ message: 'Đổi mật khẩu thành công' });
+//       return;
+//     }
+//   }
+//   res.status(401).send({ message: 'Mật khẩu cũ không đúng' });
+// });
+
+
+
 
 app.get("/orders", cors(), async (req, res) => {
   const result = await orderCollection.find({}).toArray();
@@ -399,4 +441,13 @@ app.delete("/orders/:id", cors(), async (req, res) => {
   await orderCollection.deleteOne({ _id: o_id });
   //send Fahsion after remove
   res.send(result[0]);
+});
+
+
+app.get('/search', cors(), async (req, res) => {
+  const keyword = req.query.keyword;
+  const medicineCollection = database.collection('MedicineData');
+  const query = { Name: { $regex: keyword, $options: 'i' } };
+  const medicines = await medicineCollection.find(query).toArray();
+  res.send(medicines);
 });
