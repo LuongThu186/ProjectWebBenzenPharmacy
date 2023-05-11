@@ -1,7 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { AccountCustomer } from 'src/app/Interfaces/AccountCustomer';
+import { Component } from '@angular/core';
 import { AuthService } from 'src/app/Services/auth.service';
 @Component({
   selector: 'app-change-psw',
