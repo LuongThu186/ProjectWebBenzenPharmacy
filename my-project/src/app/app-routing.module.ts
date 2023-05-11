@@ -18,6 +18,7 @@ import { ChatboxComponent } from './chatbox/chatbox.component';
 import { PaymentKVLComponent } from './payment-kvl/payment-kvl.component';
 import { TypeBankAccountComponent } from './type-bank-account/type-bank-account.component';
 import { PaymentMomoComponent } from './payment-momo/payment-momo.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 const routes: Routes = [
 
@@ -45,6 +46,7 @@ const routes: Routes = [
   {path:"type-bank-account", component:TypeBankAccountComponent},
   {path:"app-shoppingcart", component:ShoppingcartComponent},
   {path:"app-payment-momo", component:PaymentMomoComponent},
+  {path:"search-result", component:SearchResultComponent}
 
 ];
 
@@ -71,6 +73,7 @@ export const RoutingComponent=[
   ChatboxComponent,
   PaymentKVLComponent,
   TypeBankAccountComponent,
-  ShoppingcartComponent
+  ShoppingcartComponent,
+  SearchResultComponent
 
 ]

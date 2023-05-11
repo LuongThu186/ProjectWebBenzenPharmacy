@@ -131,24 +131,31 @@ b{
 }
 
 .search{
-    display: flex;
-
-    flex-direction: row;
-    align-items: center;
-    padding: 0px 0px 0px 10px;
-    gap: 12px;
-
-    position: fixed;
-    width: 450px;
-    height: 35px;
-
-    background: #FFFFFF;
-    border: 1px solid #000000;
-    border-radius: 30px;
+  display: flex;
+  border: 1px solid #000;
+  width: 450px;
+  border-radius: 30px;
+  padding: 4px 8px;
+}
+.search button {
+  width: 102px;
+  border: none;
+  height: 100%;
+  border-radius: 30px;
+  background-color: #2D982A;
+  font-weight: 500;
+  color: #fff;
+  padding: 4px 6px;
+}
+.search button:hover {
+  opacity: 0.6;
 }
 
 .search input{
-    border: 0px;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 0 8px;
 }
 .header__content--function{
     width:fit-content;

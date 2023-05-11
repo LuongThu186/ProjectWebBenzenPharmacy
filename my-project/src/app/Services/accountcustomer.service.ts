@@ -49,4 +49,14 @@ export class AccountcustomerService {
           catchError(this.handleError)
         )
       }
+
+
+
+
+      private apiUrl = 'http://localhost:3000'; // Change this to your API URL
+      changePassword(phoneNumber: string, oldPassword: string, newPassword: string): Observable<any> {
+      const url = `${this.apiUrl}/change-password`;
+      const body = { phoneNumber, oldPassword, newPassword };
+      return this._http.put<any>(url, body);
+      }
 }

@@ -14,48 +14,51 @@
       </div>
 
       <div class="right-content">
-        <form action="app-home" method="get" class="login_form">
+        <form class="login_form" (ngSubmit)="changePassword()">
           <h2 class="header">ĐỔI MẬT KHẨU</h2>
           <div class="container">
             <div class="container__input">
+              <div class="container__input--item">
+                <label for="uname">Nhập số điện thoại: </label>
+                <div class="input--content">
+                  <input type="text" [(ngModel)]="phonenumber" name="phonenumber" placeholder="Phone Number" required>
+                  <span class="material">*</span>
+                </div>
+              </div>
                 <div class="container__input--item">
                     <label for="uname">Mật khẩu hiện tại: </label>
-                    <div class="input--content"(blur)="onChecked()">
-                        <input
-                        type="text"
-                        name="uname"
-                        required [(ngModel)]="passwordCurrent" (blur)="onCheckedCurrent()" #passwordInputCurrent
-                      />
+                    <div class="input--content">
+                      <input type="password" [(ngModel)]="oldPassword" name="oldPassword" placeholder="Old Password" required>
                       <span class="material">*</span>
                     </div>
                   </div>
                 <div class="container__input--item">
-                    <label for="uname">Nhập mật khẩu: </label>
+                    <label for="uname">Mật khẩu mới: </label>
                     <div class="input--content">
-                        <input type="password" name="uname" required [(ngModel)]="password" (blur)="onChecked()" #passwordInput
-                      />
+                      <input type="password" [(ngModel)]="newPassword" name="newPassword" placeholder="New Password" required>
                       <span class="material">*</span>
                     </div>
                   </div>
-                  <div class="container__input--item">
-                    <label for="psw">Nhập lại mật khẩu: </label>
+                  <!-- <div class="container__input--item">
+                    <label for="psw">Nhập lại mật khẩu mới: </label>
                     <div class="input--content">
                         <input
                         type="password"
-                        [(ngModel)]="confirmPassword" name="confirmPassword" #confirmPasswordInput (blur)="checkPasswordsMatch()"
+                        [(ngModel)]="confirmPassword" name="confirmPassword"
                         required
                       /><span class="material">*</span>
                     </div>
-                    </div>
+                  </div> -->
             </div>
             <div>
-              <button type="submit" class="login_button" onclick="window.location='app-login'" (click)="onClick()">HOÀN TẤT</button>
+              <button type="submit" class="login_button">HOÀN TẤT</button>
             </div>
-            <div class="content--bottom">
-                <a href="app-home"> << Trở về</a>
-              </div>
+
           </div>
         </form>
+        <div class="content--bottom">
+          <a href="app-home"> << Trở về</a>
+      </div>
       </div>
     </div>
   </body>
