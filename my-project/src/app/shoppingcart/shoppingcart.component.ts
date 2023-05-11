@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MedicineService } from '../Services/medicines.service';
 import { AuthService } from '../Services/auth.service';
@@ -21,6 +21,7 @@ export class ShoppingcartComponent {
   preprice:string = '0';
   selectedItems: any[] = [];
   currentUser: any;
+  
   constructor(
     private activateRoute: ActivatedRoute,
     private _service: MedicineService,
@@ -165,5 +166,18 @@ export class ShoppingcartComponent {
     // } else {
     //   // this.router.navigate(['payment-kvl']);
     // }
+  }
+
+  //popup
+  @Input() title: string='';
+  @Input() message: string='';
+  @Output() confirmed = new EventEmitter<boolean>();
+
+  onLogin() {
+    this.confirmed.emit(true);
+  }
+
+  onBack() {
+    this.confirmed.emit(false);
   }
 }

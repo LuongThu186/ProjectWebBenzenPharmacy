@@ -14,33 +14,62 @@ body {
   .content {
     display: flex;
   }
-  
   .banner {
-    margin-left: 250px;
-    margin-top: 70px;
-  }
-  .left-content{
-      height: 100vh;
-  width: 734px;
-  left: 0px;
-  top: 0px;
-  background-color: #2D982A;
-  
-  }
-  .right-content{
-      width: 802px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-  }
-  /* Bordered login form */
-  .login_form {
-      /* border-bottom: 3px solid #d9d9d9; */
-      width: 522px;
-      display: flex;
-      flex-direction: column;
-  
+    width: 45%;
+}
+.bold{
+    font-weight: bolder;
+}
+.left-content{
+    height: 100vh;
+    width: 50%;
+    left: 0px;
+    top: 0px;
+    background-color: #A4D0A4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.left-content p:nth-child(1){
+    font-size: 28px;
+    font-weight: 700;
+    color: #0a8906;
+    font-family: system-ui;
+    text-align: center;
+}
+.left-content div:nth-child(2){
+    text-align: center;
+    margin: 30px 0px;
+}
+.left-content p:nth-child(3){
+    font-family: system-ui;
+    color: #176c14;
+    font-size: system-ui;
+    text-align: center;
+    font-weight: 500;
+    font-size: 17px;
+}
+.left-content p:nth-child(3) span{
+    font-size: 18px;
+}
+.right-content{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #c0e1bf;
+}
+/* Bordered login form */
+.login_form {
+    /* border-bottom: 3px solid #d9d9d9; */
+    width: 522px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    padding: 50px 5px;
+    box-shadow: 0 0 10px rgba(140, 140, 140, 0.3);
+    border-radius: 15px;
   }
   h2{
   width: 519px;

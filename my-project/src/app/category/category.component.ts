@@ -121,7 +121,9 @@ export class CategoryComponent {
   }
 
   navigateToProductDetail(id: any) {
-    this.router.navigate(['/app-productdetail', id]);
+    this.router.navigate(['app-productdetail', id]).then(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    });
   }
 
 }

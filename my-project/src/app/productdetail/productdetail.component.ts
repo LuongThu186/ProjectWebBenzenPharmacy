@@ -14,6 +14,7 @@ export class ProductdetailComponent {
   errMessage: string = '';
   medicines: any;
   categories: any[] | undefined;
+  declare window: Window & typeof globalThis;
   constructor(
     private activateRoute: ActivatedRoute,
     private _service: MedicineService,

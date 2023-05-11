@@ -112,8 +112,12 @@ export class ForgotpasswordComponent implements OnInit {
         alert('Vui lòng nhập số điện thoại!');
         return false     
       }
-    else if(this.isVerificationCodeValid===false || this.verificationCode===''){
+    else if(this.isVerificationCodeValid===false){
       alert('Vui lòng nhập đúng mã xác nhận!');
+      return false;
+      }
+    else if(this.verificationCode.trim().length === 0){
+      alert('Vui lòng nhập mã xác nhận!');
       return false;
     }
     else if(!this.isPhoneNumberValid || !this.isVerificationCodeValid) {
