@@ -28,6 +28,7 @@ export class PaymentComponent implements OnInit {
   isChecked_Banking: boolean = false;
   orders: any;
   order = new Orders();
+  isDonePayment: boolean = false;
 
   customers: any;
   deliveries:any;
@@ -115,7 +116,15 @@ export class PaymentComponent implements OnInit {
     this.order.PrePrice= this.prePrice,
     this.order.DeliveryFee= this.deliveryFee,
     this.order.DiscountPrice= this.discountPrice,
-    this.order.OrderMedicine= this.cartItems,
+    this.order.OrderMedicine= this.cartItems
+    if(this.isChecked_COD){
+      this.order.PaymentMethod = 'Thanh toán khi nhận hàng';
+    } else if (this.isChecked_Banking){
+      this.order.PaymentMethod = 'Thanh toán qua thẻ ATM nội địa/ Internet Banking';
+    } else if(this.isChecked_MoMo){
+      this.order.PaymentMethod = 'Thanh toán qua ví điện tử Momo';
+    }
+
     this._orderService.postOrder(this.order).subscribe({
       next: (data) => {
         this.order = data;
@@ -128,25 +137,13 @@ export class PaymentComponent implements OnInit {
 
     if (this.isChecked_Confirm) {
       if(this.isChecked_COD){
-        this.order.PaymentMethod = 'Thanh toán khi nhận hàng';
-        alert('Thanh toán thành công');
-        this._orderService.getOrders().subscribe({
-          next: (data) => {
-            this.orders = data;
-
-            this.router.navigate(['/app-orderdetail/detail/', this.orders[this.orders.length - 1]._id]);
-          },
-          error: (err) => {
-            this.errMessage = err;
-          }
-        });
+        // alert('Thanh toán thành công');
+        this.isDonePayment = true;
         // this._service.deleteCart();
         // this.router.navigate(['/app-orderdetail']);
       } else if (this.isChecked_Banking){
-        this.order.PaymentMethod = 'Thanh toán qua thẻ ATM nội địa/ Internet Banking';
         this.router.navigate(['/app-type-bank-account']);
       } else if (this.isChecked_MoMo){
-        this.order.PaymentMethod = 'Thanh toán qua ví điện tử Momo';
         this.router.navigate(['/app-payment-momo']);
       } else {
         alert('Vui lòng chọn phương thức thanh toán');
@@ -158,27 +155,27 @@ export class PaymentComponent implements OnInit {
 
   }
 
-  viewOrderDetail() {
+  // viewOrderDetail() {
 
-    if (this.isChecked_Confirm) {
-      if(!this.isChecked_COD){
-        return false
-      }
-      else{
-        this._orderService.getOrders().subscribe({
-          next: (data) => {
-            this.orders = data;
-    
-            this.router.navigate(['/app-orderdetail/detail/', this.orders[this.orders.length - 1]._id]);
-          },
-          error: (err) => {
-            this.errMessage = err;
-          }
-        });
-        return
-      }     
-    }
-    else{ return false}
+  //   if (this.isChecked_Confirm) {
+  //     if(!this.isChecked_COD){
+  //       return false
+  //     }
+  //     else{
+  //       this._orderService.getOrders().subscribe({
+  //         next: (data) => {
+  //           this.orders = data;
+
+  //           this.router.navigate(['/app-orderdetail/detail/', this.orders[this.orders.length - 1]._id]);
+  //         },
+  //         error: (err) => {
+  //           this.errMessage = err;
+  //         }
+  //       });
+  //       return
+  //     }
+  //   }
+  //   else{ return false}
 
     // this._orderService.getOrders().subscribe({
     //   next: (data) => {
@@ -200,7 +197,7 @@ export class PaymentComponent implements OnInit {
     //     }
     //   );
     // }
-  }
+  // }
 
 
   ngOnInit(): void {}
@@ -209,12 +206,25 @@ export class PaymentComponent implements OnInit {
     @Input() title: string='';
     @Input() message: string='';
     @Output() confirmed = new EventEmitter<boolean>();
-  
+
     viewDetail() {
       this.confirmed.emit(true);
+      this._orderService.getOrders().subscribe({
+        next: (data) => {
+          this.orders = data;
+
+          this.router.navigate(['/app-orderdetail/detail/', this.orders[this.orders.length - 1]._id]).then(() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+        },
+        error: (err) => {
+          this.errMessage = err;
+        }
+      });
     }
-  
+
     goHome() {
       this.confirmed.emit(false);
+      this.router.navigate(['/app-home']);
     }
 }
