@@ -73,8 +73,10 @@
                             </tbody>
                         </table>
                         <div class="order_action">
-                            <span><button id="approve" >Duyệt</button></span>
-                            <span><button id="cancel"  (click)="cancelOrder(order._id)">Hủy đơn</button></span>
+                            <mat-dialog-actions>
+                                <span><button  id="approve" (click)="openDialog()" >Duyệt</button></span>
+                            </mat-dialog-actions>
+                            <span><button  id="cancel"  (click)="cancelOrder()">Hủy đơn</button></span>
                         </div>
                     </div>
                     <div class="page-body-detail">
@@ -95,11 +97,10 @@
                                 <p class="order-info-title">Ghi chú về đơn hàng</p>
                                 <p id="note">Không có ghi chú</p>
                             </div>
-                        
-
                         </div>
                     </div>
                 </div>
         </div>
     </div>
 </div>
+
