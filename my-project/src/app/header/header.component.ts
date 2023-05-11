@@ -105,11 +105,10 @@ export class HeaderComponent implements OnInit{
 
     }
 
-    keyword: string = '';
+    keyword: string='';
     search() {
-      this.searchService.search(this.keyword).subscribe((data) => {
-        this.router.navigate(['/search-result'], { state: { medicines: data } });
-      });
+    this.searchService.setKeyword(this.keyword);
+    this.router.navigate(['/search-result']);
     }
 
 }

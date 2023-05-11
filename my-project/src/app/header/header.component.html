@@ -27,11 +27,11 @@
                 </div>
             </div>
             <div class="content__bottom">
-                <div class="search">
+                <form class="search" (ngSubmit)="search()">
                     <span class="material-icons">search</span>
-                    <input type="text" placeholder="  Search..." [(ngModel)]="keyword">
-                    <button (click)="search()">Tìm kiếm</button>
-                </div>
+                    <input type="text" placeholder="  Search..." [(ngModel)]="keyword" name="keyword" required>
+                    <button type="submit">Tìm kiếm</button>
+                </form>
             </div>
         </div>
         <div class="header__content--function">

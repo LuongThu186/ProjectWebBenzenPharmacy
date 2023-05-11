@@ -132,6 +132,7 @@ b{
 
 .search{
   display: flex;
+  justify-content: space-between;
   border: 1px solid #000;
   width: 450px;
   border-radius: 30px;

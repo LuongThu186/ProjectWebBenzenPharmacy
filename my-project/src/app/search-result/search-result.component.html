@@ -1,8 +1,20 @@
-<div class="medicine-list">
-  <ul>
-    <li *ngFor="let medicine of medicines">
-      <h3>{{ medicine.Name }}</h3>
-      <p>{{ medicine.Description }}</p>
-    </li>
-  </ul>
+<div class="main">
+  <h2>Chúng tôi tìm được {{resultCount}} sản phẩm</h2>
+  <div class="home_products--product">
+    <ng-container *ngFor="let medicine of medicines">
+      <a (click)="viewMedicineDetail(medicine)" class="home_products--product-detail" >
+        <img src="{{ medicine.Image }}" alt="" />
+        <p class="home_products--product-detail-name">
+          {{ medicine.Name }}
+        </p>
+        <p class="home_products--product-detail-price" href="">
+          {{ medicine.Price }}
+        </p>
+        <div class="home_products--product-detail-button">
+          <input type="button" value="CHỌN MUA" />
+        </div>
+      </a>
+    </ng-container>
+  </div>
 </div>
+
