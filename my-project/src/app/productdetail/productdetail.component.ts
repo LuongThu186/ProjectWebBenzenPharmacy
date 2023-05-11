@@ -91,6 +91,7 @@ export class ProductdetailComponent {
       (response) => {
         console.log(response);
         alert("Thêm sản phẩm vào giỏ hàng thành công");
+        window.location.reload();
         // Thêm sản phẩm vào giỏ hàng thành công
       },
       (error) => {

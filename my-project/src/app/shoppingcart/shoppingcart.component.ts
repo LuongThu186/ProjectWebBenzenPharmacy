@@ -21,7 +21,8 @@ export class ShoppingcartComponent {
   preprice:string = '0';
   selectedItems: any[] = [];
   currentUser: any;
-  
+  isLogin: boolean = false;
+
   constructor(
     private activateRoute: ActivatedRoute,
     private _service: MedicineService,
@@ -133,6 +134,7 @@ export class ShoppingcartComponent {
         console.log(response);
         alert("Thêm sản phẩm vào giỏ hàng thành công");
         this.router.navigate(['app-shoppingcart']);
+        window.location.reload();
         // Thêm sản phẩm vào giỏ hàng thành công
       },
       error => {
@@ -149,6 +151,7 @@ export class ShoppingcartComponent {
           console.log(response);
           alert("Xóa sản phẩm khỏi giỏ hàng thành công");
           this.router.navigate(['app-shoppingcart']);
+          window.location.reload();
           // Xóa sản phẩm khỏi giỏ hàng thành công
         },
         error => {
@@ -162,6 +165,8 @@ export class ShoppingcartComponent {
   makePayment(){
     if(this.currentUser != null){
       this.router.navigate(['app-payment']);
+    } else {
+      this.isLogin = true;
     }
     // } else {
     //   // this.router.navigate(['payment-kvl']);
@@ -175,9 +180,11 @@ export class ShoppingcartComponent {
 
   onLogin() {
     this.confirmed.emit(true);
+    this.router.navigate(['app-login']);
   }
 
   onBack() {
     this.confirmed.emit(false);
+    this.isLogin = false;
   }
 }

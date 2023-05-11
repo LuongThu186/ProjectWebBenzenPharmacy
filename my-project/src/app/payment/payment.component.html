@@ -180,14 +180,14 @@
         <span>Đồng ý với các chính sách của Nhà thuốc Benzen để hoàn tất đơn hàng</span>
       </div>
       <div class="orer__row-button">
-        <button (click)="onComplete()" (click)="viewOrderDetail()">Hoàn tất</button>
+        <button (click)="onComplete()">Hoàn tất</button>
       </div>
     </div>
   </div>
 </div>
 
 <!-- popup -->
-<!-- <div class="popup">
+<div class="popup" *ngIf="isDonePayment">
   <div class="popup-container">
     <h2 class="popup-title">Đặt hàng thành công</h2>
     <hr>
@@ -198,4 +198,4 @@
       <button class="popup-button" (click)="goHome()">Trở lại</button>
     </div>
   </div>
-</div> -->
+</div>

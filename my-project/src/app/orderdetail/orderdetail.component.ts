@@ -61,7 +61,9 @@ export class OrderdetailComponent {
   }
 
   gotoHome() {
-    this.router.navigate(['/app-home']);
+    this.router.navigate(['/app-home']).then(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 
 }
