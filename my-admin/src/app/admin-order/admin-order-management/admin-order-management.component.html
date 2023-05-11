@@ -57,7 +57,7 @@
                             <td id="completing"> {{order.Status}} </td>
                             <td>
                                <button id="visual" (click)="viewCustomerDetail(order)" (click)="searchCustomer(order.CustomerID)"><span class="material-icons-outlined"> visibility</span></button>
-                               <button id="delete" (click)="deleteOrder(order._id)"><span class="material-icons-outlined" style="color:red">delete</span></button>
+                               <button id="delete" id="visual" (click)="deleteOrder(order._id)"><span class="material-icons-outlined" style="color:red">delete</span></button>
                             </td>
                         </tr>
                     </tbody>

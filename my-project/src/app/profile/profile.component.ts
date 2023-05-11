@@ -1,62 +1,97 @@
-import { ViewChild } from "@angular/core";
-import { Component, ElementRef, Input, OnInit, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
-import { AuthService } from "../Services/auth.service";
+import { ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  OnChanges,
+  SimpleChanges,
+  SimpleChange,
+} from '@angular/core';
+import { AuthService } from '../Services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProfileService } from "../Services/profile.service";
+import { ProfileService } from '../Services/profile.service';
 import { Profile } from '../Interfaces/profile';
-import { Customers, Delivery } from '../Interfaces/Customer'
-
+import { Customers, Delivery } from '../Interfaces/Customer';
+import { Orders } from '../Interfaces/Order';
+import { OrdersService } from '../Services/orders.service';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']  
+  styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent {
   // @Input() customer = new Customers();
   // changelog: string[] = [];
   isLoggedIn = true;
   currentUser: any;
-  errMessage:string='';
-  customers:any
+  errMessage: string = '';
+  customers: any;
   delivery = new Delivery();
 
+  orders: [] = [];
+  cusOrders: [] = [];
+
   customer = new Customers();
- 
-  public setProfile(c:Customers){
+
+  public setProfile(c: Customers) {
     this.customer = c;
   }
 
-  public setDelivery(d:Delivery){
-    this.delivery = d
+  public setDelivery(d: Delivery) {
+    this.delivery = d;
   }
 
-  constructor(private authService: AuthService,
-              private router: Router,
-              private activateRoute: ActivatedRoute,
-              private _service: ProfileService
-              ){
-                this.isLoggedIn = this.authService.isLoggedIn();
-                this.currentUser = this.authService.getCurrentUser()
-      }
-       
-              
-  Name:any;
-  phonenumber:any;
-  Mail:any;
-  Address:any;
-  Gender:any;
-  BOD:any;
+  constructor(
+    private authService: AuthService,
+    private _orderService: OrdersService,
+    private router: Router,
+    private activateRoute: ActivatedRoute,
+    private _service: ProfileService
+  ) {
+    this.isLoggedIn = this.authService.isLoggedIn();
+    this.currentUser = this.authService.getCurrentUser();
 
-  ngOnInit():void{
+    this._orderService.getOrders().subscribe({
+      next: (data) => {
+        this.orders = data;
+        for(let or of this.orders){
+          if(or['Phone'] == this.currentUser.phonenumber){
+            this.cusOrders.push(or);
+          }
+        }
+      },
+      error: (err) => {
+        this.errMessage = err;
+      }
+    });
+
+  }
+
+  viewOrderDetail(orderId: any) {
+    this.router.navigate(['/app-orderdetail/detail/', orderId]);
+  }
+
+  Name: any;
+  phonenumber: any;
+  Mail: any;
+  Address: any;
+  Gender: any;
+  BOD: any;
+
+  ngOnInit(): void {
     const user = JSON.parse(sessionStorage.getItem('CurrentUser')!);
-                if (user){
-                    this._service.getCustomer(user.phonenumber).subscribe({
-                      next:(data)=>{this.customer=data},
-                      error:(err)=>{this.errMessage=err}
-                    });
-                }
-               
+    if (user) {
+      this._service.getCustomer(user.phonenumber).subscribe({
+        next: (data) => {
+          this.customer = data;
+        },
+        error: (err) => {
+          this.errMessage = err;
+        },
+      });
+    }
   }
 
   // ngOnChanges(changes: SimpleChanges) {
@@ -76,45 +111,52 @@ export class ProfileComponent {
   //   })
   // }
 
-  postDelivery(){
+  postDelivery() {
     this._service.postDelivery(this.delivery).subscribe({
-      next:(data)=>{this.delivery=data},
-      error:(err)=>{this.errMessage=err}
-    })
-    this.adding= false;
-    this.addNewAddress=true
+      next: (data) => {
+        this.delivery = data;
+      },
+      error: (err) => {
+        this.errMessage = err;
+      },
+    });
+    this.adding = false;
+    this.addNewAddress = true;
   }
-  id: any = "address";
-  tabChange(ids:any){
-    this.id= ids;
-    console.log(this.id)
+  id: any = 'address';
+  tabChange(ids: any) {
+    this.id = ids;
+    console.log(this.id);
   }
 
-  st: any ="status--all"
-  tabStatus(sts:any){
-    this.st=sts;
-    console.log(this.st)
+  st: any = 'status--all';
+  tabStatus(sts: any) {
+    this.st = sts;
+    console.log(this.st);
   }
 
   avatarUrl = 'assets/image/profile/avt.png';
 
-  editing =false;
+  editing = false;
 
   edit() {
     this.editing = true;
     this.adding = false;
-    this.editingAddress=false;
+    this.editingAddress = false;
   }
 
-  putCustomer(){
+  putCustomer() {
     this._service.updateCustomer(this.customer).subscribe({
-      next:(data)=>{this.customers=data},
-      error:(err)=>{this.errMessage=err}
-    })
+      next: (data) => {
+        this.customers = data;
+      },
+      error: (err) => {
+        this.errMessage = err;
+      },
+    });
   }
 
   saveInfor() {
-
     this.editing = false;
   }
 
@@ -138,25 +180,25 @@ export class ProfileComponent {
 
   defaultAddress = 'true';
 
-  nameAddressAdd: string='';
-  phoneAddressAdd='';
-  addressDeliveryAdd: string='';
+  nameAddressAdd: string = '';
+  phoneAddressAdd = '';
+  addressDeliveryAdd: string = '';
 
-  nameAddressNew: string='';
-  phoneAddressNew='';
-  addressDeliveryNew: string='';
+  nameAddressNew: string = '';
+  phoneAddressNew = '';
+  addressDeliveryNew: string = '';
 
-  adding =false;
-  addNewAddress=false
+  adding = false;
+  addNewAddress = false;
 
-  addAddress(){
+  addAddress() {
     this.nameAddressAdd = ' ';
-    this.phoneAddressAdd= ' ';
+    this.phoneAddressAdd = ' ';
     this.addressDeliveryAdd = ' ';
 
     this.adding = true;
     this.editing = false;
-    this.editingAddress=false;
+    this.editingAddress = false;
   }
 
   // saveAddress(){
@@ -168,31 +210,30 @@ export class ProfileComponent {
   //   this.addNewAddress=true
   // }
 
-  cancelAddress(){
-
+  cancelAddress() {
     this.adding = false;
   }
   // edit địa chỉ
-  nameAddressEdit: string=' ';
-  phoneAddressEdit= '';
-  addressDeliveryEdit: string='';
-  editingAddress=false;
+  nameAddressEdit: string = ' ';
+  phoneAddressEdit = '';
+  addressDeliveryEdit: string = '';
+  editingAddress = false;
 
-  editAddress(){
+  editAddress() {
     this.nameAddressEdit = this.Name;
-    this.phoneAddressEdit=this.phonenumber;
+    this.phoneAddressEdit = this.phonenumber;
     this.addressDeliveryEdit = this.Address;
 
     this.editingAddress = true;
     this.adding = false;
     this.editing = false;
   }
-  saveEditAddress(){
+  saveEditAddress() {
     this.Name = this.nameAddressEdit;
     this.phonenumber = this.phoneAddressEdit;
     this.Address = this.addressDeliveryEdit;
 
-    this.editingAddress= false;
+    this.editingAddress = false;
   }
   cancelEditAddress() {
     this.Name = this.Name;

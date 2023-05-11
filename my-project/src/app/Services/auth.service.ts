@@ -27,7 +27,7 @@ export class AuthService {
   isLoggedIn(): boolean {
     return !!this.getCurrentUser();
   }
-  
+
   public setCookie(name: string, value: string, expireDays: number): void {
     const date = new Date();
     date.setTime(date.getTime() + (expireDays * 24 * 60 * 60 * 1000));

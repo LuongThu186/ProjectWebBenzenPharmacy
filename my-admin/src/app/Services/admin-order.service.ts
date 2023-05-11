@@ -87,7 +87,7 @@ export class AdminOrderService {
 
   cancelOrder(_id:any):Observable<any>
   {
-    const headers = new HttpHeaders().set("Content-Type","application/json;charset=utf-8")
+    const headers = new HttpHeaders().set("Content-Type","text/plain;charset=utf-8")
     const requestOptions:Object={
       headers:headers,
       responseType:"text"

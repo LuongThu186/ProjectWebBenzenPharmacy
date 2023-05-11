@@ -74,14 +74,7 @@ export class PaymentComponent implements OnInit {
 
     this.currentUser = this._authService.getCurrentUser();
 
-    this._orderService.getOrders().subscribe({
-      next: (data) => {
-        this.orders = data;
-      },
-      error: (err) => {
-        this.errMessage = err;
-      }
-    });
+
   }
 
   checkBanking(){
@@ -137,6 +130,17 @@ export class PaymentComponent implements OnInit {
       if(this.isChecked_COD){
         this.order.PaymentMethod = 'Thanh toán khi nhận hàng';
         alert('Thanh toán thành công');
+        this._orderService.getOrders().subscribe({
+          next: (data) => {
+            this.orders = data;
+
+            this.router.navigate(['/app-orderdetail/detail/', this.orders[this.orders.length - 1]._id]);
+          },
+          error: (err) => {
+            this.errMessage = err;
+          }
+        });
+        // this._service.deleteCart();
         // this.router.navigate(['/app-orderdetail']);
       } else if (this.isChecked_Banking){
         this.order.PaymentMethod = 'Thanh toán qua thẻ ATM nội địa/ Internet Banking';
@@ -150,9 +154,12 @@ export class PaymentComponent implements OnInit {
     } else {
       alert('Vui lòng đồng ý với điều khoản và điều kiện của chúng tôi');
     }
+
+
   }
 
   viewOrderDetail() {
+
     if (this.isChecked_Confirm) {
       if(!this.isChecked_COD){
         return false
@@ -172,7 +179,29 @@ export class PaymentComponent implements OnInit {
       }     
     }
     else{ return false}
+
+    // this._orderService.getOrders().subscribe({
+    //   next: (data) => {
+    //     this.orders = data;
+
+    //     this.router.navigate(['/app-orderdetail/detail/', this.orders[this.orders.length - 1]._id]);
+    //   },
+    //   error: (err) => {
+    //     this.errMessage = err;
+    //   }
+    // });
+    // for(let item of this.cartItems){
+    //   this._service.removeFromCart(item._id).subscribe(
+    //     response => {
+    //       console.log(response);
+    //     },
+    //     error => {
+    //       console.log(error);
+    //     }
+    //   );
+    // }
   }
+
 
   ngOnInit(): void {}
 
