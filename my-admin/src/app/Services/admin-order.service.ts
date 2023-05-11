@@ -85,14 +85,44 @@ export class AdminOrderService {
     )
   }
 
-  cancelOrder(_id:any):Observable<any>
+  // cancelOrder(_id:any):Observable<any>
+  // {
+  //   const headers = new HttpHeaders().set("Content-Type","application/json;charset=utf-8")
+  //   const requestOptions:Object={
+  //     headers:headers,
+  //     responseType:"text"
+  //   }
+  //   return this._http.put<any>('/orderCancel/'+_id,requestOptions).pipe(
+  //     map(res=>JSON.parse(res)as Order),
+  //     retry(3),
+  //     catchError(this.handleError)
+  //   )
+  // }
+
+  cancelOrder(aOrder:any): Observable<any> {
+    const headers = new HttpHeaders().set(
+      'Content-Type',
+      'application/json;charset=utf-8'
+    );
+    const requestOptions: Object = {
+      headers: headers,
+      responseType: 'text',
+    };
+    return this._http.put<any>('/orderCancel', JSON.stringify(aOrder), requestOptions).pipe(
+      map((res) => JSON.parse(res) as Order),
+      retry(3),
+      catchError(this.handleError)
+    );
+  }
+
+  updateOrderStatus(_id:any):Observable<any>
   {
-    const headers = new HttpHeaders().set("Content-Type","text/plain;charset=utf-8")
+    const headers = new HttpHeaders().set("Content-Type","application/json;charset=utf-8")
     const requestOptions:Object={
       headers:headers,
       responseType:"text"
     }
-    return this._http.put<any>('/orderCancel/'+_id,requestOptions).pipe(
+    return this._http.put<any>('/orderStatus/'+_id,requestOptions).pipe(
       map(res=>JSON.parse(res)as Order),
       retry(3),
       catchError(this.handleError)

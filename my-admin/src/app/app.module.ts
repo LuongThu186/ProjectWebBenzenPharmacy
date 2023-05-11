@@ -23,6 +23,12 @@ import { EditCategoryLevel2Component } from './admin-caterogy-management/edit-ca
 import { HomeComponent } from '../../../my-project/src/app/home/home.component';
 import { PopupDeleteComponent } from './admin-caterogy-management/popup-delete/popup-delete.component';
 
+import { MatDialogRef } from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
+import {MatIconModule} from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from '@angular/material/dialog';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
@@ -30,6 +36,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminProductEditManagementComponent } from './admin-product/admin-product-edit-management/admin-product-edit-management.component';
 import { AdminProductAddManagementComponent } from './admin-product/admin-product-add-management/admin-product-add-management.component';
+import { PopupStatusComponent } from './admin-order/popup-status/popup-status.component';
+import { from } from 'rxjs';
+
 
 
 
@@ -56,6 +65,8 @@ import { AdminProductAddManagementComponent } from './admin-product/admin-produc
     PopupDeleteComponent,
     AdminProductEditManagementComponent,
     AdminProductAddManagementComponent,
+    PopupStatusComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -68,8 +79,15 @@ import { AdminProductAddManagementComponent } from './admin-product/admin-produc
     MatButtonModule,
     MatPaginatorModule,
     BrowserAnimationsModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule,
+    MatSelectModule,
   ],
-  providers: [],
+  providers: [
+   
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
