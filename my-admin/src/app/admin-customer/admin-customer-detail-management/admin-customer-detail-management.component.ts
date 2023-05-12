@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AdminCustomerService } from 'src/app/Services/admin-customer.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Customer } from 'src/app/Interfaces/customer';
 
 @Component({
   selector: 'app-admin-customer-detail-management',
@@ -9,7 +10,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AdminCustomerDetailManagementComponent {
   selectedCustomer:any;
-  customer:any;
+  customer = new Customer;
+  customers:any;
   errMessage:string=""
   constructor(private activateRoute:ActivatedRoute,private _fs:AdminCustomerService, private router:Router)
   {

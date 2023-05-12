@@ -34,6 +34,7 @@ export class ProfileComponent {
   cusOrders: [] = [];
 
   customer = new Customers();
+  deliverys: any;
 
   public setProfile(c: Customers) {
     this.customer = c;
@@ -91,7 +92,14 @@ export class ProfileComponent {
           this.errMessage = err;
         },
       });
-    }
+      this._service.getDelivery(user.phonenumber).subscribe({
+        next: (data) => {
+          this.delivery = data;
+        },
+        error: (err) => {
+          this.errMessage = err;
+        },
+      });    }
   }
 
   // ngOnChanges(changes: SimpleChanges) {
@@ -220,20 +228,35 @@ export class ProfileComponent {
   editingAddress = false;
 
   editAddress() {
-    this.nameAddressEdit = this.Name;
-    this.phoneAddressEdit = this.phonenumber;
-    this.addressDeliveryEdit = this.Address;
+    // this.nameAddressEdit = this.Name;
+    // this.phoneAddressEdit = this.phonenumber;
+    // this.addressDeliveryEdit = this.Address;
 
     this.editingAddress = true;
     this.adding = false;
     this.editing = false;
   }
-  saveEditAddress() {
-    this.Name = this.nameAddressEdit;
-    this.phonenumber = this.phoneAddressEdit;
-    this.Address = this.addressDeliveryEdit;
 
+  putDelivery() {
+    this._service.updateDelivery(this.delivery).subscribe({
+      next: (data) => {
+        this.deliverys = data;
+      },
+      error: (err) => {
+        this.errMessage = err;
+      },
+    });
     this.editingAddress = false;
+
+   
+  }
+
+  saveEditAddress() {
+    this.delivery.Address = this.deliverys.Address; 
+    
+    // this.Name = this.nameAddressEdit;
+    // this.phonenumber = this.phoneAddressEdit;
+    // this.Address = this.addressDeliveryEdit;
   }
   cancelEditAddress() {
     this.Name = this.Name;

@@ -31,14 +31,14 @@ export class AdminCustomerService {
     return throwError(()=>new Error(error.message))
   }
 
-  getCustomerDetail(CustomerID:any):Observable<any>
+  getCustomerDetail(_id:any):Observable<any>
   {
-    const headers = new HttpHeaders().set("Content-Type","text/plain;charset=utf-8")
+    const headers = new HttpHeaders().set("Content-Type","application/json;charset=utf-8")
     const requestOptions:Object={
       headers:headers,
       responseType:"text"
     }
-    return this._http.get<any>('/customers/'+CustomerID,requestOptions).pipe(
+    return this._http.get<any>('/customer/'+_id,requestOptions).pipe(
       map(res=>JSON.parse(res)as Customer),
       retry(3),
       catchError(this.handleError)

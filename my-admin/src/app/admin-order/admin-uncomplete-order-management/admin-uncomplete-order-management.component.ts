@@ -49,7 +49,7 @@ export class AdminUncompleteOrderManagementComponent {
     if (window.confirm('Are you sure you want to delete this order?'))
     {
     this._service.deleteOrder(_id).subscribe({
-      next:(data)=>{this.orders=data},
+      next:(data)=>{this.order=data},
       error:(err)=>{this.errMessage=err}
     })
   }}
