@@ -246,15 +246,17 @@ export class ProfileComponent {
         this.errMessage = err;
       },
     });
+    this.editingAddress = false;
+
+   
   }
 
   saveEditAddress() {
+    this.delivery.Address = this.deliverys.Address; 
     
     // this.Name = this.nameAddressEdit;
     // this.phonenumber = this.phoneAddressEdit;
     // this.Address = this.addressDeliveryEdit;
-
-    this.editingAddress = false;
   }
   cancelEditAddress() {
     this.Name = this.Name;
