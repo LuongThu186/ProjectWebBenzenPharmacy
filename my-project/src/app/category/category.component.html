@@ -10,10 +10,10 @@
       <img src="/assets/image/home/banner-cate.jpg" alt="" class="background-space--image">
   </div>
   <div class="category-main--list">
-    <div class="category-list" *ngFor="let subcategory of subcategories" (click)="tabChange(subcategory)">
-      <a class="category-detail">
-          <img src="/assets/image/products/product1.png" alt="">
-          <p class="category-detail-name" >{{ subcategory }}</p>
+    <div class="category-list" *ngFor="let subcategory of subcategories" (click)="tabChange(subcategory.SubCategory)">
+      <a class="category-detail" >
+          <img src="{{ subcategory.imageUrl }}" alt="">
+          <p class="category-detail-name" >{{ subcategory.SubCategory }}</p>
       </a>
     </div>
   </div>
