@@ -173,7 +173,7 @@
               </div>
             </div>
             <div class="address__body">
-              <p>{{ Address }}</p>
+              <p>{{ delivery.Address }}</p>
             </div>
             <div class="address__default">
               <label for="default">
@@ -198,7 +198,7 @@
               </div>
             </div>
             <div class="address__body">
-              <p>{{ addressDeliveryNew }}</p>
+              <p>{{delivery.Address }}</p>
             </div>
             <div class="address__default">
               <label for="default">
@@ -275,7 +275,7 @@
                     <input
                       type="text"
                       id="address"
-                      [(ngModel)]="addressDeliveryEdit"
+                      [(ngModel)]="delivery.Address"
                     />
                     <span class="material">*</span>
                   </div>
@@ -287,7 +287,7 @@
               </label>
             </div>
             <div class="address__button--function">
-              <button (click)="saveEditAddress()">Cập nhật</button>
+              <button (click)="saveEditAddress()" (click)="putDelivery()">Cập nhật</button>
               <button (click)="cancelEditAddress()">Hủy</button>
             </div>
           </div>
