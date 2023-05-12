@@ -201,6 +201,12 @@ app.get("/customers", cors(), async (req, res) => {
   res.send(result);
 });
 
+app.get("/customers/:id",cors(), async (req, res) =>{
+  var o_id = new ObjectId(req.params["id"]);
+  const result = await customerCollection.find({_id:o_id}).toArray();
+  res.send(result[0])
+})
+
 
 app.get("/customers/:phonenumber",cors(), async (req, res) =>{
   var phone = req.params["phonenumber"];
