@@ -52,7 +52,7 @@
                         <span class="material-icons"><img src="assets/image/profile/avt.png"></span>
                     </div>
                     <ul class="dropdown__menu--item" *ngIf="isLoggedIn">
-                        <li><a href="app-profile">Trang cá nhân</a></li>
+                        <li><a [routerLink]="'app-profile'">Trang cá nhân</a></li>
                         <li><a href="app-change-psw">Đổi mật khẩu</a></li>
                         <li><a (click)="logOut()">Đăng xuất <span class="material-symbols-outlined">logout</span></a></li>
                     </ul>

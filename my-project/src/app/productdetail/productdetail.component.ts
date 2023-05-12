@@ -90,7 +90,7 @@ export class ProductdetailComponent {
     this._service.addToCart(med).subscribe(
       (response) => {
         console.log(response);
-        alert("Thêm sản phẩm vào giỏ hàng thành công");
+        // alert("Thêm sản phẩm vào giỏ hàng thành công");
         window.location.reload();
         // Thêm sản phẩm vào giỏ hàng thành công
       },
@@ -106,7 +106,23 @@ export class ProductdetailComponent {
   }
 
 
-  onClickBuy(f: any){
-    this.router.navigate(['app-payment', f._id])
+  // onClickBuy(f: any){
+  //   this.router.navigate(['app-payment'])
+  // }
+
+  addToCartToBuy(med: any): void {
+    this.medicine.quantity = this.quantity;
+    this._service.addToCart(med).subscribe(
+      response => {
+        console.log(response);
+        alert("Thêm sản phẩm vào giỏ hàng thành công");
+        this.router.navigate(['app-payment'])
+        // Thêm sản phẩm vào giỏ hàng thành công
+      },
+      error => {
+        console.log(error);
+        // Xảy ra lỗi khi thêm sản phẩm vào giỏ hàng
+      }
+    );
   }
 }
