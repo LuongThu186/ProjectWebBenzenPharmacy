@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div class="item--button">
-                    <button class="buy--button" (click)="addToCartToBuy(medicine)">CHỌN MUA</button>
+                    <button class="buy--button" (click)="onClickBuy()" (click)="addToCartToBuy(medicine)">CHỌN MUA</button>
                     <button class="add--cart" (click)="addToCart(medicine)">THÊM VÀO GIỎ HÀNG</button>
                 </div>
             </div>
@@ -170,3 +170,17 @@
             </div>
         </div>
     </div>
+
+
+<!-- popup -->
+<div class="popup" *ngIf="isLogin">
+  <div class="popup-container">
+    <h2 class="popup-title">Đặt hàng</h2>
+    <hr>
+    <p class="popup-message">Bạn vui lòng <span class="main-color">đăng nhập</span> để tiếp tục đặt hàng nhé!</p>
+    <div class="popup-buttons">
+      <button class="popup-button" (click)="onLogin()">Đăng nhập</button>
+      <button class="popup-button" (click)="onBack()">Trở lại</button>
+    </div>
+  </div>
+</div>

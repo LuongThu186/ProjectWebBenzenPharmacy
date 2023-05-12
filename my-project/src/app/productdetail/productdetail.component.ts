@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MedicineService } from '../Services/medicines.service';
 import { Medicines } from '../Interfaces/Medicine';
+import { AuthService } from '../Services/auth.service';
 
 @Component({
   selector: 'app-productdetail',
@@ -14,11 +15,15 @@ export class ProductdetailComponent {
   errMessage: string = '';
   medicines: any;
   categories: any[] | undefined;
+  currentUser: any;
+  isLogin: boolean = false;
+
   declare window: Window & typeof globalThis;
   constructor(
     private activateRoute: ActivatedRoute,
     private _service: MedicineService,
-    private router: Router
+    private router: Router,
+    private _authService: AuthService
   ) {
     activateRoute.paramMap.subscribe((param) => {
       let medicineId = param.get('id');
@@ -49,6 +54,8 @@ export class ProductdetailComponent {
         this.errMessage = err;
       },
     });
+
+    this.currentUser = this._authService.getCurrentUser();
   }
 
   searchMedicine(medicineId: string) {
@@ -107,7 +114,7 @@ export class ProductdetailComponent {
 
 
   // onClickBuy(f: any){
-  //   this.router.navigate(['app-payment'])
+  //   this.isDonePayment = true;
   // }
 
   addToCartToBuy(med: any): void {
@@ -115,8 +122,8 @@ export class ProductdetailComponent {
     this._service.addToCart(med).subscribe(
       response => {
         console.log(response);
-        alert("Thêm sản phẩm vào giỏ hàng thành công");
-        this.router.navigate(['app-payment'])
+        // alert("Thêm sản phẩm vào giỏ hàng thành công");
+        // this.router.navigate(['app-payment'])
         // Thêm sản phẩm vào giỏ hàng thành công
       },
       error => {
@@ -124,5 +131,31 @@ export class ProductdetailComponent {
         // Xảy ra lỗi khi thêm sản phẩm vào giỏ hàng
       }
     );
+  }
+
+  onClickBuy(){
+    if(this.currentUser != null){
+      this.router.navigate(['app-payment']);
+    } else {
+      this.isLogin = true;
+    }
+    // } else {
+    //   // this.router.navigate(['payment-kvl']);
+    // }
+  }
+
+  //popup
+  @Input() title: string='';
+  @Input() message: string='';
+  @Output() confirmed = new EventEmitter<boolean>();
+
+  onLogin() {
+    this.confirmed.emit(true);
+    this.router.navigate(['app-login']);
+  }
+
+  onBack() {
+    this.confirmed.emit(false);
+    this.isLogin = false;
   }
 }
