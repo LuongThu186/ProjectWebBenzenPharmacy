@@ -125,6 +125,11 @@ export class ProductdetailComponent {
         // alert("Thêm sản phẩm vào giỏ hàng thành công");
         // this.router.navigate(['app-payment'])
         // Thêm sản phẩm vào giỏ hàng thành công
+        if(this.currentUser != null){
+          this.router.navigate(['app-payment']);
+        } else {
+          this.isLogin = true;
+        }
       },
       error => {
         console.log(error);
@@ -133,16 +138,16 @@ export class ProductdetailComponent {
     );
   }
 
-  onClickBuy(){
-    if(this.currentUser != null){
-      this.router.navigate(['app-payment']);
-    } else {
-      this.isLogin = true;
-    }
-    // } else {
-    //   // this.router.navigate(['payment-kvl']);
-    // }
-  }
+  // onClickBuy(){
+  //   if(this.currentUser != null){
+  //     this.router.navigate(['app-payment']);
+  //   } else {
+  //     this.isLogin = true;
+  //   }
+  //   // } else {
+  //   //   // this.router.navigate(['payment-kvl']);
+  //   // }
+  // }
 
   //popup
   @Input() title: string='';
