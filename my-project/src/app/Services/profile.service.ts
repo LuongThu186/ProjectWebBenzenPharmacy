@@ -91,6 +91,8 @@ export class ProfileService {
     );
   }
 
+  updateDelivery(){}
+
   // getCustomerDetail(_id:any):Observable<any>
   // {
   //   const headers = new HttpHeaders().set("Content-Type","text/plain;charset=utf-8")

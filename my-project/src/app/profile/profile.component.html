@@ -186,9 +186,9 @@
           <div class="content__address--item" *ngIf="addNewAddress">
             <div class="address__title">
               <div class="address__title--infor">
-                <p>{{ nameAddressNew }}</p>
+                <p>{{ customer.CustomerName }}</p>
                 <p>|</p>
-                <p>{{ phoneAddressNew }}</p>
+                <p>{{ customer.Phone }}</p>
               </div>
               <div class="address__function">
                 <button (click)="editAddress()">Chỉnh sửa</button>
@@ -255,7 +255,7 @@
               <div class="address__row--top">
                 <label for="name"
                   >Tên người nhận:
-                  <input type="text" id="name" [(ngModel)]="nameAddressEdit" />
+                  <input type="text" id="name" [(ngModel)]="customer.CustomerName" />
                   <span class="material">*</span>
                 </label>
                 <label for="phone"
@@ -263,7 +263,7 @@
                   <input
                     type="text"
                     if="phone"
-                    [(ngModel)]="phoneAddressEdit"
+                    [(ngModel)]="customer.Phone"
                   />
                   <span class="material">*</span>
                 </label>

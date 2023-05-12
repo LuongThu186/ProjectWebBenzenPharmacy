@@ -91,6 +91,7 @@ export class ProfileComponent {
           this.errMessage = err;
         },
       });
+      this.Address = user.Address;
     }
   }
 
@@ -229,6 +230,7 @@ export class ProfileComponent {
     this.editing = false;
   }
   saveEditAddress() {
+    
     this.Name = this.nameAddressEdit;
     this.phonenumber = this.phoneAddressEdit;
     this.Address = this.addressDeliveryEdit;
